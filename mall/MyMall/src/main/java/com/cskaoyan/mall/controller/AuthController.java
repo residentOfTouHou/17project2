@@ -1,8 +1,8 @@
 package com.cskaoyan.mall.controller;
 
-import com.cskaoyan.mall.bean.BaseReqVo;
-import com.cskaoyan.mall.bean.InfoData;
-import com.cskaoyan.mall.bean.LoginVo;
+import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
+import com.cskaoyan.mall.bean.jsonbean.InfoData;
+import com.cskaoyan.mall.bean.jsonbean.LoginVo;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
