@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fbe1cf9a-8f0d-42d4-ba5b-ec317504c218" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/BaseReqVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/jsonbean/BaseReqVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/LoginVo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/LoginVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/jsonbean/LoginVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/UserController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/MyMall/target/" />
@@ -27,12 +23,46 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/jsonbean/LoginVo.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="110">
               <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/jsonbean/InfoData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MyMall/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-198" />
           </provider>
         </entry>
       </file>
@@ -57,6 +87,7 @@
         <option value="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/AuthController.java" />
         <option value="$PROJECT_DIR$/MyMall/pom.xml" />
         <option value="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Brand.java" />
+        <option value="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/jsonbean/InfoData.java" />
         <option value="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/UserController.java" />
       </list>
     </option>
@@ -138,16 +169,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="mall" type="462c0819:PsiDirectoryNode" />
-              <item name="bean" type="462c0819:PsiDirectoryNode" />
-              <item name="jsonbean" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MyMall" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mall" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -160,7 +181,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573819472609" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573820049772" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -211,12 +232,12 @@
       <workItem from="1573815447388" duration="1401000" />
       <workItem from="1573817038532" duration="30000" />
       <workItem from="1573818671974" duration="129000" />
-      <workItem from="1573818833157" duration="541000" />
+      <workItem from="1573818833157" duration="1215000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5476000" />
+    <option name="totallyTimeSpent" value="6150000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
@@ -269,9 +290,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/MyMall/src/main/resources/project2/com/cskaoyan/mall/UserMapper.xml" />
-    <entry file="file://$PROJECT_DIR$/MyMall/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/MyMall/src/main/resources/db.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -346,7 +364,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/UserController.java" />
     <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/AuthController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -369,6 +386,32 @@
         <state relative-caret-position="110">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/jsonbean/InfoData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyMall/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-198" />
       </provider>
     </entry>
   </component>
