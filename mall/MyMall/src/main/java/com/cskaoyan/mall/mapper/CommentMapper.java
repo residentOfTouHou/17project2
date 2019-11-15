@@ -1,7 +1,7 @@
 package com.cskaoyan.mall.mapper;
 
-import com.cskaoyan.mall.bean.Comment;
-import com.cskaoyan.mall.bean.CommentExample;
+import com.cskaoyan.mall.bean.generator.Comment;
+import com.cskaoyan.mall.bean.generator.CommentExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

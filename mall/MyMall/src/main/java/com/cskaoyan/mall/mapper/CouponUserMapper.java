@@ -1,7 +1,7 @@
 package com.cskaoyan.mall.mapper;
 
-import com.cskaoyan.mall.bean.CouponUser;
-import com.cskaoyan.mall.bean.CouponUserExample;
+import com.cskaoyan.mall.bean.generator.CouponUser;
+import com.cskaoyan.mall.bean.generator.CouponUserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

@@ -1,7 +1,7 @@
 package com.cskaoyan.mall.mapper;
 
-import com.cskaoyan.mall.bean.Footprint;
-import com.cskaoyan.mall.bean.FootprintExample;
+import com.cskaoyan.mall.bean.generator.Footprint;
+import com.cskaoyan.mall.bean.generator.FootprintExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

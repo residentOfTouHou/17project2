@@ -1,7 +1,7 @@
 package com.cskaoyan.mall.mapper;
 
-import com.cskaoyan.mall.bean.Permission;
-import com.cskaoyan.mall.bean.PermissionExample;
+import com.cskaoyan.mall.bean.generator.Permission;
+import com.cskaoyan.mall.bean.generator.PermissionExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

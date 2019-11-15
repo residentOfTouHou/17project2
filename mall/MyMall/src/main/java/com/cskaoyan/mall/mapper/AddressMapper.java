@@ -1,7 +1,7 @@
 package com.cskaoyan.mall.mapper;
 
-import com.cskaoyan.mall.bean.Address;
-import com.cskaoyan.mall.bean.AddressExample;
+import com.cskaoyan.mall.bean.generator.Address;
+import com.cskaoyan.mall.bean.generator.AddressExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

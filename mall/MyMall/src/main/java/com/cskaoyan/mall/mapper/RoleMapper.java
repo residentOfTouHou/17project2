@@ -1,7 +1,7 @@
 package com.cskaoyan.mall.mapper;
 
-import com.cskaoyan.mall.bean.Role;
-import com.cskaoyan.mall.bean.RoleExample;
+import com.cskaoyan.mall.bean.generator.Role;
+import com.cskaoyan.mall.bean.generator.RoleExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

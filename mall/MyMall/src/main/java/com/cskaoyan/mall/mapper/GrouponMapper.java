@@ -1,7 +1,7 @@
 package com.cskaoyan.mall.mapper;
 
-import com.cskaoyan.mall.bean.Groupon;
-import com.cskaoyan.mall.bean.GrouponExample;
+import com.cskaoyan.mall.bean.generator.Groupon;
+import com.cskaoyan.mall.bean.generator.GrouponExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

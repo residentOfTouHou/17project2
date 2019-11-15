@@ -2,7 +2,134 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fbe1cf9a-8f0d-42d4-ba5b-ec317504c218" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Ad.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Ad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/AdExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/AdExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/AddressExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/AddressExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/AdminExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/AdminExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Brand.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Brand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/BrandExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/BrandExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/CartExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/CartExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/CategoryExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/CategoryExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Collect.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Collect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/CollectExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/CollectExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/CommentExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/CommentExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Coupon.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Coupon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/CouponExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/CouponExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/CouponUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/CouponUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/CouponUserExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/CouponUserExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Feedback.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Feedback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/FeedbackExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/FeedbackExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Footprint.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Footprint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/FootprintExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/FootprintExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Goods.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Goods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/GoodsAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/GoodsAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/GoodsAttributeExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/GoodsAttributeExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/GoodsExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/GoodsExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/GoodsProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/GoodsProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/GoodsProductExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/GoodsProductExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/GoodsSpecification.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/GoodsSpecification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/GoodsSpecificationExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/GoodsSpecificationExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Groupon.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Groupon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/GrouponExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/GrouponExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/GrouponRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/GrouponRules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/GrouponRulesExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/GrouponRulesExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Issue.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Issue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/IssueExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/IssueExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Keyword.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Keyword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/KeywordExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/KeywordExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Log.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/LogExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/LogExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/OrderExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/OrderExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/OrderGoods.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/OrderGoods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/OrderGoodsExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/OrderGoodsExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Permission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/PermissionExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/PermissionExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Region.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Region.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/RegionExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/RegionExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/RoleExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/RoleExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/SearchHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/SearchHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/SearchHistoryExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/SearchHistoryExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Storage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/StorageExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/StorageExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/System.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/System.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/SystemExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/SystemExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Topic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/TopicExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/TopicExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/UserExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/UserExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/UserFormid.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/UserFormid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/UserFormidExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/UserFormidExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/AdMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/AdMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/AddressMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/AddressMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/AdminMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/AdminMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/BrandMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/BrandMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/CartMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/CartMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/CategoryMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/CollectMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/CollectMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/CommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/CommentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/CouponMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/CouponMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/CouponUserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/CouponUserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/FeedbackMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/FeedbackMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/FootprintMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/FootprintMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/GoodsAttributeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/GoodsAttributeMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/GoodsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/GoodsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/GoodsProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/GoodsProductMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/GoodsSpecificationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/GoodsSpecificationMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/GrouponMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/GrouponMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/GrouponRulesMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/GrouponRulesMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/IssueMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/IssueMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/KeywordMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/KeywordMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/LogMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/LogMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/OrderGoodsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/OrderGoodsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/OrderMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/PermissionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/PermissionMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/RegionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/RegionMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/RoleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/SearchHistoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/SearchHistoryMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/StorageMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/StorageMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/SystemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/SystemMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/TopicMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/TopicMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/UserFormidMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/UserFormidMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/AdMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/AdMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/AddressMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/AddressMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/AdminMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/AdminMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/BrandMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/BrandMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/CartMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/CartMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/CategoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/CategoryMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/CollectMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/CollectMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/CommentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/CommentMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/CouponMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/CouponMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/CouponUserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/CouponUserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/FeedbackMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/FeedbackMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/FootprintMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/FootprintMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/GoodsAttributeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/GoodsAttributeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/GoodsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/GoodsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/GoodsProductMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/GoodsProductMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/GoodsSpecificationMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/GoodsSpecificationMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/GrouponMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/GrouponMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/GrouponRulesMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/GrouponRulesMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/IssueMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/IssueMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/KeywordMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/KeywordMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/LogMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/LogMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/OrderGoodsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/OrderGoodsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/OrderMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/PermissionMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/RegionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/RegionMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/RoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/RoleMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/SearchHistoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/SearchHistoryMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/StorageMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/StorageMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/SystemMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/SystemMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/TopicMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/TopicMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/UserFormidMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/UserFormidMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/UserMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/MyMall/target/" />
@@ -14,8 +141,8 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/jsonbean/BaseReqVo.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Ad.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="88">
               <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
@@ -24,45 +151,83 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/jsonbean/LoginVo.java">
+        <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Address.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
+            <state relative-caret-position="88">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/AddressExample.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-8">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/AdExample.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-8">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Admin.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-8">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/AdminExample.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-8">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Brand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-8">
               <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/jsonbean/InfoData.java">
+        <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/BrandExample.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
+            <state relative-caret-position="-8">
               <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/User.java">
+        <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Cart.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="-8">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/UserController.java">
+        <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/CartExample.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="22">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/MyMall/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-198" />
           </provider>
         </entry>
       </file>
@@ -169,7 +334,8 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="mall" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
+              <item name="generator" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -181,7 +347,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573820049772" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573820067447" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -232,15 +398,16 @@
       <workItem from="1573815447388" duration="1401000" />
       <workItem from="1573817038532" duration="30000" />
       <workItem from="1573818671974" duration="129000" />
-      <workItem from="1573818833157" duration="1215000" />
+      <workItem from="1573818833157" duration="1488000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6150000" />
+    <option name="totallyTimeSpent" value="6423000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19789132" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -357,13 +524,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/Brand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/AuthController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -395,7 +555,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/User.java">
+    <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
@@ -411,7 +571,77 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MyMall/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-198" />
+        <state relative-caret-position="-132" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Address.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/AddressExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/AdExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Admin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/AdminExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Brand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/BrandExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Cart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/CartExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Ad.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
       </provider>
     </entry>
   </component>

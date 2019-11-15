@@ -1,7 +1,7 @@
 package com.cskaoyan.mall.mapper;
 
-import com.cskaoyan.mall.bean.GoodsAttribute;
-import com.cskaoyan.mall.bean.GoodsAttributeExample;
+import com.cskaoyan.mall.bean.generator.GoodsAttribute;
+import com.cskaoyan.mall.bean.generator.GoodsAttributeExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

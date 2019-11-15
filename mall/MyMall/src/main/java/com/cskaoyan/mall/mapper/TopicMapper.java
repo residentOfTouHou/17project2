@@ -1,7 +1,7 @@
 package com.cskaoyan.mall.mapper;
 
-import com.cskaoyan.mall.bean.Topic;
-import com.cskaoyan.mall.bean.TopicExample;
+import com.cskaoyan.mall.bean.generator.Topic;
+import com.cskaoyan.mall.bean.generator.TopicExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

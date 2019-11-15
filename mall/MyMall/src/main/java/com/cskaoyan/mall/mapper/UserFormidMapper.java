@@ -1,7 +1,7 @@
 package com.cskaoyan.mall.mapper;
 
-import com.cskaoyan.mall.bean.UserFormid;
-import com.cskaoyan.mall.bean.UserFormidExample;
+import com.cskaoyan.mall.bean.generator.UserFormid;
+import com.cskaoyan.mall.bean.generator.UserFormidExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

@@ -1,7 +1,7 @@
 package com.cskaoyan.mall.mapper;
 
-import com.cskaoyan.mall.bean.Category;
-import com.cskaoyan.mall.bean.CategoryExample;
+import com.cskaoyan.mall.bean.generator.Category;
+import com.cskaoyan.mall.bean.generator.CategoryExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
