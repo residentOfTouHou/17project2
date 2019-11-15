@@ -1,4 +1,4 @@
-package project2.project_mall_zhc;
+package project2.project_mall;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
