@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>project2</groupId>
-    <artifactId>project_mall_zhc</artifactId>
+    <artifactId>project_mall</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>project_mall_zhc</name>
+    <name>project_mall</name>
     <description>17th_project_mall</description>
 
     <properties>
