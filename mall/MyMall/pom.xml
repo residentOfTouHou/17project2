@@ -8,11 +8,11 @@
         <version>2.2.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>project2</groupId>
-    <artifactId>project_mall</artifactId>
+    <groupId>com.cskaoyan</groupId>
+    <artifactId>mall</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>project_mall</name>
-    <description>17th_project_mall</description>
+    <name>mall</name>
+    <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -39,6 +39,12 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
+            <version>1.3.7</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
