@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cskaoyan.mall.mapper.AdMapper">
+    <resultMap id="adsMap" type="com.cskaoyan.mall.bean.generator.Ad">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="link" jdbcType="VARCHAR" property="link" />
+        <result column="url" jdbcType="VARCHAR" property="url" />
+        <result column="position" jdbcType="TINYINT" property="position" />
+        <result column="content" jdbcType="VARCHAR" property="content" />
+        <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+        <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+        <result column="enabled" jdbcType="BIT" property="enabled" />
+        <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+        <result column="deleted" jdbcType="BIT" property="deleted" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    id, `name`, link, url, `position`, content, start_time, end_time, enabled, add_time,
+    update_time, deleted
+  </sql>
+
+    <select id="queryAd" parameterType="com.cskaoyan.mall.bean.generator.Ad" resultMap="adsMap">
+        select <include refid="Base_Column_List" />
+        from cskaoyan_mall_ad ad
+        where ad.id = ad.id
+            <if test= "adName != null">
+                and `name` like #{adName}
+            </if>
+            <if test="adContent != null">
+               and content like #{adContent}
+            </if>
+
+        order by #{sort} #{order}
+    </select>
+
+    <select id="queryUpdatedAd" resultType="com.cskaoyan.mall.bean.generator.Ad">
+        select <include refid="Base_Column_List" />
+        from cskaoyan_mall_ad
+        where id = #{updatedId,jdbcType=INTEGER}
+    </select>
+
+    <delete id="deleteAdById">
+        delete from cskaoyan_mall_ad where id = #{adId}
+    </delete>
+
+    <update id="updateAd">
+        update cskaoyan_mall_ad
+    set `name` = #{ad.name,jdbcType=VARCHAR},
+      link = #{ad.link,jdbcType=VARCHAR},
+      url = #{ad.url,jdbcType=VARCHAR},
+      `position` = #{ad.position,jdbcType=TINYINT},
+      content = #{ad.content,jdbcType=VARCHAR},
+      start_time = #{ad.startTime,jdbcType=TIMESTAMP},
+      end_time = #{ad.endTime,jdbcType=TIMESTAMP},
+      enabled = #{ad.enabled,jdbcType=BIT},
+      add_time = #{ad.addTime,jdbcType=TIMESTAMP},
+      update_time = #{ad.updateTime,jdbcType=TIMESTAMP},
+      deleted = #{ad.deleted,jdbcType=BIT}
+    where id = #{ad.id,jdbcType=INTEGER}
+    </update>
+
+</mapper>

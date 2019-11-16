@@ -1,4 +1,5 @@
-package project2.project_mall.bean;
+package com.cskaoyan.mall.bean.generator;
+
 import lombok.Data;
 
 @Data

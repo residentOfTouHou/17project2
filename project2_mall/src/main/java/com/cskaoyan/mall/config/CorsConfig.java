@@ -1,4 +1,4 @@
-package project2.project_mall.config;
+package com.cskaoyan.mall.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

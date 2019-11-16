@@ -1,4 +1,4 @@
-package project2.project_mall.bean;
+package com.cskaoyan.mall.bean.jsonbean;
 
 import lombok.Data;
 

@@ -1,9 +1,10 @@
 server:
   port: 8081
+
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/enterprise
+    url: jdbc:mysql://localhost:3306/mall?useUnicode=true&characterEncoding=utf-8
     username: root
     password: 123456
 pagehelper:
@@ -15,4 +16,4 @@ logging:
         mall:
           mapper: debug
 mybatis:
-  type-handlers-package: project2.project_mall.handler
+  type-handlers-package: com.cskaoyan.mall.handler

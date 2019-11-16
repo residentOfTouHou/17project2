@@ -1,4 +1,4 @@
-package project2.project_mall.handler;
+package com.cskaoyan.mall.handler;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

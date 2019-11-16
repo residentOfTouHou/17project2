@@ -1,16 +1,16 @@
-package project2.project_mall.controller;
+package com.cskaoyan.mall.controller;
 
+import com.cskaoyan.mall.bean.generator.BaseReqVo;
+import com.cskaoyan.mall.bean.jsonbean.InfoData;
+import com.cskaoyan.mall.bean.jsonbean.LoginVo;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import project2.project_mall.bean.BaseReqVo;
-import project2.project_mall.bean.InfoData;
-import project2.project_mall.bean.LoginVo;
 
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping("admin/auth")
+@RequestMapping("/admin/auth")
 public class AuthController {
 
     @RequestMapping("login")
@@ -27,7 +27,7 @@ public class AuthController {
         BaseReqVo baseReqVo = new BaseReqVo();
         InfoData data = new InfoData();
         data.setAvatar("https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif");
-        data.setName("songge");
+        data.setName("skrskr");
         ArrayList<String> perms = new ArrayList<>();
         perms.add("*");
         data.setPerms(perms);
