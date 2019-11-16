@@ -526,4 +526,38 @@ public class MarketController {
         baseReqVo.setErrmsg("成功");
         return baseReqVo;
     }
+
+    /**
+     * 删除条目
+     *
+     * {
+     * 	"id": 1036075,
+     * 	"name": "阿达",
+     * 	"keywords": "阿达",
+     * 	"desc": "阿萨德",
+     * 	"iconUrl": "",
+     * 	"picUrl": "",
+     * 	"level": "L1",
+     * 	"children": [{
+     * 		"id": 1011000,
+     * 		"name": "婴童",
+     * 		"keywords": "阿萨德",
+     * 		"desc": "爱，从心开始",
+     * 		"iconUrl": "http://yanxuan.nosdn.127.net/1ba9967b8de1ac50fad21774a4494f5d.png",
+     * 		"picUrl": "http://yanxuan.nosdn.127.net/9cc0b3e0d5a4f4a22134c170f10b70f2.png",
+     * 		"level": "L2"
+     *        }]
+     * }
+     *
+     * {"errno":0,"errmsg":"成功"}
+     * @return
+     */
+    @RequestMapping("category/delete")
+    public BaseReqVo deleteCategory(@RequestBody CategorySegment categorySegment){
+        BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
+        marketService.deleteCategory(categorySegment);
+        baseReqVo.setErrno(0);
+        baseReqVo.setErrmsg("成功");
+        return baseReqVo;
+    }
 }

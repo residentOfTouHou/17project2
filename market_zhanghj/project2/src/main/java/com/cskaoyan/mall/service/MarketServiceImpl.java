@@ -296,7 +296,46 @@ public class MarketServiceImpl implements MarketService {
      */
     @Override
     public void updateCategory(CategorySegment categorySegment) {
-        
+        Category category = new Category();
+        category.setId(categorySegment.getId());
+        category.setName(categorySegment.getName());
+        category.setKeywords(categorySegment.getKeywords());
+        category.setDesc(categorySegment.getDesc());
+        category.setIconUrl(categorySegment.getIconUrl());
+        category.setPicUrl(categorySegment.getPicUrl());
+
+        if("L1".equals(categorySegment.getLevel())){
+            categoryMapper.updateByPrimaryKeySelective(category);
+        }
+        //L2
+        if(categorySegment.getChildren()==null){ //二级内部调整
+            category.setLevel(categorySegment.getLevel());
+            category.setPid(categorySegment.getPid());
+            categoryMapper.updateByPrimaryKeySelective(category);
+        }else{ //一级变换为二级
+            category.setLevel(categorySegment.getLevel());
+            category.setPid(categorySegment.getPid());
+            categoryMapper.updateByPrimaryKeySelective(category);
+            for (Category segmentChild : categorySegment.getChildren()) {
+                segmentChild.setDeleted(true); //所属全部逻辑删除
+                categoryMapper.updateByPrimaryKeySelective(segmentChild);
+            }
+        }
     }
 
+    /**
+     * 删除类目
+     * @param categorySegment
+     */
+    @Override
+    public void deleteCategory(CategorySegment categorySegment) {
+        Category category = new Category();
+        category.setId(categorySegment.getId());
+        category.setDeleted(true);
+        categoryMapper.updateByPrimaryKeySelective(category);
+        for (Category child : categorySegment.getChildren()) {
+            category.setId(child.getId());
+            categoryMapper.updateByPrimaryKeySelective(category);
+        }
+    }
 }

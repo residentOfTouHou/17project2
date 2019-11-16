@@ -40,4 +40,6 @@ public interface MarketService {
 
     void updateCategory(CategorySegment categorySegment);
 
+    void deleteCategory(CategorySegment categorySegment);
+
 }
