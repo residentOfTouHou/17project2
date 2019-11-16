@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping("admin/auth")
+@RequestMapping("/admin/auth")
 public class AuthController {
 
     @RequestMapping("login")

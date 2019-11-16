@@ -225,4 +225,10 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+    <update id="updateKeyValueByKeyName">
+      update cskaoyan_mall_system
+      set key_value = #{param2},
+      update_time = #{param3}
+      where key_name = #{param1}
+    </update>
 </mapper>
