@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cskaoyan.mall.mapper.UserMapper">
+    <resultMap id="userMap" type="com.cskaoyan.mall.bean.User">
+        <result column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="age" property="age"/>
+        <result column="gender" property="gender"/>
+        <!--字符串转换数组-->
+        <result column="hobby" property="hobby" typeHandler="com.cskaoyan.mall.handler.String2ArrayTypeHandler"/>
+    </resultMap>
+    <select id="queryUsers" resultMap="userMap">
+        select id,username,password,age,gender,hobby from j17_user_t
+    </select>
+    <!--数组转换成字符串-->
+    <insert id="insertUser">
+        insert into j17_user_t (username,password,hobby) value (#{user.username},#{user.password},#{user.hobby,typeHandler=com.cskaoyan.mall.handler.String2ArrayTypeHandler})
+    </insert>
+</mapper>
