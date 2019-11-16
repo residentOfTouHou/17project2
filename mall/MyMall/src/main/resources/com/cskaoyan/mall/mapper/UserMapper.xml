@@ -19,6 +19,7 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
+
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -382,4 +383,26 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--查找所有用户-->
+  <select id="selectAll" resultType="com.cskaoyan.mall.bean.generator.User">
+    select
+    id,
+    username,
+    password,
+    gender,
+    birthday,
+    last_login_time,
+    last_login_ip,
+    user_level,
+    nickname,
+    mobile,
+    avatar,
+    weixin_openid,
+    status,
+     add_time,
+    update_time,
+    deleted
+    from cskaoyan_mall_user
+  </select>
 </mapper>

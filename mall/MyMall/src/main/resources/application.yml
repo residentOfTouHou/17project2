@@ -3,7 +3,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/enterprise
+    url: jdbc:mysql://localhost:3306/j17_mall
     username: root
     password: 123456
 pagehelper:
@@ -16,3 +16,14 @@ logging:
           mapper: debug
 mybatis:
   type-handlers-package: com.cskaoyan.mall.handler
+#  # 启用shutdown
+#management:
+#  endpoint:
+#    shutdown:
+#      enabled: true
+## 公开所有的端点
+#
+#endpoints:
+#  web:
+#    exposure:
+#      include: *

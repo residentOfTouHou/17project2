@@ -3,8 +3,10 @@ package com.cskaoyan.mall.mapper;
 import com.cskaoyan.mall.bean.generator.User;
 import com.cskaoyan.mall.bean.generator.UserExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+@Mapper
 public interface UserMapper {
     long countByExample(UserExample example);
 
@@ -27,4 +29,6 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    List<User> selectAll();
 }
