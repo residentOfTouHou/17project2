@@ -2,6 +2,8 @@ package com.cskaoyan.mall.controller;
 
 import com.cskaoyan.mall.bean.generator.Brand;
 import com.cskaoyan.mall.bean.generator.Category;
+import com.cskaoyan.mall.bean.generator.Issue;
+import com.cskaoyan.mall.bean.generator.Keyword;
 import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
 import com.cskaoyan.mall.bean.jsonbean.CategoryL1Segment;
 import com.cskaoyan.mall.bean.jsonbean.CategorySegment;
@@ -12,10 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -139,44 +138,44 @@ public class MarketController {
         return baseReqVo;
     }
 
-    /**
-     * 上传图片
-     * 这部分应该直接调用刘铭的接口 暂时先放着
-     *
-     * ------WebKitFormBoundaryPuWQRqed7fO4h4XQ
-     * Content-Disposition: form-data; name="file"; filename="猫車.jpg"
-     * Content-Type: image/jpeg
-     *
-     * {
-     * 	"errno": 0,
-     * 	"data": {
-     * 		"id": 1559,
-     * 		"key": "680sam90vgytydnb24zs.jpg",
-     * 		"name": "猫車.jpg",
-     * 		"type": "image/jpeg",
-     * 		"size": 293410,
-     * 		"url": "http://192.168.2.100:8081/wx/storage/fetch/680sam90vgytydnb24zs.jpg",
-     * 		"addTime": "2019-11-16 01:18:14",
-     * 		"updateTime": "2019-11-16 01:18:14"
-     *   },
-     * 	"errmsg": "成功"
-     * }
-     * @return
-     */
-    @RequestMapping("storage/create")
-    public BaseReqVo createImg(HttpServletRequest request, @RequestParam("file") MultipartFile file){
-        BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
-        Map<String,Object> result = null;
-        try {
-            result = marketService.createImg(request,file);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        baseReqVo.setErrno(0);
-        baseReqVo.setData(result);
-        baseReqVo.setErrmsg("成功");
-        return baseReqVo;
-    }
+//    /**
+//     * 上传图片
+//     * 这部分应该直接调用刘铭的接口 暂时先放着
+//     *
+//     * ------WebKitFormBoundaryPuWQRqed7fO4h4XQ
+//     * Content-Disposition: form-data; name="file"; filename="猫車.jpg"
+//     * Content-Type: image/jpeg
+//     *
+//     * {
+//     * 	"errno": 0,
+//     * 	"data": {
+//     * 		"id": 1559,
+//     * 		"key": "680sam90vgytydnb24zs.jpg",
+//     * 		"name": "猫車.jpg",
+//     * 		"type": "image/jpeg",
+//     * 		"size": 293410,
+//     * 		"url": "http://192.168.2.100:8081/wx/storage/fetch/680sam90vgytydnb24zs.jpg",
+//     * 		"addTime": "2019-11-16 01:18:14",
+//     * 		"updateTime": "2019-11-16 01:18:14"
+//     *   },
+//     * 	"errmsg": "成功"
+//     * }
+//     * @return
+//     */
+//    @RequestMapping("storage/create")
+//    public BaseReqVo createImg(HttpServletRequest request, @RequestParam("file") MultipartFile file){
+//        BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
+//        Map<String,Object> result = null;
+//        try {
+//            result = marketService.createImg(request,file);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        baseReqVo.setErrno(0);
+//        baseReqVo.setData(result);
+//        baseReqVo.setErrmsg("成功");
+//        return baseReqVo;
+//    }
 
 
     /**
@@ -556,6 +555,388 @@ public class MarketController {
     public BaseReqVo deleteCategory(@RequestBody CategorySegment categorySegment){
         BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
         marketService.deleteCategory(categorySegment);
+        baseReqVo.setErrno(0);
+        baseReqVo.setErrmsg("成功");
+        return baseReqVo;
+    }
+
+    /**
+     * 查询订单信息
+     *
+     * page=1&limit=20&sort=add_time&order=desc
+     * page=1&limit=20&sort=add_time&order=desc&userId=1
+     * page=1&limit=20&orderStatusArray=202&orderStatusArray=301&sort=add_time&order=desc&userId=&orderSn=1
+     *
+     * {
+     * 	"errno": 0,
+     * 	"data": {
+     * 		"total": 474,
+     * 		"items": [{
+     * 			"id": 498,
+     * 			"userId": 1,
+     * 			"orderSn": "20191008947283",
+     * 			"orderStatus": 103,
+     * 			"consignee": "啦啦啦",
+     * 			"mobile": "17845451212",
+     * 			"address": "河北省 秦皇岛市 抚宁区 1313",
+     * 			"message": "",
+     * 			"goodsPrice": 12.90,
+     * 			"freightPrice": 9.00,
+     * 			"couponPrice": 0.00,
+     * 			"integralPrice": 0.00,
+     * 			"grouponPrice": 0.00,
+     * 			"orderPrice": 21.90,
+     * 			"actualPrice": 21.90,
+     * 			"comments": 0,
+     * 			"endTime": "2019-10-08 09:17:51",
+     * 			"addTime": "2019-10-08 08:20:53",
+     * 			"updateTime": "2019-10-08 09:17:51",
+     * 			"deleted": false
+     *           }, {
+     * 			"id": 497,
+     * 			"userId": 1,
+     * 			"orderSn": "20191008064881",
+     * 			"orderStatus": 103,
+     * 			"consignee": "啦啦啦",
+     * 			"mobile": "17845451212",
+     * 			"address": "河北省 秦皇岛市 抚宁区 1313",
+     * 			"message": "",
+     * 			"goodsPrice": 12.90,
+     * 			"freightPrice": 9.00,
+     * 			"couponPrice": 0.00,
+     * 			"integralPrice": 0.00,
+     * 			"grouponPrice": 0.00,
+     * 			"orderPrice": 21.90,
+     * 			"actualPrice": 21.90,
+     * 			"comments": 0,
+     * 			"endTime": "2019-10-08 08:17:50",
+     * 			"addTime": "2019-10-08 07:25:04",
+     * 			"updateTime": "2019-10-08 08:17:50",
+     * 			"deleted": false
+     *        }]
+     *   },
+     * 	"errmsg": "成功"
+     * }
+     */
+    @RequestMapping("order/list")
+    public BaseReqVo getOrderList(int page, int limit, Integer[] orderStatusArray
+            , String sort, String order, Integer userId, String orderSn){
+        BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
+        Map<String,Object> result = marketService.getOrderList(page,limit,orderStatusArray,sort,order,userId,orderSn);
+        baseReqVo.setErrno(0);
+        baseReqVo.setData(result);
+        baseReqVo.setErrmsg("成功");
+        return baseReqVo;
+    }
+
+    /**
+     * 获取订单详情
+     *
+     * id=498
+     *
+     * {
+     * 	"errno": 0,
+     * 	"data": {
+     * 		"orderGoods": [{
+     * 			"id": 629,
+     * 			"orderId": 498,
+     * 			"goodsId": 1155015,
+     * 			"goodsName": "绿豆糕 80克（4枚入）",
+     * 			"goodsSn": "1155015",
+     * 			"productId": 242,
+     * 			"number": 1,
+     * 			"price": 12.90,
+     * 			"specifications": ["标准"],
+     * 			"picUrl": "http://yanxuan.nosdn.127.net/66b9f1638c0517d179262f14ed1345f9.png",
+     * 			"comment": 0,
+     * 			"addTime": "2019-10-08 08:20:53",
+     * 			"updateTime": "2019-10-08 08:20:53",
+     * 			"deleted": false
+     *       }],
+     * 		"user": {
+     * 			"nickname": "dr lan",
+     * 			"avatar": ""
+     *       },
+     * 		"order": {
+     * 			"id": 498,
+     * 			"userId": 1,
+     * 			"orderSn": "20191008947283",
+     * 			"orderStatus": 103,
+     * 			"consignee": "啦啦啦",
+     * 			"mobile": "17845451212",
+     * 			"address": "河北省 秦皇岛市 抚宁区 1313",
+     * 			"message": "",
+     * 			"goodsPrice": 12.90,
+     * 			"freightPrice": 9.00,
+     * 			"couponPrice": 0.00,
+     * 			"integralPrice": 0.00,
+     * 			"grouponPrice": 0.00,
+     * 			"orderPrice": 21.90,
+     * 			"actualPrice": 21.90,
+     * 			"comments": 0,
+     * 			"endTime": "2019-10-08 09:17:51",
+     * 			"addTime": "2019-10-08 08:20:53",
+     * 			"updateTime": "2019-10-08 09:17:51",
+     * 			"deleted": false
+     *        }
+     *   },
+     * 	"errmsg": "成功"
+     * }
+     */
+    @RequestMapping("order/detail")
+    public BaseReqVo getOrderDetail(Integer id){
+        BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
+        Map<String,Object> result = marketService.getOrderDetail(id);
+        baseReqVo.setErrno(0);
+        baseReqVo.setData(result);
+        baseReqVo.setErrmsg("成功");
+        return baseReqVo;
+    }
+
+    /**
+     * 查询问题
+     *
+     * page=1&limit=20&sort=add_time&order=desc
+     * page=1&limit=20&question=1&sort=add_time&order=desc
+     *
+     * {
+     * 	"errno": 0,
+     * 	"data": {
+     * 		"total": 10,
+     * 		"items": [{
+     * 			"id": 27,
+     * 			"question": "自定义问题",
+     * 			"answer": "自定义",
+     * 			"addTime": "2019-11-16 21:47:36",
+     * 			"updateTime": "2019-11-16 21:47:36",
+     * 			"deleted": false
+     *                }, {
+     * 			"id": 24,
+     * 			"question": "1111",
+     * 			"answer": "11112",
+     * 			"addTime": "2019-11-16 03:21:00",
+     * 			"updateTime": "2019-11-16 06:15:52",
+     * 			"deleted": false
+     *        }]* 	},
+     * 	"errmsg": "成功"
+     * }
+     * @return
+     */
+    @RequestMapping("issue/list")
+    public BaseReqVo getIssueList(Integer page, Integer limit, String question, String sort, String order){
+        BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
+        Map<String,Object> result = marketService.getIssueList(page,limit,question,sort,order);
+        baseReqVo.setErrno(0);
+        baseReqVo.setData(result);
+        baseReqVo.setErrmsg("成功");
+        return baseReqVo;
+    }
+
+    /**
+     * 更新问题
+     *
+     * {
+     * 	"id": 27,
+     * 	"question": "自定义问题",
+     * 	"answer": "1",
+     * 	"addTime": "2019-11-16 21:47:36",
+     * 	"updateTime": "2019-11-16 21:47:36",
+     * 	"deleted": false
+     * }
+     *
+     * {
+     * 	"errno": 0,
+     * 	"data": {
+     * 		"id": 27,
+     * 		"question": "自定义问题",
+     * 		"answer": "1",
+     * 		"addTime": "2019-11-16 21:47:36",
+     * 		"updateTime": "2019-11-17 02:24:48",
+     * 		"deleted": false
+     *   },
+     * 	"errmsg": "成功"
+     * }
+     * @return
+     */
+    @RequestMapping("issue/update")
+    public BaseReqVo updateIssue(@RequestBody Issue issue){
+        BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
+        Issue result = marketService.updateIssue(issue);
+        baseReqVo.setErrno(0);
+        baseReqVo.setData(result);
+        baseReqVo.setErrmsg("成功");
+        return baseReqVo;
+    }
+
+    /**
+     * 删除问题
+     *
+     * {
+     * 	"id": 27,
+     * 	"question": "自定义问题",
+     * 	"answer": "1",
+     * 	"addTime": "2019-11-16 21:47:36",
+     * 	"updateTime": "2019-11-16 21:47:36",
+     * 	"deleted": false
+     * }
+     *
+     * {"errno":0,"errmsg":"成功"}
+     */
+    @RequestMapping("issue/delete")
+    public BaseReqVo deleteIssue(@RequestBody Issue issue){
+        BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
+        marketService.deleteIssue(issue);
+        baseReqVo.setErrno(0);
+        baseReqVo.setErrmsg("成功");
+        return baseReqVo;
+    }
+
+    /**
+     * 获取关键词
+     *
+     * page=1&limit=20&sort=add_time&order=desc
+     * page=1&limit=20&url=1&sort=add_time&order=desc
+     * page=1&limit=20&keyword=%E9%98%BF&url=&sort=add_time&order=desc
+     *
+     * {
+     * 	"errno": 0,
+     * 	"data": {
+     * 		"total": 2,
+     * 		"items": [{
+     * 			"id": 53,
+     * 			"keyword": "阿萨德",
+     * 			"url": "阿萨德",
+     * 			"isHot": true,
+     * 			"isDefault": true,
+     * 			"sortOrder": 100,
+     * 			"addTime": "2019-11-16 08:31:05",
+     * 			"updateTime": "2019-11-16 08:31:05",
+     * 			"deleted": false
+     *                }, {
+     * 			"id": 51,
+     * 			"keyword": "阿达",
+     * 			"url": "奥德赛",
+     * 			"isHot": true,
+     * 			"isDefault": true,
+     * 			"sortOrder": 100,
+     * 			"addTime": "2019-11-16 07:53:29",
+     * 			"updateTime": "2019-11-16 07:53:29",
+     * 			"deleted": false
+     *        }]
+     *   },
+     * 	"errmsg": "成功"
+     * }
+     * @return
+     */
+    @RequestMapping("keyword/list")
+    public BaseReqVo getKeywords(Integer page, Integer limit, String url, String keyword, String sort, String order){
+        BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
+        Map<String ,Object> result = marketService.getKeywords(page,limit,url,keyword,sort,order);
+        baseReqVo.setErrno(0);
+        baseReqVo.setData(result);
+        baseReqVo.setErrmsg("成功");
+        return baseReqVo;
+    }
+
+    /**
+     * 添加关键词
+     *
+     * {
+     * 	"keyword": "阿萨德",
+     * 	"url": "阿萨德a",
+     * 	"isHot": true,
+     * 	"isDefault": true
+     * }
+     *
+     * {
+     * 	"errno": 0,
+     * 	"data": {
+     * 		"id": 57,
+     * 		"keyword": "阿萨德",
+     * 		"url": "阿萨德a",
+     * 		"isHot": true,
+     * 		"isDefault": true,
+     * 		"addTime": "2019-11-17 04:00:46",
+     * 		"updateTime": "2019-11-17 04:00:46"
+     *        },
+     * 	"errmsg": "成功"
+     * }
+     * @return
+     */
+    @RequestMapping("keyword/create")
+    public BaseReqVo addKeyword(@RequestBody Keyword keyword){
+        BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
+        Keyword result= marketService.addKeyword(keyword);
+        baseReqVo.setErrno(0);
+        baseReqVo.setData(result);
+        baseReqVo.setErrmsg("成功");
+        return baseReqVo;
+    }
+
+    /**
+     * 更新关键词
+     *
+     * {
+     * 	"id": 56,
+     * 	"keyword": "222",
+     * 	"url": "2222",
+     * 	"isHot": false,
+     * 	"isDefault": true,
+     * 	"sortOrder": 100,
+     * 	"addTime": "2019-11-17 03:27:33",
+     * 	"updateTime": "2019-11-17 03:27:33",
+     * 	"deleted": false
+     * }
+     *
+     * {
+     * 	"errno": 0,
+     * 	"data": {
+     * 		"id": 56,
+     * 		"keyword": "222",
+     * 		"url": "2222",
+     * 		"isHot": false,
+     * 		"isDefault": true,
+     * 		"sortOrder": 100,
+     * 		"addTime": "2019-11-17 03:27:33",
+     * 		"updateTime": "2019-11-17 03:41:01",
+     * 		"deleted": false
+     *        },
+     * 	"errmsg": "成功"
+     * }
+     *
+     * @return
+     */
+    @RequestMapping("keyword/update")
+    public BaseReqVo updateKeyword(@RequestBody Keyword keyword){
+        BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
+        Keyword result= marketService.updateKeyword(keyword);
+        baseReqVo.setErrno(0);
+        baseReqVo.setData(result);
+        baseReqVo.setErrmsg("成功");
+        return baseReqVo;
+    }
+
+    /**
+     * 删除关键词
+     *
+     * {
+     * 	"id": 56,
+     * 	"keyword": "222",
+     * 	"url": "2222",
+     * 	"isHot": false,
+     * 	"isDefault": true,
+     * 	"sortOrder": 100,
+     * 	"addTime": "2019-11-17 03:27:33",
+     * 	"updateTime": "2019-11-17 03:27:33",
+     * 	"deleted": false
+     * }
+     *
+     * {"errno":0,"errmsg":"成功"}
+     */
+    @RequestMapping("keyword/delete")
+    public BaseReqVo deleteKeyword(@RequestBody Keyword keyword){
+        BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
+        marketService.deleteKeyword(keyword);
         baseReqVo.setErrno(0);
         baseReqVo.setErrmsg("成功");
         return baseReqVo;

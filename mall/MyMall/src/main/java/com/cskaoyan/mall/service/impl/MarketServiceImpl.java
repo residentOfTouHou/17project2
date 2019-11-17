@@ -4,24 +4,16 @@ import com.cskaoyan.mall.bean.generator.*;
 import com.cskaoyan.mall.bean.jsonbean.CategoryL1Segment;
 import com.cskaoyan.mall.bean.jsonbean.CategorySegment;
 import com.cskaoyan.mall.bean.jsonbean.RegionSegment;
-import com.cskaoyan.mall.mapper.BrandMapper;
-import com.cskaoyan.mall.mapper.CategoryMapper;
-import com.cskaoyan.mall.mapper.RegionMapper;
-import com.cskaoyan.mall.mapper.StorageMapper;
+import com.cskaoyan.mall.mapper.*;
 import com.cskaoyan.mall.service.MarketService;
 import com.cskaoyan.mall.utils.DateUtils;
-import com.cskaoyan.mall.utils.StringUtil;
 import com.cskaoyan.mall.utils.StringUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.File;
-import java.io.IOException;
 import java.util.*;
 
 /**
@@ -46,6 +38,22 @@ public class MarketServiceImpl implements MarketService {
 
     @Autowired
     CategoryMapper categoryMapper;
+
+    @Autowired
+    OrderMapper orderMapper;
+
+    @Autowired
+    UserMapper userMapper;
+
+    @Autowired
+    OrderGoodsMapper orderGoodsMapper;
+
+    @Autowired
+    IssueMapper issueMapper;
+
+    @Autowired
+    KeywordMapper keywordMapper;
+
     /**
      * 查询出行政区域
      * {
@@ -131,7 +139,7 @@ public class MarketServiceImpl implements MarketService {
             criteria.andIdEqualTo(Integer.valueOf(map.get("id")));
         }
         if(!StringUtils.isEmpty(map.get("name"))){
-            criteria.andNameLike(map.get("name"));
+            criteria.andNameLike("%"+map.get("name")+"%");
         }
         criteria.andDeletedEqualTo(false);
         Map<String,Object> result = new HashMap<>();
@@ -143,26 +151,25 @@ public class MarketServiceImpl implements MarketService {
         return result;
     }
 
-    /**
-     * 上传品牌图片
-     *
-     * 等刘铭接口
-     *
-     * @return
-     */
-    @Override
-    public Map<String, Object> createImg(HttpServletRequest request, MultipartFile file) throws IOException {
-        Map<String,Object> result = new HashMap<>();
-        String filename = file.getOriginalFilename();
-        ClassPathResource resource = new ClassPathResource("");
-        String absolutePath = resource.getFile().getAbsolutePath();
-        String finalPathName = absolutePath + UPLOAD_PATH + filename;
-        File img = new File(finalPathName);
-        if(!img.exists()){
-            img.mkdirs();
-        }
-        file.transferTo(img);
-
+//    /**
+//     * 上传品牌图片
+//     *
+//     * 等刘铭接口
+//     *
+//     * @return
+//     */
+//    @Override
+//    public Map<String, Object> createImg(HttpServletRequest request, MultipartFile file) throws IOException {
+//        Map<String,Object> result = new HashMap<>();
+//        String filename = file.getOriginalFilename();
+//        ClassPathResource resource = new ClassPathResource("");
+//        String absolutePath = resource.getFile().getAbsolutePath();
+//        String finalPathName = absolutePath + UPLOAD_PATH + filename;
+//        File img = new File(finalPathName);
+//        if(!img.exists()){
+//            img.mkdirs();
+//        }
+//        file.transferTo(img);
 //        Storage storage = new Storage();
 //        storage.setKey(filename);
 //        storage.
@@ -174,8 +181,8 @@ public class MarketServiceImpl implements MarketService {
 //        result.put("url",);
 //        result.put("addTime",DateUtils.currentDateToString());
 //        result.put("updateTime",DateUtils.currentDateToString());
-        return result;
-    }
+//        return result;
+//    }
 
     /**
      * 上传品牌
@@ -337,5 +344,193 @@ public class MarketServiceImpl implements MarketService {
             category.setId(child.getId());
             categoryMapper.updateByPrimaryKeySelective(category);
         }
+    }
+
+    /**
+     * 查询订单信息
+     *
+     * @param page
+     * @param limit
+     * @param orderStatusArray
+     * @param sort
+     * @param order
+     * @param userId
+     * @param orderSn
+     * @return
+     */
+    @Override
+    public Map<String, Object> getOrderList(int page, int limit, Integer[] orderStatusArray,
+                  String sort, String order, Integer userId, String orderSn) {
+        PageHelper.startPage(page,limit);
+        OrderExample orderExample = new OrderExample();
+        orderExample.setOrderByClause(sort+" "+order);
+        OrderExample.Criteria criteria = orderExample.createCriteria();
+        criteria.andDeletedEqualTo(false);
+        if(orderStatusArray!=null&&orderStatusArray.length>0){
+            List<Short> list = new ArrayList<>();
+            for (Integer integer : orderStatusArray) {
+                list.add(Short.valueOf(String.valueOf(integer)));
+            }
+            criteria.andOrderStatusIn(list);
+        }
+        if(userId!=null){
+            criteria.andUserIdEqualTo(userId);
+        }
+        if(orderSn!=null){
+            criteria.andOrderSnEqualTo(orderSn);
+        }
+        Map<String,Object> result = new HashMap<>();
+        List<Order> items = orderMapper.selectByExample(orderExample);
+        result.put("items",items);
+        PageInfo<Order> orderPageInfo = new PageInfo<>(items);
+        long total = orderPageInfo.getTotal();
+        result.put("total",total);
+        return result;
+    }
+
+    /**
+     * 获取订单详情
+     * @param id
+     * @return
+     */
+    @Override
+    public Map<String, Object> getOrderDetail(Integer id) {
+        Order order = orderMapper.selectByPrimaryKey(id);
+        User user = userMapper.selectByPrimaryKey(order.getUserId());
+        OrderGoodsExample orderGoodsExample = new OrderGoodsExample();
+        orderGoodsExample.createCriteria().andOrderIdEqualTo(id);
+        List<OrderGoods> orderGoods = orderGoodsMapper.selectByExample(orderGoodsExample);
+        Map<String,Object> map = new HashMap<>();
+        map.put("orderGoods",orderGoods);
+        map.put("user",user);
+        map.put("order",order);
+        return map;
+    }
+
+    /**
+     * 查询问题
+     * @param page
+     * @param limit
+     * @param question
+     * @param sort
+     * @param order
+     * @return
+     */
+    @Override
+    public Map<String, Object> getIssueList(Integer page, Integer limit, String question, String sort, String order) {
+        PageHelper.startPage(page,limit);
+        IssueExample issueExample = new IssueExample();
+        issueExample.setOrderByClause(sort+" "+order);
+        IssueExample.Criteria criteria = issueExample.createCriteria();
+        criteria.andDeletedEqualTo(false);
+        if(question!=null){
+            criteria.andQuestionLike("%"+question+"%");
+        }
+        List<Issue> issues = issueMapper.selectByExample(issueExample);
+        PageInfo<Issue> issuePageInfo = new PageInfo<>(issues);
+        long total = issuePageInfo.getTotal();
+        Map<String,Object> map = new HashMap<>();
+        map.put("total",total);
+        map.put("items",issues);
+        return map;
+    }
+
+    /**
+     * 更新通用问题
+     * @param issue
+     * @return
+     */
+    @Override
+    public Issue updateIssue(Issue issue) {
+        issue.setUpdateTime(new Date());
+        issueMapper.updateByPrimaryKeySelective(issue);
+        return issue;
+    }
+
+    /**
+     * 删除问题
+     * @param issue
+     */
+    @Override
+    public void deleteIssue(Issue issue) {
+        Issue segment = new Issue();
+        segment.setId(issue.getId());
+        segment.setDeleted(true);
+        issueMapper.updateByPrimaryKeySelective(segment);
+    }
+
+    /**
+     * 获取关键词
+     * @param page
+     * @param limit
+     * @param url
+     * @param keyword
+     * @param sort
+     * @param order
+     * @return
+     */
+    @Override
+    public Map<String, Object> getKeywords(Integer page, Integer limit, String url, String keyword, String sort, String order) {
+        PageHelper.startPage(page,limit);
+        KeywordExample keywordExample = new KeywordExample();
+        keywordExample.setOrderByClause(sort+" "+order);
+        KeywordExample.Criteria criteria = keywordExample.createCriteria();
+        criteria.andDeletedEqualTo(false);
+        if(url!=null){
+            criteria.andUrlLike("%"+url+"%");
+        }
+        if(keyword!=null){
+            criteria.andKeywordLike("%"+keyword+"%");
+        }
+        List<Keyword> items = keywordMapper.selectByExample(keywordExample);
+        PageInfo<Keyword> keywordPageInfo = new PageInfo<>(items);
+        long total = keywordPageInfo.getTotal();
+        Map<String,Object> map = new HashMap<>();
+        map.put("total",total);
+        map.put("items",items);
+        return map;
+    }
+
+    /**
+     * 更新关键词
+     *
+     * @param keyword
+     * @return
+     */
+    @Override
+    public Keyword updateKeyword(Keyword keyword) {
+        keyword.setUpdateTime(new Date());
+        keywordMapper.updateByPrimaryKeySelective(keyword);
+        return keyword;
+    }
+
+    /**
+     * 删除关键词
+     * @param keyword
+     */
+    @Override
+    public void deleteKeyword(Keyword keyword) {
+        Keyword segment = new Keyword();
+        segment.setId(keyword.getId());
+        segment.setDeleted(true);
+        keywordMapper.updateByPrimaryKeySelective(segment);
+    }
+
+    /**
+     * 添加关键词
+     * @param keyword
+     * @return
+     */
+    @Override
+    public Keyword addKeyword(Keyword keyword) {
+        Date date = new Date();
+        keyword.setAddTime(date);
+        keyword.setUpdateTime(date);
+        keyword.setDeleted(false);
+        keyword.setSortOrder(100);
+        keywordMapper.insert(keyword);
+        Integer id = keywordMapper.getLastInsertId();
+        keyword.setId(id);
+        return keyword;
     }
 }

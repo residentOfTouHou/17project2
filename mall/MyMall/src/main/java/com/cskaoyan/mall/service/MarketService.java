@@ -2,13 +2,12 @@ package com.cskaoyan.mall.service;
 
 import com.cskaoyan.mall.bean.generator.Brand;
 import com.cskaoyan.mall.bean.generator.Category;
+import com.cskaoyan.mall.bean.generator.Issue;
+import com.cskaoyan.mall.bean.generator.Keyword;
 import com.cskaoyan.mall.bean.jsonbean.CategoryL1Segment;
 import com.cskaoyan.mall.bean.jsonbean.CategorySegment;
 import com.cskaoyan.mall.bean.jsonbean.RegionSegment;
-import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +25,7 @@ public interface MarketService {
 
     Map<String, Object> addBrand(Brand brand);
 
-    Map<String, Object> createImg(HttpServletRequest request, MultipartFile file) throws IOException;
+//    Map<String, Object> createImg(HttpServletRequest request, MultipartFile file) throws IOException;
 
     Brand updateBrand(Brand brand);
 
@@ -41,5 +40,23 @@ public interface MarketService {
     void updateCategory(CategorySegment categorySegment);
 
     void deleteCategory(CategorySegment categorySegment);
+
+    Map<String, Object> getOrderList(int page, int limit, Integer[] orderStatusArray, String sort, String order, Integer userId, String orderSn);
+
+    Map<String, Object> getOrderDetail(Integer id);
+
+    Map<String, Object> getIssueList(Integer page, Integer limit, String question, String sort, String order);
+
+    Issue updateIssue(Issue issue);
+
+    void deleteIssue(Issue issue);
+
+    Map<String, Object> getKeywords(Integer page, Integer limit, String url, String keyword, String sort, String order);
+
+    Keyword updateKeyword(Keyword keyword);
+
+    void deleteKeyword(Keyword keyword);
+
+    Keyword addKeyword(Keyword keyword);
 
 }
