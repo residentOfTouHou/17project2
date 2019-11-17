@@ -5,7 +5,7 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="keyword" jdbcType="VARCHAR" property="keyword" />
-    <result column="from" jdbcType="VARCHAR" property="from" />
+    <result column="froms" jdbcType="VARCHAR" property="from" />
     <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
@@ -69,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, user_id, keyword, from, add_time, update_time, deleted
+    id, user_id, keyword, froms, add_time, update_time, deleted
   </sql>
   <select id="selectByExample" parameterType="com.cskaoyan.mall.bean.generator.SearchHistoryExample" resultMap="BaseResultMap">
     select

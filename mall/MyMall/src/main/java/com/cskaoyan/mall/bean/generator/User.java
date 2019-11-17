@@ -1,5 +1,7 @@
 package com.cskaoyan.mall.bean.generator;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class User {
@@ -10,9 +12,9 @@ public class User {
     private String password;
 
     private Byte gender;
-
+@JsonFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
-
+@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date lastLoginTime;
 
     private String lastLoginIp;
@@ -29,8 +31,10 @@ public class User {
 
     private Byte status;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date addTime;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 
     private Boolean deleted;

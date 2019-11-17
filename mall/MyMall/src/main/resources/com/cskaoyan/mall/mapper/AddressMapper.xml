@@ -204,6 +204,20 @@
             <include refid="Example_Where_Clause" />
         </if>
     </select>
+    <select id="selectAddressBycondition" resultType="com.cskaoyan.mall.bean.generator.Address">
+        select
+        id, name, user_id, province_id, city_id, area_id, address, mobile, is_default, add_time,
+        update_time, deleted
+        from cskaoyan_mall_address
+        <where>
+            <if test="param1!=null and param1!=''">
+                and name like #{param1}
+            </if>
+            <if test="param2!=null">
+                and user_id = #{param2}
+            </if>
+        </where>
+    </select>
     <update id="updateByExampleSelective" parameterType="map">
         update cskaoyan_mall_address
         <set>

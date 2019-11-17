@@ -148,6 +148,12 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
+  <select id="selectByPid" resultType="com.cskaoyan.mall.bean.generator.Region">
+  select
+  <include refid="Base_Column_List" />
+  from cskaoyan_mall_region
+  where pid = #{pid,jdbcType=INTEGER}
+  </select>
   <update id="updateByExampleSelective" parameterType="map">
     update cskaoyan_mall_region
     <set>

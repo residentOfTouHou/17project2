@@ -3,8 +3,10 @@ package com.cskaoyan.mall.mapper;
 import com.cskaoyan.mall.bean.generator.Region;
 import com.cskaoyan.mall.bean.generator.RegionExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+@Mapper
 public interface RegionMapper {
     long countByExample(RegionExample example);
 
@@ -19,6 +21,10 @@ public interface RegionMapper {
     List<Region> selectByExample(RegionExample example);
 
     Region selectByPrimaryKey(Integer id);
+
+    Region selectByPid(Integer pid);
+
+
 
     int updateByExampleSelective(@Param("record") Region record, @Param("example") RegionExample example);
 
