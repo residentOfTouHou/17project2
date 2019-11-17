@@ -27,7 +27,6 @@ public class CouponController {
                                      Integer type,Integer status){
         List<Coupon> couponList = couponService.queryCouponList(page,limit,sort,order,name,type,status);
         BaseReqVo baseReqVo = new BaseReqVo();
-        baseReqVo.setData(couponList);
         PageInfo<Coupon> adPageInfo = new PageInfo<>(couponList);
         long total = adPageInfo.getTotal();
         Map<String,Object> couponsMap = new HashMap<>();
@@ -36,6 +35,16 @@ public class CouponController {
         baseReqVo.setErrno(0);
         baseReqVo.setData(couponsMap);
         baseReqVo.setErrmsg("成功");
+        return baseReqVo;
+    }
+
+    @RequestMapping("create")
+    public BaseReqVo createCoupon(@RequestBody Coupon coupon){
+        Coupon insertedCoupon = couponService.createCoupon(coupon);
+        BaseReqVo baseReqVo = new BaseReqVo();
+        baseReqVo.setErrno(0);
+        baseReqVo.setErrmsg("成功");
+        baseReqVo.setData(insertedCoupon);
         return baseReqVo;
     }
 
@@ -54,9 +63,10 @@ public class CouponController {
         List<CouponUser> couponUsers = couponService.queryCouponUsers(page,limit,couponId,userId,status,sort,order);
         PageInfo<CouponUser> adPageInfo = new PageInfo<>(couponUsers);
         long total = adPageInfo.getTotal();
+
         BaseReqVo baseReqVo = new BaseReqVo();
-        baseReqVo.setErrno(0);
         Map<String,Object> couponUsersMap = new HashMap<>();
+        baseReqVo.setErrno(0);
         couponUsersMap.put("items",couponUsers);
         couponUsersMap.put("total",total);
         baseReqVo.setData(couponUsersMap);
@@ -68,8 +78,8 @@ public class CouponController {
     public BaseReqVo update(@RequestBody Coupon coupon){
         Coupon updatedcoupon = couponService.updateCouponInfo(coupon);
         BaseReqVo baseReqVo = new BaseReqVo();
-        baseReqVo.setErrno(0);
         baseReqVo.setData(updatedcoupon);
+        baseReqVo.setErrno(0);
         baseReqVo.setErrmsg("成功");
         return baseReqVo;
     }

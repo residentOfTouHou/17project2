@@ -65,4 +65,15 @@ public class CouponServiceImpl implements CouponService{
         int id = coupon.getId();
         couponMapper.deleteCoupon(id);
     }
+
+    @Override
+    public Coupon createCoupon(Coupon coupon) {
+        int flag = couponMapper.createCoupon(coupon);
+        int id = coupon.getId();
+        Coupon insertedCoupon = null;
+        if(flag == 1){
+            insertedCoupon = couponMapper.queryCouponById(id);
+        }
+        return  insertedCoupon;
+    }
 }

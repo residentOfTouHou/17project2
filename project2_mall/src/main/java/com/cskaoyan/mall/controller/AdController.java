@@ -27,14 +27,10 @@ public class AdController {
         PageInfo<Ad> adPageInfo = new PageInfo<>(ads);
         long total = adPageInfo.getTotal();
 
-        BaseReqVo baseReqVo = new BaseReqVo();
-        baseReqVo.setErrno(0);
         Map<String,Object> adsMap = new HashMap<>();
         adsMap.put("total",total);
         adsMap.put("items",ads);
-        baseReqVo.setData(adsMap);
-        baseReqVo.setErrmsg("成功");
-        return baseReqVo;
+        return new BaseReqVo(adsMap,"成功",0);
     }
 
     @RequestMapping("delete")
@@ -42,22 +38,17 @@ public class AdController {
         int id = ad.getId();
         adService.deleteAd(id);
 
-        BaseReqVo baseReqVo = new BaseReqVo();
-        baseReqVo.setErrno(0);
-        baseReqVo.setErrmsg("成功");
-        return baseReqVo;
+        return new BaseReqVo("成功",0);
     }
 
     @RequestMapping("update")
     public BaseReqVo update(@RequestBody Ad ad){
-        BaseReqVo baseReqVo = new BaseReqVo();
+        BaseReqVo baseReqVo = null;
         int id = ad.getId();
         int flag = adService.updateAd(ad);
         if(flag == 1){
             Ad updatedAd = adService.queryAdById(id);
-            baseReqVo.setErrno(0);
-            baseReqVo.setData(updatedAd);
-            baseReqVo.setErrmsg("成功");
+            baseReqVo = new BaseReqVo(updatedAd,"成功",0);
         }
         return baseReqVo;
     }
@@ -66,5 +57,5 @@ public class AdController {
     public BaseReqVo create(){
         BaseReqVo baseReqVo = new BaseReqVo();
         return baseReqVo;
-    };
+    }
 }

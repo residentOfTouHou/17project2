@@ -16,4 +16,6 @@ public interface CouponService {
     Coupon updateCouponInfo(Coupon coupon);
 
     void deleteCoupon(Coupon coupon);
+
+    Coupon createCoupon(Coupon coupon);
 }

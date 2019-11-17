@@ -2,20 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="634fd974-0b04-44dd-807c-b81ece77f3bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../2019.11.16任务进度.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_47.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_generator_mybatis_generator_core_1_3_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_5_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/generator.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/bean/generator/Groupon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/bean/generator/GrouponRules.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/bean/generator/Topic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/controller/GrouponRulesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/controller/TopicController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/handler/String2DateHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/mapper/GrouponMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/mapper/GrouponRulesMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/mapper/TopicMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/service/GrouponRulesService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/service/GrouponRulesServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/service/TopicService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/service/TopicServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project2_mall/src/main/resources/com/cskaoyan/mall/mapper/GrouponMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project2_mall/src/main/resources/com/cskaoyan/mall/mapper/GrouponRulesMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project2_mall/src/main/resources/com/cskaoyan/mall/mapper/TopicMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/bean/generator/BaseReqVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/bean/generator/BaseReqVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/bean/generator/Coupon.java" beforeDir="false" afterPath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/bean/generator/Coupon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/controller/AdController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/controller/AdController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/controller/CouponController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/controller/CouponController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/mapper/CouponMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/mapper/CouponMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/service/CouponService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/service/CouponService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/service/CouponServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../project2_mall/src/main/java/com/cskaoyan/mall/service/CouponServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project2_mall/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../project2_mall/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project2_mall/src/main/resources/com/cskaoyan/mall/mapper/CouponMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../project2_mall/src/main/resources/com/cskaoyan/mall/mapper/CouponMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project2_mall/src/main/resources/db.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project2_mall/src/main/resources/log4j.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project2_mall/src/test/java/com/cskaoyan/ProjectMallZhcApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../project2_mall/src/test/java/com/cskaoyan/ProjectMallApplicationTests.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,58 +43,91 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/mapper/AdMapper.java">
+        <entry file="file://$PROJECT_DIR$/resources/com/cskaoyan/mall/mapper/CouponMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/bean/AdExample.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22069">
-              <caret line="927" column="36" selection-start-line="927" selection-start-column="36" selection-end-line="927" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="545">
+              <caret line="132" column="11" lean-forward="true" selection-start-line="132" selection-start-column="11" selection-end-line="132" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/mapper/CouponUserMapper.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/mapper/TopicMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-41">
+            <state relative-caret-position="-197">
               <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/bean/CouponUser.java">
+        <entry file="file://$PROJECT_DIR$/resources/com/cskaoyan/mall/mapper/TopicMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1066">
+            <state relative-caret-position="-4447">
+              <caret line="80" column="8" lean-forward="true" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/bean/Groupon.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-832">
               <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/mapper/CouponMapper.java">
+        <entry file="file://$PROJECT_DIR$/resources/com/cskaoyan/mall/mapper/GrouponMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="84" column="9" selection-start-line="84" selection-start-column="9" selection-end-line="84" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/com/cskaoyan/mall/mapper/GrouponRulesMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1467">
+              <caret line="278" column="11" lean-forward="true" selection-start-line="278" selection-start-column="11" selection-end-line="278" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/bean/GrouponRulesExample.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1846">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/bean/GrouponRules.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="26">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/mapper/UserFormidMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="104">
               <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/bean/Coupon.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/bean/Topic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="312">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
@@ -102,9 +151,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="141" />
-    <option name="y" value="88" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="157" />
+    <option name="y" value="121" />
     <option name="width" value="1620" />
     <option name="height" value="885" />
   </component>
@@ -114,12 +163,49 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="generator" type="b2602c69:ProjectViewProjectNode" />
               <item name="generator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="generator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="generator" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="generator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="generator" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="generator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="generator" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cskaoyan" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="generator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="generator" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cskaoyan" type="462c0819:PsiDirectoryNode" />
+              <item name="mall" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="generator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="generator" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="cskaoyan" type="462c0819:PsiDirectoryNode" />
+              <item name="mall" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="generator" type="b2602c69:ProjectViewProjectNode" />
@@ -192,15 +278,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573907163895" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../project2_mall" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573991078067" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -231,16 +315,18 @@
       <workItem from="1573819312476" duration="3791000" />
       <workItem from="1573830582075" duration="1212000" />
       <workItem from="1573865378344" duration="16073000" />
+      <workItem from="1573960305350" duration="6731000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21076000" />
+    <option name="totallyTimeSpent" value="27807000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="141" y="88" width="1620" height="885" extended-state="0" />
+    <frame x="157" y="121" width="1620" height="885" extended-state="1" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25641027" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2596154" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -275,20 +361,8 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/cskaoyan/mall/mytest/GeneratorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-182">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis.xml" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/cskaoyan/mall/mytest/GeneratorTest.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/bean/Admin.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
@@ -296,16 +370,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Generator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/mall/mapper/AddressMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Generator.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/mall/mapper/AddressMapper.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/bean/Ad.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-873">
@@ -320,9 +386,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/mall/mapper/AdminMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/mall/mapper/AdminMapper.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/bean/AddressExample.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
@@ -344,24 +408,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/mall/mapper/AdMapper.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/mall/mapper/UserMapper.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/mall/mapper/CouponMapper.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/mall/mapper/CouponUserMapper.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/mapper/AdMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
+        <state relative-caret-position="390">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/mall/mapper/AdMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/mapper/CouponUserMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="86" column="20" lean-forward="true" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="20" />
+        <state relative-caret-position="104">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/mall/mapper/UserMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/bean/CouponUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="20" selection-end-column="14" />
+        <state relative-caret-position="104">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -372,6 +440,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/bean/AdExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6121">
+          <caret line="927" column="36" selection-start-line="927" selection-start-column="36" selection-end-line="927" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/mapper/CouponMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="26">
@@ -379,41 +457,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/mapper/CouponUserMapper.java">
+    <entry file="file://$PROJECT_DIR$/resources/com/cskaoyan/mall/mapper/CouponMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-41">
+        <state relative-caret-position="545">
+          <caret line="132" column="11" lean-forward="true" selection-start-line="132" selection-start-column="11" selection-end-line="132" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/bean/Topic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/mapper/UserFormidMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
           <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/bean/CouponUser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/mapper/TopicMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1066">
+        <state relative-caret-position="-197">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/com/cskaoyan/mall/mapper/TopicMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4447">
+          <caret line="80" column="8" lean-forward="true" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/bean/Groupon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-832">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/mall/mapper/CouponMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1794">
-          <caret line="93" column="9" lean-forward="true" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cskaoyan/mall/mapper/CouponUserMapper.xml">
+    <entry file="file://$PROJECT_DIR$/resources/com/cskaoyan/mall/mapper/GrouponMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
-          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+          <caret line="84" column="9" selection-start-line="84" selection-start-column="9" selection-end-line="84" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/bean/AdExample.java">
+    <entry file="file://$PROJECT_DIR$/resources/com/cskaoyan/mall/mapper/GrouponRulesMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22069">
-          <caret line="927" column="36" selection-start-line="927" selection-start-column="36" selection-end-line="927" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="1467">
+          <caret line="278" column="11" lean-forward="true" selection-start-line="278" selection-start-column="11" selection-end-line="278" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/bean/GrouponRulesExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1846">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cskaoyan/mall/bean/GrouponRules.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>

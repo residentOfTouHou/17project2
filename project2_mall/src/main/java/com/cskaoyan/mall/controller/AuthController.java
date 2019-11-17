@@ -15,16 +15,11 @@ public class AuthController {
 
     @RequestMapping("login")
     public BaseReqVo login(@RequestBody LoginVo loginVo) {
-        BaseReqVo baseReqVo = new BaseReqVo();
 
-        baseReqVo.setData("4b7d719e-53b7-4019-9677-6309b2445b45");
-        baseReqVo.setErrmsg("成功");
-        baseReqVo.setErrno(0);
-        return baseReqVo;
+        return new BaseReqVo("4b7d719e-53b7-4019-9677-6309b2445b45","成功",0);
     }
     @RequestMapping("info")
     public BaseReqVo info(String token){
-        BaseReqVo baseReqVo = new BaseReqVo();
         InfoData data = new InfoData();
         data.setAvatar("https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif");
         data.setName("skrskr");
@@ -35,11 +30,6 @@ public class AuthController {
         roles.add("超级管理员");
         data.setRoles(roles);
 
-        baseReqVo.setData(data);
-        baseReqVo.setErrmsg("成功");
-        baseReqVo.setErrno(0);
-
-
-        return baseReqVo;
+        return new BaseReqVo(data,"成功",0);
     }
 }

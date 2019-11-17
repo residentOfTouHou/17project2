@@ -45,6 +45,23 @@
     `code`, time_type, days, start_time, end_time, add_time, update_time, deleted
   </sql>
 
+    <insert id="createCoupon" useGeneratedKeys="true" keyProperty="coupon.id">
+        insert into cskaoyan_mall_coupon (`name`, `desc`,
+      tag, total, discount,
+      `min`, `limit`, `type`,
+      status, goods_type, goods_value,
+      code, time_type, days,
+      start_time, end_time, add_time,
+      update_time, deleted)
+    values (#{coupon.name,jdbcType=VARCHAR}, #{coupon.desc,jdbcType=VARCHAR},
+      #{coupon.tag,jdbcType=VARCHAR}, #{coupon.total,jdbcType=INTEGER}, #{coupon.discount,jdbcType=DECIMAL},
+      #{coupon.min,jdbcType=DECIMAL}, #{coupon.limit,jdbcType=SMALLINT}, #{coupon.type,jdbcType=SMALLINT},
+      #{coupon.status,jdbcType=SMALLINT}, #{coupon.goodsType,jdbcType=SMALLINT}, #{coupon.goodsValue,jdbcType=VARCHAR},
+      #{coupon.code,jdbcType=VARCHAR}, #{coupon.timeType,jdbcType=SMALLINT}, #{coupon.days,jdbcType=SMALLINT},
+      #{coupon.startTime,jdbcType=TIMESTAMP}, #{coupon.endTime,jdbcType=TIMESTAMP}, #{coupon.addTime,jdbcType=TIMESTAMP},
+      #{coupon.updateTime,jdbcType=TIMESTAMP}, #{coupon.deleted,jdbcType=BIT})
+    </insert>
+
     <select id="queryCouponList" parameterType="com.cskaoyan.mall.bean.generator.Coupon" resultMap="couponMap">
         select <include refid="Base_Column_List"/>
         from cskaoyan_mall_coupon cp
