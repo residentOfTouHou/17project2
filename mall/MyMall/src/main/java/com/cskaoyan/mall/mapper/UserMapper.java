@@ -4,6 +4,7 @@ import com.cskaoyan.mall.bean.generator.User;
 import com.cskaoyan.mall.bean.generator.UserExample;
 import java.util.List;
 
+import com.cskaoyan.mall.bean.jsonbean.StatUser;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 @Mapper
@@ -31,4 +32,6 @@ public interface UserMapper {
     int updateByPrimaryKey(User record);
 
     List<User> selectAll();
+
+    List<StatUser> selectCountsUser();
 }
