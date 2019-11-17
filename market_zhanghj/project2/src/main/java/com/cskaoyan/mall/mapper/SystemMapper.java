@@ -27,6 +27,4 @@ public interface SystemMapper {
     int updateByPrimaryKeySelective(System record);
 
     int updateByPrimaryKey(System record);
-
-    int updateKeyValueByKeyName(String key_name, String key_value , String update_time);
 }

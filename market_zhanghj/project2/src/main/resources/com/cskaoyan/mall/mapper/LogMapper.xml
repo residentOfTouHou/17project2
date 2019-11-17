@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cskaoyan.mall.mapper.SystemMapper">
-  <resultMap id="BaseResultMap" type="com.cskaoyan.mall.bean.generator.System">
+<mapper namespace="com.cskaoyan.mall.mapper.LogMapper">
+  <resultMap id="BaseResultMap" type="com.cskaoyan.mall.bean.generator.Log">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="key_name" jdbcType="VARCHAR" property="keyName" />
-    <result column="key_value" jdbcType="VARCHAR" property="keyValue" />
+    <result column="admin" jdbcType="VARCHAR" property="admin" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="action" jdbcType="VARCHAR" property="action" />
+    <result column="status" jdbcType="BIT" property="status" />
+    <result column="result" jdbcType="VARCHAR" property="result" />
+    <result column="comment" jdbcType="VARCHAR" property="comment" />
     <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
@@ -68,15 +73,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, key_name, key_value, add_time, update_time, deleted
+    id, admin, ip, type, action, status, result, comment, add_time, update_time, deleted
   </sql>
-  <select id="selectByExample" parameterType="com.cskaoyan.mall.bean.generator.SystemExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.cskaoyan.mall.bean.generator.LogExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from cskaoyan_mall_system
+    from cskaoyan_mall_log
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -87,38 +92,55 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from cskaoyan_mall_system
+    from cskaoyan_mall_log
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from cskaoyan_mall_system
+    delete from cskaoyan_mall_log
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.cskaoyan.mall.bean.generator.SystemExample">
-    delete from cskaoyan_mall_system
+  <delete id="deleteByExample" parameterType="com.cskaoyan.mall.bean.generator.LogExample">
+    delete from cskaoyan_mall_log
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.cskaoyan.mall.bean.generator.System">
-    insert into cskaoyan_mall_system (id, key_name, key_value, 
-      add_time, update_time, deleted
-      )
-    values (#{id,jdbcType=INTEGER}, #{keyName,jdbcType=VARCHAR}, #{keyValue,jdbcType=VARCHAR}, 
-      #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}
-      )
+  <insert id="insert" parameterType="com.cskaoyan.mall.bean.generator.Log">
+    insert into cskaoyan_mall_log (id, admin, ip, 
+      type, action, status, result, 
+      comment, add_time, update_time, 
+      deleted)
+    values (#{id,jdbcType=INTEGER}, #{admin,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, 
+      #{type,jdbcType=INTEGER}, #{action,jdbcType=VARCHAR}, #{status,jdbcType=BIT}, #{result,jdbcType=VARCHAR}, 
+      #{comment,jdbcType=VARCHAR}, #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{deleted,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.cskaoyan.mall.bean.generator.System">
-    insert into cskaoyan_mall_system
+  <insert id="insertSelective" parameterType="com.cskaoyan.mall.bean.generator.Log">
+    insert into cskaoyan_mall_log
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
-      <if test="keyName != null">
-        key_name,
+      <if test="admin != null">
+        admin,
       </if>
-      <if test="keyValue != null">
-        key_value,
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="action != null">
+        action,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="result != null">
+        result,
+      </if>
+      <if test="comment != null">
+        comment,
       </if>
       <if test="addTime != null">
         add_time,
@@ -134,11 +156,26 @@
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="keyName != null">
-        #{keyName,jdbcType=VARCHAR},
+      <if test="admin != null">
+        #{admin,jdbcType=VARCHAR},
       </if>
-      <if test="keyValue != null">
-        #{keyValue,jdbcType=VARCHAR},
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="action != null">
+        #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BIT},
+      </if>
+      <if test="result != null">
+        #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null">
+        #{comment,jdbcType=VARCHAR},
       </if>
       <if test="addTime != null">
         #{addTime,jdbcType=TIMESTAMP},
@@ -151,23 +188,38 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cskaoyan.mall.bean.generator.SystemExample" resultType="java.lang.Long">
-    select count(*) from cskaoyan_mall_system
+  <select id="countByExample" parameterType="com.cskaoyan.mall.bean.generator.LogExample" resultType="java.lang.Long">
+    select count(*) from cskaoyan_mall_log
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update cskaoyan_mall_system
+    update cskaoyan_mall_log
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.keyName != null">
-        key_name = #{record.keyName,jdbcType=VARCHAR},
+      <if test="record.admin != null">
+        admin = #{record.admin,jdbcType=VARCHAR},
       </if>
-      <if test="record.keyValue != null">
-        key_value = #{record.keyValue,jdbcType=VARCHAR},
+      <if test="record.ip != null">
+        ip = #{record.ip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null">
+        type = #{record.type,jdbcType=INTEGER},
+      </if>
+      <if test="record.action != null">
+        action = #{record.action,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=BIT},
+      </if>
+      <if test="record.result != null">
+        result = #{record.result,jdbcType=VARCHAR},
+      </if>
+      <if test="record.comment != null">
+        comment = #{record.comment,jdbcType=VARCHAR},
       </if>
       <if test="record.addTime != null">
         add_time = #{record.addTime,jdbcType=TIMESTAMP},
@@ -184,10 +236,15 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update cskaoyan_mall_system
+    update cskaoyan_mall_log
     set id = #{record.id,jdbcType=INTEGER},
-      key_name = #{record.keyName,jdbcType=VARCHAR},
-      key_value = #{record.keyValue,jdbcType=VARCHAR},
+      admin = #{record.admin,jdbcType=VARCHAR},
+      ip = #{record.ip,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=INTEGER},
+      action = #{record.action,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=BIT},
+      result = #{record.result,jdbcType=VARCHAR},
+      comment = #{record.comment,jdbcType=VARCHAR},
       add_time = #{record.addTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       deleted = #{record.deleted,jdbcType=BIT}
@@ -195,14 +252,29 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cskaoyan.mall.bean.generator.System">
-    update cskaoyan_mall_system
+  <update id="updateByPrimaryKeySelective" parameterType="com.cskaoyan.mall.bean.generator.Log">
+    update cskaoyan_mall_log
     <set>
-      <if test="keyName != null">
-        key_name = #{keyName,jdbcType=VARCHAR},
+      <if test="admin != null">
+        admin = #{admin,jdbcType=VARCHAR},
       </if>
-      <if test="keyValue != null">
-        key_value = #{keyValue,jdbcType=VARCHAR},
+      <if test="ip != null">
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="action != null">
+        action = #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=BIT},
+      </if>
+      <if test="result != null">
+        result = #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null">
+        comment = #{comment,jdbcType=VARCHAR},
       </if>
       <if test="addTime != null">
         add_time = #{addTime,jdbcType=TIMESTAMP},
@@ -216,19 +288,18 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cskaoyan.mall.bean.generator.System">
-    update cskaoyan_mall_system
-    set key_name = #{keyName,jdbcType=VARCHAR},
-      key_value = #{keyValue,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="com.cskaoyan.mall.bean.generator.Log">
+    update cskaoyan_mall_log
+    set admin = #{admin,jdbcType=VARCHAR},
+      ip = #{ip,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      action = #{action,jdbcType=VARCHAR},
+      status = #{status,jdbcType=BIT},
+      result = #{result,jdbcType=VARCHAR},
+      comment = #{comment,jdbcType=VARCHAR},
       add_time = #{addTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
-    <update id="updateKeyValueByKeyName">
-      update cskaoyan_mall_system
-      set key_value = #{param2},
-      update_time = #{param3}
-      where key_name = #{param1}
-    </update>
 </mapper>
