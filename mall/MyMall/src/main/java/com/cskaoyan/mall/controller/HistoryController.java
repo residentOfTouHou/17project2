@@ -5,7 +5,7 @@ import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
 import com.cskaoyan.mall.bean.jsonbean.HistoryData;
 import com.cskaoyan.mall.bean.jsonbean.PageSplit;
 import com.cskaoyan.mall.service.HistoryService;
-import com.cskaoyan.mall.utils.StringUtils;
+import com.cskaoyan.mall.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,7 +24,7 @@ public class HistoryController {
         BaseReqVo baseReqVo = new BaseReqVo();
         Integer userId = pageSplit.getUserId();
         String keyword = pageSplit.getKeyword();
-        if (userId==null && StringUtils.isBlank(keyword)){
+        if (userId==null && StringUtil.isBlank(keyword)){
             Map<String, Object> allHistory= historyService.findAll(pageSplit);
             Long total = (Long) allHistory.get("total");
             List<SearchHistory> items = (List<SearchHistory>) allHistory.get("searchHistories");

@@ -2,13 +2,10 @@ package com.cskaoyan.mall.service.impl;
 
 import com.cskaoyan.mall.bean.generator.Feedback;
 import com.cskaoyan.mall.bean.generator.FeedbackExample;
-import com.cskaoyan.mall.bean.generator.SearchHistory;
-import com.cskaoyan.mall.bean.generator.SearchHistoryExample;
 import com.cskaoyan.mall.bean.jsonbean.PageSplit;
 import com.cskaoyan.mall.mapper.FeedbackMapper;
 import com.cskaoyan.mall.service.FeedbackService;
-import com.cskaoyan.mall.service.HistoryService;
-import com.cskaoyan.mall.utils.StringUtils;
+import com.cskaoyan.mall.utils.StringUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +51,7 @@ public class FeedbackServiceImpl implements FeedbackService {
         FeedbackExample feedbackExample = new FeedbackExample();
 
         FeedbackExample.Criteria criteria = feedbackExample.createCriteria();
-        if(!StringUtils.isBlank(username)){
+        if(!StringUtil.isBlank(username)){
             criteria.andUsernameLike("%" +username + "%");
         }
         if (id!=null){

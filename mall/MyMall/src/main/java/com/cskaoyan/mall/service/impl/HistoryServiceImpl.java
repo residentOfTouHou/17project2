@@ -5,7 +5,7 @@ import com.cskaoyan.mall.bean.generator.SearchHistoryExample;
 import com.cskaoyan.mall.bean.jsonbean.PageSplit;
 import com.cskaoyan.mall.mapper.SearchHistoryMapper;
 import com.cskaoyan.mall.service.HistoryService;
-import com.cskaoyan.mall.utils.StringUtils;
+import com.cskaoyan.mall.utils.StringUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +49,7 @@ public class HistoryServiceImpl implements HistoryService {
         SearchHistoryExample searchHistoryExample = new SearchHistoryExample();
 
         SearchHistoryExample.Criteria criteria = searchHistoryExample.createCriteria();
-        if(!StringUtils.isBlank(keyword)){
+        if(!StringUtil.isBlank(keyword)){
             criteria.andKeywordLike("%" +keyword + "%");
         }
         if (userId!=null){

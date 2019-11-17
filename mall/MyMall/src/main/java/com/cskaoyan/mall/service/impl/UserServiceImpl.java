@@ -5,10 +5,9 @@ import com.cskaoyan.mall.bean.generator.UserExample;
 import com.cskaoyan.mall.bean.jsonbean.PageSplit;
 import com.cskaoyan.mall.mapper.UserMapper;
 import com.cskaoyan.mall.service.UserService;
-import com.cskaoyan.mall.utils.StringUtils;
+import com.cskaoyan.mall.utils.StringUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.github.pagehelper.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,10 +42,10 @@ public class UserServiceImpl implements UserService {
 //        升序降序
         userExample.setOrderByClause(pageSplit.getSort() + " " + pageSplit.getOrder());
         UserExample.Criteria criteria = userExample.createCriteria();
-        if(!StringUtils.isBlank(username)){
+        if(!StringUtil.isBlank(username)){
             criteria.andUsernameLike("%" +username +"%");
         }
-        if (!StringUtil.isEmpty(mobile)){
+        if (!com.github.pagehelper.util.StringUtil.isEmpty(mobile)){
             criteria.andMobileEqualTo(mobile);
         }
         List<User> users = userMapper.selectByExample(userExample);

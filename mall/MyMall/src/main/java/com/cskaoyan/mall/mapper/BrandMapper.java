@@ -27,4 +27,8 @@ public interface BrandMapper {
     int updateByPrimaryKeySelective(Brand record);
 
     int updateByPrimaryKey(Brand record);
+
+    int insertBrand(@Param("brand") Brand brand, @Param("date") String date);
+
+    Integer getLastInsertId();
 }

@@ -3,6 +3,8 @@ package com.cskaoyan.mall.mapper;
 import com.cskaoyan.mall.bean.generator.Category;
 import com.cskaoyan.mall.bean.generator.CategoryExample;
 import java.util.List;
+
+import com.cskaoyan.mall.bean.jsonbean.CategorySegment;
 import org.apache.ibatis.annotations.Param;
 
 public interface CategoryMapper {
@@ -27,4 +29,8 @@ public interface CategoryMapper {
     int updateByPrimaryKeySelective(Category record);
 
     int updateByPrimaryKey(Category record);
+
+    List<CategorySegment> selectAllCategory();
+
+    int getLastInsertId();
 }

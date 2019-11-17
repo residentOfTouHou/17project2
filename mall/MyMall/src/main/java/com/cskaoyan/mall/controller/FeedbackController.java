@@ -1,14 +1,11 @@
 package com.cskaoyan.mall.controller;
 
 import com.cskaoyan.mall.bean.generator.Feedback;
-import com.cskaoyan.mall.bean.generator.SearchHistory;
 import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
 import com.cskaoyan.mall.bean.jsonbean.FeedbackData;
-import com.cskaoyan.mall.bean.jsonbean.HistoryData;
 import com.cskaoyan.mall.bean.jsonbean.PageSplit;
 import com.cskaoyan.mall.service.FeedbackService;
-import com.cskaoyan.mall.service.HistoryService;
-import com.cskaoyan.mall.utils.StringUtils;
+import com.cskaoyan.mall.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,7 +24,7 @@ public class FeedbackController {
         BaseReqVo baseReqVo = new BaseReqVo();
         Integer id = pageSplit.getId();
         String username = pageSplit.getUsername();
-        if (id==null && StringUtils.isBlank(username)){
+        if (id==null && StringUtil.isBlank(username)){
             Map<String, Object> allFeedback = feedbackService.findAll(pageSplit);
             Long total = (Long) allFeedback.get("total");
             List<Feedback> items = (List<Feedback>) allFeedback.get("feedbacks");

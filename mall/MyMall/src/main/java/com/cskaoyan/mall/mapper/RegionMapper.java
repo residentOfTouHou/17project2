@@ -4,9 +4,9 @@ import com.cskaoyan.mall.bean.generator.Region;
 import com.cskaoyan.mall.bean.generator.RegionExample;
 import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
+import com.cskaoyan.mall.bean.jsonbean.RegionSegment;
 import org.apache.ibatis.annotations.Param;
-@Mapper
+
 public interface RegionMapper {
     long countByExample(RegionExample example);
 
@@ -22,10 +22,6 @@ public interface RegionMapper {
 
     Region selectByPrimaryKey(Integer id);
 
-    Region selectByPid(Integer pid);
-
-
-
     int updateByExampleSelective(@Param("record") Region record, @Param("example") RegionExample example);
 
     int updateByExample(@Param("record") Region record, @Param("example") RegionExample example);
@@ -33,4 +29,9 @@ public interface RegionMapper {
     int updateByPrimaryKeySelective(Region record);
 
     int updateByPrimaryKey(Region record);
+
+    //List<RegionSegment> queryLevelRegion();
+
+    List<RegionSegment> queryLevelTwoRegion(@Param("type") int i, @Param("code") Integer code);
+
 }

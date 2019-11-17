@@ -148,12 +148,6 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <select id="selectByPid" resultType="com.cskaoyan.mall.bean.generator.Region">
-  select
-  <include refid="Base_Column_List" />
-  from cskaoyan_mall_region
-  where pid = #{pid,jdbcType=INTEGER}
-  </select>
   <update id="updateByExampleSelective" parameterType="map">
     update cskaoyan_mall_region
     <set>
@@ -214,4 +208,43 @@
       code = #{code,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+<!--失败的三连环查询  结果变成循环嵌套 StackOverFlow-->
+<!--  <resultMap id="regionMap" type="com.cskaoyan.mall.bean.jsonbean.RegionSegment">-->
+<!--    <result column="id" property="id"/>-->
+<!--    <result column="name" property="name"/>-->
+<!--    <result column="type" property="type"/>-->
+<!--    <result column="code" property="code"/>-->
+<!--    <collection property="children" column="code" select="com.cskaoyan.mall.mapper.RegionMapper.queryLevelTwoRegion"/>-->
+<!--  </resultMap>-->
+<!--  <select id="queryLevelRegion" resultMap="regionMap">-->
+<!--    select id,`name`,`type`,code from cskaoyan_mall_region where type = 1-->
+<!--  </select>-->
+<!--  <resultMap id="regionMap2" type="com.cskaoyan.mall.bean.jsonbean.RegionSegment">-->
+<!--    <result column="id" property="id"/>-->
+<!--    <result column="name" property="name"/>-->
+<!--    <result column="type" property="type"/>-->
+<!--    <result column="code" property="code"/>-->
+<!--    <collection property="children" column="code" select="com.cskaoyan.mall.mapper.RegionMapper.queryLevelThreeRegion"/>-->
+<!--  </resultMap>-->
+<!--  <select id="queryLevelTwoRegion" resultMap="regionMap2">-->
+<!--    select id,`name`,`type`,code from cskaoyan_mall_region where type = 2 and code like concat(#{code},'%')-->
+<!--  </select>-->
+<!--  <select id="queryLevelThreeRegion" resultMap="regionMap2">-->
+<!--    select id,`name`,`type`,code from cskaoyan_mall_region where type = 3 and code like concat(#{code},'%')-->
+<!--  </select>-->
+<!--连环查询-->
+  <resultMap id="regionMap" type="com.cskaoyan.mall.bean.jsonbean.RegionSegment">
+    <result column="id" property="id"/>
+    <result column="name" property="name"/>
+    <result column="type" property="type"/>
+    <result column="code" property="code"/>
+    <collection property="children" column="code" select="com.cskaoyan.mall.mapper.RegionMapper.queryLevelThreeRegion"/>
+  </resultMap>
+  <select id="queryLevelTwoRegion" resultMap="regionMap">
+    select id,`name`,`type`,code from cskaoyan_mall_region where type = #{type} and code like concat(#{code},'%');
+  </select>
+  <select id="queryLevelThreeRegion" resultMap="BaseResultMap">
+    select id,`name`,`type`,code from cskaoyan_mall_region where type = 3 and code like concat(#{code},'%')
+  </select>
 </mapper>

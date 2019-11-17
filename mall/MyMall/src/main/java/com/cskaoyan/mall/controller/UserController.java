@@ -5,7 +5,7 @@ import com.cskaoyan.mall.bean.jsonbean.AllUserData;
 import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
 import com.cskaoyan.mall.bean.jsonbean.PageSplit;
 import com.cskaoyan.mall.service.UserService;
-import com.cskaoyan.mall.utils.StringUtils;
+import com.cskaoyan.mall.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,7 +25,7 @@ public class UserController {
         BaseReqVo baseReqVo = new BaseReqVo();
         String username = pageSplit.getUsername();
         String mobile = pageSplit.getMobile();
-        if (StringUtils.isBlank(username)&&StringUtils.isBlank(mobile)){
+        if (StringUtil.isBlank(username)&& StringUtil.isBlank(mobile)){
             Map<String, Object> allUser = userService.findAllUser(pageSplit);
             Long total = (Long) allUser.get("total");
             List<User> items = (List<User>) allUser.get("users");

@@ -8,7 +8,7 @@ import com.cskaoyan.mall.bean.jsonbean.PageSplit;
 import com.cskaoyan.mall.mapper.AddressMapper;
 import com.cskaoyan.mall.mapper.RegionMapper;
 import com.cskaoyan.mall.service.AddressService;
-import com.cskaoyan.mall.utils.StringUtils;
+import com.cskaoyan.mall.utils.StringUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,7 +90,7 @@ public class AddressServiceImpl implements AddressService {
         if (userId != null) {
             criteria.andUserIdEqualTo(userId);
         }
-        if (!StringUtils.isBlank(name)) {
+        if (!StringUtil.isBlank(name)) {
             criteria.andNameLike("%" + name + "%");
         }
 

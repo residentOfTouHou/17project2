@@ -5,7 +5,7 @@ import com.cskaoyan.mall.bean.jsonbean.AllAddressData;
 import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
 import com.cskaoyan.mall.bean.jsonbean.PageSplit;
 import com.cskaoyan.mall.service.AddressService;
-import com.cskaoyan.mall.utils.StringUtils;
+import com.cskaoyan.mall.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,7 +24,7 @@ public class AddressController {
         BaseReqVo baseReqVo = new BaseReqVo();
         String name = pageSplit.getName();
         Integer userId = pageSplit.getUserId();
-        if (StringUtils.isBlank(name) && userId ==null) {
+        if (StringUtil.isBlank(name) && userId ==null) {
             Map<String, Object> addressServiceAll = addressService.findAll(pageSplit);
             Long total = (Long) addressServiceAll.get("total");
             List<Address> items = (List<Address>) addressServiceAll.get("addresses");

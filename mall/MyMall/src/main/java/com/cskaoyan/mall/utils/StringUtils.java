@@ -1,16 +1,17 @@
 package com.cskaoyan.mall.utils;
 
+/**
+ * Created by IntelliJ IDEA
+ *
+ * @author zhanghj
+ * @date 2019/11/15
+ * @time 23:27
+ */
 public class StringUtils {
-    //判断字符串非空（2个条件）：
-    //1.引用非空-null
-    //2.非空字符串-" "
-    public static boolean hasLength(String str){
-        return str!=null && !"".equals(str.trim());
+    public static boolean isEmpty(String s){
+        if(s==null||s.trim()==""){
+            return true;
+        }
+        return false;
     }
-    //判断字符串为空
-    public static boolean isBlank(String str){
-        return !hasLength(str);
-    }
-
-
 }

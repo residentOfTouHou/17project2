@@ -2,8 +2,9 @@ package com.cskaoyan.mall.mapper;
 
 import com.cskaoyan.mall.bean.generator.Ad;
 import com.cskaoyan.mall.bean.generator.AdExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface AdMapper {
     long countByExample(AdExample example);
@@ -27,4 +28,15 @@ public interface AdMapper {
     int updateByPrimaryKeySelective(Ad record);
 
     int updateByPrimaryKey(Ad record);
+
+    List<Ad> queryAd(@Param("sort") String sort,
+                    @Param("order") String order,
+                    @Param("adName") String name,
+                    @Param("adContent") String content);
+
+    void deleteAdById(@Param("adId") Integer id);
+
+    int updateAd(@Param("ad") Ad ad);
+
+    Ad queryUpdatedAd(@Param("updatedId") Integer id);
 }
