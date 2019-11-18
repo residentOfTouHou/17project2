@@ -540,4 +540,14 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <!--统计模块 订单统计-->
+  <select id="selectCountsOrder" resultType="com.cskaoyan.mall.bean.jsonbean.StatOrder">
+        select sum(goods_price + freight_price - coupon_price) as amount,
+               count(id) as orders,
+               count(user_id) as customers,
+               add_time as day,
+               sum(goods_price + freight_price - coupon_price)/count(user_id) as pcr
+        from cskaoyan_mall_order
+        group by add_time
+    </select>
 </mapper>

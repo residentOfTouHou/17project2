@@ -350,4 +350,13 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <!--统计模块 商品统计-->
+  <select id="selectStatGoods" resultType="com.cskaoyan.mall.bean.jsonbean.StatGoods">
+    select sum(price*number) as amount,
+           count(order_id) as orders,
+           add_time as day,
+           sum(number) as products
+    from cskaoyan_mall_order_goods
+    group by add_time
+  </select>
 </mapper>

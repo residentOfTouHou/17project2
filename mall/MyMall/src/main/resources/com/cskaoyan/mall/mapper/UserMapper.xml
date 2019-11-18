@@ -400,9 +400,17 @@
     avatar,
     weixin_openid,
     status,
-     add_time,
+    add_time,
     update_time,
     deleted
     from cskaoyan_mall_user
+    <!--统计模块 用户统计-->
   </select>
+    <select id="selectCountsUser" resultType="com.cskaoyan.mall.bean.jsonbean.StatUser">
+        select
+        add_time day,
+        count(id) users
+        from cskaoyan_mall_user
+        group by add_time
+    </select>
 </mapper>
