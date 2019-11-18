@@ -2,321 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fbe1cf9a-8f0d-42d4-ba5b-ec317504c218" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/jsonbean/AllAddressData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/jsonbean/CategoryL1Segment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/jsonbean/CategorySegment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/jsonbean/CollectData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/jsonbean/FeedbackData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/jsonbean/FootprintData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/jsonbean/HistoryData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/AdController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/AddressController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/CollectController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/CouponController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/FeedbackController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/FootprintController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/HistoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/MarketController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/AdService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/AddressService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/CollectService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/CouponService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/FeedbackService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/FootprintService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/HistoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/MarketService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/impl/AdServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/impl/AddressServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/impl/CollectServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/impl/CouponServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/impl/FeedbackServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/impl/FootprintServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/impl/HistoryServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/impl/MarketServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/utils/DateUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/utils/StringUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/Generator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/Ad.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/AdExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/Address.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/AddressExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/AdminExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/Brand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/BrandExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/Cart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/CartExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/CategoryExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/Collect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/CollectExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/Comment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/CommentExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/Coupon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/CouponExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/CouponUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/CouponUserExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/Feedback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/FeedbackExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/Footprint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/FootprintExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/Goods.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/GoodsAttribute.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/GoodsAttributeExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/GoodsExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/GoodsProduct.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/GoodsProductExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/GoodsSpecification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/GoodsSpecificationExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/Groupon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/GrouponExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/GrouponRules.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/GrouponRulesExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/Issue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/IssueExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/Keyword.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/KeywordExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/Log.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/LogExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/OrderExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/OrderGoods.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/OrderGoodsExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/Permission.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/PermissionExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/Region.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/RegionExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/RoleExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/SearchHistory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/SearchHistoryExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/Storage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/StorageExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/System.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/SystemExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/Topic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/TopicExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/UserExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/UserFormid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/generator/UserFormidExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/jsonbean/BaseReqVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/jsonbean/CategoryL1Segment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/jsonbean/CategorySegment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/jsonbean/InfoData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/jsonbean/LoginVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/bean/jsonbean/RegionSegment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/config/CorsConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/controller/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/controller/MarketController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/handler/String2ArrayTypeHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/AdMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/AddressMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/AdminMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/BrandMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/CartMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/CategoryMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/CollectMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/CommentMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/CouponMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/CouponUserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/FeedbackMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/FootprintMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/GoodsAttributeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/GoodsMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/GoodsProductMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/GoodsSpecificationMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/GrouponMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/GrouponRulesMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/IssueMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/KeywordMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/LogMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/OrderGoodsMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/OrderMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/PermissionMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/RoleMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/SearchHistoryMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/StorageMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/SystemMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/TopicMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/UserFormidMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/service/MarketService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/service/MarketServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/utils/DateUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/utils/StringUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/AdMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/AddressMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/AdminMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/BrandMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/CartMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/CategoryMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/CollectMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/CommentMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/CouponMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/CouponUserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/FeedbackMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/FootprintMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/GoodsAttributeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/GoodsMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/GoodsProductMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/GoodsSpecificationMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/GrouponMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/GrouponRulesMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/IssueMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/KeywordMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/LogMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/OrderGoodsMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/OrderMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/PermissionMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/RoleMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/SearchHistoryMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/StorageMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/SystemMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/TopicMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/UserFormidMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_10_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_10_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_10_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_10_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_10_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_10_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_4_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_3_4_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_activation_jakarta_activation_api_1_2_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_2_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_2_3_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_47.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_10_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_10_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_12_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_12_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_27.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_27.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_27.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_13_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_2_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_0_18_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_1_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_5_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_5_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_5_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_5_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_5_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_5_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_3_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_3_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_generator_mybatis_generator_core_1_3_7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_5_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_2_0_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_2_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_starter_2_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_29.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_29.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_validation_2_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_6_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_25.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mall.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Brand.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Brand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Collect.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Collect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Feedback.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Feedback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Footprint.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Footprint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Issue.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Issue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Keyword.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Keyword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/OrderGoods.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/OrderGoods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/generator/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/jsonbean/PageSplit.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/jsonbean/PageSplit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/AdMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/AdMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/AddressMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/AddressMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/BrandMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/BrandMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/CategoryMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/CollectMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/CollectMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/CouponMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/CouponMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/FeedbackMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/FeedbackMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/FootprintMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/FootprintMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/KeywordMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/KeywordMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/RegionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/RegionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/SearchHistoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/SearchHistoryMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/AdMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/AdMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/AddressMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/AddressMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/BrandMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/BrandMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/CategoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/CategoryMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/CouponMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/CouponMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/KeywordMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/KeywordMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/RegionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/RegionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/SearchHistoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/SearchHistoryMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../market_zhanghj/src/main/java/com/cskaoyan/mall/MallApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/MallApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../market_zhanghj/src/main/java/com/cskaoyan/mall/bean/jsonbean/RegionSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/jsonbean/RegionSegment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../market_zhanghj/src/main/java/com/cskaoyan/mall/controller/MarketController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../market_zhanghj/src/main/java/com/cskaoyan/mall/mapper/RegionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/java/com/cskaoyan/mall/mapper/RegionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../market_zhanghj/src/main/java/com/cskaoyan/mall/service/MarketService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../market_zhanghj/src/main/java/com/cskaoyan/mall/service/MarketServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../market_zhanghj/src/main/java/com/cskaoyan/mall/utils/StringUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/utils/StringUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../market_zhanghj/src/main/resources/com/cskaoyan/mall/mapper/RegionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/main/resources/com/cskaoyan/mall/mapper/RegionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../market_zhanghj/src/test/java/com/cskaoyan/mall/MallApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../market_zhanghj/project2/src/test/java/com/cskaoyan/mall/MallApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../market_zhanghj/行政区域功能 完成.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../market_zhanghj/行政区域_品牌_类目 完成.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/MyMall/target/" />
@@ -331,7 +17,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/StatController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1863">
+            <state relative-caret-position="610">
               <caret line="69" column="51" selection-start-line="69" selection-start-column="51" selection-end-line="69" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -343,7 +29,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/StatService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
+            <state relative-caret-position="390">
               <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -355,7 +41,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/impl/StatServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1377">
+            <state relative-caret-position="1326">
               <caret line="51" column="64" selection-start-line="51" selection-start-column="64" selection-end-line="51" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -367,7 +53,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/OrderGoodsMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="729">
+            <state relative-caret-position="702">
               <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
             </state>
           </provider>
@@ -376,7 +62,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/OrderGoodsMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9720">
+            <state relative-caret-position="9360">
               <caret line="360" column="11" selection-start-line="360" selection-start-column="11" selection-end-line="360" selection-end-column="11" />
             </state>
           </provider>
@@ -385,7 +71,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/UserMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11151">
+            <state relative-caret-position="10738">
               <caret line="413" column="8" selection-start-line="413" selection-start-column="8" selection-end-line="413" selection-end-column="25" />
             </state>
           </provider>
@@ -394,7 +80,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/OrderMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14796">
+            <state relative-caret-position="14248">
               <caret line="548" column="61" selection-start-line="548" selection-start-column="61" selection-end-line="548" selection-end-column="61" />
             </state>
           </provider>
@@ -403,7 +89,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/jsonbean/StatOrder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
+            <state relative-caret-position="234">
               <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -415,8 +101,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+            <state relative-caret-position="104">
+              <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -424,8 +110,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/Generator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+            <state relative-caret-position="390">
+              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -492,107 +178,21 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="localRepository" value="D:\maven\repository" />
-        <option name="mavenHome" value="D:/apache-maven-3.6.1" />
-        <option name="userSettingsFile" value="D:\apache-maven-3.6.1\conf\settings.xml" />
+        <option name="localRepository" value="F:\Program Files\maven\repository" />
+        <option name="mavenHome" value="F:/Program Files/maven/apache-maven-3.6.1" />
+        <option name="userSettingsFile" value="F:\Program Files\maven\apache-maven-3.6.1\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
-      <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="mall" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="mall" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="mall" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-          <item name="org.springframework.boot:spring-boot-starter-test:2.2.1.RELEASE" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="mall" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-          <item name="org.springframework.boot:spring-boot-starter-test:2.2.1.RELEASE" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
-          <item name="org.springframework.boot:spring-boot-test:2.2.1.RELEASE" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="mall" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-          <item name="org.springframework.boot:spring-boot-starter-test:2.2.1.RELEASE" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
-          <item name="org.springframework.boot:spring-boot-test-autoconfigure:2.2.1.RELEASE" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="mall" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-          <item name="org.springframework.boot:spring-boot-starter-test:2.2.1.RELEASE" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
-          <item name="com.jayway.jsonpath:json-path:2.4.0" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="mall" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-          <item name="org.springframework.boot:spring-boot-starter-test:2.2.1.RELEASE" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
-          <item name="jakarta.xml.bind:jakarta.xml.bind-api:2.3.2" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="mall" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-          <item name="org.springframework.boot:spring-boot-starter-test:2.2.1.RELEASE" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
-          <item name="org.junit.jupiter:junit-jupiter:5.5.2" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="mall" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-          <item name="org.springframework.boot:spring-boot-starter-test:2.2.1.RELEASE" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
-          <item name="org.mockito:mockito-junit-jupiter:3.1.0" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="mall" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-          <item name="org.springframework.boot:spring-boot-starter-test:2.2.1.RELEASE" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
-          <item name="org.mockito:mockito-core:3.1.0" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="mall" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-          <item name="org.springframework.boot:spring-boot-starter-test:2.2.1.RELEASE" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
-          <item name="org.skyscreamer:jsonassert:1.5.0" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="mall" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-          <item name="org.springframework.boot:spring-boot-starter-test:2.2.1.RELEASE" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
-          <item name="org.springframework:spring-core:5.2.1.RELEASE" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="mall" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-          <item name="org.springframework.boot:spring-boot-starter-test:2.2.1.RELEASE" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
-          <item name="org.springframework:spring-test:5.2.1.RELEASE" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
-        </path>
-      </expand>
+      <expand />
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-125" />
-    <option name="y" value="250" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="99" />
+    <option name="y" value="70" />
     <option name="width" value="1465" />
     <option name="height" value="845" />
   </component>
@@ -603,24 +203,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="mall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mall" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mall" type="462c0819:PsiDirectoryNode" />
-              <item name="MyMall" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -631,7 +216,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573998974569" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/MyMall" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
@@ -646,6 +231,11 @@
     </key>
   </component>
   <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
     <option name="ruleStates">
       <list>
         <RuleState>
@@ -710,16 +300,18 @@
       <workItem from="1573999146724" duration="139000" />
       <workItem from="1573999307126" duration="113000" />
       <workItem from="1574000110067" duration="128000" />
+      <workItem from="1574054662187" duration="114000" />
+      <workItem from="1574054807285" duration="11000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52941000" />
+    <option name="totallyTimeSpent" value="53066000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <frame x="99" y="70" width="1465" height="845" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26340482" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.36014235" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -744,10 +336,11 @@
       <window_info anchor="bottom" id="Version Control" order="13" />
       <window_info anchor="bottom" id="Flutter Performance" order="14" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="15" weight="0.32960895" />
+      <window_info anchor="bottom" id="Run Dashboard" order="16" weight="0.32911393" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24979724" />
-      <window_info anchor="right" id="Maven" order="3" weight="0.41443634" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.41423488" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Mybatis datasource" order="6" side_tool="true" />
@@ -914,13 +507,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.2.1.RELEASE/spring-web-5.2.1.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2403">
-          <caret line="107" selection-start-line="107" selection-end-line="107" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.2.1.RELEASE/spring-web-5.2.1.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class" />
     <entry file="file://$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/AddressMapper.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1126,9 +713,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/StatController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="610">
+          <caret line="69" column="51" selection-start-line="69" selection-start-column="51" selection-end-line="69" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/StatService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
+        <state relative-caret-position="390">
           <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1138,7 +735,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/service/impl/StatServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
+        <state relative-caret-position="1326">
           <caret line="51" column="64" selection-start-line="51" selection-start-column="64" selection-end-line="51" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1148,35 +745,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/mapper/OrderGoodsMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
+        <state relative-caret-position="702">
           <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/OrderGoodsMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9720">
+        <state relative-caret-position="9360">
           <caret line="360" column="11" selection-start-line="360" selection-start-column="11" selection-end-line="360" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/UserMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11151">
+        <state relative-caret-position="10738">
           <caret line="413" column="8" selection-start-line="413" selection-start-column="8" selection-end-line="413" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MyMall/src/main/resources/com/cskaoyan/mall/mapper/OrderMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14796">
+        <state relative-caret-position="14248">
           <caret line="548" column="61" selection-start-line="548" selection-start-column="61" selection-end-line="548" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/jsonbean/StatOrder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
+        <state relative-caret-position="234">
           <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1186,25 +783,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+        <state relative-caret-position="104">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/Generator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/StatController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1863">
-          <caret line="69" column="51" selection-start-line="69" selection-start-column="51" selection-end-line="69" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="390">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
         </state>
       </provider>
     </entry>

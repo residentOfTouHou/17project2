@@ -1,7 +1,9 @@
-package com.cskaoyan.mall.service;
+package com.cskaoyan.mall.service.popularizeModuleService;
 
 
-import com.cskaoyan.mall.bean.generator.Ad;
+
+
+import com.cskaoyan.mall.bean.generator.popularizeModule.Ad;
 
 import java.util.List;
 
