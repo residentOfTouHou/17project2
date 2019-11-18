@@ -20,7 +20,7 @@ public class MoneyUtils {
         try {
             if (object!=null) {
                 String s = object.toString();
-                Pattern compile = Pattern.compile("");
+                Pattern compile = Pattern.compile("^[+]?(([1-9]{1}\\d{0,7})|(0{1}))(\\.\\d{0,2})?$");
                 if(compile.matcher(s).matches()) {
                     flag = true;
                 }

@@ -218,7 +218,7 @@ public class MarketController {
         }
         if(result.get("err")!=null&&"noNumber".equals(result.get("err"))){
             baseReqVo.setErrno(512);
-            baseReqVo.setErrmsg("输入的参数格式有误,只能为数字,请重新输入！");
+            baseReqVo.setErrmsg("底价只能为数字，最多8位整数，最多两位小数！");
             return baseReqVo;
         }
         baseReqVo.setErrno(0);
@@ -263,6 +263,11 @@ public class MarketController {
     public BaseReqVo updateBrand(@RequestBody Brand brand){
         BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
         Brand result = marketService.updateBrand(brand);
+        if(result == null){
+            baseReqVo.setErrno(512);
+            baseReqVo.setErrmsg("底价只能为数字，最多8位整数，最多两位小数！");
+            return baseReqVo;
+        }
         baseReqVo.setErrno(0);
         baseReqVo.setData(result);
         baseReqVo.setErrmsg("成功");
