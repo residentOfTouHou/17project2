@@ -3,8 +3,10 @@ package com.cskaoyan.mall.mapper;
 import com.cskaoyan.mall.bean.generator.Collect;
 import com.cskaoyan.mall.bean.generator.CollectExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+@Mapper
 public interface CollectMapper {
     long countByExample(CollectExample example);
 

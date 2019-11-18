@@ -11,4 +11,20 @@ public class PageSplit {
     private String sort;
 
     private String order;
+
+    private String username;
+
+    private String mobile;
+
+    private Integer userId;
+
+    private String name;
+
+    private Integer valueId;
+
+    private Integer goodsId;
+
+    private String keyword;
+
+    private Integer id;
 }

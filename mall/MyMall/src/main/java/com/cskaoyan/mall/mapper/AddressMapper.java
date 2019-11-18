@@ -3,8 +3,10 @@ package com.cskaoyan.mall.mapper;
 import com.cskaoyan.mall.bean.generator.Address;
 import com.cskaoyan.mall.bean.generator.AddressExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+@Mapper
 public interface AddressMapper {
     long countByExample(AddressExample example);
 
@@ -27,4 +29,7 @@ public interface AddressMapper {
     int updateByPrimaryKeySelective(Address record);
 
     int updateByPrimaryKey(Address record);
+
+
+    List<Address> selectAddressBycondition(String name, Integer userId);
 }

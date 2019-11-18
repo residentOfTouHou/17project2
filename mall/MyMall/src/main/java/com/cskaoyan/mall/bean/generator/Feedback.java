@@ -1,5 +1,7 @@
 package com.cskaoyan.mall.bean.generator;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Feedback {
@@ -21,8 +23,10 @@ public class Feedback {
 
     private String picUrls;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date addTime;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 
     private Boolean deleted;
@@ -110,6 +114,7 @@ public class Feedback {
     public Date getUpdateTime() {
         return updateTime;
     }
+
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;

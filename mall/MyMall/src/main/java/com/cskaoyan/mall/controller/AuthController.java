@@ -13,7 +13,7 @@ import java.util.ArrayList;
 @RequestMapping("/admin/auth")
 public class AuthController {
 
-    @RequestMapping("login")
+    @RequestMapping("/login")
     public BaseReqVo login(@RequestBody LoginVo loginVo) {
         BaseReqVo baseReqVo = new BaseReqVo();
 
@@ -22,7 +22,7 @@ public class AuthController {
         baseReqVo.setErrno(0);
         return baseReqVo;
     }
-    @RequestMapping("info")
+    @RequestMapping("/info")
     public BaseReqVo info(String token){
         BaseReqVo baseReqVo = new BaseReqVo();
         InfoData data = new InfoData();

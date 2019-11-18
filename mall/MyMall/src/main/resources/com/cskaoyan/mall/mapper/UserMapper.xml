@@ -385,7 +385,7 @@
   </update>
 
   <!--查找所有用户-->
-  <select id="selectAll" resultType="com.cskaoyan.mall.bean.generator.User">
+  <select id="selectAll" resultMap="BaseResultMap">
     select
     id,
     username,
