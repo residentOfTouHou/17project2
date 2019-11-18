@@ -32,6 +32,6 @@ public interface RegionMapper {
 
     //List<RegionSegment> queryLevelRegion();
 
-    List<RegionSegment> queryLevelTwoRegion(@Param("type") int i, @Param("code") Integer code);
+    List<RegionSegment> queryLevelTwoRegion(@Param("type") int i, @Param("code") Integer code, @Param("code2Low") Integer i1, @Param("code2High") Integer i2);
 
 }

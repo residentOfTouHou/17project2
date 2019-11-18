@@ -116,7 +116,8 @@ public class MarketServiceImpl implements MarketService {
             regionSegment.setType(1);
 
             //查询 type=2 且 code前缀为当前code 的当前二级区域 依次查询三级区域
-            List<RegionSegment> regionSegmentsLevelTwo=regionMapper.queryLevelTwoRegion(2,regionLo.getCode());
+            List<RegionSegment> regionSegmentsLevelTwo=regionMapper.queryLevelTwoRegion(2,regionLo.getCode(),
+                    regionLo.getCode()*100, regionLo.getCode()*100+100);
             regionSegment.setChildren(regionSegmentsLevelTwo);
             regionSegments.add(regionSegment);
         }
