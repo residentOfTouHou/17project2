@@ -7,6 +7,20 @@ spring:
     username: root
     password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
+
+  thymeleaf: false
+
+  mvc:
+    static-path-pattern:/**
+
+  resources:
+    static-locations: classpath:/static/
+    cache:
+      period: 36000
+    chain:
+      compressed: true
+      cache: true
+
 pagehelper:
   helper-dialect: mysql
 logging:
