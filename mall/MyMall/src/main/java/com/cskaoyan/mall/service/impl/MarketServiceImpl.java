@@ -193,9 +193,14 @@ public class MarketServiceImpl implements MarketService {
     @Override
     public Map<String, Object> addBrand(Brand brand) {
         String date = DateUtils.currentDateToString();
+        Map<String,Object> result = new HashMap<>();
+        if(brand.getPicUrl()==null){
+            result.put("err","noPic");
+            return result;
+        }
+
         int code = brandMapper.insertBrand(brand,date);
         Integer id = brandMapper.getLastInsertId();
-        Map<String,Object> result = new HashMap<>();
         result.put("id",id);
         result.put("name",brand.getName());
         result.put("desc",brand.getDesc());
