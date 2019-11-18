@@ -211,6 +211,16 @@ public class MarketController {
     public BaseReqVo addBrand(@RequestBody Brand brand){
         BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
         Map<String,Object> result = marketService.addBrand(brand);
+        if(result.get("err")!=null&&"noPic".equals(result.get("err"))){
+            baseReqVo.setErrno(511);
+            baseReqVo.setErrmsg("商品图片不能为空！");
+            return baseReqVo;
+        }
+        if(result.get("err")!=null&&"noNumber".equals(result.get("err"))){
+            baseReqVo.setErrno(512);
+            baseReqVo.setErrmsg("底价只能为数字，最多8位整数，最多两位小数！");
+            return baseReqVo;
+        }
         baseReqVo.setErrno(0);
         baseReqVo.setData(result);
         baseReqVo.setErrmsg("成功");
@@ -253,6 +263,11 @@ public class MarketController {
     public BaseReqVo updateBrand(@RequestBody Brand brand){
         BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
         Brand result = marketService.updateBrand(brand);
+        if(result == null){
+            baseReqVo.setErrno(512);
+            baseReqVo.setErrmsg("底价只能为数字，最多8位整数，最多两位小数！");
+            return baseReqVo;
+        }
         baseReqVo.setErrno(0);
         baseReqVo.setData(result);
         baseReqVo.setErrmsg("成功");
