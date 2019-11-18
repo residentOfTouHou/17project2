@@ -3,6 +3,8 @@ package com.cskaoyan.mall.mapper;
 import com.cskaoyan.mall.bean.generator.Brand;
 import com.cskaoyan.mall.bean.generator.BrandExample;
 import java.util.List;
+
+import com.cskaoyan.mall.bean.jsonbean.BrandVo;
 import org.apache.ibatis.annotations.Param;
 
 public interface BrandMapper {
@@ -31,4 +33,6 @@ public interface BrandMapper {
     int insertBrand(@Param("brand") Brand brand, @Param("date") String date);
 
     Integer getLastInsertId();
+
+    List<BrandVo> queryBrands();
 }

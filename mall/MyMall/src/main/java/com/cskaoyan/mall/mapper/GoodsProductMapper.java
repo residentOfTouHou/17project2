@@ -1,9 +1,11 @@
 package com.cskaoyan.mall.mapper;
 
 import com.cskaoyan.mall.bean.generator.GoodsProduct;
+import com.cskaoyan.mall.bean.generator.GoodsProductAlter;
 import com.cskaoyan.mall.bean.generator.GoodsProductExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface GoodsProductMapper {
     long countByExample(GoodsProductExample example);
@@ -27,4 +29,10 @@ public interface GoodsProductMapper {
     int updateByPrimaryKeySelective(GoodsProduct record);
 
     int updateByPrimaryKey(GoodsProduct record);
+
+    int insertProducts(@Param("products") List<GoodsProductAlter> products, @Param("id") int goodsId);
+
+    List<GoodsProductAlter> queryByGoodsId(Integer goodsId);
+
+    int updateProducts(GoodsProductAlter product);
 }

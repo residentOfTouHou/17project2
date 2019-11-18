@@ -282,4 +282,8 @@
   <select id="getLastInsertId" resultType="integer">
     select LAST_INSERT_ID()
   </select>
+
+  <select id="queryBrands" resultType="com.cskaoyan.mall.bean.jsonbean.BrandVo">
+    select id as value, name as label from cskaoyan_mall_brand
+  </select>
 </mapper>

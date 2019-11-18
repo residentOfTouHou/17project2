@@ -5,6 +5,7 @@ import com.cskaoyan.mall.bean.generator.CategoryExample;
 import java.util.List;
 
 import com.cskaoyan.mall.bean.jsonbean.CategorySegment;
+import com.cskaoyan.mall.bean.jsonbean.GoodsChildren;
 import org.apache.ibatis.annotations.Param;
 
 public interface CategoryMapper {
@@ -33,4 +34,6 @@ public interface CategoryMapper {
     List<CategorySegment> selectAllCategory();
 
     int getLastInsertId();
+
+    List<GoodsChildren> queryChildrenByLevel(int id);
 }

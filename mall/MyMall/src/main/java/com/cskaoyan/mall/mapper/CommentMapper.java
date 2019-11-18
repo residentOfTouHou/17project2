@@ -1,9 +1,13 @@
 package com.cskaoyan.mall.mapper;
 
 import com.cskaoyan.mall.bean.generator.Comment;
+import com.cskaoyan.mall.bean.generator.CommentAlter;
 import com.cskaoyan.mall.bean.generator.CommentExample;
-import java.util.List;
+import com.cskaoyan.mall.bean.jsonbean.CommentData;
+import com.cskaoyan.mall.bean.jsonbean.CommentQueryParameters;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface CommentMapper {
     long countByExample(CommentExample example);
@@ -27,4 +31,10 @@ public interface CommentMapper {
     int updateByPrimaryKeySelective(Comment record);
 
     int updateByPrimaryKey(Comment record);
+
+    List<CommentAlter> queryCommentAndSort(CommentQueryParameters commentQueryParameters);
+
+    CommentAlter queryCommentById(int commentId);
+
+    int updateCommentById(CommentData commentData);
 }
