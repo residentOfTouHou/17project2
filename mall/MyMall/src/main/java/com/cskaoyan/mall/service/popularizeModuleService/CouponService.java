@@ -1,7 +1,9 @@
-package com.cskaoyan.mall.service;
+package com.cskaoyan.mall.service.popularizeModuleService;
 
-import com.cskaoyan.mall.bean.generator.Coupon;
-import com.cskaoyan.mall.bean.generator.CouponUser;
+
+
+import com.cskaoyan.mall.bean.generator.popularizeModule.Coupon;
+import com.cskaoyan.mall.bean.generator.popularizeModule.CouponUser;
 
 import java.util.List;
 
@@ -16,4 +18,6 @@ public interface CouponService {
     Coupon updateCouponInfo(Coupon coupon);
 
     void deleteCoupon(Coupon coupon);
+
+    Coupon createCoupon(Coupon coupon);
 }

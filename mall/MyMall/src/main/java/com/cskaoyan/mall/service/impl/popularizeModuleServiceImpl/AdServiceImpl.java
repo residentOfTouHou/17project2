@@ -1,8 +1,9 @@
-package com.cskaoyan.mall.service.impl;
+package com.cskaoyan.mall.service.impl.popularizeModuleServiceImpl;
 
-import com.cskaoyan.mall.bean.generator.Ad;
-import com.cskaoyan.mall.mapper.AdMapper;
-import com.cskaoyan.mall.service.AdService;
+
+import com.cskaoyan.mall.bean.generator.popularizeModule.Ad;
+import com.cskaoyan.mall.mapper.popularizeModuleMapper.AdMapper;
+import com.cskaoyan.mall.service.popularizeModuleService.AdService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ public class AdServiceImpl implements AdService {
     AdMapper adMapper;
 
     @Override
-    public List<Ad> queryAd(int page,int limit,String sort,String order,String name,String content) {
+    public List<Ad> queryAd(int page, int limit, String sort, String order, String name, String content) {
 
         PageHelper.startPage(page,limit);
         if(name!=null) {
