@@ -532,4 +532,85 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+    <resultMap id="alterResultMap" type="com.cskaoyan.mall.bean.generator.GoodsAlter">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="goods_sn" jdbcType="VARCHAR" property="goodsSn" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+        <result column="brand_id" jdbcType="INTEGER" property="brandId" />
+        <result column="gallery" jdbcType="VARCHAR" property="gallery" typeHandler="com.cskaoyan.mall.handler.String2ArrayTypeHandler"/>
+        <result column="keywords" jdbcType="VARCHAR" property="keywords" />
+        <result column="brief" jdbcType="VARCHAR" property="brief" />
+        <result column="is_on_sale" jdbcType="BIT" property="isOnSale" />
+        <result column="sort_order" jdbcType="SMALLINT" property="sortOrder" />
+        <result column="pic_url" jdbcType="VARCHAR" property="picUrl" />
+        <result column="share_url" jdbcType="VARCHAR" property="shareUrl" />
+        <result column="is_new" jdbcType="BIT" property="isNew" />
+        <result column="is_hot" jdbcType="BIT" property="isHot" />
+        <result column="unit" jdbcType="VARCHAR" property="unit" />
+        <result column="counter_price" jdbcType="DECIMAL" property="counterPrice" />
+        <result column="retail_price" jdbcType="DECIMAL" property="retailPrice" />
+        <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+        <result column="deleted" jdbcType="BIT" property="deleted" />
+    </resultMap>
+  <sql id="baseColumn">
+    id, goods_sn, `name`, category_id, brand_id, gallery, keywords, brief, is_on_sale, sort_order, pic_url,
+    share_url, is_new, is_hot, unit, counter_price, retail_price, add_time, update_time, deleted
+  </sql>
+  <select id="queryGoodsAndSort" resultMap="alterResultMap">
+    select <include refid="baseColumn"/> from cskaoyan_mall_goods
+    <where>
+      <if test="goodsSn != null">
+        and goods_sn = #{goodsSn}
+      </if>
+      <if test="name != null">
+        and name like #{name}
+      </if>
+    </where>
+    order by add_time desc
+  </select>
+  <insert id="insertGoodAlter">
+    insert into cskaoyan_mall_goods (id, goods_sn, name,
+      category_id, brand_id, gallery,
+      keywords, brief, is_on_sale,
+      sort_order, pic_url, share_url,
+      is_new, is_hot, unit, counter_price,
+      retail_price, add_time,
+      deleted, detail)
+    values (#{id}, #{goodsSn}, #{name},
+      #{categoryId}, #{brandId}, #{gallery, typeHandler=com.cskaoyan.mall.handler.String2ArrayTypeHandler},
+      #{keywords}, #{brief}, #{isOnSale},
+      #{sortOrder}, #{picUrl}, #{shareUrl},
+      #{isNew}, #{isHot}, #{unit}, #{counterPrice},
+      #{retailPrice}, #{addTime},
+      #{deleted}, #{detail})
+  </insert>
+  <select id="queryGoodsById" resultMap="alterResultMap">
+    select <include refid="baseColumn"/> from cskaoyan_mall_goods where id = #{id}
+  </select>
+
+  <update id="updateGoodAlter">
+    update cskaoyan_mall_goods
+    set goods_sn = #{goodsSn},
+      name = #{name},
+      category_id = #{categoryId},
+      brand_id = #{brandId},
+      gallery = #{gallery, typeHandler=com.cskaoyan.mall.handler.String2ArrayTypeHandler},
+      keywords = #{keywords},
+      brief = #{brief},
+      is_on_sale = #{isOnSale},
+      sort_order = #{sortOrder},
+      pic_url = #{picUrl},
+      share_url = #{shareUrl},
+      is_new = #{isNew},
+      is_hot = #{isHot},
+      unit = #{unit},
+      counter_price = #{counterPrice},
+      retail_price = #{retailPrice},
+      update_time = #{updateTime},
+      deleted = #{deleted}
+     where id = #{id}
+  </update>
 </mapper>

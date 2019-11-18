@@ -2,8 +2,9 @@ package com.cskaoyan.mall.mapper;
 
 import com.cskaoyan.mall.bean.generator.GoodsAttribute;
 import com.cskaoyan.mall.bean.generator.GoodsAttributeExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface GoodsAttributeMapper {
     long countByExample(GoodsAttributeExample example);
@@ -27,4 +28,8 @@ public interface GoodsAttributeMapper {
     int updateByPrimaryKeySelective(GoodsAttribute record);
 
     int updateByPrimaryKey(GoodsAttribute record);
+
+    int insertAttributes(List<GoodsAttribute> attributes);
+
+    int updateAttributes(GoodsAttribute attribute);
 }

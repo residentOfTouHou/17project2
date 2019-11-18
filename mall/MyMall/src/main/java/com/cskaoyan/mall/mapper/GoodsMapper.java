@@ -1,9 +1,12 @@
 package com.cskaoyan.mall.mapper;
 
 import com.cskaoyan.mall.bean.generator.Goods;
+import com.cskaoyan.mall.bean.generator.GoodsAlter;
 import com.cskaoyan.mall.bean.generator.GoodsExample;
-import java.util.List;
+import com.cskaoyan.mall.bean.jsonbean.GoodsQueryParameters;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface GoodsMapper {
     long countByExample(GoodsExample example);
@@ -33,4 +36,12 @@ public interface GoodsMapper {
     int updateByPrimaryKeyWithBLOBs(Goods record);
 
     int updateByPrimaryKey(Goods record);
+
+    List<GoodsAlter> queryGoodsAndSort(GoodsQueryParameters goodsQueryParameters);
+
+    int insertGoodAlter(GoodsAlter goodsAlter);
+
+    GoodsAlter queryGoodsById(int id);
+
+    int updateGoodAlter(GoodsAlter goods);
 }
