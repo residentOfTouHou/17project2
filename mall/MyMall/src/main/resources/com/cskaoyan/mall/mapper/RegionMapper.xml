@@ -242,9 +242,12 @@
     <collection property="children" column="code" select="com.cskaoyan.mall.mapper.RegionMapper.queryLevelThreeRegion"/>
   </resultMap>
   <select id="queryLevelTwoRegion" resultMap="regionMap">
-    select id,`name`,`type`,code from cskaoyan_mall_region where type = #{type} and code like concat(#{code},'%');
+    select id,`name`,`type`,code from cskaoyan_mall_region
+    where type = #{type} and code like concat(#{code},'%')
+    and code between #{code2Low} and #{code2High}
   </select>
   <select id="queryLevelThreeRegion" resultMap="BaseResultMap">
-    select id,`name`,`type`,code from cskaoyan_mall_region where type = 3 and code like concat(#{code},'%')
+    select id,`name`,`type`,code from cskaoyan_mall_region
+    where type = 3 and code like concat(#{code},'%')
   </select>
 </mapper>

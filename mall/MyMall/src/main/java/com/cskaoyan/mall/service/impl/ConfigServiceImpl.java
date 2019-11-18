@@ -8,7 +8,8 @@ import com.cskaoyan.mall.bean.jsonbean.Express;
 import com.cskaoyan.mall.bean.jsonbean.Mall;
 import com.cskaoyan.mall.mapper.SystemMapper;
 import com.cskaoyan.mall.service.ConfigService;
-import com.cskaoyan.mall.util.DateUtil;
+
+import com.cskaoyan.mall.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -55,7 +56,7 @@ public class ConfigServiceImpl implements ConfigService {
         String mall_name = mall.getLitemall_mall_name();
         String mall_qq = mall.getLitemall_mall_qq();
         //调用工具类 获取当前时间
-        String update_time = DateUtil.getCurrentTime();
+        String update_time = DateUtils.currentDateToString();
 
         //调用方法修改
         int result1 = systemMapper.updateKeyValueByKeyName("cskaoyan_mall_mall_address",mall_address,update_time);
@@ -101,7 +102,7 @@ public class ConfigServiceImpl implements ConfigService {
         String express_freight_value = express.getLitemall_express_freight_value();
 
         //调用工具类 获取当前时间
-        String update_time = DateUtil.getCurrentTime();
+        String update_time = DateUtils.currentDateToString();
 
         //调用方法修改
         int result1 = systemMapper.updateKeyValueByKeyName("cskaoyan_mall_express_freight_min",express_freight_min,update_time);
@@ -147,7 +148,7 @@ public class ConfigServiceImpl implements ConfigService {
         String order_unconfirm = configOrder.getLitemall_order_unconfirm();
         String order_unpaid = configOrder.getLitemall_order_unpaid();
         //调用工具类 获取当前时间
-        String update_time = DateUtil.getCurrentTime();
+        String update_time = DateUtils.currentDateToString();
 
         //调用方法修改
         int result1 = systemMapper.updateKeyValueByKeyName("cskaoyan_mall_order_comment",order_comment,update_time);
@@ -206,7 +207,7 @@ public class ConfigServiceImpl implements ConfigService {
         String wx_index_topic = configWx.getLitemall_wx_index_topic();
         String wx_share = configWx.getLitemall_wx_share();
         //调用工具类 获取当前时间
-        String update_time = DateUtil.getCurrentTime();
+        String update_time = DateUtils.currentDateToString();
 
         //调用方法修改
         int result1 = systemMapper.updateKeyValueByKeyName("cskaoyan_mall_wx_catlog_goods",wx_catlog_goods,update_time);
