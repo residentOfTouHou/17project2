@@ -57,4 +57,9 @@ public class GrouponRulesController {
         GrouponRules insertedGrouponRules = grouponRulesService.createGrouponRule(grouponRulesJson);
         return new BaseReqVo(insertedGrouponRules,"成功“”",0);
     }
+
+    @RequestMapping("listRecord")
+    public BaseReqVo listRecord(Integer page,Integer limit,String sort,String order,Integer goodsId){
+        return new BaseReqVo();
+    }
 }

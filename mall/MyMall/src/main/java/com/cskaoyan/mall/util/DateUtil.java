@@ -18,4 +18,10 @@ public class DateUtil {
         String currentTime = sdf.format(date);
         return currentTime;
     }
+
+    public static String parseDate2String(Date date){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(date);
+    }
+
 }

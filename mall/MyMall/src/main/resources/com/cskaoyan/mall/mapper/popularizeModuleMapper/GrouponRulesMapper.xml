@@ -53,7 +53,7 @@
     set goods_id = #{grouponRules.goodsId},
     discount = #{grouponRules.discount},
     discount_member = #{grouponRules.discountMember},
-    expire_time = #{grouponRules.expireTime,typeHandler=com.cskaoyan.mall.handler.String2DateHandler}
+    expire_time = #{grouponRules.expireTime}
     where id = #{grouponRules.id}
   </update>
 
