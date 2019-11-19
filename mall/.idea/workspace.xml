@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fbe1cf9a-8f0d-42d4-ba5b-ec317504c218" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/jsonbean/Express.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/bean/jsonbean/Express.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/popularizeModuleController/TopicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/popularizeModuleController/TopicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyMall/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/MyMall/src/main/resources/application.yml" afterDir="false" />
-    </list>
+    <list default="true" id="fbe1cf9a-8f0d-42d4-ba5b-ec317504c218" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/MyMall/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/StatController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="815">
-              <caret line="69" column="51" selection-start-line="69" selection-start-column="51" selection-end-line="69" selection-end-column="51" />
+            <state relative-caret-position="582">
+              <caret line="69" column="1" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -185,7 +180,7 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="97" />
+    <option name="x" value="96" />
     <option name="y" value="70" />
     <option name="width" value="1465" />
     <option name="height" value="845" />
@@ -197,7 +192,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -210,10 +204,17 @@
               <item name="mall" type="462c0819:PsiDirectoryNode" />
               <item name="MyMall" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="mall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mall" type="462c0819:PsiDirectoryNode" />
+              <item name="MyMall" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -313,16 +314,17 @@
       <workItem from="1574054807285" duration="11000" />
       <workItem from="1574151945897" duration="8000" />
       <workItem from="1574153570798" duration="16000" />
+      <workItem from="1574162436698" duration="19000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53090000" />
+    <option name="totallyTimeSpent" value="53109000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27949062" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28351206" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -712,8 +714,8 @@
     <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/Generator.java" />
     <entry file="file://$PROJECT_DIR$/MyMall/src/main/java/com/cskaoyan/mall/controller/StatController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="815">
-          <caret line="69" column="51" selection-start-line="69" selection-start-column="51" selection-end-line="69" selection-end-column="51" />
+        <state relative-caret-position="582">
+          <caret line="69" column="1" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
