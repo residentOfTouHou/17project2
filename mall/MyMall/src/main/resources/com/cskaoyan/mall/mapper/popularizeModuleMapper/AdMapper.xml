@@ -74,5 +74,8 @@
       deleted = #{ad.deleted,jdbcType=BIT}
     where id = #{ad.id,jdbcType=INTEGER}
     </update>
+    <select id="getAll" resultMap="adsMap">
+        select <include refid="Base_Column_List"/> from cskaoyan_mall_ad
+    </select>
 
 </mapper>

@@ -32,6 +32,12 @@ public interface GoodsService {
 
     Goods queryGoodsBySnAndName(GoodsAlter goods);
 
+<<<<<<< HEAD
     //下面的为wx端方法 ——skb
     int queryGoodsCount();
+=======
+    List<Goods> queryNewGoods();
+
+    List<Goods> queryHotGoods();
+>>>>>>> bb486b489784e12ebca71471b4d7d3d70096d136
 }

@@ -65,4 +65,9 @@ public class TopicServiceImpl implements TopicService {
         }
         return null;
     }
+
+    @Override
+    public List<Topic> getAllTopics() {
+        return topicMapper.getAll();
+    }
 }

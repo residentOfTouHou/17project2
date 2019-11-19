@@ -37,6 +37,17 @@ public class AuthController {
         baseReqVo.setErrno(0);
         return baseReqVo;
     }
+
+    @RequestMapping("/logout")
+    public BaseReqVo logout() {
+        BaseReqVo baseReqVo = new BaseReqVo();
+
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
+        baseReqVo.setErrmsg("成功");
+        baseReqVo.setErrno(0);
+        return baseReqVo;
+    }
     @RequestMapping("/info")
     public BaseReqVo info(String token){
         BaseReqVo baseReqVo = new BaseReqVo();
@@ -57,4 +68,7 @@ public class AuthController {
 
         return baseReqVo;
     }
+
+
+
 }
