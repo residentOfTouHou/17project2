@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cskaoyan.mall.mapper.Role2PermissionMapper">
+
+    <select id="selectPermissionByRoleID" resultType="java.lang.String">
+        select permission_id from cskaoyan_mall_relationship_role_permission where role_id = #{roleId}
+    </select>
+    <insert id="insert">
+        insert into cskaoyan_mall_relationship_role_permission(role_id,permission_id) value(#{roleId},#{permission})
+    </insert>
+    <delete id="deleteByRoleId">
+        delete from cskaoyan_mall_relationship_role_permission where role_id = #{roleId}
+    </delete>
+</mapper>
