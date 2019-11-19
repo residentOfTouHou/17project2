@@ -20,4 +20,6 @@ public interface TopicMapper {
     Topic getTopicById(Integer id);
 
     void deleteTopic(int id);
+
+    int createTopic(@Param("topic") Topic topic);
 }

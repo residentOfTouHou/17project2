@@ -20,4 +20,8 @@ public interface AdMapper {
     int updateAd(@Param("ad") Ad ad);
 
     Ad queryUpdatedAd(@Param("updatedId") Integer id);
+
+    int createAd(@Param("ad") Ad ad);
+
+    Ad queryAdById(int adId);
 }

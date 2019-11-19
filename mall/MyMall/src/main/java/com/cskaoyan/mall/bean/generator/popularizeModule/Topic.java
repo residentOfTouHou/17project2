@@ -21,7 +21,7 @@ public class Topic {
 
     private Integer sortOrder;
 
-    private String goods;
+    private String[] goods;
 
     private Date addTime;
 
