@@ -33,6 +33,7 @@ public class AdminController {
 
 
     @RequestMapping("list")
+    @RequiresPermissions("admin:admin:list")
     public BaseReqVo adminList(@Param("page")int page, @Param("limit")int limit,
                                @Param("sort")String sort, @Param("order")String order,
                                String username){

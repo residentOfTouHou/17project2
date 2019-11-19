@@ -12,4 +12,6 @@ public interface GrouponMapper {
     List<Groupon> getGroupons(@Param("goodsId") Integer goodsId,
                               @Param("sort") String sort,
                               @Param("order") String order);
+
+    List<Groupon> selectAll();
 }

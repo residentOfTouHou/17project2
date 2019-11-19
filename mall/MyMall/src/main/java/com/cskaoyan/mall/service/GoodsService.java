@@ -32,4 +32,7 @@ public interface GoodsService {
 
     Goods queryGoodsBySnAndName(GoodsAlter goods);
 
+    List<Goods> queryNewGoods();
+
+    List<Goods> queryHotGoods();
 }

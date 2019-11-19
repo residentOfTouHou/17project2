@@ -30,4 +30,6 @@ public interface CouponMapper {
     void deleteCoupon(int id);
 
     int createCoupon(@Param("coupon") Coupon coupon);
+
+    List<Coupon> selectAll();
 }

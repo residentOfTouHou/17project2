@@ -1,6 +1,7 @@
 package com.cskaoyan.mall.service.impl;
 
 import com.cskaoyan.mall.bean.generator.Brand;
+import com.cskaoyan.mall.bean.generator.BrandExample;
 import com.cskaoyan.mall.bean.jsonbean.BrandVo;
 import com.cskaoyan.mall.mapper.BrandMapper;
 import com.cskaoyan.mall.service.BrandService;
@@ -25,5 +26,10 @@ public class BrandServiceImpl implements BrandService {
     public List<BrandVo> queryBrands() {
         List<BrandVo> brandList = brandMapper.queryBrands();
         return brandList;
+    }
+
+    @Override
+    public List<Brand> getAllBrands() {
+        return brandMapper.selectByExample(new BrandExample());
     }
 }
