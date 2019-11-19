@@ -10,6 +10,8 @@ import com.cskaoyan.mall.service.AdminService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.apache.ibatis.annotations.Param;
+import org.apache.shiro.authz.annotation.Logical;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,7 +58,18 @@ public class AdminController {
 
     @RequestMapping("create")
     public BaseReqVo create(@RequestBody AdminReqVo adminReqVo){
+        BaseReqVo baseReqVo = new BaseReqVo();
+
         Date date = new Date();
+        String username = adminReqVo.getUsername();
+        String password = adminReqVo.getPassword();
+        //验证用户名与密码格式
+        if(username.length() < 6 || password.length() < 6){
+            baseReqVo.setErrno(500);
+            baseReqVo.setErrmsg("用户名或密码长度不够");
+            return baseReqVo;
+        }
+
         Admin admin = new Admin();
         admin.setRoleIds(adminReqVo.getRoleIds());
         admin.setAvatar(adminReqVo.getAvatar());
@@ -66,7 +79,6 @@ public class AdminController {
         admin.setUpdateTime(date);
         admin.setDeleted(false);
         int insert = adminService.addAdmin(admin);
-        BaseReqVo baseReqVo = new BaseReqVo();
         if(insert == 1){
             baseReqVo.setData(admin);
             baseReqVo.setErrmsg("success");
@@ -81,12 +93,20 @@ public class AdminController {
     @RequestMapping("update")
     public BaseReqVo updateAdmin(@RequestBody AdminReqVo adminReqVo){
         BaseReqVo baseReqVo = new BaseReqVo();
+        String username = adminReqVo.getUsername();
+        String password = adminReqVo.getPassword();
+        //验证用户名与密码格式
+        if(username.length() < 6 || password.length() < 6){
+            baseReqVo.setErrno(500);
+            baseReqVo.setErrmsg("用户名或密码长度不够");
+            return baseReqVo;
+        }
         Date date = new Date();
         Admin admin = new Admin();
         admin.setRoleIds(adminReqVo.getRoleIds());
         admin.setAvatar(adminReqVo.getAvatar());
-        admin.setUsername(adminReqVo.getUsername());
-        admin.setPassword(adminReqVo.getPassword());
+        admin.setUsername(username);
+        admin.setPassword(password);
         admin.setId(adminReqVo.getId());
         admin.setUpdateTime(date);
         admin.setDeleted(false);
