@@ -19,5 +19,5 @@ public interface GrouponRulesService {
 
     GrouponRules createGrouponRule(GrouponRulesJson grouponRulesJson);
 
-    List<Map<String,Object>> queryListRecords(Integer page, Integer limit, String sort, String order, Integer goodsId);
+    List<ListRecord> queryListRecords(Integer page, Integer limit, String sort, String order, Integer goodsId);
 }

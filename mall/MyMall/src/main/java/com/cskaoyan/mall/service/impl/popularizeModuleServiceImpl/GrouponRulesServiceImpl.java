@@ -6,11 +6,13 @@ import com.cskaoyan.mall.bean.generator.GoodsAlter;
 import com.cskaoyan.mall.bean.generator.popularizeModule.Groupon;
 import com.cskaoyan.mall.bean.generator.popularizeModule.GrouponRules;
 import com.cskaoyan.mall.bean.generator.popularizeModule.ListRecord;
+import com.cskaoyan.mall.bean.generator.popularizeModule.SubGroupons;
 import com.cskaoyan.mall.bean.jsonbean.popularizeModuleJsonBean.GrouponRulesJson;
 import com.cskaoyan.mall.mapper.GoodsMapper;
 import com.cskaoyan.mall.mapper.popularizeModuleMapper.GrouponRulesMapper;
 import com.cskaoyan.mall.service.popularizeModuleService.GrouponRulesService;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -73,19 +75,23 @@ public class GrouponRulesServiceImpl implements GrouponRulesService {
     }
 
     @Override
-    public List<Map<String,Object>> queryListRecords(Integer page, Integer limit, String sort, String order, Integer goodsId) {
+    public List<ListRecord> queryListRecords(Integer page, Integer limit, String sort, String order, Integer goodsId) {
         PageHelper.startPage(page,limit);
         List<GrouponRules> grouponRules = grouponRulesMapper.queryGrouponRulesByGoodsId(goodsId);
-        List<Map<String,Object>> list = new ArrayList<>();
+        List<ListRecord> listRecords = new ArrayList<>();
         for (GrouponRules grouponRule : grouponRules) {
             int ruleId = grouponRule.getId();
+            int goodsid = grouponRule.getGoodsId();
+            GoodsAlter goods = goodsMapper.queryGoodsById(goodsid);
             Groupon groupon = grouponRulesMapper.queryGrouponByRuleId(ruleId);
-            Map<String,Object> map =new HashMap<>();
-            map.put("groupon",groupon);
-            map.put("rules",grouponRule);
-            list.add(map);
+            List<SubGroupons> subGrouponsList = new ArrayList<>();
+            int grouponId = groupon.getGrouponId();
+            if(grouponId != 0){
+                subGrouponsList = grouponRulesMapper.querySubGroupons(grouponId);
+            }
+            ListRecord listRecord = new ListRecord(goods,groupon,grouponRule,subGrouponsList);
+            listRecords.add(listRecord);
         }
-
-        return list;
+        return listRecords;
     }
 }

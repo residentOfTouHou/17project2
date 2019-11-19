@@ -5,6 +5,7 @@ import com.cskaoyan.mall.bean.generator.GoodsAlter;
 import com.cskaoyan.mall.bean.jsonbean.GoodsData;
 import com.cskaoyan.mall.bean.jsonbean.GoodsQueryParameters;
 
+import java.util.List;
 
 
 /**
@@ -23,9 +24,14 @@ public interface GoodsService {
 
     int deleteGoods(Integer id);
 
+    List<Goods> findAll();
+
     Goods queryGoodsByGoodsSn(String goodsSn);
 
     Goods queryGoodsByName(String name);
 
     Goods queryGoodsBySnAndName(GoodsAlter goods);
+
+    //下面的为wx端方法 ——skb
+    int queryGoodsCount();
 }

@@ -298,4 +298,7 @@
       #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT},
       #{roleIds,jdbcType=VARCHAR,typeHandler=com.cskaoyan.mall.handler.String2IntArrayTypeHandler})
   </insert>
+    <select id="selectAdminByUsername" resultMap="BaseResultMap">
+      select #<include refid="Base_Column_List"/> from cskaoyan_mall_admin where username = #{name}
+    </select>
 </mapper>

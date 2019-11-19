@@ -6,6 +6,7 @@ import com.cskaoyan.mall.bean.generator.GoodsAlter;
 import com.cskaoyan.mall.bean.generator.popularizeModule.Groupon;
 import com.cskaoyan.mall.bean.generator.popularizeModule.GrouponRules;
 import com.cskaoyan.mall.bean.generator.popularizeModule.ListRecord;
+import com.cskaoyan.mall.bean.generator.popularizeModule.SubGroupons;
 import com.cskaoyan.mall.bean.jsonbean.popularizeModuleJsonBean.GrouponRulesJson;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -37,4 +38,6 @@ public interface GrouponRulesMapper {
     List<GrouponRules> queryGrouponRulesByGoodsId(Integer goodsId);
 
     Groupon queryGrouponByRuleId(int ruleId);
+
+    List<SubGroupons> querySubGroupons(Integer subGrouponId);
 }
