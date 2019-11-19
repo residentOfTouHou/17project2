@@ -24,5 +24,13 @@ public interface GoodsService {
 
     int deleteGoods(Integer id);
 
+<<<<<<< HEAD
     List<Goods> findAll();
+=======
+    Goods queryGoodsByGoodsSn(String goodsSn);
+
+    Goods queryGoodsByName(String name);
+
+    Goods queryGoodsBySnAndName(GoodsAlter goods);
+>>>>>>> 57cce37d756c1d823ed3d1598afd91a4b7e0aa8e
 }

@@ -44,7 +44,7 @@ public class GoodsProductServiceImpl implements GoodsProductService {
     @Override
     public int deleteProducts(int goodsId) {
         GoodsProductExample example = new GoodsProductExample();
-        example.createCriteria().andGoodsIdEqualTo(goodsId);
+        example.createCriteria().andGoodsIdEqualTo(goodsId).andDeletedEqualTo(false);
         int delete = goodsProductMapper.deleteByExample(example);
         return delete;
     }

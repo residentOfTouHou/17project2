@@ -66,10 +66,29 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
+
     public List<Goods> findAll() {
         GoodsExample goodsExample = new GoodsExample();
-        List<Goods> goods = goodsMapper.selectByExample(goodsExample);
+        List<Goods> goodsList = goodsMapper.selectByExample(goodsExample);
 
+        return goodsList;
+    }
+
+    public Goods queryGoodsByGoodsSn(String goodsSn) {
+       Goods goods = goodsMapper.queryGoodsByGoodsSn(goodsSn);
+       return goods;
+    }
+
+    @Override
+    public Goods queryGoodsByName(String name) {
+        Goods goods = goodsMapper.queryGoodsByName(name);
         return goods;
     }
+
+    @Override
+    public Goods queryGoodsBySnAndName(GoodsAlter goods) {
+        Goods queryGoods = goodsMapper.queryGoodsBySnAndName(goods);
+        return queryGoods;
+    }
+
 }

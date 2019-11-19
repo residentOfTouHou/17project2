@@ -54,7 +54,7 @@ public class GoodsAlter {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 
-    private Boolean deleted;
+    private boolean deleted;
 
     private String detail;
 

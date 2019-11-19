@@ -32,7 +32,7 @@ public class GoodsSpecificationServiceImpl implements GoodsSpecificationService 
     @Override
     public List<GoodsSpecification> queryByGoodsId(Integer goodsId) {
         GoodsSpecificationExample example = new GoodsSpecificationExample();
-        example.createCriteria().andGoodsIdEqualTo(goodsId);
+        example.createCriteria().andGoodsIdEqualTo(goodsId).andDeletedEqualTo(false);
         List<GoodsSpecification> specifications = goodsSpecificationMapper.selectByExample(example);
         return specifications;
     }
