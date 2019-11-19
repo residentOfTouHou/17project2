@@ -32,7 +32,7 @@ public class GoodsAttributeServiceImpl implements GoodsAttributeService {
     @Override
     public List<GoodsAttribute> queryByGoodsId(int goodsId) {
         GoodsAttributeExample example = new GoodsAttributeExample();
-        example.createCriteria().andGoodsIdEqualTo(goodsId);
+        example.createCriteria().andGoodsIdEqualTo(goodsId).andDeletedEqualTo(false);
         List<GoodsAttribute> attributes = goodsAttributeMapper.selectByExample(example);
         return attributes;
     }
@@ -51,7 +51,7 @@ public class GoodsAttributeServiceImpl implements GoodsAttributeService {
     @Override
     public int deleteAttributes(int goodsId) {
         GoodsAttributeExample example = new GoodsAttributeExample();
-        example.createCriteria().andGoodsIdEqualTo(goodsId);
+        example.createCriteria().andGoodsIdEqualTo(goodsId).andDeletedEqualTo(false);
         int delete = goodsAttributeMapper.deleteByExample(example);
         return delete;
     }

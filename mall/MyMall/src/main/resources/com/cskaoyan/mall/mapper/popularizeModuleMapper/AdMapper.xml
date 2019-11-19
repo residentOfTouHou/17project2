@@ -23,6 +23,13 @@
     update_time, deleted
   </sql>
 
+    <insert id="createAd" useGeneratedKeys="true" keyProperty="ad.id">
+        insert into cskaoyan_mall_ad
+        (`name`, link, url, `position`, content,enabled, add_time)
+        value
+        (#{ad.name},#{ad.link},#{ad.url},#{ad.position},#{ad.content},#{ad.enabled},now())
+    </insert>
+
     <select id="queryAd" parameterType="com.cskaoyan.mall.bean.generator.popularizeModule.Ad" resultMap="adsMap">
         select <include refid="Base_Column_List" />
         from cskaoyan_mall_ad ad
@@ -33,8 +40,13 @@
             <if test="adContent != null">
                and content like #{adContent}
             </if>
-
         order by #{sort} #{order}
+    </select>
+
+    <select id="queryAdById" resultMap="adsMap">
+        select <include refid="Base_Column_List"/>
+        from cskaoyan_mall_ad
+        where id = #{adId}
     </select>
 
     <select id="queryUpdatedAd" resultType="com.cskaoyan.mall.bean.generator.popularizeModule.Ad">

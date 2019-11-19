@@ -2,6 +2,7 @@ package com.cskaoyan.mall.controller.popularizeModuleController;
 
 
 import com.cskaoyan.mall.bean.generator.popularizeModule.GrouponRules;
+import com.cskaoyan.mall.bean.generator.popularizeModule.ListRecord;
 import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
 
 import com.cskaoyan.mall.bean.jsonbean.popularizeModuleJsonBean.GrouponRulesJson;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -60,6 +62,10 @@ public class GrouponRulesController {
 
     @RequestMapping("listRecord")
     public BaseReqVo listRecord(Integer page,Integer limit,String sort,String order,Integer goodsId){
-        return new BaseReqVo();
+        List<ListRecord> listRecords = grouponRulesService.queryListRecords(page,limit,sort,order,goodsId);
+        Map<String,Object> resultmap = new HashMap<>();
+        resultmap.put("total",listRecords.size());
+        resultmap.put("items",listRecords);
+        return new BaseReqVo(resultmap,"成功",0);
     }
 }

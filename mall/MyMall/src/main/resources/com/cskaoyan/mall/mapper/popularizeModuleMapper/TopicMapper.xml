@@ -5,6 +5,7 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="subtitle" jdbcType="VARCHAR" property="subtitle" />
+    <result column="content" jdbcType="VARCHAR" property="content"/>
     <result column="price" jdbcType="DECIMAL" property="price" />
     <result column="read_count" jdbcType="VARCHAR" property="readCount" />
     <result column="pic_url" jdbcType="VARCHAR" property="picUrl" />
@@ -16,7 +17,7 @@
   </resultMap>
 
   <sql id="Base_Column_List">
-    id, title, subtitle, price, read_count, pic_url, sort_order, goods, add_time, update_time,
+    id, title, subtitle,content, price, read_count, pic_url, sort_order, goods, add_time, update_time,
     deleted
   </sql>
 
@@ -34,6 +35,13 @@
     order by #{sort} #{order}
   </select>
 
+  <insert id="createTopic" useGeneratedKeys="true" keyProperty="topic.id">
+    insert into cskaoyan_mall_topic
+    (title, subtitle,content, price, read_count,add_time,pic_url) value
+    (#{topic.title},#{topic.subtitle},#{topic.content},#{topic.price},#{topic.readCount},
+    now(),#{topic.picUrl})
+  </insert>
+
   <update id="updateTopic" parameterType="com.cskaoyan.mall.bean.generator.popularizeModule.Topic">
     update cskaoyan_mall_topic
     set title = #{topic.title},subtitle = #{topic.subtitle},pic_url = #{topic.picUrl},
@@ -44,6 +52,7 @@
 
   <select id="getTopicById" resultMap="TopicsMap">
     select <include refid="Base_Column_List" />
+    from cskaoyan_mall_topic
     where id = #{id}
   </select>
 

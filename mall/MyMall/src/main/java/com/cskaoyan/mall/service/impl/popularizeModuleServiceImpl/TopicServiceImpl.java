@@ -5,6 +5,7 @@ import com.cskaoyan.mall.bean.generator.popularizeModule.Topic;
 import com.cskaoyan.mall.mapper.popularizeModuleMapper.TopicMapper;
 import com.cskaoyan.mall.service.popularizeModuleService.TopicService;
 import com.github.pagehelper.PageHelper;
+import net.sf.jsqlparser.statement.select.Top;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,5 +53,16 @@ public class TopicServiceImpl implements TopicService {
     public void deleteTopic(Topic topic) {
         int id = topic.getId();
         topicMapper.deleteTopic(id);
+    }
+
+    @Override
+    public Topic createTopic(Topic topic) {
+        int flag = topicMapper.createTopic(topic);
+        int topicId = topic.getId();
+        if(flag == 1){
+            Topic insertedTopic = topicMapper.getTopicById(topicId);
+            return insertedTopic;
+        }
+        return null;
     }
 }

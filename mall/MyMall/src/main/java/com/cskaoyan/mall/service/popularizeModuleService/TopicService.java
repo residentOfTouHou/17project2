@@ -3,6 +3,7 @@ package com.cskaoyan.mall.service.popularizeModuleService;
 
 
 import com.cskaoyan.mall.bean.generator.popularizeModule.Topic;
+import net.sf.jsqlparser.statement.select.Top;
 
 import java.util.List;
 
@@ -19,4 +20,6 @@ public interface TopicService {
     Topic getTopicById(Integer id);
 
     void deleteTopic(Topic topic);
+
+    Topic createTopic(Topic topic);
 }

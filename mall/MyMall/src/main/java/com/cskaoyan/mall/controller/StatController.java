@@ -33,11 +33,7 @@ public class StatController {
         map.put("columns",columns);
         map.put("rows",rows);
         //设置并返回结果集
-        BaseReqVo<Map> mapBaseReqVo = new BaseReqVo<>();
-        mapBaseReqVo.setErrno(0);
-        mapBaseReqVo.setData(map);
-        mapBaseReqVo.setErrmsg("成功");
-        return mapBaseReqVo;
+        return BaseReqVo.ok(map);
     }
 
     /**
@@ -53,11 +49,7 @@ public class StatController {
         map.put("columns",columns);
         map.put("rows",rows);
         //设置结果集
-        BaseReqVo<Map> mapBaseReqVo = new BaseReqVo<>();
-        mapBaseReqVo.setErrno(0);
-        mapBaseReqVo.setData(map);
-        mapBaseReqVo.setErrmsg("成功");
-        return mapBaseReqVo;
+        return BaseReqVo.ok(map);
     }
 
     /**
@@ -73,10 +65,6 @@ public class StatController {
         map.put("columns",columns);
         map.put("rows",rows);
         //设置结果集
-        BaseReqVo<Map> mapBaseReqVo = new BaseReqVo<>();
-        mapBaseReqVo.setErrno(0);
-        mapBaseReqVo.setData(map);
-        mapBaseReqVo.setErrmsg("成功");
-        return mapBaseReqVo;
+        return BaseReqVo.ok(map);
     }
 }

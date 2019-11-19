@@ -245,10 +245,11 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
     <insert id="insertAttributes">
-        insert into cskaoyan_mall_goods_attribute (goods_id, `attribute`,
+        insert into cskaoyan_mall_goods_attribute (id,
+        goods_id, `attribute`,
         `value`, add_time, deleted) values
         <foreach collection="list" item="goodsAttribute" separator=",">
-            (#{goodsAttribute.goodsId}, #{goodsAttribute.attribute},
+            (#{goodsAttribute.id}, #{goodsAttribute.goodsId}, #{goodsAttribute.attribute},
             #{goodsAttribute.value},
             #{goodsAttribute.addTime}, #{goodsAttribute.deleted})
         </foreach>

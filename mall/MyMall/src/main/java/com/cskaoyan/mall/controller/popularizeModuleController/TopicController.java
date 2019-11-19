@@ -6,6 +6,7 @@ import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
 
 import com.cskaoyan.mall.service.popularizeModuleService.TopicService;
 import com.github.pagehelper.PageInfo;
+import net.sf.jsqlparser.statement.select.Top;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,6 +39,12 @@ public class TopicController {
         return new BaseReqVo(topicMap,"成功",0);
     }
 
+    @RequestMapping("create")
+    public BaseReqVo createTopic(@RequestBody Topic topic){
+        Topic insertedTopic = topicService.createTopic(topic);
+        return new BaseReqVo(insertedTopic,"成功",0);
+    }
+
     @RequestMapping("update")
     public BaseReqVo updateTopic(@RequestBody Topic topic){
         int flag = topicService.updateTopic(topic);
@@ -53,4 +60,7 @@ public class TopicController {
         topicService.deleteTopic(topic);
         return new BaseReqVo("成功",0);
     }
+
+
+
 }

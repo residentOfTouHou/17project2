@@ -5,6 +5,7 @@ import com.cskaoyan.mall.bean.generator.GoodsAlter;
 import com.cskaoyan.mall.bean.jsonbean.GoodsData;
 import com.cskaoyan.mall.bean.jsonbean.GoodsQueryParameters;
 
+import java.util.List;
 
 
 /**
@@ -22,4 +23,13 @@ public interface GoodsService {
     int updateGoods(GoodsAlter goods);
 
     int deleteGoods(Integer id);
+
+    List<Goods> findAll();
+
+    Goods queryGoodsByGoodsSn(String goodsSn);
+
+    Goods queryGoodsByName(String name);
+
+    Goods queryGoodsBySnAndName(GoodsAlter goods);
+
 }

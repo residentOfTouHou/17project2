@@ -47,4 +47,14 @@ public class AdServiceImpl implements AdService {
         Ad ad = adMapper.queryUpdatedAd(adId);
         return ad;
     }
+
+    @Override
+    public Ad createAd(Ad ad) {
+        int flag = adMapper.createAd(ad);
+        int adId = ad.getId();
+        if(flag == 1){
+           return adMapper.queryAdById(adId);
+        }
+        return null;
+    }
 }
