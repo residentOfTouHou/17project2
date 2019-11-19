@@ -1,8 +1,10 @@
 package com.cskaoyan.mall.controller;
 
 import com.cskaoyan.mall.bean.generator.CommentAlter;
+import com.cskaoyan.mall.bean.generator.Reply;
 import com.cskaoyan.mall.bean.jsonbean.*;
 import com.cskaoyan.mall.service.CommentService;
+import com.cskaoyan.mall.service.ReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,9 @@ public class CommentController {
 
     @Autowired
     CommentService commentService;
+
+    @Autowired
+    ReplyService replyService;
 
     /**
      * 商品回复列表
@@ -40,20 +45,20 @@ public class CommentController {
     /**
      * 商品评论回复
      *
-     * @param commentData
+     * @param reply
      * @return
      */
     @RequestMapping("admin/order/reply")
-    public BaseReqVo reply(@RequestBody CommentData commentData) {
-        int commentId = commentData.getCommentId();
-        CommentAlter comment = commentService.queryCommentById(commentId);
-        if (comment.getContent() != null) {
+    public BaseReqVo reply(@RequestBody Reply reply) {
+        int commentId = reply.getCommentId();
+        Reply queryReply = replyService.queryByCommentId(commentId);
+        if (queryReply != null && queryReply.getContent() != null) {
             BaseReqVo baseReqVo = new BaseReqVo();
             baseReqVo.setErrno(622);
             baseReqVo.setErrmsg("订单商品已回复");
             return baseReqVo;
         }
-        commentService.updateCommentById(commentData);
+        replyService.insertByCommentId(reply);
         BaseReqVo baseReqVo = new BaseReqVo();
         baseReqVo.setErrno(0);
         baseReqVo.setErrmsg("成功");

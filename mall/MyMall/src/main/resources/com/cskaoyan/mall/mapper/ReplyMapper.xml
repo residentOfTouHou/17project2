@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cskaoyan.mall.mapper.ReplyMapper">
+    <sql id="baseColumn">
+        id, comment_id, content, add_time, update_time
+    </sql>
+    <select id="queryByCommentId" resultType="com.cskaoyan.mall.bean.generator.Reply">
+        select
+        <include refid="baseColumn"/>
+        from cskaoyan_mall_goods_reply where comment_id = #{commentId}
+    </select>
+
+    <insert id="insertByCommentId">
+        insert into cskaoyan_mall_goods_reply (comment_id, content, add_time)
+        values(#{commentId}, #{content}, #{addTime})
+    </insert>
+</mapper>

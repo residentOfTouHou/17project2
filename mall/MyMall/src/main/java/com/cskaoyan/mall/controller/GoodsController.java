@@ -97,6 +97,19 @@ public class GoodsController {
             return baseReqVo;
         }
         int goodsId = Integer.parseInt(goods.getGoodsSn());
+        //  商品标号、商品名不能重复
+        Goods queryGoods1 = goodsService.queryGoodsByGoodsSn(goods.getGoodsSn());
+        if (queryGoods1 != null) {
+            baseReqVo.setErrno(611);
+            baseReqVo.setErrmsg("商品编号已存在");
+            return baseReqVo;
+        }
+        Goods queryGoods2 = goodsService.queryGoodsByName(goods.getName());
+        if (queryGoods2 != null) {
+            baseReqVo.setErrno(611);
+            baseReqVo.setErrmsg("商品名已存在");
+            return baseReqVo;
+        }
         goods.setId(goodsId);
         int insertGoods = goodsService.insertGoods(goods);
         int insertSpecifications = goodsSpecificationService.insertSpecifications(specifications, goodsId);
@@ -121,11 +134,13 @@ public class GoodsController {
     public BaseReqVo detail(int id) {
         Map<String, Object> dataMap = new HashMap<>();
         GoodsAlter goods = goodsService.queryGoodsById(id);
-        List<Integer> categoryIds = categoryService.queryById(goods.getCategoryId());
+        if (goods.getCategoryId() != null) {
+            List<Integer> categoryIds = categoryService.queryById(goods.getCategoryId());
+            dataMap.put("categoryIds", categoryIds);
+        }
         List<GoodsAttribute> attributes = goodsAttributeService.queryByGoodsId(goods.getId());
         List<GoodsSpecification> specifications = goodsSpecificationService.queryByGoodsId(goods.getId());
         List<GoodsProductAlter> products = goodsProductService.queryByGoodsId(goods.getId());
-        dataMap.put("categoryIds", categoryIds);
         dataMap.put("goods", goods);
         dataMap.put("attributes", attributes);
         dataMap.put("specifications", specifications);
@@ -157,13 +172,31 @@ public class GoodsController {
             baseReqVo.setErrno(401);
             return baseReqVo;
         }
+        Goods queryGoods2 = goodsService.queryGoodsByName(goods.getName());
+        if (queryGoods2 != null && !queryGoods2.getGoodsSn().equals(goods.getGoodsSn())) {
+            baseReqVo.setErrno(611);
+            baseReqVo.setErrmsg("商品编号已存在");
+            return baseReqVo;
+        }
+        Goods queryGoods1 = goodsService.queryGoodsByGoodsSn(goods.getGoodsSn());
+        if (queryGoods1 != null && !queryGoods1.getName().equals(goods.getName())) {
+            baseReqVo.setErrno(611);
+            baseReqVo.setErrmsg("商品名已存在");
+            return baseReqVo;
+        }
 
+        GoodsAlter goodsAlter = goodsService.queryGoodsById(goods.getId());
+        goods.setAddTime(goodsAlter.getAddTime());
+        int goodsId = goods.getId();
+        goodsSpecificationService.deleteSpecifications(goodsId);
+        goodsProductService.deleteProducts(goodsId);
+        goodsAttributeService.deleteAttributes(goodsId);
         int updateGoods = goodsService.updateGoods(goods);
-        int updateSpecifications = goodsSpecificationService.updateSpecifications(specifications);
-        int updateProducts = goodsProductService.updateProducts(products);
-        int updateAttributes = goodsAttributeService.updateAttributes(attributes);
-        if (updateGoods == 1 && updateSpecifications == specifications.size() &&
-                updateProducts == products.size() && updateAttributes == attributes.size()) {
+        int insertSpecifications = goodsSpecificationService.insertSpecifications(specifications, goodsId);
+        int insertProducts = goodsProductService.insertProducts(products, goodsId);
+        int insertAttributes = goodsAttributeService.insertProducts(attributes, goodsId);
+        if (updateGoods == 1 && insertSpecifications == specifications.size() &&
+                insertProducts == products.size() && insertAttributes == attributes.size()) {
             baseReqVo.setErrno(0);
             baseReqVo.setErrmsg("成功");
             return baseReqVo;
@@ -194,6 +227,4 @@ public class GoodsController {
         }
         return baseReqVo;
     }
-
-
 }

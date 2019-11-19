@@ -308,7 +308,7 @@
     <select id="queryByGoodsId" resultMap="ResultMapAlter">
         select
         <include refid="baseColumn"/>
-        from cskaoyan_mall_goods_product where goods_id = #{goodsId}
+        from cskaoyan_mall_goods_product where goods_id = #{goodsId} and deleted = false
     </select>
 
     <update id="updateProducts">

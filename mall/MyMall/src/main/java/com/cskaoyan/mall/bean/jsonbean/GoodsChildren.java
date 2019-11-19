@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class GoodsChildren {
 
-    String value;
+    int value;
 
     String label;
 }

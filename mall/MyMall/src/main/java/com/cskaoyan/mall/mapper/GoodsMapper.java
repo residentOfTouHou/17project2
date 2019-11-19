@@ -44,4 +44,10 @@ public interface GoodsMapper {
     GoodsAlter queryGoodsById(int id);
 
     int updateGoodAlter(GoodsAlter goods);
+
+    Goods queryGoodsByGoodsSn(String goodsSn);
+
+    Goods queryGoodsByName(String name);
+
+    Goods queryGoodsBySnAndName(GoodsAlter goods);
 }
