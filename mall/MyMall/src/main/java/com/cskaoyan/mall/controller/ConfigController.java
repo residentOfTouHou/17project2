@@ -26,11 +26,7 @@ public class ConfigController {
         //调用方法
         Mall mall2 = configService.selectMallConfig();
         //设置结果集
-        BaseReqVo<Mall> MallBaseReqVo = new BaseReqVo<>();
-        MallBaseReqVo.setErrno(0);
-        MallBaseReqVo.setData(mall2);
-        MallBaseReqVo.setErrmsg("成功");
-        return MallBaseReqVo;
+        return BaseReqVo.ok(mall2);
     }
 
     /**
@@ -38,26 +34,22 @@ public class ConfigController {
      */
     @RequestMapping(value = "mall",method = {POST})
     public BaseReqVo changeMallConfig(@RequestBody Mall mall){
-        BaseReqVo<Mall> MallBaseReqVo = new BaseReqVo<>();
         //校验参数
         boolean phoneResult = RegexUtils.isPhoneNumber(mall.getLitemall_mall_phone());
         if(phoneResult == false){
-            MallBaseReqVo.setErrno(507);
-            return MallBaseReqVo;
+            return BaseReqVo.fail(507);
         }
         boolean qqResult = RegexUtils.isQQ(mall.getLitemall_mall_qq());
         if(qqResult == false){
-            MallBaseReqVo.setErrno(508);
-            return MallBaseReqVo;
+            return BaseReqVo.fail(508);
         }
         //调用方法
         int result = configService.updateMallConfig(mall);
         //设置结果集
         if(result == 1){
-            MallBaseReqVo.setErrno(0);
-            MallBaseReqVo.setErrmsg("成功");
+            return BaseReqVo.ok();
         }
-        return MallBaseReqVo;
+        return BaseReqVo.fail(500);
     }
 
     /**
@@ -68,12 +60,7 @@ public class ConfigController {
         //调用方法
         Express express2 = configService.selectExpressConfig();
         //设置结果集
-        BaseReqVo<Express> expressBaseReqVo = new BaseReqVo<>();
-        expressBaseReqVo.setErrno(0);
-        expressBaseReqVo.setData(express2);
-        expressBaseReqVo.setErrmsg("成功");
-        return expressBaseReqVo;
-
+        return BaseReqVo.ok(express2);
     }
 
     /**
@@ -81,22 +68,19 @@ public class ConfigController {
      */
     @RequestMapping(value = "express",method = {POST})
     public BaseReqVo changeExpreConfig(@RequestBody Express express){
-        BaseReqVo<Express> expressBaseReqVo = new BaseReqVo<>();
         //校验参数
         boolean result1 = RegexUtils.isNumber(express.getLitemall_express_freight_min());
         boolean result2 = RegexUtils.isNumber(express.getLitemall_express_freight_value());
         if(result1 == false || result2 == false){
-            expressBaseReqVo.setErrno(509);
-            return expressBaseReqVo;
+            return BaseReqVo.fail(509);
         }
         //调用方法
         int result = configService.updateExpressConfig(express);
         //设置结果集
         if(result == 1){
-            expressBaseReqVo.setErrno(0);
-            expressBaseReqVo.setErrmsg("成功");
+            return BaseReqVo.ok();
         }
-        return expressBaseReqVo;
+        return BaseReqVo.fail(500);
     }
 
     /**
@@ -107,11 +91,7 @@ public class ConfigController {
         //调用方法
         ConfigOrder configOrder2 = configService.selectOrderConfig();
         //设置结果集
-        BaseReqVo<ConfigOrder> configOrderBaseReqVo = new BaseReqVo<>();
-        configOrderBaseReqVo.setErrno(0);
-        configOrderBaseReqVo.setData(configOrder2);
-        configOrderBaseReqVo.setErrmsg("成功");
-        return configOrderBaseReqVo;
+        return BaseReqVo.ok(configOrder2);
     }
 
     /**
@@ -119,23 +99,20 @@ public class ConfigController {
      */
     @RequestMapping(value = "order",method = {POST})
     public BaseReqVo changeOrderConfig(@RequestBody ConfigOrder configOrder){
-        BaseReqVo<ConfigOrder> configOrderBaseReqVo = new BaseReqVo<>();
         //校验参数
         boolean result1 = RegexUtils.isNumber(configOrder.getLitemall_order_unpaid());
         boolean result2 = RegexUtils.isNumber(configOrder.getLitemall_order_unconfirm());
         boolean result3 = RegexUtils.isNumber(configOrder.getLitemall_order_comment());
         if(result1 == false || result2 == false || result3 == false){
-            configOrderBaseReqVo.setErrno(510);
-            return configOrderBaseReqVo;
+            return BaseReqVo.fail(510);
         }
         //调用方法
         int result = configService.updateOrderConfig(configOrder);
         //设置结果集
         if(result == 1){
-            configOrderBaseReqVo.setErrno(0);
-            configOrderBaseReqVo.setErrmsg("成功");
+            return BaseReqVo.ok();
         }
-        return configOrderBaseReqVo;
+        return BaseReqVo.fail(500);
     }
 
     /**
@@ -146,11 +123,7 @@ public class ConfigController {
         //调用方法
         ConfigWx configWx = configService.selectWxConfig();
         //设置结果集
-        BaseReqVo<ConfigWx> configWxBaseReqVo = new BaseReqVo<>();
-        configWxBaseReqVo.setErrno(0);
-        configWxBaseReqVo.setData(configWx);
-        configWxBaseReqVo.setErrmsg("成功");
-        return configWxBaseReqVo;
+        return BaseReqVo.ok(configWx);
     }
 
     /**
@@ -158,7 +131,6 @@ public class ConfigController {
      */
     @RequestMapping(value = "wx",method = {POST})
     public BaseReqVo changeWxConfig(@RequestBody ConfigWx configWx){
-        BaseReqVo<ConfigWx> configWxBaseReqVo = new BaseReqVo<>();
         //参数校验
         boolean result1 = RegexUtils.isNumber(configWx.getLitemall_wx_catlog_goods());
         boolean result2 = RegexUtils.isNumber(configWx.getLitemall_wx_catlog_list());
@@ -168,16 +140,14 @@ public class ConfigController {
         boolean result6 = RegexUtils.isNumber(configWx.getLitemall_wx_index_topic());
         if(result1 == false || result2 == false || result3 == false ||
            result4 == false || result5 == false || result6 == false){
-            configWxBaseReqVo.setErrno(510);
-            return configWxBaseReqVo;
+            return BaseReqVo.fail(510);
         }
         //调用方法
         int result = configService.updateWxConfig(configWx);
         //设置结果集
         if(result == 1){
-            configWxBaseReqVo.setErrno(0);
-            configWxBaseReqVo.setErrmsg("成功");
+            return BaseReqVo.ok();
         }
-        return configWxBaseReqVo;
+        return BaseReqVo.fail(500);
     }
 }

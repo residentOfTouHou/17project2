@@ -20,4 +20,24 @@ public class BaseReqVo<T> {
         this.errmsg = errmsg;
         this.errno = errno;
     }
+
+    public static BaseReqVo ok(){
+        BaseReqVo baseReqVo = new BaseReqVo();
+        baseReqVo.setErrno(0);
+        baseReqVo.setErrmsg("成功");
+        return baseReqVo;
+    }
+
+    public static BaseReqVo ok(Object data){
+        BaseReqVo baseReqVo = BaseReqVo.ok();
+        baseReqVo.setData(data);
+        return baseReqVo;
+    }
+
+    public static BaseReqVo fail(int errno){
+        BaseReqVo baseReqVo = new BaseReqVo();
+        baseReqVo.setErrno(errno);
+        return baseReqVo;
+    }
+
 }
