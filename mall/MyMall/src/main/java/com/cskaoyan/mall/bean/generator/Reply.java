@@ -3,36 +3,27 @@ package com.cskaoyan.mall.bean.generator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 /**
  * @author 杨盛
- * @date 2019/11/16 21:32
+ * @date 2019/11/18 22:30
  */
 
 @Data
-public class GoodsProductAlter {
+public class Reply {
 
-    private Integer id;
+    private int id;
 
-    private Integer goodsId;
+    private Integer commentId;
 
-    private String[] specifications;
-
-    private BigDecimal price;
-
-    private Integer number;
-
-    private String url;
+    private String content;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date addTime;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
-
-    private boolean deleted;
 
     public Date getAddTime() {
         return new Date();
