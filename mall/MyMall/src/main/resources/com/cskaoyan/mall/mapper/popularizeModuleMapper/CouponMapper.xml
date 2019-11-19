@@ -111,4 +111,7 @@
     <delete id="deleteCoupon">
         delete from cskaoyan_mall_coupon where id = #{id}
     </delete>
+    <select id="selectAll" resultMap="couponMap">
+        select * from cskaoyan_mall_coupon
+    </select>
 </mapper>

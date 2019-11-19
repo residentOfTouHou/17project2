@@ -77,4 +77,9 @@ public class CouponServiceImpl implements CouponService {
         }
         return  null;
     }
+
+    @Override
+    public List<Coupon> getAllCoupon() {
+        return couponMapper.selectAll();
+    }
 }

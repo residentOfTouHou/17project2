@@ -57,4 +57,9 @@ public class AdServiceImpl implements AdService {
         }
         return null;
     }
+
+    @Override
+    public List<Ad> getAllAd() {
+        return adMapper.getAll();
+    }
 }

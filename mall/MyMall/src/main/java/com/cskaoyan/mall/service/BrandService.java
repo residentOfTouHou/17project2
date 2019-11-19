@@ -12,4 +12,6 @@ import java.util.List;
 public interface BrandService {
 
     List<BrandVo> queryBrands();
+
+    List<Brand> getAllBrands();
 }

@@ -16,7 +16,7 @@
   </resultMap>
 
   <sql id="Base_Column_List">
-    id, order_id, groupon_id, rules_id, user_id, creator_user_id, add_time, update_time, 
+    id, order_id, groupon_id, rules_id, user_id, creator_user_id, add_time, update_time,
     share_url, payed, deleted
   </sql>
 
@@ -28,5 +28,8 @@
       and
     </if>
   </select>
+    <select id="selectAll" resultMap="grouponMap">
+      select  <include refid="Base_Column_List"/> from cskaoyan_mall_groupon
+    </select>
 
 </mapper>
