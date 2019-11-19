@@ -10,7 +10,7 @@ public class Groupon {
 
     private Integer orderId;
 
-    private Integer grouponId;
+    private int grouponId;
 
     private Integer rulesId;
 

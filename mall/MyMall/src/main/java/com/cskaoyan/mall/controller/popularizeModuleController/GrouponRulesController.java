@@ -62,10 +62,10 @@ public class GrouponRulesController {
 
     @RequestMapping("listRecord")
     public BaseReqVo listRecord(Integer page,Integer limit,String sort,String order,Integer goodsId){
-        List mapList = grouponRulesService.queryListRecords(page,limit,sort,order,goodsId);
+        List<ListRecord> listRecords = grouponRulesService.queryListRecords(page,limit,sort,order,goodsId);
         Map<String,Object> resultmap = new HashMap<>();
-        resultmap.put("total",3);
-        resultmap.put("items",mapList);
+        resultmap.put("total",listRecords.size());
+        resultmap.put("items",listRecords);
         return new BaseReqVo(resultmap,"成功",0);
     }
 }
