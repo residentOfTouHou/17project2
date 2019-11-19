@@ -20,7 +20,7 @@ public class HomeController {
 //        封装返回前端数据
         BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
 
-        Map<String, Object> allGoods = goodsService.findAll();
+        //Map<String, Object> allGoods = goodsService.findAll();
 
         return baseReqVo;
 
