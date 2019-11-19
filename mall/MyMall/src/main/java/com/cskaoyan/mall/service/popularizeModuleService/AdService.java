@@ -16,4 +16,6 @@ public interface AdService {
     int updateAd(Ad ad);
 
     Ad queryAdById(int adId);
+
+    Ad createAd(Ad ad);
 }

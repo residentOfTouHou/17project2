@@ -71,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, key, name, type, size, url, add_time, update_time, deleted
+    id, `key`, name, type, size, url, add_time, update_time, deleted
   </sql>
   <select id="selectByExample" parameterType="com.cskaoyan.mall.bean.generator.StorageExample" resultMap="BaseResultMap">
     select
@@ -88,7 +88,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from cskaoyan_mall_storage
     where id = #{id,jdbcType=INTEGER}
@@ -103,22 +103,22 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.cskaoyan.mall.bean.generator.Storage">
-    insert into cskaoyan_mall_storage (id, key, name, 
-      type, size, url, add_time, 
+  <insert id="insert" parameterType="com.cskaoyan.mall.bean.generator.Storage" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+    insert into cskaoyan_mall_storage (id, `key`, name,
+      type, size, url, add_time,
       update_time, deleted)
-    values (#{id,jdbcType=INTEGER}, #{key,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
-      #{type,jdbcType=VARCHAR}, #{size,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, #{addTime,jdbcType=TIMESTAMP}, 
+    values (#{id,jdbcType=INTEGER}, #{key,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+      #{type,jdbcType=VARCHAR}, #{size,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, #{addTime,jdbcType=TIMESTAMP},
       #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.cskaoyan.mall.bean.generator.Storage">
+  <insert id="insertSelective" parameterType="com.cskaoyan.mall.bean.generator.Storage" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
     insert into cskaoyan_mall_storage
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
       <if test="key != null">
-        key,
+        `key`,
       </if>
       <if test="name != null">
         name,
@@ -232,7 +232,7 @@
     update cskaoyan_mall_storage
     <set>
       <if test="key != null">
-        key = #{key,jdbcType=VARCHAR},
+        `key` = #{key,jdbcType=VARCHAR},
       </if>
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
@@ -260,7 +260,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.cskaoyan.mall.bean.generator.Storage">
     update cskaoyan_mall_storage
-    set key = #{key,jdbcType=VARCHAR},
+    set `key` = #{key,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
       type = #{type,jdbcType=VARCHAR},
       size = #{size,jdbcType=INTEGER},

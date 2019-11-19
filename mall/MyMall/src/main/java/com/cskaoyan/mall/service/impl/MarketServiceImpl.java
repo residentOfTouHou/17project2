@@ -7,6 +7,7 @@ import com.cskaoyan.mall.bean.jsonbean.RegionSegment;
 import com.cskaoyan.mall.mapper.*;
 import com.cskaoyan.mall.service.MarketService;
 import com.cskaoyan.mall.utils.DateUtils;
+import com.cskaoyan.mall.utils.MoneyUtils;
 import com.cskaoyan.mall.utils.StringUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -193,9 +194,17 @@ public class MarketServiceImpl implements MarketService {
     @Override
     public Map<String, Object> addBrand(Brand brand) {
         String date = DateUtils.currentDateToString();
+        Map<String,Object> result = new HashMap<>();
+        if(brand.getPicUrl()==null){
+            result.put("err","noPic");
+            return result;
+        }
+        if(!MoneyUtils.judgeTwoBigDecimal(brand.getFloorPrice())){
+            result.put("err","noNumber");
+            return result;
+        }
         int code = brandMapper.insertBrand(brand,date);
         Integer id = brandMapper.getLastInsertId();
-        Map<String,Object> result = new HashMap<>();
         result.put("id",id);
         result.put("name",brand.getName());
         result.put("desc",brand.getDesc());
@@ -212,6 +221,9 @@ public class MarketServiceImpl implements MarketService {
      */
     @Override
     public Brand updateBrand(Brand brand) {
+        if(!MoneyUtils.judgeTwoBigDecimal(brand.getFloorPrice())){
+            return null;
+        }
         brand.setUpdateTime(new Date());
         brand.setSortOrder(null);
         brand.setAddTime(null);

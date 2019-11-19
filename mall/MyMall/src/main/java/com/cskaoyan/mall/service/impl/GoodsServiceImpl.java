@@ -1,5 +1,6 @@
 package com.cskaoyan.mall.service.impl;
 
+import com.cskaoyan.mall.bean.generator.Goods;
 import com.cskaoyan.mall.bean.generator.GoodsAlter;
 import com.cskaoyan.mall.bean.generator.GoodsExample;
 import com.cskaoyan.mall.bean.generator.GoodsProductExample;
@@ -63,5 +64,23 @@ public class GoodsServiceImpl implements GoodsService {
         GoodsExample example = new GoodsExample();
         int delete = goodsMapper.deleteByPrimaryKey(id);
         return delete;
+    }
+
+    @Override
+    public Goods queryGoodsByGoodsSn(String goodsSn) {
+       Goods goods = goodsMapper.queryGoodsByGoodsSn(goodsSn);
+       return goods;
+    }
+
+    @Override
+    public Goods queryGoodsByName(String name) {
+        Goods goods = goodsMapper.queryGoodsByName(name);
+        return goods;
+    }
+
+    @Override
+    public Goods queryGoodsBySnAndName(GoodsAlter goods) {
+        Goods queryGoods = goodsMapper.queryGoodsBySnAndName(goods);
+        return queryGoods;
     }
 }

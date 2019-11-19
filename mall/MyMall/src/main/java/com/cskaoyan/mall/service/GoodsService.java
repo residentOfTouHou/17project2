@@ -22,4 +22,10 @@ public interface GoodsService {
     int updateGoods(GoodsAlter goods);
 
     int deleteGoods(Integer id);
+
+    Goods queryGoodsByGoodsSn(String goodsSn);
+
+    Goods queryGoodsByName(String name);
+
+    Goods queryGoodsBySnAndName(GoodsAlter goods);
 }

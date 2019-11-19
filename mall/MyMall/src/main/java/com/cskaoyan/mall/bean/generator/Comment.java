@@ -1,7 +1,10 @@
 package com.cskaoyan.mall.bean.generator;
 
+import lombok.Data;
+
 import java.util.Date;
 
+@Data
 public class Comment {
     private Integer id;
 

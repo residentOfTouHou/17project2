@@ -55,8 +55,8 @@ public class AdController {
     }
 
     @RequestMapping("create")
-    public BaseReqVo create(){
-        BaseReqVo baseReqVo = new BaseReqVo();
-        return baseReqVo;
+    public BaseReqVo create(@RequestBody Ad ad){
+        Ad insertedAd = adService.createAd(ad);
+        return new BaseReqVo(insertedAd,"成功",0);
     }
 }

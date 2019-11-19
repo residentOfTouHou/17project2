@@ -11,7 +11,7 @@
     <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
-    <result column="role_ids" jdbcType="VARCHAR" property="roleIds" />
+    <result column="role_ids" jdbcType="VARCHAR" property="roleIds" typeHandler="com.cskaoyan.mall.handler.String2IntArrayTypeHandler"/>
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -72,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, username, password, last_login_ip, last_login_time, avatar, add_time, update_time, 
+    id, username, password, last_login_ip, last_login_time, avatar, add_time, update_time,
     deleted, role_ids
   </sql>
   <select id="selectByExample" parameterType="com.cskaoyan.mall.bean.generator.AdminExample" resultMap="BaseResultMap">
@@ -90,7 +90,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from cskaoyan_mall_admin
     where id = #{id,jdbcType=INTEGER}
@@ -106,14 +106,14 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cskaoyan.mall.bean.generator.Admin">
-    insert into cskaoyan_mall_admin (id, username, password, 
-      last_login_ip, last_login_time, avatar, 
-      add_time, update_time, deleted, 
+    insert into cskaoyan_mall_admin (id, username, password,
+      last_login_ip, last_login_time, avatar,
+      add_time, update_time, deleted,
       role_ids)
-    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{lastLoginIp,jdbcType=VARCHAR}, #{lastLoginTime,jdbcType=TIMESTAMP}, #{avatar,jdbcType=VARCHAR}, 
-      #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}, 
-      #{roleIds,jdbcType=VARCHAR})
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+      #{lastLoginIp,jdbcType=VARCHAR}, #{lastLoginTime,jdbcType=TIMESTAMP}, #{avatar,jdbcType=VARCHAR},
+      #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT},
+      #{roleIds,jdbcType=VARCHAR,typeHandler=com.cskaoyan.mall.handler.String2IntArrayTypeHandler})
   </insert>
   <insert id="insertSelective" parameterType="com.cskaoyan.mall.bean.generator.Admin">
     insert into cskaoyan_mall_admin
@@ -178,7 +178,7 @@
         #{deleted,jdbcType=BIT},
       </if>
       <if test="roleIds != null">
-        #{roleIds,jdbcType=VARCHAR},
+        #{roleIds,jdbcType=VARCHAR,typeHandler=com.cskaoyan.mall.handler.String2IntArrayTypeHandler},
       </if>
     </trim>
   </insert>
@@ -219,7 +219,7 @@
         deleted = #{record.deleted,jdbcType=BIT},
       </if>
       <if test="record.roleIds != null">
-        role_ids = #{record.roleIds,jdbcType=VARCHAR},
+        role_ids = #{record.roleIds,jdbcType=VARCHAR,typeHandler=com.cskaoyan.mall.handler.String2IntArrayTypeHandler},
       </if>
     </set>
     <if test="_parameter != null">
@@ -237,7 +237,7 @@
       add_time = #{record.addTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       deleted = #{record.deleted,jdbcType=BIT},
-      role_ids = #{record.roleIds,jdbcType=VARCHAR}
+      role_ids = #{record.roleIds,jdbcType=VARCHAR,typeHandler=com.cskaoyan.mall.handler.String2IntArrayTypeHandler}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -270,7 +270,7 @@
         deleted = #{deleted,jdbcType=BIT},
       </if>
       <if test="roleIds != null">
-        role_ids = #{roleIds,jdbcType=VARCHAR},
+        role_ids = #{roleIds,jdbcType=VARCHAR,typeHandler=com.cskaoyan.mall.handler.String2IntArrayTypeHandler},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -285,7 +285,17 @@
       add_time = #{addTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       deleted = #{deleted,jdbcType=BIT},
-      role_ids = #{roleIds,jdbcType=VARCHAR}
+      role_ids = #{roleIds,jdbcType=VARCHAR,typeHandler=com.cskaoyan.mall.handler.String2IntArrayTypeHandler}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <insert id="insertAndReturnId"  parameterType="com.cskaoyan.mall.bean.generator.Admin" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+      insert into cskaoyan_mall_admin ( username, password,
+      last_login_ip, last_login_time, avatar,
+      add_time, update_time, deleted,
+      role_ids)
+    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+      #{lastLoginIp,jdbcType=VARCHAR}, #{lastLoginTime,jdbcType=TIMESTAMP}, #{avatar,jdbcType=VARCHAR},
+      #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT},
+      #{roleIds,jdbcType=VARCHAR,typeHandler=com.cskaoyan.mall.handler.String2IntArrayTypeHandler})
+  </insert>
 </mapper>

@@ -14,18 +14,37 @@
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
 
+  <resultMap id="grouponMap" type="com.cskaoyan.mall.bean.generator.popularizeModule.Groupon">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="groupon_id" jdbcType="INTEGER" property="grouponId" />
+    <result column="rules_id" jdbcType="INTEGER" property="rulesId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="creator_user_id" jdbcType="INTEGER" property="creatorUserId" />
+    <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="share_url" jdbcType="VARCHAR" property="shareUrl" />
+    <result column="payed" jdbcType="BIT" property="payed" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
+  </resultMap>
+
   <sql id="Base_Column_List">
     id, goods_id, goods_name, pic_url, discount, discount_member, add_time, update_time, 
     expire_time, deleted
   </sql>
 
+  <sql id="Base_Column_List2">
+    id, `order_id`, groupon_id, rules_id, user_id, creator_user_id, add_time, update_time,
+    share_url, payed, deleted
+  </sql>
+
   <insert id="createGrouponRule" useGeneratedKeys="true" keyProperty="groupRulesJson.id">
     insert into cskaoyan_mall_groupon_rules
-    (discount, discount_member, add_time,
-    expire_time, deleted)
+    (goods_id,goods_name,pic_url,discount,discount_member,add_time,
+    expire_time,deleted)
      values
-    (discount = #{discount},discount_member = #{discountMember},add_time = now(),
-    expire_time = #{groupRulesJson.expireTime}, deleted = 0)
+    (#{goods.id},#{goods.name},#{goods.picUrl},#{discount},#{discountMember},now(),
+    #{groupRulesJson.expireTime}, 0)
   </insert>
 
   <select id="getGrouponRules" resultMap="grouponRulesMap">
@@ -38,10 +57,24 @@
     order by #{sort} #{order}
   </select>
 
+  <select id="queryGrouponRulesByGoodsId" resultMap="grouponRulesMap">
+    select <include refid="Base_Column_List"/>
+    from cskaoyan_mall_groupon_rules
+    <if test="goodsId != null">
+    where goods_id = #{goodsId}
+    </if>
+  </select>
+
   <select id="queryGrouponRulesById" resultMap="grouponRulesMap">
     select <include refid="Base_Column_List"/>
     from cskaoyan_mall_groupon_rules
     where id = #{id}
+  </select>
+
+  <select id="queryGrouponByRuleId" resultMap="grouponMap">
+    select <include refid="Base_Column_List2"/>
+    from cskaoyan_mall_groupon
+    where id = #{ruleId}
   </select>
 
   <select id="queryGoodsId" resultType="integer">
@@ -53,7 +86,7 @@
     set goods_id = #{grouponRules.goodsId},
     discount = #{grouponRules.discount},
     discount_member = #{grouponRules.discountMember},
-    expire_time = #{grouponRules.expireTime,typeHandler=com.cskaoyan.mall.handler.String2DateHandler}
+    expire_time = #{grouponRules.expireTime}
     where id = #{grouponRules.id}
   </update>
 
