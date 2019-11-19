@@ -53,7 +53,7 @@ public class HomeController {
         List<Goods> newGoodsList = goodsService.queryNewGoods();
         dataBean.setNewGoodsList(newGoodsList);
 
-        List<Coupon> couponList = couponService.getAllCoupon();
+        List<Coupon> couponList = couponService.queryCoupons();
         dataBean.setCouponList(couponList);
 
         List<ChannelBean> channels = new ArrayList<>();
