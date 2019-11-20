@@ -14,4 +14,6 @@ public interface GrouponMapper {
                               @Param("order") String order);
 
     List<Groupon> selectAll();
+
+    List<Groupon> selectGrouponById(Integer id);
 }

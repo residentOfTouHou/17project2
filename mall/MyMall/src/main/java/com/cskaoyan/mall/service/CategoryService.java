@@ -1,5 +1,6 @@
 package com.cskaoyan.mall.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,4 +13,6 @@ public interface CategoryService {
     List<Map<String, Object>> queryByLevel();
 
     List<Integer> queryById(Integer categoryId);
+
+    HashMap<String, Object> queryGoodsCategory(Integer id);
 }

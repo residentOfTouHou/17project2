@@ -40,4 +40,6 @@ public interface GrouponRulesMapper {
     Groupon queryGrouponByRuleId(int ruleId);
 
     List<SubGroupons> querySubGroupons(Integer subGrouponId);
+
+    GrouponRules selectByGoodsId(Integer id);
 }

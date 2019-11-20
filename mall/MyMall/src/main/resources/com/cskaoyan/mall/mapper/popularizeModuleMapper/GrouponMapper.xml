@@ -31,5 +31,10 @@
     <select id="selectAll" resultMap="grouponMap">
       select  <include refid="Base_Column_List"/> from cskaoyan_mall_groupon
     </select>
+    <select id="selectGrouponById" resultMap="grouponMap">
+      select  <include refid="Base_Column_List"/>
+      from cskaoyan_mall_groupon
+      where groupon_id = #{id}
+    </select>
 
 </mapper>

@@ -344,4 +344,10 @@
     <update id="updateCommentById">
         update cskaoyan_mall_comment set connent = #{content} where id = #{commentId}
     </update>
+    <select id="selectCommentsByGoodsIdAndType" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from cskaoyan_mall_comment
+        where type = 0 and value_id = #{id}
+    </select>
 </mapper>

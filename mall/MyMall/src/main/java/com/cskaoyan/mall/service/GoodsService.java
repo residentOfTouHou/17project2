@@ -5,6 +5,7 @@ import com.cskaoyan.mall.bean.generator.GoodsAlter;
 import com.cskaoyan.mall.bean.jsonbean.GoodsData;
 import com.cskaoyan.mall.bean.jsonbean.GoodsQueryParameters;
 
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -40,4 +41,5 @@ public interface GoodsService {
 
     List<Goods> queryGoodsList(Integer categoryId, Integer page, Integer size);
 
+    HashMap<String, Object> queryGoodsDetail(Integer id);
 }

@@ -58,4 +58,23 @@ public class CategoryServiceImpl implements CategoryService {
         categoryIdList.add(categoryId);
         return categoryIdList;
     }
+
+    @Override
+    public HashMap<String, Object> queryGoodsCategory(Integer id) {
+        HashMap<String,Object> map = new HashMap<>();
+        //获取当前分类
+        Category currentCategory = categoryMapper.selectByPrimaryKey(id);
+        //判空
+        if(currentCategory != null){
+            //获取兄弟分类
+            List<Category> brotherCategory = categoryMapper.selectByPid(currentCategory.getPid());
+            //获取父分类
+            Category parentCategory = categoryMapper.selectByPrimaryKey(currentCategory.getPid());
+            //封装
+            map.put("currentCategory",currentCategory);
+            map.put("brotherCategory",brotherCategory);
+            map.put("parentCategory",parentCategory);
+        }
+        return map;
+    }
 }
