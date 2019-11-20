@@ -1,9 +1,10 @@
 package com.cskaoyan.mall.bean.generator;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
 
 import java.util.Date;
-
+@Data
 public class Category {
     private Integer id;
 
@@ -30,6 +31,8 @@ public class Category {
     private Date updateTime;
 
     private Boolean deleted;
+
+    private Category children;
 
     public Integer getId() {
         return id;

@@ -36,4 +36,5 @@ public interface CategoryMapper {
     int getLastInsertId();
 
     List<GoodsChildren> queryChildrenByLevel(int id);
+
 }

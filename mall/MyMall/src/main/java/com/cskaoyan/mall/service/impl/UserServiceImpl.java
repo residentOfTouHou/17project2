@@ -57,4 +57,14 @@ public class UserServiceImpl implements UserService {
         map.put("users", users);
         return map;
     }
+
+    @Override
+    public User getUserByUsername(String username) {
+        return userMapper.selectByUsername(username);
+    }
+
+    @Override
+    public int updateUser(User user) {
+        return userMapper.updateByPrimaryKey(user);
+    }
 }

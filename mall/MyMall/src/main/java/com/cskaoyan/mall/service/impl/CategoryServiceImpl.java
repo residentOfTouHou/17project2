@@ -3,6 +3,7 @@ package com.cskaoyan.mall.service.impl;
 
 import com.cskaoyan.mall.bean.generator.Category;
 import com.cskaoyan.mall.bean.generator.CategoryExample;
+import com.cskaoyan.mall.bean.jsonbean.CategorySegment;
 import com.cskaoyan.mall.bean.jsonbean.GoodsChildren;
 import com.cskaoyan.mall.mapper.BrandMapper;
 import com.cskaoyan.mall.mapper.CategoryMapper;
@@ -57,5 +58,26 @@ public class CategoryServiceImpl implements CategoryService {
         //  L2 id
         categoryIdList.add(categoryId);
         return categoryIdList;
+    }
+
+
+
+    @Override
+    public List<Category> queryCategoryLevelOne() {
+        CategoryExample categoryExample = new CategoryExample();
+        categoryExample.createCriteria().andLevelEqualTo("L1");
+        return categoryMapper.selectByExample(categoryExample);
+    }
+
+    @Override
+    public List<Category> getCategoryByPid(Integer id) {
+        CategoryExample categoryExample = new CategoryExample();
+        categoryExample.createCriteria().andPidEqualTo(id);
+        return categoryMapper.selectByExample(categoryExample);
+    }
+
+    @Override
+    public Category getCategoryById(int id) {
+        return categoryMapper.selectByPrimaryKey(id);
     }
 }
