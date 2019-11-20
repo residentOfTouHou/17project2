@@ -31,5 +31,5 @@ public interface CouponMapper {
 
     int createCoupon(@Param("coupon") Coupon coupon);
 
-    List<Coupon> selectAll();
+    List<Coupon> queryCoupons();
 }

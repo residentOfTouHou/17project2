@@ -21,5 +21,5 @@ public interface CouponService {
 
     Coupon createCoupon(Coupon coupon);
 
-    List<Coupon> getAllCoupon();
+    List<Coupon> queryCoupons();
 }

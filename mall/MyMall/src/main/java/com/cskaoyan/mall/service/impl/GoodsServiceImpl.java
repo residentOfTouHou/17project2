@@ -66,14 +66,13 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-
     public List<Goods> findAll() {
-        GoodsExample goodsExample = new GoodsExample();
-        List<Goods> goodsList = goodsMapper.selectByExample(goodsExample);
-
-        return goodsList;
+        GoodsExample example = new GoodsExample();
+        List<Goods> goodsList = goodsMapper.selectByExample(example);
+        return  goodsList;
     }
 
+    @Override
     public Goods queryGoodsByGoodsSn(String goodsSn) {
        Goods goods = goodsMapper.queryGoodsByGoodsSn(goodsSn);
        return goods;
@@ -92,6 +91,11 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
+    public int queryGoodsCount() {
+        return findAll().size();
+    }
+
+    @Override
     public List<Goods> queryNewGoods() {
         GoodsExample goodsExample = new GoodsExample();
         goodsExample.createCriteria().andIsNewEqualTo(true);
@@ -105,4 +109,11 @@ public class GoodsServiceImpl implements GoodsService {
         return goodsMapper.selectByExample(goodsExample);
     }
 
+    @Override
+    public List<Goods> queryGoodsList(Integer categoryId, Integer page, Integer size) {
+        PageHelper.startPage(page,size);
+
+        List<Goods> goodsList = goodsMapper.selectGoodsByCategoryId(categoryId);
+        return goodsList;
+    }
 }

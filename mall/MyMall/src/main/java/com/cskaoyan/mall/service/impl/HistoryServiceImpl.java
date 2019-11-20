@@ -39,6 +39,14 @@ public class HistoryServiceImpl implements HistoryService {
         return map;
 
     }
+@Override
+    public List<SearchHistory> findAllHistory() {
+
+        SearchHistoryExample searchHistoryExample = new SearchHistoryExample();
+        List<SearchHistory> searchHistories = historyMapper.selectByExample(searchHistoryExample);
+        return searchHistories;
+
+    }
 
     @Override
     public Map<String, Object> findHistoryByCondition(PageSplit pageSplit) {
@@ -65,5 +73,12 @@ public class HistoryServiceImpl implements HistoryService {
         map.put("total", total);
         map.put("searchHistories", searchHistories);
         return map;
+    }
+
+    @Override
+    public void clearAll() {
+        SearchHistoryExample searchHistoryExample = new SearchHistoryExample();
+
+        historyMapper.deleteByExample(searchHistoryExample);
     }
 }

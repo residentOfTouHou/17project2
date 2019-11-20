@@ -78,6 +78,11 @@
         order by #{sort} #{order}
     </select>
 
+    <select id="queryCoupons" resultMap="couponMap">
+        select id,`name`,`desc`,tag,discount,`min`,days,start_time,end_time
+        from cskaoyan_mall_coupon
+    </select>
+
     <select id="queryCouponById" resultMap="couponMap">
         select * from cskaoyan_mall_coupon
         where id = #{id}
