@@ -34,4 +34,6 @@ public interface UserMapper {
     List<User> selectAll();
 
     List<StatUser> selectCountsUser();
+
+    User selectByUsername(String username);
 }

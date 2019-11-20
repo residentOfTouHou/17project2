@@ -6,11 +6,12 @@ import com.cskaoyan.wxmall.service.CouponWxService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@RestController
 @RequestMapping("/wx/coupon")
 public class CouponWxController {
 
@@ -18,8 +19,8 @@ public class CouponWxController {
     CouponWxService couponService;
 
     @RequestMapping("list")
-    public BaseReqVo quryCouponList(int page,int limit){
-        List<Coupon> coupons = couponService.queryCoupons(page,limit);
+    public BaseReqVo quryCouponList(Integer page,Integer size){
+        List<Coupon> coupons = couponService.queryCoupons(page,size);
         PageInfo<Coupon> adPageInfo = new PageInfo<>(coupons);
         long total = adPageInfo.getTotal();
         Map<String,Object> map =new HashMap<>();
