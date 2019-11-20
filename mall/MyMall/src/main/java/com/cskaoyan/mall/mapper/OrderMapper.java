@@ -31,4 +31,6 @@ public interface OrderMapper {
     int updateByPrimaryKey(Order record);
 
     List<StatOrder> selectCountsOrder();
+
+    Integer getLastInsertId();
 }

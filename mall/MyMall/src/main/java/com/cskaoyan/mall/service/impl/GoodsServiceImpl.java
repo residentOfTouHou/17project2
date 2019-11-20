@@ -66,14 +66,13 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-
     public List<Goods> findAll() {
-        GoodsExample goodsExample = new GoodsExample();
-        List<Goods> goodsList = goodsMapper.selectByExample(goodsExample);
-
-        return goodsList;
+        GoodsExample example = new GoodsExample();
+        List<Goods> goodsList = goodsMapper.selectByExample(example);
+        return  goodsList;
     }
 
+    @Override
     public Goods queryGoodsByGoodsSn(String goodsSn) {
        Goods goods = goodsMapper.queryGoodsByGoodsSn(goodsSn);
        return goods;

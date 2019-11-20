@@ -38,6 +38,7 @@ public class Order {
 
     private String payId;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date payTime;
 
     private String shipSn;

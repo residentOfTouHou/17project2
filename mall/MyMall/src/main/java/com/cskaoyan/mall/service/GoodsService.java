@@ -39,4 +39,5 @@ public interface GoodsService {
     List<Goods> queryHotGoods();
 
     List<Goods> queryGoodsList(Integer categoryId, Integer page, Integer size);
+
 }
