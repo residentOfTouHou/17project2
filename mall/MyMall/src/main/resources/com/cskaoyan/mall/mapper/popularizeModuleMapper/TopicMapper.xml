@@ -59,5 +59,9 @@
   <delete id="deleteTopic">
     delete from cskaoyan_mall_topic where id = #{id}
   </delete>
+    <select id="getAll" resultMap="TopicsMap">
+      select <include refid="Base_Column_List" />
+      from cskaoyan_mall_topic
+    </select>
 
 </mapper>

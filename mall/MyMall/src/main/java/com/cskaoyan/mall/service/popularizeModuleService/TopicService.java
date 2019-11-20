@@ -22,4 +22,6 @@ public interface TopicService {
     void deleteTopic(Topic topic);
 
     Topic createTopic(Topic topic);
+
+    List<Topic> getAllTopics();
 }

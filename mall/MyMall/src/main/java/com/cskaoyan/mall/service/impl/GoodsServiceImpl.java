@@ -91,4 +91,22 @@ public class GoodsServiceImpl implements GoodsService {
         return queryGoods;
     }
 
+    @Override
+    public int queryGoodsCount() {
+        return findAll().size();
+    }
+
+    @Override
+    public List<Goods> queryNewGoods() {
+        GoodsExample goodsExample = new GoodsExample();
+        goodsExample.createCriteria().andIsNewEqualTo(true);
+        return goodsMapper.selectByExample(goodsExample);
+    }
+
+    @Override
+    public List<Goods> queryHotGoods() {
+        GoodsExample goodsExample = new GoodsExample();
+        goodsExample.createCriteria().andIsHotEqualTo(true);
+        return goodsMapper.selectByExample(goodsExample);
+    }
 }

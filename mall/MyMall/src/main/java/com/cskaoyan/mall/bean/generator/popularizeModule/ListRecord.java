@@ -8,13 +8,13 @@ import java.util.List;
 
 @Data
 public class ListRecord {
-    @SerializedName("goods1")
+
     GoodsAlter goods;
-    @SerializedName("groupon")
+
     Groupon groupon;
-    @SerializedName("rules")
+
     GrouponRules rules;
-    @SerializedName("subGroupons")
+
     List<SubGroupons> subGroupons;
 
 
