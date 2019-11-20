@@ -92,10 +92,11 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-<<<<<<< HEAD
     public int queryGoodsCount() {
         return findAll().size();
-=======
+    }
+
+    @Override
     public List<Goods> queryNewGoods() {
         GoodsExample goodsExample = new GoodsExample();
         goodsExample.createCriteria().andIsNewEqualTo(true);
@@ -107,7 +108,5 @@ public class GoodsServiceImpl implements GoodsService {
         GoodsExample goodsExample = new GoodsExample();
         goodsExample.createCriteria().andIsHotEqualTo(true);
         return goodsMapper.selectByExample(goodsExample);
->>>>>>> bb486b489784e12ebca71471b4d7d3d70096d136
     }
-
 }
