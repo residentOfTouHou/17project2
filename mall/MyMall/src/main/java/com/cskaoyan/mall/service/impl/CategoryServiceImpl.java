@@ -3,6 +3,7 @@ package com.cskaoyan.mall.service.impl;
 
 import com.cskaoyan.mall.bean.generator.Category;
 import com.cskaoyan.mall.bean.generator.CategoryExample;
+import com.cskaoyan.mall.bean.jsonbean.CategorySegment;
 import com.cskaoyan.mall.bean.jsonbean.GoodsChildren;
 import com.cskaoyan.mall.mapper.BrandMapper;
 import com.cskaoyan.mall.mapper.CategoryMapper;
@@ -57,5 +58,44 @@ public class CategoryServiceImpl implements CategoryService {
         //  L2 id
         categoryIdList.add(categoryId);
         return categoryIdList;
+    }
+
+
+    @Override
+    public HashMap<String, Object> queryGoodsCategory(Integer id) {
+        HashMap<String, Object> map = new HashMap<>();
+        //获取当前分类
+        Category currentCategory = categoryMapper.selectByPrimaryKey(id);
+        //判空
+        if (currentCategory != null) {
+            //获取兄弟分类
+            List<Category> brotherCategory = categoryMapper.selectByPid(currentCategory.getPid());
+            //获取父分类
+            Category parentCategory = categoryMapper.selectByPrimaryKey(currentCategory.getPid());
+            //封装
+            map.put("currentCategory", currentCategory);
+            map.put("brotherCategory", brotherCategory);
+            map.put("parentCategory", parentCategory);
+        }
+        return map;
+    }
+
+    @Override
+    public List<Category> queryCategoryLevelOne() {
+        CategoryExample categoryExample = new CategoryExample();
+        categoryExample.createCriteria().andLevelEqualTo("L1");
+        return categoryMapper.selectByExample(categoryExample);
+    }
+
+    @Override
+    public List<Category> getCategoryByPid(Integer id) {
+        CategoryExample categoryExample = new CategoryExample();
+        categoryExample.createCriteria().andPidEqualTo(id);
+        return categoryMapper.selectByExample(categoryExample);
+    }
+
+    @Override
+    public Category getCategoryById(int id) {
+        return categoryMapper.selectByPrimaryKey(id);
     }
 }

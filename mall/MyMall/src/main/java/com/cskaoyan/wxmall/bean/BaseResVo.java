@@ -55,7 +55,7 @@ public class BaseResVo {
         private List<Goods> newGoodsList;
         private List<Coupon> couponList;
         private List<ChannelBean> channel;
-        private List<Groupon> grouponList;
+        private List<GrouponWxBean> grouponList;
         private List<Ad> banner;
         private List<Brand> brandList;
         private List<Goods> hotGoodsList;
@@ -86,11 +86,11 @@ public class BaseResVo {
             this.channel = channel;
         }
 
-        public List<Groupon> getGrouponList() {
+        public List<GrouponWxBean> getGrouponList() {
             return grouponList;
         }
 
-        public void setGrouponList(List<Groupon> grouponList) {
+        public void setGrouponList(List<GrouponWxBean> grouponList) {
             this.grouponList = grouponList;
         }
 

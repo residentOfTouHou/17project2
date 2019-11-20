@@ -3,6 +3,7 @@ package com.cskaoyan.mall.mapper.popularizeModuleMapper;
 
 import com.cskaoyan.mall.bean.generator.Order;
 import com.cskaoyan.mall.bean.generator.popularizeModule.Groupon;
+import com.cskaoyan.wxmall.bean.GrouponWxBean;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -16,7 +17,13 @@ public interface GrouponMapper {
 
     List<Groupon> selectAll();
 
-    //zhj
+
+
     Groupon hasOrder(@Param("orderId") Integer id);
-    //zhj
+
+
+    List<Groupon> selectGrouponById(Integer id);
+
+    List<GrouponWxBean> queryWxGrouponsList();
+
 }

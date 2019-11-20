@@ -41,6 +41,9 @@ public interface GrouponRulesMapper {
 
     List<SubGroupons> querySubGroupons(Integer subGrouponId);
 
-    //zhj
+
     GrouponRules selectGrouponRulesByRuleId(@Param("ruleId") Integer rulesId);
+
+    GrouponRules selectByGoodsId(Integer id);
+
 }

@@ -15,6 +15,19 @@
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
 
+  <resultMap id="grouponWxMap" type="com.cskaoyan.wxmall.bean.GrouponWxBean">
+    <result column="discount" jdbcType="DECIMAL" property="groupon_price"/>
+    <result column="discount_member" jdbcType="INTEGER" property="groupon_member"/>
+    <association property="goods" javaType="com.cskaoyan.wxmall.bean.GoodsWxBean">
+      <id column="id" jdbcType="INTEGER" property="id"/>
+      <result column="name" jdbcType="VARCHAR" property="name"/>
+      <result column="brief" jdbcType="VARCHAR" property="brief"/>
+      <result column="pic_url" jdbcType="VARCHAR" property="picUrl"/>
+      <result column="counter_price" jdbcType="DECIMAL" property="counterPrice"/>
+      <result column="retail_price" jdbcType="DECIMAL" property="retailPrice"/>
+    </association>
+  </resultMap>
+
   <sql id="Base_Column_List">
     id, order_id, groupon_id, rules_id, user_id, creator_user_id, add_time, update_time,
     share_url, payed, deleted
@@ -28,9 +41,22 @@
       and
     </if>
   </select>
+
     <select id="selectAll" resultMap="grouponMap">
       select  <include refid="Base_Column_List"/> from cskaoyan_mall_groupon
     </select>
+    <select id="selectGrouponById" resultMap="grouponMap">
+      select  <include refid="Base_Column_List"/>
+      from cskaoyan_mall_groupon
+      where groupon_id = #{id}
+    </select>
+
+  <select id="queryWxGrouponsList" resultMap="grouponWxMap">
+    select r.discount,r.discount_member,
+    g.id,g.name,g.brief,g.pic_url,g.counter_price,g.retail_price
+    from cskaoyan_mall_groupon_rules r
+    left join cskaoyan_mall_goods g on r.goods_id = g.id
+  </select>
 
   <select id="hasOrder" resultMap="grouponMap">
     select <include refid="Base_Column_List"/> from cskaoyan_mall_groupon where order_id = #{orderId}

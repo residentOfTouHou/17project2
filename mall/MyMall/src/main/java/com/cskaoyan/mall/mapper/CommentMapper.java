@@ -37,4 +37,6 @@ public interface CommentMapper {
     CommentAlter queryCommentById(int commentId);
 
     int updateCommentById(CommentData commentData);
+
+    List<Comment> selectCommentsByGoodsIdAndType(Integer id);
 }

@@ -26,9 +26,9 @@ public class WXSearchController {
     public IndexData index() {
         IndexData dataBean = new IndexData();
 
-//查找默认关键字
+    //查找默认关键字
         List<Keyword> keyWordDefault = keywordService.findKeyWordDefault(true);
-//        查找热门关键字
+    //查找热门关键字
         Keyword keyword = keyWordDefault.get(0);
         IndexData.DataBean data = new IndexData.DataBean();
         data.setDefaultKeyword(keyword);

@@ -107,6 +107,11 @@
   <delete id="deleteGrouponRules">
     delete from cskaoyan_mall_groupon_rules where id = #{id}
   </delete>
+  <select id="selectByGoodsId" resultMap="grouponRulesMap">
+    select <include refid="Base_Column_List"/>
+    from cskaoyan_mall_groupon_rules
+    where goods_id = #{id}
+  </select>
 
   <select id="selectGrouponRulesByRuleId" resultMap="grouponRulesMap">
     select <include refid="Base_Column_List"/>
