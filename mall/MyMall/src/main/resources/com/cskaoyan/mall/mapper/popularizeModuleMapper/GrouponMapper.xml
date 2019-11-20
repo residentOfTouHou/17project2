@@ -50,6 +50,16 @@
       from cskaoyan_mall_groupon
       where groupon_id = #{id}
     </select>
+<<<<<<< HEAD
+=======
+
+  <select id="queryWxGrouponsList" resultMap="grouponWxMap">
+    select r.discount,r.discount_member,
+    g.id,g.name,g.brief,g.pic_url,g.counter_price,g.retail_price
+    from cskaoyan_mall_groupon_rules r
+    left join cskaoyan_mall_goods g on r.goods_id = g.id
+  </select>
+>>>>>>> 8bc4fd1c417389b07eb00356ff61c9582a557720
 
   <select id="queryWxGrouponsList" resultMap="grouponWxMap">
     select r.discount,r.discount_member,

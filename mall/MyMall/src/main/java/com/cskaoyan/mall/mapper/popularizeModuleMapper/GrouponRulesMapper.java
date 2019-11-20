@@ -30,7 +30,7 @@ public interface GrouponRulesMapper {
                           @Param("discountMember") int dicMember,
                           @Param("expireTime") String expireTime,
                           @Param("groupRulesJson") GrouponRulesJson grouponRulesJson,
-                          @Param("goods")GoodsAlter goods);
+                          @Param("goods") GoodsAlter goods);
 
     GrouponRules queryGrouponRulesById(int id);
 
