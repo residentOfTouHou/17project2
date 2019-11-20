@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 @RestController
 @RequestMapping("/wx/goods")
-public class GoodsController {
+public class GoodsWxController {
 
     @Autowired
     GoodsService goodsService;
