@@ -50,4 +50,6 @@ public interface GoodsMapper {
     Goods queryGoodsByName(String name);
 
     Goods queryGoodsBySnAndName(GoodsAlter goods);
+
+    List<Goods> selectGoodsByCategoryId(Integer categoryId);
 }

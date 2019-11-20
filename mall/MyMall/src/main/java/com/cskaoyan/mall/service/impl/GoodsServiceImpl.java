@@ -109,4 +109,12 @@ public class GoodsServiceImpl implements GoodsService {
         goodsExample.createCriteria().andIsHotEqualTo(true);
         return goodsMapper.selectByExample(goodsExample);
     }
+
+    @Override
+    public List<Goods> queryGoodsList(Integer categoryId, Integer page, Integer size) {
+        PageHelper.startPage(page,size);
+
+        List<Goods> goodsList = goodsMapper.selectGoodsByCategoryId(categoryId);
+        return goodsList;
+    }
 }
