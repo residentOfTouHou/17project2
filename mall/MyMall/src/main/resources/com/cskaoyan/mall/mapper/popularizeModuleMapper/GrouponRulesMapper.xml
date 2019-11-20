@@ -108,5 +108,9 @@
     delete from cskaoyan_mall_groupon_rules where id = #{id}
   </delete>
 
-
+  <select id="selectGrouponRulesByRuleId" resultMap="grouponRulesMap">
+    select <include refid="Base_Column_List"/>
+    from cskaoyan_mall_groupon_rules
+    where id = #{ruleId}
+  </select>
 </mapper>

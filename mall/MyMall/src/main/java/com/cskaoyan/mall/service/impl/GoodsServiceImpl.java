@@ -65,8 +65,10 @@ public class GoodsServiceImpl implements GoodsService {
         return delete;
     }
 
-
-
+    @Override
+    public List<Goods> findAll() {
+        return null;
+    }
 
 
     public Goods queryGoodsByGoodsSn(String goodsSn) {

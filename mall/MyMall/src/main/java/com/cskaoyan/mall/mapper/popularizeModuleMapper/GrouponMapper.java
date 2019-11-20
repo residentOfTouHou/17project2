@@ -1,6 +1,7 @@
 package com.cskaoyan.mall.mapper.popularizeModuleMapper;
 
 
+import com.cskaoyan.mall.bean.generator.Order;
 import com.cskaoyan.mall.bean.generator.popularizeModule.Groupon;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -14,4 +15,8 @@ public interface GrouponMapper {
                               @Param("order") String order);
 
     List<Groupon> selectAll();
+
+    //zhj
+    Groupon hasOrder(@Param("orderId") Integer id);
+    //zhj
 }
