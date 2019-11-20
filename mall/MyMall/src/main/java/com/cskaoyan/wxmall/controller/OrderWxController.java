@@ -2,7 +2,7 @@ package com.cskaoyan.wxmall.controller;
 
 import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
 import com.cskaoyan.wxmall.bean.SubmitOrderBean;
-import com.cskaoyan.wxmall.service.OrderService;
+import com.cskaoyan.wxmall.service.OrderWxService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,10 +21,10 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("wx/order")
-public class OrderController {
+public class OrderWxController {
 
     @Autowired
-    OrderService orderService;
+    OrderWxService orderService;
 
     /**
      * 提交订单

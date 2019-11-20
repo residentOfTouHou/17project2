@@ -16,7 +16,6 @@ import com.cskaoyan.wxmall.bean.BaseResVo.DataBean.ChannelBean;
 import java.util.ArrayList;
 import java.util.List;
 import com.cskaoyan.mall.service.GoodsService;
-import com.cskaoyan.wxmall.bean.BaseResVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

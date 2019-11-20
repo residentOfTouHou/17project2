@@ -9,7 +9,7 @@ import com.cskaoyan.wxmall.bean.SubmitOrderBean;
  * @date 2019/11/19
  * @time 23:03
  */
-public interface OrderService {
+public interface OrderWxService {
 
     Integer submitOrder(SubmitOrderBean orderBean);
 
