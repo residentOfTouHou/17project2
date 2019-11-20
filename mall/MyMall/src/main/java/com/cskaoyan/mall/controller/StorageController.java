@@ -105,9 +105,24 @@ public class StorageController {
     }
 
     @RequestMapping("update")
-    public BaseReqVo update(@RequestBody Storage storage){
+    public BaseReqVo update(@RequestBody Storage storage,HttpServletRequest request){
         storage.setUpdateTime(new Date());
-        int update = storageService.updateStorage(storage);
+        String url = storage.getUrl();
+        String replace = url.replaceAll("http://" + request.getServerName() //服务器地址
+                + ":"
+                + request.getServerPort()           //端口号
+                + request.getContextPath(), "");
+        String realPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static" + replace;
+        String[] split = realPath.split("/");
+        String oldName = split[split.length - 1];
+        File file = new File(realPath);
+        boolean isRenamed = file.renameTo(new File(realPath.replaceAll(oldName, storage.getName())));
+        int update = 0;
+        if(isRenamed){
+            update = storageService.updateStorage(storage);
+            storage.setUrl(url.replaceAll(oldName,storage.getName()));
+        }
+
         BaseReqVo baseReqVo = new BaseReqVo();
         if(update == 1){
             baseReqVo.setErrno(0);

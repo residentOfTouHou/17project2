@@ -550,4 +550,8 @@
         from cskaoyan_mall_order
         group by add_time
     </select>
+
+  <select id="getLastInsertId" resultType="integer">
+    select LAST_INSERT_ID()
+  </select>
 </mapper>

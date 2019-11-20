@@ -3,6 +3,10 @@ package com.cskaoyan.mall.controller;
 import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
 import com.cskaoyan.mall.bean.jsonbean.InfoData;
 import com.cskaoyan.mall.bean.jsonbean.LoginVo;
+import com.cskaoyan.mall.shiro.CustomToken;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.subject.Subject;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,8 +20,30 @@ public class AuthController {
     @RequestMapping("/login")
     public BaseReqVo login(@RequestBody LoginVo loginVo) {
         BaseReqVo baseReqVo = new BaseReqVo();
+        String username = loginVo.getUsername();
+        String password = loginVo.getPassword();
+        CustomToken token = new CustomToken(username, password, "admin");
+        Subject subject = SecurityUtils.getSubject();
+        try {
+            subject.login(token);
+        } catch (AuthenticationException e) {
+            baseReqVo.setErrmsg("failed");
+            baseReqVo.setErrno(500);
+            return baseReqVo;
+        }
 
-        baseReqVo.setData("4b7d719e-53b7-4019-9677-6309b2445b45");
+        baseReqVo.setData(subject.getSession().getId());
+        baseReqVo.setErrmsg("成功");
+        baseReqVo.setErrno(0);
+        return baseReqVo;
+    }
+
+    @RequestMapping("/logout")
+    public BaseReqVo logout() {
+        BaseReqVo baseReqVo = new BaseReqVo();
+
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
         baseReqVo.setErrmsg("成功");
         baseReqVo.setErrno(0);
         return baseReqVo;
@@ -42,4 +68,7 @@ public class AuthController {
 
         return baseReqVo;
     }
+
+
+
 }

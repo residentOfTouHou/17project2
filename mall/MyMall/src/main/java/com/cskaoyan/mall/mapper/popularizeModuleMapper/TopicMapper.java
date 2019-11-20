@@ -22,4 +22,6 @@ public interface TopicMapper {
     void deleteTopic(int id);
 
     int createTopic(@Param("topic") Topic topic);
+
+    List<Topic> getAll();
 }

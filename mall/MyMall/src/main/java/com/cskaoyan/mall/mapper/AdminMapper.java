@@ -30,4 +30,5 @@ public interface AdminMapper {
 
     int insertAndReturnId(Admin admin);
 
+    Admin selectAdminByUsername(String name);
 }

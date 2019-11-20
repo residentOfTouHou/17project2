@@ -41,4 +41,9 @@ public class AdminServiceImpl implements AdminService {
     public int deleteAdminById(int id) {
         return adminMapper.deleteByPrimaryKey(id);
     }
+
+    @Override
+    public Admin getAdminByName(String name) {
+        return adminMapper.selectAdminByUsername(name);
+    }
 }

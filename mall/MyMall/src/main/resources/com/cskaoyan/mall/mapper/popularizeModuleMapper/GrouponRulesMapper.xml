@@ -28,6 +28,13 @@
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
 
+  <resultMap id="subGrouponsMap" type="com.cskaoyan.mall.bean.generator.popularizeModule.SubGroupons">
+    <id column="id" jdbcType="INTEGER" property="id"/>
+    <result column="order_id" jdbcType="INTEGER" property="orderId"/>
+    <result column="user_id" jdbcType="INTEGER" property="userId"/>
+    <result column="gourpon_id" jdbcType="INTEGER" property="grouponId"/>
+  </resultMap>
+
   <sql id="Base_Column_List">
     id, goods_id, goods_name, pic_url, discount, discount_member, add_time, update_time, 
     expire_time, deleted
@@ -57,6 +64,12 @@
     order by #{sort} #{order}
   </select>
 
+  <select id="querySubGroupons" resultMap="subGrouponsMap">
+    select id,order_id,user_id,groupon_id
+    from subgroupons
+    where groupon_id = #{subGrouponId}
+  </select>
+
   <select id="queryGrouponRulesByGoodsId" resultMap="grouponRulesMap">
     select <include refid="Base_Column_List"/>
     from cskaoyan_mall_groupon_rules
@@ -72,7 +85,8 @@
   </select>
 
   <select id="queryGrouponByRuleId" resultMap="grouponMap">
-    select <include refid="Base_Column_List2"/>
+    select id, `order_id`, groupon_id, rules_id, user_id, creator_user_id, add_time, update_time,
+    share_url, payed, deleted
     from cskaoyan_mall_groupon
     where id = #{ruleId}
   </select>

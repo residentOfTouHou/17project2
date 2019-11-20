@@ -14,4 +14,6 @@ public interface AdminService {
     int updateAdminById(Admin admin);
 
     int deleteAdminById(int id);
+
+    Admin getAdminByName(String name);
 }

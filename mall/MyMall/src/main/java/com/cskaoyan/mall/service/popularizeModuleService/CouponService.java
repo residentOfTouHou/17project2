@@ -20,4 +20,6 @@ public interface CouponService {
     void deleteCoupon(Coupon coupon);
 
     Coupon createCoupon(Coupon coupon);
+
+    List<Coupon> queryCoupons();
 }

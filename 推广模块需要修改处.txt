@@ -1,0 +1,2 @@
+1、将groupon表中的groupon_id设置为不是null默认值为0
+2、新增表cskaoyan_mall_subGroupons
