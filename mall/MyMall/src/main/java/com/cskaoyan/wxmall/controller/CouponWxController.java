@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @RequestMapping("/wx/coupon")
-public class CouponController {
+public class CouponWxController {
 
     @Autowired
     CouponWxService couponService;
