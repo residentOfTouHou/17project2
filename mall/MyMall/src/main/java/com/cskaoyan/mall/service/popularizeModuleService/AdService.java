@@ -18,4 +18,6 @@ public interface AdService {
     Ad queryAdById(int adId);
 
     Ad createAd(Ad ad);
+
+    List<Ad> getAllAd();
 }

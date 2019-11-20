@@ -14,7 +14,11 @@ public interface BrandService {
 
     List<BrandVo> queryBrands();
 
+
     BrandData queryBrandsWx(int page, int size);
 
     Brand queryBrandById(int id);
+
+    List<Brand> getAllBrands();
+
 }

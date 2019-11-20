@@ -32,4 +32,12 @@ public interface GoodsService {
 
     Goods queryGoodsBySnAndName(GoodsAlter goods);
 
+    int queryGoodsCount();
+
+    List<Goods> queryNewGoods();
+
+    List<Goods> queryHotGoods();
+
+    List<Goods> queryGoodsList(Integer categoryId, Integer page, Integer size);
+
 }

@@ -77,4 +77,9 @@ public class CouponServiceImpl implements CouponService {
         }
         return  null;
     }
+
+    public List<Coupon> queryCoupons(){
+        return couponMapper.queryCoupons();
+    }
+
 }

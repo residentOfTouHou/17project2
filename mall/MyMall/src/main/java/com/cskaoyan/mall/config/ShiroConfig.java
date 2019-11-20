@@ -32,8 +32,9 @@ public class ShiroConfig{
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         //shiroFilterFactoryBean.setLoginUrl("");
         LinkedHashMap<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
-
-
+        filterChainDefinitionMap.put("/admin/auth/login","anon");
+        filterChainDefinitionMap.put("/wx/user/login","anon");
+        shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
     }
 

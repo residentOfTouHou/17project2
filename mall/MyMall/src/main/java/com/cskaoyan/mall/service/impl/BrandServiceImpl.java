@@ -32,6 +32,7 @@ public class BrandServiceImpl implements BrandService {
     }
 
     @Override
+
     public BrandData queryBrandsWx(int page, int size) {
         PageHelper.startPage(page, size);
         BrandExample example = new BrandExample();
@@ -39,7 +40,7 @@ public class BrandServiceImpl implements BrandService {
         List<Brand> brandList = brandMapper.selectByExample(example);
         PageInfo<Brand> goodsPageInfo = new PageInfo<>(brandList);
         long total = goodsPageInfo.getTotal();
-        int totalPages = (int)Math.ceil((double)total / size);
+        int totalPages = (int) Math.ceil((double) total / size);
         BrandData brandData = new BrandData();
         brandData.setTotalPages(totalPages);
         brandData.setBrandList(brandList);
@@ -50,5 +51,10 @@ public class BrandServiceImpl implements BrandService {
     public Brand queryBrandById(int id) {
         Brand brand = brandMapper.selectByPrimaryKey(id);
         return brand;
+    }
+
+    @Override
+    public List<Brand> getAllBrands() {
+        return brandMapper.selectByExample(new BrandExample());
     }
 }
