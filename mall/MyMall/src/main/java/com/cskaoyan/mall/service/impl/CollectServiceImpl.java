@@ -10,6 +10,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -65,5 +66,46 @@ public class CollectServiceImpl implements CollectService {
         map.put("total", total);
         map.put("collects", collects);
         return map;
+    }
+
+    @Override
+    public int addCollection(Byte type, Integer valueId) {
+        CollectExample collectExample = new CollectExample();
+        Collect collect = new Collect();
+//        有问题
+        collect.setUserId(1);
+        collect.setValueId(valueId);
+        collect.setType(type);
+        collect.setAddTime(new Date());
+        collect.setUpdateTime(new Date() );
+        collect.setDeleted(true);
+
+        int i = collectMapper.insertSelective(collect);
+
+        return i;
+    }
+
+    @Override
+    public List<Collect> findCollectByCondition(Byte type, Integer valueId) {
+        CollectExample collectExample = new CollectExample();
+        CollectExample.Criteria criteria = collectExample.createCriteria();
+        if(valueId!=null){
+            criteria.andValueIdEqualTo(valueId);
+        }
+        if (type!=null){
+            criteria.andTypeEqualTo(type);
+        }
+        List<Collect> collects = collectMapper.selectByExample(collectExample);
+        return collects;
+    }
+
+    @Override
+    public int deleteCollection(Byte type, Integer valueId) {
+        CollectExample collectExample = new CollectExample();
+        CollectExample.Criteria criteria = collectExample.createCriteria();
+        criteria.andTypeEqualTo(type).andValueIdEqualTo(valueId);
+
+        int i = collectMapper.deleteByExample(collectExample);
+        return i;
     }
 }
