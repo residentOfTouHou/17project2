@@ -16,6 +16,8 @@ import com.cskaoyan.wxmall.bean.BaseResVo.DataBean.ChannelBean;
 import java.util.ArrayList;
 import java.util.List;
 import com.cskaoyan.mall.service.GoodsService;
+import com.cskaoyan.wxmall.bean.GrouponWxBean;
+import com.cskaoyan.wxmall.service.GrouponWxService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,7 +34,7 @@ public class HomeController {
     private CouponService couponService;
 
     @Autowired
-    private GrouponMapper grouponMapper;
+    private GrouponWxService grouponWxService;
 
     @Autowired
     private AdService adService;
@@ -59,7 +61,7 @@ public class HomeController {
         ChannelBean channelBean = new ChannelBean();
         dataBean.setChannel(channels);
 
-        List<Groupon> grouponList = grouponMapper.selectAll();
+        List<GrouponWxBean> grouponList = grouponWxService.queryWxGrouponsList(1,5);
         dataBean.setGrouponList(grouponList);
 
         List<Ad> banner = adService.getAllAd();
