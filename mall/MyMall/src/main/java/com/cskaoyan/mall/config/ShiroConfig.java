@@ -8,7 +8,6 @@ import com.cskaoyan.mall.shiro.AdminRealm;
 import com.cskaoyan.mall.shiro.CustomRealmAuthenticator;
 import com.cskaoyan.mall.shiro.CustomSessionManager;
 import com.cskaoyan.mall.shiro.WxRealm;
-import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;

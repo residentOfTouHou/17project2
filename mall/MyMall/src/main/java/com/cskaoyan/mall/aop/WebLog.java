@@ -7,7 +7,6 @@ package com.cskaoyan.mall.aop;
 import com.cskaoyan.mall.bean.generator.Log;
 import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
 import com.cskaoyan.mall.service.LogService;
-import com.google.gson.Gson;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;

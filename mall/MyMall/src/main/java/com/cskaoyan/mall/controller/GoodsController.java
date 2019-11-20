@@ -209,8 +209,7 @@ public class GoodsController {
      *
      * @param goods
      * @return
-     */
-    @RequestMapping("admin/goods/delete")
+     */    @RequestMapping("admin/goods/delete")
     public BaseReqVo delete(@RequestBody GoodsAlter goods) {
         int goodsId = goods.getId();
         int deleteGoods = goodsService.deleteGoods(goods.getId());

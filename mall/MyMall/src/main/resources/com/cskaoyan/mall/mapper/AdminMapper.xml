@@ -288,7 +288,7 @@
       role_ids = #{roleIds,jdbcType=VARCHAR,typeHandler=com.cskaoyan.mall.handler.String2IntArrayTypeHandler}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <insert id="insertAndReturnId"  parameterType="com.cskaoyan.mall.bean.generator.Admin" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+  <insert id="insertAndReturnId" parameterType="com.cskaoyan.mall.bean.generator.Admin" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
       insert into cskaoyan_mall_admin ( username, password,
       last_login_ip, last_login_time, avatar,
       add_time, update_time, deleted,

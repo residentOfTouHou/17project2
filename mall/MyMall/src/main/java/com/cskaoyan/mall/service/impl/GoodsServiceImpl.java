@@ -66,7 +66,6 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-
     public List<Goods> findAll() {
         GoodsExample goodsExample = new GoodsExample();
         List<Goods> goodsList = goodsMapper.selectByExample(goodsExample);

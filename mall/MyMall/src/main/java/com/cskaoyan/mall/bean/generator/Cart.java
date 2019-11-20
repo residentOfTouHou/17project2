@@ -1,5 +1,7 @@
 package com.cskaoyan.mall.bean.generator;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -20,17 +22,19 @@ public class Cart {
 
     private Short number;
 
-    private String specifications;
+    private String[] specifications;
 
-    private Boolean checked;
+    private boolean checked = true;
 
     private String picUrl;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date addTime;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 
-    private Boolean deleted;
+    private boolean deleted;
 
     public Integer getId() {
         return id;
@@ -96,19 +100,19 @@ public class Cart {
         this.number = number;
     }
 
-    public String getSpecifications() {
+    public String[] getSpecifications() {
         return specifications;
     }
 
-    public void setSpecifications(String specifications) {
-        this.specifications = specifications == null ? null : specifications.trim();
+    public void setSpecifications(String[] specifications) {
+        this.specifications = specifications;
     }
 
     public Boolean getChecked() {
         return checked;
     }
 
-    public void setChecked(Boolean checked) {
+    public void setChecked(boolean checked) {
         this.checked = checked;
     }
 
@@ -121,7 +125,7 @@ public class Cart {
     }
 
     public Date getAddTime() {
-        return addTime;
+        return new Date();
     }
 
     public void setAddTime(Date addTime) {
@@ -129,7 +133,7 @@ public class Cart {
     }
 
     public Date getUpdateTime() {
-        return updateTime;
+        return new Date();
     }
 
     public void setUpdateTime(Date updateTime) {
