@@ -58,4 +58,7 @@
     left join cskaoyan_mall_goods g on r.goods_id = g.id
   </select>
 
+  <select id="hasOrder" resultMap="grouponMap">
+    select <include refid="Base_Column_List"/> from cskaoyan_mall_groupon where order_id = #{orderId}
+  </select>
 </mapper>

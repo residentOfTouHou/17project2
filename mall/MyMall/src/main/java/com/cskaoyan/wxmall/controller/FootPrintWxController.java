@@ -28,7 +28,10 @@ public class FootPrintWxController {
     public BaseReqVo GetFootPrint(Integer page,Integer size){
         //获取userId
         User primaryPrincipal = (User) SecurityUtils.getSubject().getPrincipals().getPrimaryPrincipal();
-        Integer id = primaryPrincipal.getId();
+        Integer id = 1;
+        if (primaryPrincipal != null){
+             id = primaryPrincipal.getId();
+        }
         Map<String,Object> map = footprintService.selectFootPrintBy(page,size,id);
         return BaseReqVo.ok(map);
     }

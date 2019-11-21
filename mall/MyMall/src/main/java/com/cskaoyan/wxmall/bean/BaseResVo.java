@@ -4,6 +4,7 @@
 package com.cskaoyan.wxmall.bean;
 
 import com.cskaoyan.mall.bean.generator.Brand;
+import com.cskaoyan.mall.bean.generator.Category;
 import com.cskaoyan.mall.bean.generator.Goods;
 import com.cskaoyan.mall.bean.generator.popularizeModule.Ad;
 import com.cskaoyan.mall.bean.generator.popularizeModule.Coupon;
@@ -54,7 +55,7 @@ public class BaseResVo {
     public static class DataBean {
         private List<Goods> newGoodsList;
         private List<Coupon> couponList;
-        private List<ChannelBean> channel;
+        private List<Category> channel;
         private List<GrouponWxBean> grouponList;
         private List<Ad> banner;
         private List<Brand> brandList;
@@ -78,11 +79,11 @@ public class BaseResVo {
             this.couponList = couponList;
         }
 
-        public List<ChannelBean> getChannel() {
+        public List<Category> getChannel() {
             return channel;
         }
 
-        public void setChannel(List<ChannelBean> channel) {
+        public void setChannel(List<Category> channel) {
             this.channel = channel;
         }
 
