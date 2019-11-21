@@ -32,4 +32,6 @@ public interface GoodsSpecificationMapper {
     int insertSpecifications(List<GoodsSpecification> specifications);
 
     int updateSpecifications(GoodsSpecification specification);
+
+    List<GoodsSpecification> selectByGoodsId(Integer id);
 }
