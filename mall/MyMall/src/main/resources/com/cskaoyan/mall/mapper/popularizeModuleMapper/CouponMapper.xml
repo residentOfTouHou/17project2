@@ -107,6 +107,7 @@
         discount=#{coupon.discount},`min`=#{coupon.min},`limit`=#{coupon.limit},
         `type`=#{coupon.type},status=#{coupon.status},time_type=#{coupon.timeType},
         days=#{coupon.days},start_time=#{coupon.startTime},end_time=#{coupon.endTime}
+        where id = #{coupon.id}
     </update>
 
     <select id="queryCouponUsers" resultMap="couponUserMap">
