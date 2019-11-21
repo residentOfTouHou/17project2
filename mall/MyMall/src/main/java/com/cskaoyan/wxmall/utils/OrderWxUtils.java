@@ -72,6 +72,8 @@ public class OrderWxUtils {
             map.put("delete",true);
         }else if(orderStatus==201) { //已付款 可以退款
             map.put("refund",true);
+        }else if(orderStatus==202||orderStatus==203) { //申请取消 已取消 可以删除
+            map.put("delete",true);
         }else if(orderStatus==301) { //已发货 可以确认收货
             map.put("confirm",true);
         }else if(orderStatus==401) { //已收货 可以评价可以删除

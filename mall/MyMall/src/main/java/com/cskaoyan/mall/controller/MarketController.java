@@ -728,6 +728,20 @@ public class MarketController {
         return baseReqVo;
     }
 
+    /**
+     * 系统退款
+     *
+     * {"orderId":3,"refundMoney":1500}
+     */
+    @RequestMapping("order/refund")
+    public BaseReqVo refundOrder(@RequestBody Map<String,Integer> map){
+        BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
+        Integer orderId = map.get("orderId");
+        marketService.refundOrder(orderId);
+        baseReqVo.setErrno(0);
+        baseReqVo.setErrmsg("成功");
+        return baseReqVo;
+    }
 
     /**
      * 查询问题
