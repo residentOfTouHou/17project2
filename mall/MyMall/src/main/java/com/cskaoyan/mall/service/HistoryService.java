@@ -15,4 +15,6 @@ public interface HistoryService {
     Map<String, Object> findHistoryByCondition(PageSplit pageSplit);
 
     void clearAll();
+
+    List<SearchHistory> findHistoryByKeyWord(String keyword);
 }
