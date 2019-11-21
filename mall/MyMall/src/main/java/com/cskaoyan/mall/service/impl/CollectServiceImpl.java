@@ -2,22 +2,24 @@ package com.cskaoyan.mall.service.impl;
 
 import com.cskaoyan.mall.bean.generator.Collect;
 import com.cskaoyan.mall.bean.generator.CollectExample;
+import com.cskaoyan.mall.bean.generator.Goods;
 import com.cskaoyan.mall.bean.jsonbean.PageSplit;
 import com.cskaoyan.mall.mapper.CollectMapper;
+import com.cskaoyan.mall.mapper.GoodsMapper;
 import com.cskaoyan.mall.service.CollectService;
+import com.cskaoyan.wxmall.utils.UserIdUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.math.BigDecimal;
+import java.util.*;
 
 @Service
 public class CollectServiceImpl implements CollectService {
-
+    @Autowired
+   private GoodsMapper goodsMapper;
     @Autowired
     private CollectMapper collectMapper;
     @Override
@@ -103,6 +105,25 @@ public class CollectServiceImpl implements CollectService {
             criteria.andTypeEqualTo(type);
         }
         List<Collect> collects = collectMapper.selectByExample(collectExample);
+       List<Object> objectList = new ArrayList<>();
+        for (Collect collect : collects) {
+            Map<String,Object> objects = new HashMap<>();
+            Integer valueId1 = collect.getValueId();
+            objects.put("valueId",valueId);
+            objects.put("id",collect.getId());
+            objects.put("type",collect.getType());
+
+            Goods goods = goodsMapper.queryGoodsByGoodsSn(valueId1.toString());
+            String brief = goods.getBrief();
+            objects.put("brief",brief);
+            String picUrl = goods.getPicUrl();
+            objects.put("picUrl",picUrl);
+            String name = goods.getName();
+            objects.put("name",name);
+           BigDecimal retailPrice = goods.getRetailPrice();
+            objects.put("retailPrice",retailPrice);
+            objectList.add(objects);
+        }
 
         PageInfo<Collect> collectPageInfo = new PageInfo<>(collects);
         long total = collectPageInfo.getTotal();
@@ -110,17 +131,19 @@ public class CollectServiceImpl implements CollectService {
         Long totalPages = (total + size -1) / size;
         Map<String,Object> map = new HashMap<>();
         map.put("total", total);
-        map.put("collects", collects);
+        map.put("collects", objectList);
         map.put("totalPages", totalPages);
         return map;
     }
 
     @Override
     public int addCollection(Byte type, Integer valueId) {
+        System.out.println(type);
+        System.out.println(valueId);
         CollectExample collectExample = new CollectExample();
         Collect collect = new Collect();
-//        有问题
-        collect.setUserId(1);
+        Integer userId = UserIdUtils.getCurrentUserId();
+        collect.setUserId(userId);
         collect.setValueId(valueId);
         collect.setType(type);
         collect.setAddTime(new Date());
@@ -150,7 +173,14 @@ public class CollectServiceImpl implements CollectService {
     public int deleteCollection(Byte type, Integer valueId) {
         CollectExample collectExample = new CollectExample();
         CollectExample.Criteria criteria = collectExample.createCriteria();
-        criteria.andTypeEqualTo(type).andValueIdEqualTo(valueId);
+        if(type != null){
+            criteria.andTypeEqualTo(type);
+        }
+        if(valueId != null){
+            criteria.andValueIdEqualTo(valueId);
+        }
+
+
 
         int i = collectMapper.deleteByExample(collectExample);
         return i;
