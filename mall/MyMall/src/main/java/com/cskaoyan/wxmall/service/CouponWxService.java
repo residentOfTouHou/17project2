@@ -21,4 +21,6 @@ public interface CouponWxService {
     Coupon queryCouponIdByCode(Integer code);
 
     void updateCoupon(Coupon lessenTotalCoupon);
+
+    List<Coupon> queryCouponByUserId(int userId);
 }
