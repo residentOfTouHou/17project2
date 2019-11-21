@@ -45,9 +45,13 @@ public class CollectServiceImpl implements CollectService {
 
     @Override
     public Map<String, Object> findCollectByCondition(PageSplit pageSplit) {
-        PageHelper.startPage(pageSplit.getPage(),pageSplit.getLimit());
+        Integer page = pageSplit.getPage();
+        Integer size = pageSplit.getSize();
+        Integer limit = size;
+        PageHelper.startPage(page, limit);
         Integer valueId = pageSplit.getValueId();
         Integer userId = pageSplit.getUserId();
+        Byte type = pageSplit.getType();
         CollectExample collectExample = new CollectExample();
 //        升序降序
         collectExample.setOrderByClause(pageSplit.getSort() + " " + pageSplit.getOrder());
@@ -58,13 +62,56 @@ public class CollectServiceImpl implements CollectService {
         if (userId!=null){
             criteria.andUserIdEqualTo(userId);
         }
+
+        if (type!=null){
+            criteria.andTypeEqualTo(type);
+        }
         List<Collect> collects = collectMapper.selectByExample(collectExample);
 
         PageInfo<Collect> collectPageInfo = new PageInfo<>(collects);
         long total = collectPageInfo.getTotal();
+
         Map<String,Object> map = new HashMap<>();
         map.put("total", total);
         map.put("collects", collects);
+
+        return map;
+    }
+
+
+
+    @Override
+    public Map<String, Object> findCollectByCon(PageSplit pageSplit) {
+        Integer page = pageSplit.getPage();
+        Integer size = pageSplit.getSize();
+        PageHelper.startPage(page, size);
+        Integer valueId = pageSplit.getValueId();
+        Integer userId = pageSplit.getUserId();
+        Byte type = pageSplit.getType();
+        CollectExample collectExample = new CollectExample();
+//        升序降序
+//        collectExample.setOrderByClause(pageSplit.getSort() + " " + pageSplit.getOrder());
+        CollectExample.Criteria criteria = collectExample.createCriteria();
+        if(valueId!=null){
+            criteria.andValueIdEqualTo(valueId);
+        }
+        if (userId!=null){
+            criteria.andUserIdEqualTo(userId);
+        }
+
+        if (type!=null){
+            criteria.andTypeEqualTo(type);
+        }
+        List<Collect> collects = collectMapper.selectByExample(collectExample);
+
+        PageInfo<Collect> collectPageInfo = new PageInfo<>(collects);
+        long total = collectPageInfo.getTotal();
+//        获取总页数
+        Long totalPages = (total + size -1) / size;
+        Map<String,Object> map = new HashMap<>();
+        map.put("total", total);
+        map.put("collects", collects);
+        map.put("totalPages", totalPages);
         return map;
     }
 

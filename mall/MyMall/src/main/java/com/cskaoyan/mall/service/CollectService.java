@@ -11,6 +11,8 @@ public interface CollectService {
 
     Map<String, Object> findCollectByCondition(PageSplit pageSplit);
 
+    Map<String, Object> findCollectByCon(PageSplit pageSplit);
+
     int  addCollection(Byte type, Integer valueId);
 
     List<Collect> findCollectByCondition(Byte type, Integer valueId);
