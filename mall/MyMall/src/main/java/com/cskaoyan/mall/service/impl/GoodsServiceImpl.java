@@ -153,6 +153,8 @@ public class GoodsServiceImpl implements GoodsService {
         return goodsList;
     }
 
+
+
     /**
      * 获取商品详细信息
      * @param id 商品id

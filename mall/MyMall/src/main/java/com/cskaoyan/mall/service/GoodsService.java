@@ -43,5 +43,11 @@ public interface GoodsService {
 
     HashMap<String, Object> queryGoodsDetail(Integer id,Integer userId);
 
+
      HashMap<String, Object> queryGoodsRelated(Integer id);
+
+   
+
+
 }
+
