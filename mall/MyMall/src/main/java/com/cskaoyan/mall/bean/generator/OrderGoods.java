@@ -1,9 +1,11 @@
 package com.cskaoyan.mall.bean.generator;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.Date;
+
 
 public class OrderGoods {
     private Integer id;
@@ -22,7 +24,7 @@ public class OrderGoods {
 
     private BigDecimal price;
 
-    private String specifications;
+    private String[] specifications;
 
     private String picUrl;
 
@@ -100,12 +102,12 @@ public class OrderGoods {
         this.price = price;
     }
 
-    public String getSpecifications() {
+    public String[] getSpecifications() {
         return specifications;
     }
 
-    public void setSpecifications(String specifications) {
-        this.specifications = specifications == null ? null : specifications.trim();
+    public void setSpecifications(String[] specifications) {
+        this.specifications = specifications;
     }
 
     public String getPicUrl() {

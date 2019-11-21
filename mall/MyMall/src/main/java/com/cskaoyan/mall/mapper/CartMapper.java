@@ -35,5 +35,4 @@ public interface CartMapper {
 
     int updateById(Cart record);
 
-    int updateCartById(Cart cart);
 }
