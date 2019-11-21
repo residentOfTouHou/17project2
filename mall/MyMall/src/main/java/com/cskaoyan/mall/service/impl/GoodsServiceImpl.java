@@ -146,6 +146,7 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public List<Goods> queryGoodsList(Integer categoryId, Integer page, Integer size) {
+        //分页
         PageHelper.startPage(page,size);
 
         List<Goods> goodsList = goodsMapper.selectGoodsByCategoryId(categoryId);
@@ -158,7 +159,7 @@ public class GoodsServiceImpl implements GoodsService {
      * @return 结果集data
      */
     @Override
-    public HashMap<String, Object> queryGoodsDetail(Integer id) {
+    public HashMap<String, Object> queryGoodsDetail(Integer id,Integer userId) {
         //获取商品规格 specificationList
         List<GoodsSpecification> specificationList = goodsSpecificationMapper.selectByGoodsId(id);
         //获取团购 groupon
@@ -210,13 +211,22 @@ public class GoodsServiceImpl implements GoodsService {
         map.put("info",info);
         //记录足迹
         Footprint footprint = new Footprint();
-        footprint.setUserId(1);
+        //userId后为当前用户Id
+        footprint.setUserId(userId);
         footprint.setGoodsId(id);
         footprint.setAddTime(new Date());
         footprint.setUpdateTime(new Date());
         footprint.setDeleted(false);
-
         footprintMapper.insertSelective(footprint);
+        return map;
+    }
+
+    @Override
+    public HashMap<String, Object> queryGoodsRelated(Integer id) {
+        Integer categoryId = goodsMapper.selectByPrimaryKey(id).getCategoryId();
+        List<Goods> goodsList = goodsMapper.selectGoodsByCategoryId(categoryId);
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("goodsList",goodsList);
         return map;
     }
 

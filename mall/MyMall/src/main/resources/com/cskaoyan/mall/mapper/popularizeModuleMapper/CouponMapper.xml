@@ -62,6 +62,14 @@
       #{coupon.updateTime,jdbcType=TIMESTAMP}, #{coupon.deleted,jdbcType=BIT})
     </insert>
 
+    <insert id="insertCouponUser" useGeneratedKeys="true" keyProperty="coupon.id">
+        insert into cskaoyan_mall_coupon_user
+        (user_id,coupon_id,status,start_time,end_time,add_time)
+        value
+        (#{userId},#{lessenTotalCoupon.id},#{lessenTotalCoupon.status},#{lessenTotalCoupon.startTime},
+        #{lessenTotalCoupon.endTime},now())
+    </insert>
+
     <select id="queryCouponList" parameterType="com.cskaoyan.mall.bean.generator.popularizeModule.Coupon" resultMap="couponMap">
         select <include refid="Base_Column_List"/>
         from cskaoyan_mall_coupon cp
@@ -108,10 +116,32 @@
         order by #{sort} #{order}
     </select>
 
+    <select id="checkUserCouponExits" resultType="int">
+        select count(coupon_id) from cskaoyan_mall_coupon_user where id = #{param2}
+    </select>
+
+    <select id="getMyCouponIds" resultType="integer">
+        select coupon_id from cskaoyan_mall_coupon_user
+        where user_id = #{param1} and status = #{param2}
+    </select>
+
+    <select id="getMycouponList" resultMap="couponMap">
+        select id,`name`,`desc`,tag,`min`,discount,start_time,end_time
+        from cskaoyan_mall_coupon
+        where id in
+        <foreach collection="couponIds" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </select>
+
+    <select id="queryCouponByCode" resultMap="couponMap">
+        select <include refid="Base_Column_List"/>
+        from cskaoyan_mall_coupon where code = #{code}
+    </select>
+
     <delete id="deleteCoupon">
         delete from cskaoyan_mall_coupon where id = #{id}
     </delete>
-    <select id="selectAll" resultMap="couponMap">
-        select * from cskaoyan_mall_coupon
-    </select>
+
+
 </mapper>

@@ -1,5 +1,6 @@
 package com.cskaoyan.mall.service;
 
+import com.cskaoyan.mall.bean.generator.GoodsProduct;
 import com.cskaoyan.mall.bean.generator.GoodsProductAlter;
 
 import java.util.List;
@@ -19,4 +20,6 @@ public interface GoodsProductService {
     int deleteProducts(int goodsId);
 
     int getProductNumber();
+
+    GoodsProduct queryProductById(int productId);
 }

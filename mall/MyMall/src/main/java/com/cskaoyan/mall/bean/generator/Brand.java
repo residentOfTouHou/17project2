@@ -24,7 +24,7 @@ public class Brand {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 
-    private Boolean deleted;
+    private boolean deleted;
 
     public Integer getId() {
         return id;

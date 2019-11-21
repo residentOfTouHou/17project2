@@ -25,7 +25,9 @@ public interface GoodsService {
 
     int deleteGoods(Integer id);
 
+
     List<Goods> findAll();
+
 
     Goods queryGoodsByGoodsSn(String goodsSn);
 
@@ -39,8 +41,14 @@ public interface GoodsService {
 
     List<Goods> queryHotGoods();
 
+
     List<Goods> queryGoodsList(Integer categoryId, Integer page, Integer size);
 
     HashMap<String, Object> queryGoodsDetail(Integer id);
+
+    HashMap<String, Object> queryGoodsDetail(Integer id,Integer userId);
+
+    HashMap<String, Object> queryGoodsRelated(Integer id);
+
 
 }

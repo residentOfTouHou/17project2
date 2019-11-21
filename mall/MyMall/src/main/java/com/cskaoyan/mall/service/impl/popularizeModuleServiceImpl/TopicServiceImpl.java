@@ -5,7 +5,6 @@ import com.cskaoyan.mall.bean.generator.popularizeModule.Topic;
 import com.cskaoyan.mall.mapper.popularizeModuleMapper.TopicMapper;
 import com.cskaoyan.mall.service.popularizeModuleService.TopicService;
 import com.github.pagehelper.PageHelper;
-import net.sf.jsqlparser.statement.select.Top;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

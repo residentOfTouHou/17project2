@@ -24,4 +24,8 @@ public interface OrderWxService {
     void cancelOrder(Integer id);
 
     int getOrderNumber();
+    void refundOrder(Integer id);
+
+    void deleteOrder(Integer id);
+
 }

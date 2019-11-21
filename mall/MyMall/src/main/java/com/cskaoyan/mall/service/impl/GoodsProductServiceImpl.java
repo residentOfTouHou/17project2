@@ -53,4 +53,10 @@ public class GoodsProductServiceImpl implements GoodsProductService {
     public int getProductNumber() {
         return goodsProductMapper.selectByExample(new GoodsProductExample()).size();
     }
+
+    @Override
+    public GoodsProduct queryProductById(int id) {
+        GoodsProduct goodsProduct = goodsProductMapper.selectByPrimaryKey(id);
+        return goodsProduct;
+    }
 }

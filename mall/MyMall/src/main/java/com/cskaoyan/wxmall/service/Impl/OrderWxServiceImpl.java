@@ -1,5 +1,5 @@
-package com.cskaoyan.wxmall.service.Impl;
 
+package com.cskaoyan.wxmall.service.Impl;
 import com.cskaoyan.mall.bean.generator.*;
 import com.cskaoyan.mall.bean.generator.popularizeModule.Coupon;
 import com.cskaoyan.mall.bean.generator.popularizeModule.Groupon;
@@ -289,5 +289,29 @@ public class OrderWxServiceImpl implements OrderWxService {
     @Override
     public int getOrderNumber() {
         return orderMapper.selectByExample(new OrderExample()).size();
+    }
+
+    /**
+     * 退款取消订单
+     * @param orderId
+     */
+    @Override
+    public void refundOrder(Integer orderId) {
+        Order order = new Order();
+        order.setId(orderId);
+        order.setOrderStatus((short) 202);
+        orderMapper.updateByPrimaryKeySelective(order);
+    }
+
+    /**
+     * 删除订单
+     * @param orderId
+     */
+    @Override
+    public void deleteOrder(Integer orderId) {
+        Order order = new Order();
+        order.setId(orderId);
+        order.setDeleted(true);
+        orderMapper.updateByPrimaryKeySelective(order);
     }
 }

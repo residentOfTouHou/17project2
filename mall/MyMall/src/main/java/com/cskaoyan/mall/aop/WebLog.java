@@ -8,7 +8,6 @@ import com.cskaoyan.mall.bean.generator.Admin;
 import com.cskaoyan.mall.bean.generator.Log;
 import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
 import com.cskaoyan.mall.service.LogService;
-import com.google.gson.Gson;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.aspectj.lang.ProceedingJoinPoint;

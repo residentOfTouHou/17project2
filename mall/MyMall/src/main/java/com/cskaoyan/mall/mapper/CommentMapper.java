@@ -5,6 +5,7 @@ import com.cskaoyan.mall.bean.generator.CommentAlter;
 import com.cskaoyan.mall.bean.generator.CommentExample;
 import com.cskaoyan.mall.bean.jsonbean.CommentData;
 import com.cskaoyan.mall.bean.jsonbean.CommentQueryParameters;
+import com.cskaoyan.wxmall.bean.WXComment;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -38,5 +39,11 @@ public interface CommentMapper {
 
     int updateCommentById(CommentData commentData);
 
+
+    List<CommentAlter> findCommentByCondition(@Param("type") Byte type, @Param("valueId") Integer valueId);
+
+
     List<Comment> selectCommentsByGoodsIdAndType(Integer id);
+
+
 }

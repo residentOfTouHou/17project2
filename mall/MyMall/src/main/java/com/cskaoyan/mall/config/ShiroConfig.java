@@ -8,7 +8,6 @@ import com.cskaoyan.mall.shiro.AdminRealm;
 import com.cskaoyan.mall.shiro.CustomRealmAuthenticator;
 import com.cskaoyan.mall.shiro.CustomSessionManager;
 import com.cskaoyan.mall.shiro.WxRealm;
-import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -36,6 +35,7 @@ public class ShiroConfig{
 //        filterChainDefinitionMap.put("/wx/home/index","authc");
         filterChainDefinitionMap.put("/admin/auth/login","anon");
         //后台除了登录其余都需要认证
+        //filterChainDefinitionMap.put("/wx/coupon/**","authc");
         filterChainDefinitionMap.put("/admin/**","authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;

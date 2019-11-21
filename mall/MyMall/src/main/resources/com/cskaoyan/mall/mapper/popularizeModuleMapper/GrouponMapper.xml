@@ -51,14 +51,12 @@
       where groupon_id = #{id}
     </select>
 
-
   <select id="queryWxGrouponsList" resultMap="grouponWxMap">
     select r.discount,r.discount_member,
     g.id,g.name,g.brief,g.pic_url,g.counter_price,g.retail_price
     from cskaoyan_mall_groupon_rules r
     left join cskaoyan_mall_goods g on r.goods_id = g.id
   </select>
-
 
   <select id="hasOrder" resultMap="grouponMap">
     select <include refid="Base_Column_List"/> from cskaoyan_mall_groupon where order_id = #{orderId}

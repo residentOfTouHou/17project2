@@ -9,5 +9,7 @@ import java.util.List;
 public class CollectData {
     private Long total;
 
+    private Long totalPages;
+
     private List<Collect> items;
 }
