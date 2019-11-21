@@ -17,4 +17,6 @@ public interface UserService {
     int insertUser(User user);
 
     int updatePasswordByMobile(String mobile, String password);
+
+    int getUserNumber();
 }

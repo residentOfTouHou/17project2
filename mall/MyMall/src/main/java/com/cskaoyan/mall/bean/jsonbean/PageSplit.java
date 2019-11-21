@@ -8,6 +8,8 @@ public class PageSplit {
 
     private Integer limit;
 
+    private Integer size;
+
     private String sort;
 
     private String order;
@@ -27,4 +29,6 @@ public class PageSplit {
     private String keyword;
 
     private Integer id;
+
+    private Byte type;
 }

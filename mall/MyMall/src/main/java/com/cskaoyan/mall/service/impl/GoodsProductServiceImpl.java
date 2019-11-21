@@ -48,4 +48,15 @@ public class GoodsProductServiceImpl implements GoodsProductService {
         int delete = goodsProductMapper.deleteByExample(example);
         return delete;
     }
+
+    @Override
+    public int getProductNumber() {
+        return goodsProductMapper.selectByExample(new GoodsProductExample()).size();
+    }
+
+    @Override
+    public GoodsProduct queryProductById(int id) {
+        GoodsProduct goodsProduct = goodsProductMapper.selectByPrimaryKey(id);
+        return goodsProduct;
+    }
 }

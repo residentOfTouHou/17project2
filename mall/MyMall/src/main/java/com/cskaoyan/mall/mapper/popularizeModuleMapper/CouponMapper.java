@@ -38,9 +38,12 @@ public interface CouponMapper {
 
     int checkUserCouponExits(int userId,int couponId);
 
-    List<Integer> getMyCouponIds(int userId, int status);
+    List<Integer> getMyCouponIds(@Param("userId") int userId,
+                                 @Param("status") int status);
 
     List<Coupon> getMycouponList(@Param("couponIds") List<Integer> myCouponIds);
 
     Coupon queryCouponByCode(Integer code);
+
+    List<Coupon> queryCouponByUserId(int userId);
 }

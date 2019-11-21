@@ -709,6 +709,41 @@ public class MarketController {
     }
 
     /**
+     * 订单发货
+     *
+     * {
+     * 	"orderId": 1,
+     * 	"shipChannel": "1",
+     * 	"shipSn": "abcd"
+     * }
+     *
+     *
+     */
+    @RequestMapping("order/ship")
+    public BaseReqVo shipOrder(Integer orderId ,String shipChannel ,String shipSn){
+        BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
+        marketService.shipOrder(orderId,shipChannel,shipSn);
+        baseReqVo.setErrno(0);
+        baseReqVo.setErrmsg("成功");
+        return baseReqVo;
+    }
+
+    /**
+     * 系统退款
+     *
+     * {"orderId":3,"refundMoney":1500}
+     */
+    @RequestMapping("order/refund")
+    public BaseReqVo refundOrder(@RequestBody Map<String,Integer> map){
+        BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
+        Integer orderId = map.get("orderId");
+        marketService.refundOrder(orderId);
+        baseReqVo.setErrno(0);
+        baseReqVo.setErrmsg("成功");
+        return baseReqVo;
+    }
+
+    /**
      * 查询问题
      *
      * page=1&limit=20&sort=add_time&order=desc
@@ -956,4 +991,6 @@ public class MarketController {
         baseReqVo.setErrmsg("成功");
         return baseReqVo;
     }
+
+
 }

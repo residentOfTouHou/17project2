@@ -11,7 +11,7 @@
     <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
-    <result column="role_ids" jdbcType="VARCHAR" property="roleIds" typeHandler="com.cskaoyan.mall.handler.String2IntArrayTypeHandler"/>
+    <result column="role_ids" property="roleIds" typeHandler="com.cskaoyan.mall.handler.String2IntArrayTypeHandler"/>
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -288,7 +288,7 @@
       role_ids = #{roleIds,jdbcType=VARCHAR,typeHandler=com.cskaoyan.mall.handler.String2IntArrayTypeHandler}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <insert id="insertAndReturnId"  parameterType="com.cskaoyan.mall.bean.generator.Admin" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+  <insert id="insertAndReturnId" parameterType="com.cskaoyan.mall.bean.generator.Admin" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
       insert into cskaoyan_mall_admin ( username, password,
       last_login_ip, last_login_time, avatar,
       add_time, update_time, deleted,

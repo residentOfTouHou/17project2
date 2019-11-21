@@ -3,8 +3,8 @@
  */
 package com.cskaoyan.mall.shiro;
 
-import com.cskaoyan.mall.bean.generator.Admin;
 import com.cskaoyan.mall.bean.generator.User;
+import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
 import com.cskaoyan.mall.service.AdminService;
 import com.cskaoyan.mall.service.UserService;
 import org.apache.shiro.authc.AuthenticationException;
@@ -28,8 +28,8 @@ public class WxRealm extends AuthorizingRealm {
         CustomToken token = (CustomToken) authenticationToken;
         String username = token.getUsername();
         User user = userService.getUserByUsername(username);
-        if(user != null)
-            return new SimpleAuthenticationInfo(user, user.getPassword(),getName());
+        if (user != null)
+            return new SimpleAuthenticationInfo(user, user.getPassword(), getName());
         return null;
     }
 

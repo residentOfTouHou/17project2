@@ -153,6 +153,12 @@ public class GoodsServiceImpl implements GoodsService {
         return goodsList;
     }
 
+    @Override
+    public HashMap<String, Object> queryGoodsDetail(Integer id) {
+        return null;
+    }
+
+
     /**
      * 获取商品详细信息
      * @param id 商品id

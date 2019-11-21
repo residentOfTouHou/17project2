@@ -43,13 +43,12 @@ public class CouponWxController {
         }
         Coupon coupon = couponWxService.queryCouponById(couponId);
         int total = coupon.getTotal();
-        Coupon lessenTotalCoupon = new Coupon();
         if(total != 0){
             total -= 1;
             coupon.setTotal(total);
-            couponWxService.updateCoupon(lessenTotalCoupon);
+            couponWxService.updateCoupon(coupon);
         }
-        couponWxService.insertCouponUser(userId,lessenTotalCoupon);
+        couponWxService.insertCouponUser(userId,coupon);
         return BaseReqVo.ok();
     }
 
@@ -88,6 +87,9 @@ public class CouponWxController {
 
     @RequestMapping("selectlist")
     public BaseReqVo selectlist(int cartId,int grouponRulesId){
-        return BaseReqVo.ok();
+        User user = (User) SecurityUtils.getSubject().getPrincipals().getPrimaryPrincipal();
+        int userId = user.getId();
+        List<Coupon> coupons = couponWxService.queryCouponByUserId(userId);
+        return BaseReqVo.ok(coupons);
     }
 }

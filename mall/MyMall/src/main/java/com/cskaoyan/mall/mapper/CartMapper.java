@@ -1,8 +1,9 @@
 package com.cskaoyan.mall.mapper;
 
-import com.cskaoyan.mall.bean.generator.Cart;
-import com.cskaoyan.mall.bean.generator.CartExample;
+import com.cskaoyan.mall.bean.generator.*;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface CartMapper {
@@ -27,4 +28,11 @@ public interface CartMapper {
     int updateByPrimaryKeySelective(Cart record);
 
     int updateByPrimaryKey(Cart record);
+
+    int insertCart(@Param("user") User principal, @Param("goods") GoodsAlter goods, @Param("product") GoodsProduct goodsProduct, @Param("cart") Cart cart, @Param("number") int number);
+
+    int updateByUser(Cart cart);
+
+    int updateById(Cart record);
+
 }

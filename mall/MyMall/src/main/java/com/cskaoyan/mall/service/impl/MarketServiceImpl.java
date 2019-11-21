@@ -421,6 +421,35 @@ public class MarketServiceImpl implements MarketService {
     }
 
     /**
+     * 订单发货
+     * @param orderId
+     * @param shipChannel
+     * @param shipSn
+     */
+    @Override
+    public void shipOrder(Integer orderId, String shipChannel, String shipSn) {
+        Order order = new Order();
+        order.setId(orderId);
+        order.setShipChannel(shipChannel);
+        order.setShipSn(shipSn);
+        order.setShipTime(new Date());
+        orderMapper.updateByPrimaryKeySelective(order);
+    }
+
+    /**
+     * 系统取消订单
+     * @param orderId
+     */
+    @Override
+    public void refundOrder(Integer orderId) {
+        Order order = new Order();
+        order.setId(orderId);
+        order.setOrderStatus((short) 203);
+        orderMapper.updateByPrimaryKeySelective(order);
+    }
+
+
+    /**
      * 查询问题
      * @param page
      * @param limit
@@ -546,4 +575,5 @@ public class MarketServiceImpl implements MarketService {
         keyword.setId(id);
         return keyword;
     }
+
 }

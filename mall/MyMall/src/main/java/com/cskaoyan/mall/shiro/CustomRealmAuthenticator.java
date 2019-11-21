@@ -8,7 +8,6 @@ import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.pam.ModularRealmAuthenticator;
 import org.apache.shiro.realm.Realm;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Collection;
