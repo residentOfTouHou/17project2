@@ -209,18 +209,23 @@ public class GoodsServiceImpl implements GoodsService {
         map.put("brand",brand);
         map.put("productList",productList);
         map.put("info",info);
-        //记录足迹
-        Footprint footprint = new Footprint();
-        //userId后为当前用户Id
-        footprint.setUserId(userId);
-        footprint.setGoodsId(id);
-        footprint.setAddTime(new Date());
-        footprint.setUpdateTime(new Date());
-        footprint.setDeleted(false);
-        footprintMapper.insertSelective(footprint);
+        //记录足迹 没有登录则不记录足迹
+        if(userId != 0){
+            Footprint footprint = new Footprint();
+            //userId后为当前用户Id
+            footprint.setUserId(userId);
+            footprint.setGoodsId(id);
+            footprint.setAddTime(new Date());
+            footprint.setUpdateTime(new Date());
+            footprint.setDeleted(false);
+            footprintMapper.insertSelective(footprint);
+        }
         return map;
     }
 
+    /**
+     * 查看商品详情页关联商品（大家都在看）
+     */
     @Override
     public HashMap<String, Object> queryGoodsRelated(Integer id) {
         Integer categoryId = goodsMapper.selectByPrimaryKey(id).getCategoryId();
