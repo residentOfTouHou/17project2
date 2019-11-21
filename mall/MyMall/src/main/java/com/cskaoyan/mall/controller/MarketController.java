@@ -717,11 +717,14 @@ public class MarketController {
      * 	"shipSn": "abcd"
      * }
      *
-     *
+     * {"errmsg":"成功","errno":0}
      */
     @RequestMapping("order/ship")
-    public BaseReqVo shipOrder(Integer orderId ,String shipChannel ,String shipSn){
+    public BaseReqVo shipOrder(@RequestBody Map<String,Object> map){
         BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
+        Integer orderId = (Integer) map.get("orderId");
+        String shipChannel = (String) map.get("shipChannel");
+        String shipSn = (String) map.get("shipSn");
         marketService.shipOrder(orderId,shipChannel,shipSn);
         baseReqVo.setErrno(0);
         baseReqVo.setErrmsg("成功");

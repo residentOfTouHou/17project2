@@ -14,6 +14,7 @@ import com.cskaoyan.wxmall.service.OrderWxService;
 import com.cskaoyan.wxmall.utils.OrderWxUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,6 +58,9 @@ public class OrderWxServiceImpl implements OrderWxService {
 
     @Autowired
     UserMapper userMapper;
+
+    @Autowired
+    CommentMapper commentMapper;
 
     /**
      * 提交订单
@@ -179,6 +183,9 @@ public class OrderWxServiceImpl implements OrderWxService {
         return orderId;
     }
 
+
+
+
     /**
      * 订单列表
      *
@@ -193,7 +200,7 @@ public class OrderWxServiceImpl implements OrderWxService {
         PageHelper.startPage(page,size);
         OrderExample orderExample = new OrderExample();
         OrderExample.Criteria criteria = orderExample.createCriteria();
-        criteria.andDeletedEqualTo(false);
+        criteria.andDeletedEqualTo(false).andCommentsNotEqualTo((short) 0);
         if(showType!=0){
             int code = OrderWxUtils.typeToStatusCode(showType);
             if(code!=401){
@@ -327,5 +334,69 @@ public class OrderWxServiceImpl implements OrderWxService {
         order.setId(orderId);
         order.setDeleted(true);
         orderMapper.updateByPrimaryKeySelective(order);
+    }
+
+    /**
+     * 确认订单
+     * @param orderId
+     */
+    @Override
+    public void confirmOrder(Integer orderId) {
+        Order order = new Order();
+        order.setId(orderId);
+        order.setOrderStatus((short) 401);
+        orderMapper.updateByPrimaryKeySelective(order);
+    }
+
+    /**
+     * 订单付款
+     * @param orderId
+     */
+    @Override
+    public void prepayOrder(Integer orderId) {
+        Order order = new Order();
+        order.setId(orderId);
+        order.setOrderStatus((short) 201);
+        orderMapper.updateByPrimaryKeySelective(order);
+    }
+
+    /**
+     * 获得订单商品
+     * @param orderId
+     * @param goodsId
+     */
+    @Override
+    public OrderGoods goodsOrder(Integer orderId, Integer goodsId) {
+        OrderGoodsExample example = new OrderGoodsExample();
+        example.createCriteria().andOrderIdEqualTo(orderId).andGoodsIdEqualTo(goodsId);
+        List<OrderGoods> orderGoods = orderGoodsMapper.selectByExample(example);
+        OrderGoods result = null;
+        if(orderGoods!=null&&orderGoods.size()>0){
+            result = orderGoods.get(0);
+        }
+        return  result;
+    }
+
+    /**
+     * 评论订单
+     * @param orderGoodsId
+     * @param comment
+     */
+    @Override
+    public void commentOrder(Integer orderGoodsId, Comment comment) {
+        OrderGoods orderGoods = orderGoodsMapper.selectByPrimaryKey(orderGoodsId);
+        Order order = new Order();
+        order.setId(orderGoods.getOrderId());
+        order.setComments((short) 0);
+        orderMapper.updateByPrimaryKeySelective(order);
+        comment.setValueId(0);
+        comment.setType((byte) 3);
+        User principal = (User) SecurityUtils.getSubject().getPrincipal();
+        comment.setUserId(principal.getId());
+        Date date = new Date();
+        comment.setAddTime(date);
+        comment.setUpdateTime(date);
+        comment.setDeleted(false);
+        commentMapper.insertSelective(comment);
     }
 }

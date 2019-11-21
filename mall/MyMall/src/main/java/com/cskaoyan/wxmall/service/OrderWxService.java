@@ -1,6 +1,7 @@
 package com.cskaoyan.wxmall.service;
 
-import com.cskaoyan.wxmall.bean.ListOrderBean;
+import com.cskaoyan.mall.bean.generator.Comment;
+import com.cskaoyan.mall.bean.generator.OrderGoods;
 import com.cskaoyan.wxmall.bean.SubmitOrderBean;
 
 import java.util.List;
@@ -24,7 +25,17 @@ public interface OrderWxService {
     void cancelOrder(Integer id);
 
     int getOrderNumber();
+
     void refundOrder(Integer id);
 
     void deleteOrder(Integer id);
+
+    void confirmOrder(Integer orderId);
+
+    void prepayOrder(Integer orderId);
+
+    OrderGoods goodsOrder(Integer orderId, Integer goodsId);
+
+    void commentOrder(Integer orderGoodsId, Comment comment);
+
 }
