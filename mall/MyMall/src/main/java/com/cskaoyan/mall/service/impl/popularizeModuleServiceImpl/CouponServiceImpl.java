@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class CouponServiceImpl implements CouponService {
@@ -70,6 +71,11 @@ public class CouponServiceImpl implements CouponService {
 
     @Override
     public Coupon createCoupon(Coupon coupon) {
+        int type = coupon.getType();
+        if(type == 2){
+            String code = UUID.randomUUID().toString().substring(0,8);
+            coupon.setCode(code);
+        }
         int flag = couponMapper.createCoupon(coupon);
         int id = coupon.getId();
         if(flag == 1){

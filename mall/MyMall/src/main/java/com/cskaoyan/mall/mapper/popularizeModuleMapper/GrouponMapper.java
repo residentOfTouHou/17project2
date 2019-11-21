@@ -35,7 +35,7 @@ public interface GrouponMapper {
 
     List<Integer> queryOrderGoodsByOrderId(int orderId);
 
-    List<GrouponGoodsWxBean> queryGoodsListByGoodIds(List<Integer> goodsIds);
+    List<GrouponGoodsWxBean> queryGoodsListByGoodIds(@Param("goodsIds") List<Integer> goodsIds);
 
     Groupon queryGrouponById(int grouponId);
 
