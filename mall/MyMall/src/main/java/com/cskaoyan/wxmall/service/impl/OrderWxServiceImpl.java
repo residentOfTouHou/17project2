@@ -1,4 +1,4 @@
-package com.cskaoyan.wxmall.service.impl;
+package com.cskaoyan.wxmall.service.Impl;
 
 import com.cskaoyan.mall.bean.generator.*;
 import com.cskaoyan.mall.bean.generator.popularizeModule.Coupon;
@@ -13,6 +13,7 @@ import com.cskaoyan.wxmall.bean.SubmitOrderBean;
 import com.cskaoyan.wxmall.service.OrderWxService;
 import com.cskaoyan.wxmall.utils.OrderWxUtils;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -187,7 +188,7 @@ public class OrderWxServiceImpl implements OrderWxService {
      * @return
      */
     @Override
-    public List<ListOrderBean> listOrder(Integer showType, Integer page, Integer size) {
+    public Map<String,Object> listOrder(Integer showType, Integer page, Integer size) {
         List<ListOrderBean> result = new ArrayList<>();
         PageHelper.startPage(page, size);
         OrderExample orderExample = new OrderExample();
@@ -228,7 +229,14 @@ public class OrderWxServiceImpl implements OrderWxService {
             resultBean.setHandleOption(handleOption);
             result.add(resultBean);
         }
-        return result;
+        PageInfo<Order> orderPageInfo = new PageInfo<>(orders);
+        long count = orderPageInfo.getTotal();
+        int totalPages = (int) Math.ceil(count/size);
+        Map<String,Object> map = new HashMap<>();
+        map.put("data",result);
+        map.put("count",count);
+        map.put("totalPages",totalPages);
+        return map;
     }
 
     /**
@@ -287,6 +295,11 @@ public class OrderWxServiceImpl implements OrderWxService {
         orderGoodsMapper.updateByExampleSelective(orderGoods, orderGoodsExample);
     }
 
+    @Override
+    public int getOrderNumber() {
+        return orderMapper.selectByExample(new OrderExample()).size();
+    }
+
     /**
      * 退款取消订单
      *
@@ -298,6 +311,12 @@ public class OrderWxServiceImpl implements OrderWxService {
         order.setId(orderId);
         order.setOrderStatus((short) 202);
         orderMapper.updateByPrimaryKeySelective(order);
+
+        OrderGoods orderGoods = new OrderGoods();
+        orderGoods.setDeleted(true);
+        OrderGoodsExample orderGoodsExample = new OrderGoodsExample();
+        orderGoodsExample.createCriteria().andOrderIdEqualTo(orderId);
+        orderGoodsMapper.updateByExampleSelective(orderGoods,orderGoodsExample);
     }
 
     /**

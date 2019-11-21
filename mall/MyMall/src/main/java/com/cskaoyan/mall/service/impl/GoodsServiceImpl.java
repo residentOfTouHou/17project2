@@ -11,6 +11,8 @@ import com.cskaoyan.mall.mapper.*;
 import com.cskaoyan.mall.mapper.popularizeModuleMapper.GrouponMapper;
 import com.cskaoyan.mall.mapper.popularizeModuleMapper.GrouponRulesMapper;
 import com.cskaoyan.mall.service.GoodsService;
+import com.cskaoyan.mall.utils.DateUtils;
+import com.cskaoyan.wxmall.bean.SpecificationListBean;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -159,7 +161,7 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public HashMap<String, Object> queryGoodsDetail(Integer id, Integer userId) {
         //获取商品规格 specificationList
-        List<GoodsSpecification> specificationList = goodsSpecificationMapper.selectByGoodsId(id);
+        List<GoodsSpecification> valueList = goodsSpecificationMapper.selectByGoodsId(id);
         //获取团购 groupon
         GrouponRules grouponRules = grouponRulesMapper.selectByGoodsId(id);
         List<Groupon> groupon = null;
@@ -188,17 +190,30 @@ public class GoodsServiceImpl implements GoodsService {
         //封装Date spec和comment需要套娃
         HashMap<String, Object> map = new HashMap();
         HashMap<String, Object> commentMap = new HashMap();
-        //封装specMap
-        List<Map<String, Object>> specifications = new ArrayList<>();
-        Map<String, Object> specMap = new HashMap<>();
-        specMap.put("valueList", specificationList);
-        specifications.add(specMap);
-        Map<String, Object> specsMap = new HashMap<>();
+        //封装specificationList
+        Set<String> nameSet = new HashSet<>();
+        for (GoodsSpecification goodsSpecification : valueList) {
+            String name = goodsSpecification.getSpecification();
+            nameSet.add(name);
+        }
+        List<GoodsSpecification> goodsSpecificationList = new ArrayList<>();
+        for (String s : nameSet) {
+            List<GoodsSpecification> goodsSpecificationList2 = new ArrayList<>();
+            GoodsSpecification goodsSpecification = new GoodsSpecification();
+            goodsSpecification.setName(s);
+            for (GoodsSpecification specification : valueList) {
+                if (s.equals(specification.getSpecification())) {
+                    goodsSpecificationList2.add(specification);
+                }
+            }
+            goodsSpecification.setValueList(goodsSpecificationList2);
+            goodsSpecificationList.add(goodsSpecification);
+        }
         //封装commentMap
         commentMap.put("data", comments);
         commentMap.put("count", comments.size());
         //封装Date
-        map.put("specificationList", specifications);
+        map.put("specificationList", goodsSpecificationList);
         map.put("groupon", groupon);
         map.put("issue", issue);
         map.put("userHasCollect", userHasCollect);
@@ -208,18 +223,23 @@ public class GoodsServiceImpl implements GoodsService {
         map.put("brand", brand);
         map.put("productList", productList);
         map.put("info", info);
-        //记录足迹
-        Footprint footprint = new Footprint();
-        //userId后为当前用户Id
-        footprint.setUserId(userId);
-        footprint.setGoodsId(id);
-        footprint.setAddTime(new Date());
-        footprint.setUpdateTime(new Date());
-        footprint.setDeleted(false);
-        footprintMapper.insertSelective(footprint);
+        //记录足迹 没有登录则不记录足迹
+        if (userId != 0) {
+            Footprint footprint = new Footprint();
+            //userId后为当前用户Id
+            footprint.setUserId(userId);
+            footprint.setGoodsId(id);
+            footprint.setAddTime(new Date());
+            footprint.setUpdateTime(new Date());
+            footprint.setDeleted(false);
+            footprintMapper.insertSelective(footprint);
+        }
         return map;
     }
 
+    /**
+     * 查看商品详情页关联商品（大家都在看）
+     */
     @Override
     public HashMap<String, Object> queryGoodsRelated(Integer id) {
         Integer categoryId = goodsMapper.selectByPrimaryKey(id).getCategoryId();

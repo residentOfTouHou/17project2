@@ -334,4 +334,37 @@
         deleted = #{deleted,jdbcType=BIT}
         where id = #{id,jdbcType=INTEGER}
     </update>
+    <resultMap id="BaseResultMap2" type="com.cskaoyan.wxmall.bean.AddressBean">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="user_id" jdbcType="INTEGER" property="userId" />
+        <result column="province_id" jdbcType="INTEGER" property="provinceId" />
+        <result column="city_id" jdbcType="INTEGER" property="cityId" />
+        <result column="area_id" jdbcType="INTEGER" property="areaId" />
+        <result column="address" jdbcType="VARCHAR" property="address" />
+        <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+        <result column="is_default" jdbcType="BIT" property="isDefault" />
+        <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+        <result column="deleted" jdbcType="BIT" property="deleted" />
+    </resultMap>
+    <select id="selectAddressBeanByUserId" resultMap="BaseResultMap2">
+        select
+            <include refid="Base_Column_List"/>
+        from cskaoyan_mall_address
+        where user_id = #{userId}
+    </select>
+    <update id="updateAddress">
+         update cskaoyan_mall_address
+        set name = #{name},
+        user_id = #{userId},
+        province_id = #{provinceId},
+        city_id = #{cityId},
+        area_id = #{areaId},
+        address = #{address},
+        mobile = #{mobile},
+        is_default = #{isDefault},
+        update_time = #{updateTime}
+        where id = #{id}
+    </update>
 </mapper>

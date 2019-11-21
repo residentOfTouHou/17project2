@@ -58,4 +58,9 @@ public class CouponWxServiceImpl implements CouponWxService {
     public void updateCoupon(Coupon lessenTotalCoupon) {
         couponMapper.updateCoupon(lessenTotalCoupon);
     }
+
+    @Override
+    public List<Coupon> queryCouponByUserId(int userId) {
+        return couponMapper.queryCouponByUserId(userId);
+    }
 }

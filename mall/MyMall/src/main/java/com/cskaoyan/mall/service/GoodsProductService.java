@@ -19,5 +19,7 @@ public interface GoodsProductService {
 
     int deleteProducts(int goodsId);
 
+    int getProductNumber();
+
     GoodsProduct queryProductById(int productId);
 }

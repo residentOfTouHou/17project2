@@ -68,4 +68,9 @@ public class FeedbackServiceImpl implements FeedbackService {
         map.put("feedbacks", feedbacks);
         return map;
     }
+
+    @Override
+    public int insert(Feedback feedback) {
+        return feedbackMapper.insertSelective(feedback);
+    }
 }

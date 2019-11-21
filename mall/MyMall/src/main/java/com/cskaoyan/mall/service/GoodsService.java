@@ -48,3 +48,4 @@ public interface GoodsService {
 
     int updateNumberById(GoodsProduct goodsProduct);
 }
+

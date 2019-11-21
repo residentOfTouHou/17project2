@@ -436,6 +436,18 @@ public class MarketServiceImpl implements MarketService {
         orderMapper.updateByPrimaryKeySelective(order);
     }
 
+    /**
+     * 系统取消订单
+     * @param orderId
+     */
+    @Override
+    public void refundOrder(Integer orderId) {
+        Order order = new Order();
+        order.setId(orderId);
+        order.setOrderStatus((short) 203);
+        orderMapper.updateByPrimaryKeySelective(order);
+    }
+
 
     /**
      * 查询问题

@@ -17,14 +17,14 @@ public interface OrderWxService {
 
     Integer submitOrder(SubmitOrderBean orderBean);
 
-    List<ListOrderBean> listOrder(Integer showType, Integer page, Integer size);
+    Map<String,Object> listOrder(Integer showType, Integer page, Integer size);
 
     Map<String, Object> detailOrder(Integer id);
 
     void cancelOrder(Integer id);
 
+    int getOrderNumber();
     void refundOrder(Integer id);
 
     void deleteOrder(Integer id);
-
 }

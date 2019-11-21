@@ -61,4 +61,6 @@ public interface MarketService {
 
     void shipOrder(Integer orderId, String shipChannel, String shipSn);
 
+    void refundOrder(Integer orderId);
+
 }

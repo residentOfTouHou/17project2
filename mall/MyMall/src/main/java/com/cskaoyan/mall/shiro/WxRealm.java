@@ -4,6 +4,8 @@
 package com.cskaoyan.mall.shiro;
 
 import com.cskaoyan.mall.bean.generator.User;
+import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
+import com.cskaoyan.mall.service.AdminService;
 import com.cskaoyan.mall.service.UserService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;

@@ -2,11 +2,10 @@ package com.cskaoyan.wxmall.controller;
 
 import com.cskaoyan.mall.bean.generator.User;
 import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
-import com.cskaoyan.mall.mapper.FootprintMapper;
 import com.cskaoyan.mall.service.FootprintService;
-import com.cskaoyan.mall.shiro.CustomSessionManager;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,7 +24,7 @@ public class FootPrintWxController {
      * @return
      */
     @RequestMapping("list")
-    public BaseReqVo GetFootPrint(Integer page,Integer size){
+    public BaseReqVo getFootPrint(Integer page,Integer size){
         //获取userId
         User primaryPrincipal = (User) SecurityUtils.getSubject().getPrincipals().getPrimaryPrincipal();
         Integer id = 1;
@@ -34,5 +33,19 @@ public class FootPrintWxController {
         }
         Map<String,Object> map = footprintService.selectFootPrintBy(page,size,id);
         return BaseReqVo.ok(map);
+    }
+
+    /**
+     * 删除足迹
+     */
+    @RequestMapping("delete")
+    public BaseReqVo deleteFootPrint(@RequestBody Map map){
+        Integer id = (Integer) map.get("id");
+        int result = footprintService.deleteFootPrintBy(id);
+        if(result == 1){
+            return BaseReqVo.ok();
+        }else {
+            return BaseReqVo.fail(500);
+        }
     }
 }
