@@ -1,11 +1,9 @@
 package com.cskaoyan.mall.mapper.popularizeModuleMapper;
 
 
-import com.cskaoyan.mall.bean.generator.Goods;
 import com.cskaoyan.mall.bean.generator.GoodsAlter;
 import com.cskaoyan.mall.bean.generator.popularizeModule.Groupon;
 import com.cskaoyan.mall.bean.generator.popularizeModule.GrouponRules;
-import com.cskaoyan.mall.bean.generator.popularizeModule.ListRecord;
 import com.cskaoyan.mall.bean.generator.popularizeModule.SubGroupons;
 import com.cskaoyan.mall.bean.jsonbean.popularizeModuleJsonBean.GrouponRulesJson;
 import org.apache.ibatis.annotations.Mapper;

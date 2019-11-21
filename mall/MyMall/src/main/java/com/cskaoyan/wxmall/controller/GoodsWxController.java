@@ -2,9 +2,11 @@ package com.cskaoyan.wxmall.controller;
 
 import com.cskaoyan.mall.bean.generator.Category;
 import com.cskaoyan.mall.bean.generator.Goods;
+import com.cskaoyan.mall.bean.generator.User;
 import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
 import com.cskaoyan.mall.service.CategoryService;
 import com.cskaoyan.mall.service.GoodsService;
+import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -55,10 +57,25 @@ public class GoodsWxController {
 
     /**
      * 获得商品的详情
+     * 添加足迹
      */
     @RequestMapping("detail")
     public BaseReqVo GetGoodsDetail(Integer id){
-        HashMap<String,Object> map = goodsService.queryGoodsDetail(id);
+        //获取UserId
+        User primaryPrincipal = (User) SecurityUtils.getSubject().getPrincipals().getPrimaryPrincipal();
+        Integer userId = primaryPrincipal.getId();
+
+        HashMap<String,Object> map = goodsService.queryGoodsDetail(id,userId);
         return BaseReqVo.ok(map);
     }
+
+    /**
+     * 商品详情页的关联商品（大家都在看）
+     */
+    @RequestMapping("related")
+    public BaseReqVo GetGoodsRelated(Integer id){
+        HashMap<String,Object> map = goodsService.queryGoodsRelated(id);
+        return BaseReqVo.ok(map);
+    }
+
 }

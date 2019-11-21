@@ -59,4 +59,6 @@ public interface MarketService {
 
     Keyword addKeyword(Keyword keyword);
 
+    void shipOrder(Integer orderId, String shipChannel, String shipSn);
+
 }

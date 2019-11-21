@@ -6,7 +6,6 @@ import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
 
 import com.cskaoyan.mall.service.popularizeModuleService.TopicService;
 import com.github.pagehelper.PageInfo;
-import net.sf.jsqlparser.statement.select.Top;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

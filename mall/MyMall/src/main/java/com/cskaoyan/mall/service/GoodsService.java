@@ -43,4 +43,3 @@ public interface GoodsService {
 
     HashMap<String, Object> queryGoodsDetail(Integer id);
 
-}

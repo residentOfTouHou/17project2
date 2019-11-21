@@ -19,15 +19,16 @@ import java.util.Map;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
+
     @Override
-    public Map<String,Object> findAllUser(PageSplit pageSplit) {
+    public Map<String, Object> findAllUser(PageSplit pageSplit) {
 //分页操作
-        PageHelper.startPage(pageSplit.getPage(),pageSplit.getLimit());
+        PageHelper.startPage(pageSplit.getPage(), pageSplit.getLimit());
 
         List<User> users = userMapper.selectAll();
         PageInfo<User> userPageInfo = new PageInfo<>(users);
         long total = userPageInfo.getTotal();
-        Map<String,Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>();
         map.put("total", total);
         map.put("users", users);
         return map;
@@ -35,24 +36,24 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Map<String, Object> findUserByCondition(PageSplit pageSplit) {
-        PageHelper.startPage(pageSplit.getPage(),pageSplit.getLimit());
+        PageHelper.startPage(pageSplit.getPage(), pageSplit.getLimit());
         String username = pageSplit.getUsername();
         String mobile = pageSplit.getMobile();
         UserExample userExample = new UserExample();
 //        升序降序
         userExample.setOrderByClause(pageSplit.getSort() + " " + pageSplit.getOrder());
         UserExample.Criteria criteria = userExample.createCriteria();
-        if(!StringUtil.isBlank(username)){
-            criteria.andUsernameLike("%" +username +"%");
+        if (!StringUtil.isBlank(username)) {
+            criteria.andUsernameLike("%" + username + "%");
         }
-        if (!com.github.pagehelper.util.StringUtil.isEmpty(mobile)){
+        if (!com.github.pagehelper.util.StringUtil.isEmpty(mobile)) {
             criteria.andMobileEqualTo(mobile);
         }
         List<User> users = userMapper.selectByExample(userExample);
 
         PageInfo<User> userPageInfo = new PageInfo<>(users);
         long total = userPageInfo.getTotal();
-        Map<String,Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>();
         map.put("total", total);
         map.put("users", users);
         return map;
@@ -76,6 +77,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public int updatePasswordByMobile(String mobile, String password) {
 
-        return userMapper.updatePasswordByMobile(mobile,password);
+        return userMapper.updatePasswordByMobile(mobile, password);
     }
 }
+

@@ -25,7 +25,6 @@ public class CustomSessionManager extends DefaultWebSessionManager {
         if(header1 != null && !"".equals(header1)){
             return header1;
         }
-
         return super.getSessionId(request, response);
     }
 }

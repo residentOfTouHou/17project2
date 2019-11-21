@@ -2,7 +2,6 @@ package com.cskaoyan.mall.mapper;
 
 import com.cskaoyan.mall.bean.generator.Reply;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
 
 /**
  * @author 杨盛

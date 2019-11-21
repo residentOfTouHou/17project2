@@ -1,7 +1,6 @@
 package com.cskaoyan.mall.service.impl.popularizeModuleServiceImpl;
 
 
-import com.cskaoyan.mall.bean.generator.Goods;
 import com.cskaoyan.mall.bean.generator.GoodsAlter;
 import com.cskaoyan.mall.bean.generator.popularizeModule.Groupon;
 import com.cskaoyan.mall.bean.generator.popularizeModule.GrouponRules;
@@ -12,15 +11,12 @@ import com.cskaoyan.mall.mapper.GoodsMapper;
 import com.cskaoyan.mall.mapper.popularizeModuleMapper.GrouponRulesMapper;
 import com.cskaoyan.mall.service.popularizeModuleService.GrouponRulesService;
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class GrouponRulesServiceImpl implements GrouponRulesService {
