@@ -59,10 +59,10 @@ public class OrderWxServiceImpl implements OrderWxService {
 
     /**
      * 提交订单
-     *
+     * <p>
      * order_sn不清楚随机生成
-     *
-     *
+     * <p>
+     * <p>
      * 积分减免没有找到
      * good_price 取cart中的 price （暂视为单价）
      *
@@ -97,30 +97,30 @@ public class OrderWxServiceImpl implements OrderWxService {
         Order record = new Order();
         record.setUserId(cart.getUserId());
         record.setMessage(orderBean.getMessage());
-        record.setOrderSn(format+ UUID.randomUUID());
+        record.setOrderSn(format + UUID.randomUUID());
         record.setOrderStatus((short) 101);
         record.setConsignee(address.getName());
         record.setMobile(address.getMobile());
         record.setAddress(address.getAddress());
-        if(orderBean.getMessage()!=null){
+        if (orderBean.getMessage() != null) {
             record.setMessage(orderBean.getMessage());
-        }else {
+        } else {
             record.setMessage("");
         }
         record.setGoodsPrice(money);
 
         //不满88加运费
-        if(money.doubleValue()<88){
+        if (money.doubleValue() < 88) {
             record.setFreightPrice(new BigDecimal(6)); // 缺少
-        }else {
+        } else {
             record.setFreightPrice(new BigDecimal(0));
         }
 
         //计算优惠券
-        if(couponId!=null){
+        if (couponId != null) {
             Coupon coupon = couponMapper.queryCouponById(couponId);
             record.setCouponPrice(coupon.getDiscount());
-        }else {
+        } else {
             record.setCouponPrice(new BigDecimal(0));
         }
 
@@ -129,10 +129,10 @@ public class OrderWxServiceImpl implements OrderWxService {
 
         //是否团购优惠
         Integer grouponRulesId = orderBean.getGrouponRulesId();
-        if(grouponRulesId>0){
+        if (grouponRulesId > 0) {
             BigDecimal discount = grouponRulesMapper.selectGrouponRulesByRuleId(orderBean.getGrouponRulesId()).getDiscount();
             record.setGrouponPrice(discount);
-        }else{
+        } else {
             record.setGrouponPrice(new BigDecimal(0));
         }
 
@@ -164,7 +164,7 @@ public class OrderWxServiceImpl implements OrderWxService {
             orderGoods.setProductId(transfer.getProductId());
             orderGoods.setNumber(transfer.getNumber());
             orderGoods.setPrice(transfer.getPrice());
-            orderGoods.setSpecifications(transfer.getSpecifications());
+            orderGoods.setSpecifications(transfer.getSpecifications().toString());
             orderGoods.setPicUrl(transfer.getPicUrl());
             orderGoods.setComment(0);
             Date orderGoodsDate = new Date();
@@ -181,23 +181,23 @@ public class OrderWxServiceImpl implements OrderWxService {
     /**
      * 订单列表
      *
-     * @return
      * @param showType
      * @param page
      * @param size
+     * @return
      */
     @Override
     public List<ListOrderBean> listOrder(Integer showType, Integer page, Integer size) {
         List<ListOrderBean> result = new ArrayList<>();
-        PageHelper.startPage(page,size);
+        PageHelper.startPage(page, size);
         OrderExample orderExample = new OrderExample();
         OrderExample.Criteria criteria = orderExample.createCriteria();
         criteria.andDeletedEqualTo(false);
-        if(showType!=0){
+        if (showType != 0) {
             int code = OrderWxUtils.typeToStatusCode(showType);
-            if(code!=401){
+            if (code != 401) {
                 criteria.andOrderStatusEqualTo((short) code);
-            }else {
+            } else {
                 ArrayList<Short> values = new ArrayList<>();
                 values.add((short) 401);
                 values.add((short) 402);
@@ -210,9 +210,9 @@ public class OrderWxServiceImpl implements OrderWxService {
             String statusText = OrderWxUtils.getStatusText(Integer.valueOf(order.getOrderStatus()));
             resultBean.setOrderStatusTest(statusText);
             Groupon token = grouponMapper.hasOrder(order.getId());
-            if(token==null){
+            if (token == null) {
                 resultBean.setGroupin(false);
-            }else{
+            } else {
                 resultBean.setGroupin(true);
             }
             resultBean.setOrderSn(order.getOrderSn());
@@ -239,7 +239,7 @@ public class OrderWxServiceImpl implements OrderWxService {
      */
     @Override
     public Map<String, Object> detailOrder(Integer id) {
-        Map<String,Object> result = new HashMap<>();
+        Map<String, Object> result = new HashMap<>();
 
         //orderInfo
         OrderInfoBean orderInfo = new OrderInfoBean();
@@ -263,13 +263,14 @@ public class OrderWxServiceImpl implements OrderWxService {
         orderGoodsExample.createCriteria().andDeletedEqualTo(false).andOrderIdEqualTo(order.getId());
         List<OrderGoods> orderGoods = orderGoodsMapper.selectByExample(orderGoodsExample);
 
-        result.put("orderInfo",orderInfo);
-        result.put("orderGoods",orderGoods);
+        result.put("orderInfo", orderInfo);
+        result.put("orderGoods", orderGoods);
         return result;
     }
 
     /**
      * 取消订单
+     *
      * @param orderId
      */
     @Override
@@ -283,11 +284,12 @@ public class OrderWxServiceImpl implements OrderWxService {
         orderGoods.setDeleted(true);
         OrderGoodsExample orderGoodsExample = new OrderGoodsExample();
         orderGoodsExample.createCriteria().andOrderIdEqualTo(orderId);
-        orderGoodsMapper.updateByExampleSelective(orderGoods,orderGoodsExample);
+        orderGoodsMapper.updateByExampleSelective(orderGoods, orderGoodsExample);
     }
 
     /**
      * 退款取消订单
+     *
      * @param orderId
      */
     @Override
@@ -300,6 +302,7 @@ public class OrderWxServiceImpl implements OrderWxService {
 
     /**
      * 删除订单
+     *
      * @param orderId
      */
     @Override

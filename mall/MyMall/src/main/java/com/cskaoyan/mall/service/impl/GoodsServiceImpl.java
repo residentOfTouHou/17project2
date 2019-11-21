@@ -1,5 +1,6 @@
 package com.cskaoyan.mall.service.impl;
-import java.util.Date;
+
+import java.util.*;
 
 import com.cskaoyan.mall.bean.generator.*;
 import com.cskaoyan.mall.bean.generator.popularizeModule.Groupon;
@@ -10,14 +11,10 @@ import com.cskaoyan.mall.mapper.*;
 import com.cskaoyan.mall.mapper.popularizeModuleMapper.GrouponMapper;
 import com.cskaoyan.mall.mapper.popularizeModuleMapper.GrouponRulesMapper;
 import com.cskaoyan.mall.service.GoodsService;
-import com.cskaoyan.mall.utils.DateUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * @author 杨盛
@@ -104,13 +101,13 @@ public class GoodsServiceImpl implements GoodsService {
     public List<Goods> findAll() {
         GoodsExample example = new GoodsExample();
         List<Goods> goodsList = goodsMapper.selectByExample(example);
-        return  goodsList;
+        return goodsList;
     }
 
     @Override
     public Goods queryGoodsByGoodsSn(String goodsSn) {
-       Goods goods = goodsMapper.queryGoodsByGoodsSn(goodsSn);
-       return goods;
+        Goods goods = goodsMapper.queryGoodsByGoodsSn(goodsSn);
+        return goods;
     }
 
     @Override
@@ -147,7 +144,7 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public List<Goods> queryGoodsList(Integer categoryId, Integer page, Integer size) {
         //分页
-        PageHelper.startPage(page,size);
+        PageHelper.startPage(page, size);
 
         List<Goods> goodsList = goodsMapper.selectGoodsByCategoryId(categoryId);
         return goodsList;
@@ -155,17 +152,18 @@ public class GoodsServiceImpl implements GoodsService {
 
     /**
      * 获取商品详细信息
+     *
      * @param id 商品id
      * @return 结果集data
      */
     @Override
-    public HashMap<String, Object> queryGoodsDetail(Integer id,Integer userId) {
+    public HashMap<String, Object> queryGoodsDetail(Integer id, Integer userId) {
         //获取商品规格 specificationList
         List<GoodsSpecification> specificationList = goodsSpecificationMapper.selectByGoodsId(id);
         //获取团购 groupon
         GrouponRules grouponRules = grouponRulesMapper.selectByGoodsId(id);
         List<Groupon> groupon = null;
-        if(grouponRules!=null){
+        if (grouponRules != null) {
             Integer grouponId = grouponRules.getId();
             groupon = grouponMapper.selectGrouponById(grouponId);
         }
@@ -188,27 +186,28 @@ public class GoodsServiceImpl implements GoodsService {
         //获取产品 productList
         List<GoodsProduct> productList = goodsProductMapper.selectByGoodsId(id);
         //封装Date spec和comment需要套娃
-        HashMap<String,Object> map = new HashMap();
-        HashMap<String,Object> commentMap = new HashMap();
-        HashMap<String,Object> specMap = new HashMap();
-        String specName= specificationList.get(0).getSpecification();
+        HashMap<String, Object> map = new HashMap();
+        HashMap<String, Object> commentMap = new HashMap();
         //封装specMap
-        specMap.put("name",specName);
-        specMap.put("valueList",specificationList);
+        List<Map<String, Object>> specifications = new ArrayList<>();
+        Map<String, Object> specMap = new HashMap<>();
+        specMap.put("valueList", specificationList);
+        specifications.add(specMap);
+        Map<String, Object> specsMap = new HashMap<>();
         //封装commentMap
-        commentMap.put("data",comments);
-        commentMap.put("count",comments.size());
+        commentMap.put("data", comments);
+        commentMap.put("count", comments.size());
         //封装Date
-        map.put("specificationList",specMap);
-        map.put("groupon",groupon);
-        map.put("issue",issue);
-        map.put("userHasCollect",userHasCollect);
-        map.put("shareImage",shareImage);
-        map.put("comment",commentMap);
-        map.put("attribute",attribute);
-        map.put("brand",brand);
-        map.put("productList",productList);
-        map.put("info",info);
+        map.put("specificationList", specifications);
+        map.put("groupon", groupon);
+        map.put("issue", issue);
+        map.put("userHasCollect", userHasCollect);
+        map.put("shareImage", shareImage);
+        map.put("comment", commentMap);
+        map.put("attribute", attribute);
+        map.put("brand", brand);
+        map.put("productList", productList);
+        map.put("info", info);
         //记录足迹
         Footprint footprint = new Footprint();
         //userId后为当前用户Id
@@ -226,8 +225,14 @@ public class GoodsServiceImpl implements GoodsService {
         Integer categoryId = goodsMapper.selectByPrimaryKey(id).getCategoryId();
         List<Goods> goodsList = goodsMapper.selectGoodsByCategoryId(categoryId);
         HashMap<String, Object> map = new HashMap<>();
-        map.put("goodsList",goodsList);
+        map.put("goodsList", goodsList);
         return map;
+    }
+
+    @Override
+    public int updateNumberById(GoodsProduct goodsProduct) {
+        int update = goodsProductMapper.updateByPrimaryKeySelective(goodsProduct);
+        return update;
     }
 
 }

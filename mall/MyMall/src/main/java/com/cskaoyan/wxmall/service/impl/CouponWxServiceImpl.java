@@ -1,10 +1,9 @@
-package com.cskaoyan.wxmall.service.Impl;
+package com.cskaoyan.wxmall.service.impl;
 
 import com.cskaoyan.mall.bean.generator.popularizeModule.Coupon;
 import com.cskaoyan.mall.mapper.popularizeModuleMapper.CouponMapper;
 import com.cskaoyan.wxmall.service.CouponWxService;
 import com.github.pagehelper.PageHelper;
-import org.omg.PortableInterceptor.INACTIVE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
