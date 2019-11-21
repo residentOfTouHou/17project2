@@ -46,3 +46,4 @@ public interface CommentMapper {
     List<Comment> selectCommentsByGoodsIdAndType(Integer id);
 
 
+}
