@@ -9,8 +9,10 @@ import com.cskaoyan.mall.mapper.OrderMapper;
 import com.cskaoyan.mall.mapper.UserMapper;
 import com.cskaoyan.mall.service.UserService;
 import com.cskaoyan.mall.utils.StringUtil;
+import com.cskaoyan.wxmall.bean.UserIndexBean;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -98,42 +100,50 @@ public class UserServiceImpl implements UserService {
     @Override
     public Map<String, Object> indexOrder() {
         HashMap<String, Object> map = new HashMap<>();
+        UserIndexBean userIndexBean = new UserIndexBean();
+
         OrderExample unpaid = new OrderExample();
-        unpaid.createCriteria().andOrderStatusEqualTo((short) 101).andDeletedEqualTo(false);
+        User principal = (User) SecurityUtils.getSubject().getPrincipal();
+        Integer id = principal.getId();
+        unpaid.createCriteria().andOrderStatusEqualTo((short) 101)
+                .andDeletedEqualTo(false).andUserIdEqualTo(id);
         List<Order> unpaidOrders = orderMapper.selectByExample(unpaid);
         if(unpaidOrders!=null){
-            map.put("unpaid",unpaidOrders.size());
+            userIndexBean.setUnpaid(unpaidOrders.size());
         }else{
-            map.put("unpaid",0);
+            userIndexBean.setUnpaid(0);
         }
 
         OrderExample unship = new OrderExample();
-        unship.createCriteria().andOrderStatusEqualTo((short) 201).andDeletedEqualTo(false);
-        List<Order> unshipOrders = orderMapper.selectByExample(unpaid);
+        unship.createCriteria().andOrderStatusEqualTo((short) 201)
+                .andDeletedEqualTo(false).andUserIdEqualTo(id);
+        List<Order> unshipOrders = orderMapper.selectByExample(unship);
         if(unshipOrders!=null){
-            map.put("unship",unshipOrders.size());
+            userIndexBean.setUnship(unshipOrders.size());
         }else{
-            map.put("unship",0);
+            userIndexBean.setUnship(0);
         }
 
         OrderExample unrecv = new OrderExample();
-        unship.createCriteria().andOrderStatusEqualTo((short) 301).andDeletedEqualTo(false);
-        List<Order> unrecvOrders = orderMapper.selectByExample(unpaid);
+        unrecv.createCriteria().andOrderStatusEqualTo((short) 301)
+                .andDeletedEqualTo(false).andUserIdEqualTo(id);
+        List<Order> unrecvOrders = orderMapper.selectByExample(unrecv);
         if(unrecvOrders!=null){
-            map.put("unrecv",unrecvOrders.size());
+            userIndexBean.setUnrecv(unrecvOrders.size());
         }else{
-            map.put("unrecv",0);
+            userIndexBean.setUnrecv(0);
         }
 
         OrderExample uncomment = new OrderExample();
-        unship.createCriteria().andOrderStatusEqualTo((short) 401).andDeletedEqualTo(false);
-        List<Order> uncommentOrders = orderMapper.selectByExample(unpaid);
+        uncomment.createCriteria().andOrderStatusEqualTo((short) 401)
+                .andDeletedEqualTo(false).andUserIdEqualTo(id);
+        List<Order> uncommentOrders = orderMapper.selectByExample(uncomment);
         if(uncommentOrders!=null){
-            map.put("uncomment",uncommentOrders.size());
+            userIndexBean.setUncomment(uncommentOrders.size());
         }else{
-            map.put("uncomment",0);
+            userIndexBean.setUncomment(0);
         }
-
+        map.put("order",userIndexBean);
         return map;
     }
 }
