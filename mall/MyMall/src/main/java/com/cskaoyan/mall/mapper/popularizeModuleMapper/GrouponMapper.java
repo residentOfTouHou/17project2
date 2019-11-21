@@ -17,14 +17,8 @@ public interface GrouponMapper {
 
     List<Groupon> selectAll();
 
-<<<<<<< HEAD
-
-
     Groupon hasOrder(@Param("orderId") Integer id);
 
-
-=======
->>>>>>> 8bc4fd1c417389b07eb00356ff61c9582a557720
     List<Groupon> selectGrouponById(Integer id);
 
     List<GrouponWxBean> queryWxGrouponsList();

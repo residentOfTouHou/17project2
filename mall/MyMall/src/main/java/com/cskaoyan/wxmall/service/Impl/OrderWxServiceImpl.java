@@ -1,4 +1,4 @@
-package com.cskaoyan.wxmall.service.impl;
+package com.cskaoyan.wxmall.service.Impl;
 
 import com.cskaoyan.mall.bean.generator.*;
 import com.cskaoyan.mall.bean.generator.popularizeModule.Coupon;
@@ -284,5 +284,10 @@ public class OrderWxServiceImpl implements OrderWxService {
         OrderGoodsExample orderGoodsExample = new OrderGoodsExample();
         orderGoodsExample.createCriteria().andOrderIdEqualTo(orderId);
         orderGoodsMapper.updateByExampleSelective(orderGoods,orderGoodsExample);
+    }
+
+    @Override
+    public int getOrderNumber() {
+        return orderMapper.selectByExample(new OrderExample()).size();
     }
 }

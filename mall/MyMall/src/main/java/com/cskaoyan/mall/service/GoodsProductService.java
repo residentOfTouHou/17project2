@@ -17,4 +17,6 @@ public interface GoodsProductService {
     int updateProducts(List<GoodsProductAlter> products);
 
     int deleteProducts(int goodsId);
+
+    int getProductNumber();
 }

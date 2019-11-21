@@ -28,7 +28,7 @@ public class AuthController {
             subject.login(token);
         } catch (AuthenticationException e) {
             baseReqVo.setErrmsg("failed");
-            baseReqVo.setErrno(500);
+            baseReqVo.setErrno(501);
             return baseReqVo;
         }
 
@@ -45,7 +45,7 @@ public class AuthController {
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
         baseReqVo.setErrmsg("成功");
-        baseReqVo.setErrno(0);
+        baseReqVo.setErrno(501);
         return baseReqVo;
     }
     @RequestMapping("/info")

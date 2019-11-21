@@ -23,4 +23,5 @@ public interface OrderWxService {
 
     void cancelOrder(Integer id);
 
+    int getOrderNumber();
 }

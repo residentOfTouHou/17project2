@@ -78,4 +78,9 @@ public class UserServiceImpl implements UserService {
 
         return userMapper.updatePasswordByMobile(mobile,password);
     }
+
+    @Override
+    public int getUserNumber() {
+        return userMapper.selectAll().size();
+    }
 }
