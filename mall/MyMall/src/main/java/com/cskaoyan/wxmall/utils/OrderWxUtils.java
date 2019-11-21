@@ -65,20 +65,22 @@ public class OrderWxUtils {
         map.put("confirm",false);
         map.put("refund",false);
         map.put("rebuy",false);
-        if(orderStatus==101){ //未付款
-            
-        }else if(orderStatus==102) { //用户取消
+        if(orderStatus==101){ //未付款 可以付款可以取消
+            map.put("pay",true);
             map.put("cancel",true);
-        }else if(orderStatus==201) {
-            map.put("pay",true);
-        }else if(orderStatus==301) {
-            map.put("pay",true);
-        }else if(orderStatus==401) {
-            map.put("pay",true);
-        }
-        if(order.getDeleted()){
+        }else if(orderStatus==102) { //用户取消 可以删除
             map.put("delete",true);
+        }else if(orderStatus==201) { //已付款 可以退款
+            map.put("refund",true);
+        }else if(orderStatus==301) { //已发货 可以确认收货
+            map.put("confirm",true);
+        }else if(orderStatus==401) { //已收货 可以评价可以删除
+            map.put("delete",true);
+            map.put("comment",true);
         }
+//        if(order.getDeleted()){
+//            map.put("delete",true);
+//        }
         return map;
     }
 }

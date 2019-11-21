@@ -227,15 +227,35 @@ public class OrderWxController {
 
     /**
      * 退款取消订单
+     *
+     * {"orderId":27}
+     *
+     * {"errno":0,"errmsg":"成功"}
      * @param id
      * @return
      */
-//    @RequestMapping("refund")
-//    public BaseReqVo refundOrder(Integer id){
-//        BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
-//        orderWxService.refundOrder(id);
-//        baseReqVo.setErrno(0);
-//        baseReqVo.setErrmsg("成功");
-//        return baseReqVo;
-//    }
+    @RequestMapping("refund")
+    public BaseReqVo refundOrder(Integer id){
+        BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
+        orderWxService.refundOrder(id);
+        baseReqVo.setErrno(0);
+        baseReqVo.setErrmsg("成功");
+        return baseReqVo;
+    }
+
+    /**
+     * 删除订单
+     *
+     *
+     * @param id
+     * @return
+     */
+    @RequestMapping("delete")
+    public BaseReqVo deleteOrder(Integer id){
+        BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
+        orderWxService.deleteOrder(id);
+        baseReqVo.setErrno(0);
+        baseReqVo.setErrmsg("成功");
+        return baseReqVo;
+    }
 }

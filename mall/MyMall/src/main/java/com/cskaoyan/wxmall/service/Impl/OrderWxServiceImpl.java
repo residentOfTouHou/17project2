@@ -285,4 +285,28 @@ public class OrderWxServiceImpl implements OrderWxService {
         orderGoodsExample.createCriteria().andOrderIdEqualTo(orderId);
         orderGoodsMapper.updateByExampleSelective(orderGoods,orderGoodsExample);
     }
+
+    /**
+     * 退款取消订单
+     * @param orderId
+     */
+    @Override
+    public void refundOrder(Integer orderId) {
+        Order order = new Order();
+        order.setId(orderId);
+        order.setOrderStatus((short) 202);
+        orderMapper.updateByPrimaryKeySelective(order);
+    }
+
+    /**
+     * 删除订单
+     * @param orderId
+     */
+    @Override
+    public void deleteOrder(Integer orderId) {
+        Order order = new Order();
+        order.setId(orderId);
+        order.setDeleted(true);
+        orderMapper.updateByPrimaryKeySelective(order);
+    }
 }
