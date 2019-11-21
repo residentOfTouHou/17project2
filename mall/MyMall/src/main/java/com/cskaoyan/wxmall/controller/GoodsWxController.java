@@ -6,7 +6,9 @@ import com.cskaoyan.mall.bean.generator.User;
 import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
 import com.cskaoyan.mall.service.CategoryService;
 import com.cskaoyan.mall.service.GoodsService;
+import com.cskaoyan.wxmall.utils.UserIdUtils;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -61,10 +63,8 @@ public class GoodsWxController {
      */
     @RequestMapping("detail")
     public BaseReqVo GetGoodsDetail(Integer id){
-        //获取UserId
-        User primaryPrincipal = (User) SecurityUtils.getSubject().getPrincipals().getPrimaryPrincipal();
-        Integer userId = primaryPrincipal.getId();
-
+        //调用工具类 获取UserId
+        Integer userId = UserIdUtils.getCurrentUserId();
         HashMap<String,Object> map = goodsService.queryGoodsDetail(id,userId);
         return BaseReqVo.ok(map);
     }
