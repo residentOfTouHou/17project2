@@ -250,4 +250,12 @@
     select id,`name`,`type`,code from cskaoyan_mall_region
     where type = 3 and code like concat(#{code},'%')
   </select>
+    <select id="selectByCode" resultMap="BaseResultMap">
+        select id,`name`,`type`,code from cskaoyan_mall_region
+        where code = #{code}
+    </select>
+  <select id="selectNameByCode" resultType="java.lang.String">
+    select `name` from cskaoyan_mall_region
+    where code = #{code}
+  </select>
 </mapper>

@@ -76,5 +76,10 @@ public class FootprintServiceImpl implements FootprintService {
         return map;
     }
 
+    @Override
+    public int deleteFootPrintBy(Integer id) {
+        return footprintMapper.deleteByPrimaryKey(id);
+    }
+
 
 }

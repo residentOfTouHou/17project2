@@ -1,13 +1,18 @@
 package com.cskaoyan.mall.service.impl;
 
+import com.cskaoyan.mall.bean.generator.Order;
+import com.cskaoyan.mall.bean.generator.OrderExample;
 import com.cskaoyan.mall.bean.generator.User;
 import com.cskaoyan.mall.bean.generator.UserExample;
 import com.cskaoyan.mall.bean.jsonbean.PageSplit;
+import com.cskaoyan.mall.mapper.OrderMapper;
 import com.cskaoyan.mall.mapper.UserMapper;
 import com.cskaoyan.mall.service.UserService;
 import com.cskaoyan.mall.utils.StringUtil;
+import com.cskaoyan.wxmall.bean.UserIndexBean;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +24,9 @@ import java.util.Map;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private OrderMapper orderMapper;
 
     @Override
     public Map<String, Object> findAllUser(PageSplit pageSplit) {
@@ -83,6 +91,60 @@ public class UserServiceImpl implements UserService {
     @Override
     public int getUserNumber() {
         return userMapper.selectAll().size();
+    }
+
+    /**
+     * 获取订单状态
+     * @return
+     */
+    @Override
+    public Map<String, Object> indexOrder() {
+        HashMap<String, Object> map = new HashMap<>();
+        UserIndexBean userIndexBean = new UserIndexBean();
+
+        OrderExample unpaid = new OrderExample();
+        User principal = (User) SecurityUtils.getSubject().getPrincipal();
+        Integer id = principal.getId();
+        unpaid.createCriteria().andOrderStatusEqualTo((short) 101)
+                .andDeletedEqualTo(false).andUserIdEqualTo(id);
+        List<Order> unpaidOrders = orderMapper.selectByExample(unpaid);
+        if(unpaidOrders!=null){
+            userIndexBean.setUnpaid(unpaidOrders.size());
+        }else{
+            userIndexBean.setUnpaid(0);
+        }
+
+        OrderExample unship = new OrderExample();
+        unship.createCriteria().andOrderStatusEqualTo((short) 201)
+                .andDeletedEqualTo(false).andUserIdEqualTo(id);
+        List<Order> unshipOrders = orderMapper.selectByExample(unship);
+        if(unshipOrders!=null){
+            userIndexBean.setUnship(unshipOrders.size());
+        }else{
+            userIndexBean.setUnship(0);
+        }
+
+        OrderExample unrecv = new OrderExample();
+        unrecv.createCriteria().andOrderStatusEqualTo((short) 301)
+                .andDeletedEqualTo(false).andUserIdEqualTo(id);
+        List<Order> unrecvOrders = orderMapper.selectByExample(unrecv);
+        if(unrecvOrders!=null){
+            userIndexBean.setUnrecv(unrecvOrders.size());
+        }else{
+            userIndexBean.setUnrecv(0);
+        }
+
+        OrderExample uncomment = new OrderExample();
+        uncomment.createCriteria().andOrderStatusEqualTo((short) 401)
+                .andDeletedEqualTo(false).andUserIdEqualTo(id);
+        List<Order> uncommentOrders = orderMapper.selectByExample(uncomment);
+        if(uncommentOrders!=null){
+            userIndexBean.setUncomment(uncommentOrders.size());
+        }else{
+            userIndexBean.setUncomment(0);
+        }
+        map.put("order",userIndexBean);
+        return map;
     }
 }
 

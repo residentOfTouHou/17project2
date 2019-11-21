@@ -230,12 +230,23 @@
     set update_time = #{updateTime}
     where goods_id = #{goodsId}
   </update>
-  <select id="selectFootprintBy" resultType="com.cskaoyan.wxmall.bean.FootPrintBean">
+  <resultMap id="FootprintMap" type="com.cskaoyan.wxmall.bean.FootPrintBean">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="goods_id" jdbcType="INTEGER" property="goodsId" />
+    <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+
+    <result column="name" jdbcType="VARCHAR" property="name"/>
+    <result column="brief" jdbcType="VARCHAR" property="brief"/>
+    <result column="pic_url" jdbcType="VARCHAR" property="picUrl"/>
+    <result column="retail_price" jdbcType="DECIMAL" property="retailPrice"/>
+  </resultMap>
+  <select id="selectFootprintBy" resultMap="FootprintMap">
       select
-		f.id,f.goods_id,f.add_time,g.brief,g.pic_url,g.name,g.retail_price
+		f.id as id,f.goods_id as goods_id,f.add_time as add_time,
+		g.brief as brief,g.pic_url as pic_url,g.name as name,g.retail_price as retail_price
 from
 		cskaoyan_mall_footprint f join cskaoyan_mall_goods g
 on
-		f.goods_id= g.id and f.user_id=#{id}
+		f.goods_id = g.id and f.user_id=#{id}
   </select>
 </mapper>

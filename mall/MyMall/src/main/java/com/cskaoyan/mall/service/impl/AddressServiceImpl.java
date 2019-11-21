@@ -9,6 +9,7 @@ import com.cskaoyan.mall.mapper.AddressMapper;
 import com.cskaoyan.mall.mapper.RegionMapper;
 import com.cskaoyan.mall.service.AddressService;
 import com.cskaoyan.mall.utils.StringUtil;
+import com.cskaoyan.wxmall.bean.AddressBean;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ public class AddressServiceImpl implements AddressService {
     private AddressMapper addressMapper;
     @Autowired
     private RegionMapper regionMapper;
+
 
     @Override
     public Map<String, Object> findAll(PageSplit pageSplit) {
@@ -140,5 +142,49 @@ public class AddressServiceImpl implements AddressService {
         Region region = regionMapper.selectByPrimaryKey(id);
         return region;
 
+    }
+
+    @Override
+    public List<AddressBean> selectAddressList(Integer userId) {
+        List<AddressBean> addressList = addressMapper.selectAddressBeanByUserId(userId);
+        //拼接详细地址
+        StringBuilder detailedAddress = new StringBuilder();
+        for (AddressBean address : addressList) {
+            //根据code去区域表获取区域名
+            String  provinceName = regionMapper.selectNameByCode(address.getProvinceId());
+            String cityName = regionMapper.selectNameByCode(address.getCityId());
+            String areaName = regionMapper.selectNameByCode(address.getAreaId());
+            String address1 = address.getAddress();
+            //将四个地址拼接为详细地址
+            String s = detailedAddress.append(provinceName).append(cityName).append(areaName).append(address1).toString();
+            address.setDetailedAddress(s);
+        }
+        return addressList;
+    }
+
+    @Override
+    public Address selectAddressById(Integer id) {
+        //根据id获取地址对象
+        Address address = addressMapper.selectByPrimaryKey(id);
+        //根据code去区域表获取区域名
+        String  provinceName = regionMapper.selectNameByCode(address.getProvinceId());
+        String cityName = regionMapper.selectNameByCode(address.getCityId());
+        String areaName = regionMapper.selectNameByCode(address.getAreaId());
+        //设置
+        address.setProvince(provinceName);
+        address.setCity(cityName);
+        address.setArea(areaName);
+        return address;
+    }
+
+    @Override
+    public int updateAddress(Address address) {
+        int result = addressMapper.updateAddress(address);
+        return result;
+    }
+
+    @Override
+    public int deleteAddressById(Integer id) {
+        return addressMapper.deleteByPrimaryKey(id);
     }
 }

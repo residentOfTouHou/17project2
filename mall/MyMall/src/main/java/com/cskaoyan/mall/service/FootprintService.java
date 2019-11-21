@@ -11,4 +11,6 @@ public interface FootprintService {
 
 
     Map<String, Object> selectFootPrintBy(Integer page, Integer size,Integer id);
+
+    int deleteFootPrintBy(Integer id);
 }
