@@ -188,7 +188,7 @@ public class GoodsServiceImpl implements GoodsService {
         //封装Date spec和comment需要套娃
         HashMap<String,Object> map = new HashMap();
         HashMap<String,Object> commentMap = new HashMap();
-
+        //封装specificationList
         Set<String> nameSet = new HashSet<>();
         for (GoodsSpecification goodsSpecification : valueList) {
             String name = goodsSpecification.getSpecification();
@@ -207,10 +207,6 @@ public class GoodsServiceImpl implements GoodsService {
             goodsSpecification.setValueList(goodsSpecificationList2);
             goodsSpecificationList.add(goodsSpecification);
         }
-
-        //封装specMap
-        List<SpecificationListBean> specificationListBeanList = new ArrayList<>();
-        SpecificationListBean specificationListBean = new SpecificationListBean();
         //封装commentMap
         commentMap.put("data",comments);
         commentMap.put("count",comments.size());
@@ -249,6 +245,25 @@ public class GoodsServiceImpl implements GoodsService {
         HashMap<String, Object> map = new HashMap<>();
         map.put("goodsList",goodsList);
         return map;
+    }
+
+    /**
+     * 模糊查询并分页
+     * @param keyword
+     * @param page
+     * @param size
+     * @return
+     */
+    @Override
+    public List<Goods> queryGoodsListByName(String keyword, Integer page, Integer size,String sort,String order) {
+        PageHelper.startPage(page,size);
+        GoodsExample goodsExample = new GoodsExample();
+        goodsExample.setOrderByClause(sort + " " + order);
+
+        GoodsExample.Criteria criteria = goodsExample.createCriteria();
+        criteria.andNameLike("%" + keyword + "%");
+        List<Goods> goodsList = goodsMapper.selectByExample(goodsExample);
+        return goodsList;
     }
 
 }
