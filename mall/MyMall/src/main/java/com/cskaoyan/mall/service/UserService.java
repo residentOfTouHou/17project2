@@ -19,4 +19,7 @@ public interface UserService {
     int updatePasswordByMobile(String mobile, String password);
 
     int getUserNumber();
+
+    Map<String, Object> indexOrder();
+
 }

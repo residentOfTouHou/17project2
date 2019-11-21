@@ -1,4 +1,4 @@
-package com.cskaoyan.wxmall.service.impl;
+package com.cskaoyan.wxmall.service.Impl;
 
 import com.cskaoyan.mall.bean.generator.Keyword;
 import com.cskaoyan.mall.bean.generator.KeywordExample;
