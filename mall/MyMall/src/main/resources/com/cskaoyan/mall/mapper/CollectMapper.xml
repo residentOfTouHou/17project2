@@ -240,4 +240,9 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectUserIdByGoodsIdAndType" resultType="java.lang.Integer">
+    select user_id from cskaoyan_mall_collect where type = 0 and value_id = #{id}
+  </select>
+
+
 </mapper>

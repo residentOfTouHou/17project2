@@ -28,7 +28,7 @@ public interface GrouponRulesMapper {
                           @Param("discountMember") int dicMember,
                           @Param("expireTime") String expireTime,
                           @Param("groupRulesJson") GrouponRulesJson grouponRulesJson,
-                          @Param("goods")GoodsAlter goods);
+                          @Param("goods") GoodsAlter goods);
 
     GrouponRules queryGrouponRulesById(int id);
 
@@ -38,4 +38,10 @@ public interface GrouponRulesMapper {
     Groupon queryGrouponByRuleId(int ruleId);
 
     List<SubGroupons> querySubGroupons(Integer subGrouponId);
+
+
+    GrouponRules selectGrouponRulesByRuleId(@Param("ruleId") Integer rulesId);
+
+    GrouponRules selectByGoodsId(Integer id);
+
 }

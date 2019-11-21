@@ -642,7 +642,7 @@
         from cskaoyan_mall_goods where good_sn = #{goodsSn} and name = #{name}
     </select>
     <select id="selectGoodsByCategoryId" resultMap="BaseResultMap">
-        select id,name,brief,pic_url as picUrl,is_new as isNew,is_hot as isHot,counter_price as counterPrice,retail_price as retailPrice
+        select id,name,brief,pic_url,is_new,is_hot,counter_price,retail_price
         from cskaoyan_mall_goods where category_id = #{categoryId}
     </select>
 </mapper>

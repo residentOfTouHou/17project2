@@ -81,4 +81,17 @@ public class HistoryServiceImpl implements HistoryService {
 
         historyMapper.deleteByExample(searchHistoryExample);
     }
+
+    @Override
+    public List<SearchHistory> findHistoryByKeyWord(String keyword) {
+        SearchHistoryExample searchHistoryExample = new SearchHistoryExample();
+
+        SearchHistoryExample.Criteria criteria = searchHistoryExample.createCriteria();
+        if(!StringUtil.isBlank(keyword)){
+            criteria.andKeywordLike("%" +keyword + "%");
+        }
+
+        List<SearchHistory> searchHistories = historyMapper.selectByExample(searchHistoryExample);
+        return searchHistories;
+    }
 }

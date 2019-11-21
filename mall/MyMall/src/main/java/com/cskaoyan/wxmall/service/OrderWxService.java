@@ -1,6 +1,10 @@
 package com.cskaoyan.wxmall.service;
 
+import com.cskaoyan.wxmall.bean.ListOrderBean;
 import com.cskaoyan.wxmall.bean.SubmitOrderBean;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by IntelliJ IDEA
@@ -12,5 +16,15 @@ import com.cskaoyan.wxmall.bean.SubmitOrderBean;
 public interface OrderWxService {
 
     Integer submitOrder(SubmitOrderBean orderBean);
+
+    List<ListOrderBean> listOrder(Integer showType, Integer page, Integer size);
+
+    Map<String, Object> detailOrder(Integer id);
+
+    void cancelOrder(Integer id);
+
+    void refundOrder(Integer id);
+
+    void deleteOrder(Integer id);
 
 }

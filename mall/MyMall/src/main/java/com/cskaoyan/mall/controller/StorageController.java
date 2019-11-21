@@ -4,8 +4,11 @@
 package com.cskaoyan.mall.controller;
 
 
+import com.aliyun.oss.OSSClient;
+import com.aliyun.oss.model.PutObjectResult;
 import com.cskaoyan.mall.bean.generator.Storage;
 import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
+import com.cskaoyan.mall.component.AliyunComponent;
 import com.cskaoyan.mall.service.StorageService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -32,15 +35,17 @@ public class StorageController {
     @Autowired
     StorageService storageService;
 
+    @Autowired
+    AliyunComponent aliyunComponent;
 
     @RequestMapping("create")
-    public BaseReqVo create1(MultipartFile file, HttpServletRequest request) throws FileNotFoundException {
+    public BaseReqVo create1(MultipartFile file, HttpServletRequest request) throws IOException {
         BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
         Date date = new Date();
         //url并上传文件
         String uploadPath = "/upload";
         String realPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static";
-        String filename = UUID.randomUUID() + file.getOriginalFilename();
+        String filename = UUID.randomUUID().toString().replaceAll("-","") + file.getOriginalFilename();
         String hexstr = Integer.toHexString(filename.hashCode());
         char[] chars = hexstr.toCharArray();
         for (char aChar : chars) {
@@ -62,12 +67,28 @@ public class StorageController {
             baseReqVo.setErrmsg("failed");
             return baseReqVo;
         }
+        Storage storage = new Storage();
+        //阿里云存储
+//        OSSClient ossClient = aliyunComponent.getOssClient();
+//        ossClient.putObject(aliyunComponent.getOss().getBucket(),filename,file.getInputStream());
+//        String url = "http://" + aliyunComponent.getOss().getEndPoint() + aliyunComponent.getOss().getBucket() +
+//                filename;
+//
+//        storage.setKey(filename);
+//        storage.setName(filename);
+//        storage.setType(file.getContentType());
+//        storage.setSize(((int) file.getSize()));
+//        storage.setUrl(url);
+//        storage.setAddTime(new Date());
+//        storage.setUpdateTime(new Date());
+//        storage.setDeleted(false);
+
+        //服务器本地存储
         String url = "http://" + request.getServerName() //服务器地址
                 + ":"
                 + request.getServerPort()           //端口号
                 + request.getContextPath()      //项目名称
                 + uploadPath;
-        Storage storage = new Storage();
         storage.setUrl(url);
         storage.setKey(UUID.randomUUID().toString());
         storage.setName(filename);

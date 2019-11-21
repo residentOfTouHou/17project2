@@ -35,4 +35,6 @@ public interface GoodsProductMapper {
     List<GoodsProductAlter> queryByGoodsId(Integer goodsId);
 
     int updateProducts(GoodsProductAlter product);
+
+    List<GoodsProduct> selectByGoodsId(Integer id);
 }

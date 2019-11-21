@@ -4,6 +4,7 @@ import com.cskaoyan.mall.bean.generator.CommentAlter;
 import com.cskaoyan.mall.bean.jsonbean.CommentData;
 import com.cskaoyan.mall.bean.jsonbean.CommentQueryParameters;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -20,4 +21,6 @@ public interface CommentService {
     CommentAlter queryCommentById(int commentId);
 
     int updateCommentById(CommentData commentData);
+
+    List<Map<String,Object>> findCommentByCondition(Integer valueId, Byte type, Integer page, Integer size);
 }

@@ -262,4 +262,10 @@
             deleted = #{deleted}
             where id = #{id}
     </update>
+    <select id="selectByGoodsId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from cskaoyan_mall_goods_attribute
+        where goods_id = #{id}
+    </select>
 </mapper>

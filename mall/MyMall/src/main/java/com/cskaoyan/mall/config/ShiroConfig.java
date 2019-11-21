@@ -32,8 +32,11 @@ public class ShiroConfig{
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         //shiroFilterFactoryBean.setLoginUrl("");
         LinkedHashMap<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
+//        filterChainDefinitionMap.put("/wx/home/index","authc");
         filterChainDefinitionMap.put("/admin/auth/login","anon");
-        filterChainDefinitionMap.put("/wx/user/login","anon");
+        //后台除了登录其余都需要认证
+        //filterChainDefinitionMap.put("/wx/coupon/**","authc");
+        filterChainDefinitionMap.put("/admin/**","authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
     }

@@ -5,6 +5,7 @@ import com.cskaoyan.mall.bean.generator.GoodsAlter;
 import com.cskaoyan.mall.bean.jsonbean.GoodsData;
 import com.cskaoyan.mall.bean.jsonbean.GoodsQueryParameters;
 
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -24,7 +25,9 @@ public interface GoodsService {
 
     int deleteGoods(Integer id);
 
+
     List<Goods> findAll();
+
 
     Goods queryGoodsByGoodsSn(String goodsSn);
 
@@ -38,6 +41,13 @@ public interface GoodsService {
 
     List<Goods> queryHotGoods();
 
+
     List<Goods> queryGoodsList(Integer categoryId, Integer page, Integer size);
+
+
+    HashMap<String, Object> queryGoodsDetail(Integer id,Integer userId);
+
+    HashMap<String, Object> queryGoodsRelated(Integer id);
+
 
 }
