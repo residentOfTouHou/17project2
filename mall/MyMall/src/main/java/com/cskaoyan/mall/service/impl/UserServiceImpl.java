@@ -67,4 +67,15 @@ public class UserServiceImpl implements UserService {
     public int updateUser(User user) {
         return userMapper.updateByPrimaryKey(user);
     }
+
+    @Override
+    public int insertUser(User user) {
+        return userMapper.insertSelective(user);
+    }
+
+    @Override
+    public int updatePasswordByMobile(String mobile, String password) {
+
+        return userMapper.updatePasswordByMobile(mobile,password);
+    }
 }

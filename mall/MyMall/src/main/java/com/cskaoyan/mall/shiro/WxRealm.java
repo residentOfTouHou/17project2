@@ -30,7 +30,7 @@ public class WxRealm extends AuthorizingRealm {
         User user = userService.getUserByUsername(username);
         if(user != null)
             return new SimpleAuthenticationInfo(user, user.getPassword(),getName());
-        return new SimpleAuthenticationInfo(null,null,getName());
+        return null;
     }
 
     @Override
