@@ -7,6 +7,7 @@ import com.cskaoyan.wxmall.service.OrderWxService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -69,6 +70,7 @@ public class OrderWxController {
     @RequestMapping("prepay")
     public BaseReqVo prepayOrder(){
         BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
+
         return baseReqVo;
     }
 
@@ -138,7 +140,8 @@ public class OrderWxController {
     @RequestMapping("list")
     public BaseReqVo listOrder(Integer showType,Integer page,Integer size){
         BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
-        List<ListOrderBean> result = orderWxService.listOrder(showType,page,size);
+        Map<String,Object> result = orderWxService.listOrder(showType,page,size);
+//        List<ListOrderBean> result = orderWxService.listOrder(showType,page,size);
         baseReqVo.setErrno(0);
         baseReqVo.setData(result);
         baseReqVo.setErrmsg("成功");
@@ -194,13 +197,13 @@ public class OrderWxController {
      *    },
      * 	"errmsg": "成功"
      * }
-     * @param id
+     * @param orderId
      * @return
      */
     @RequestMapping("detail")
-    public BaseReqVo detailOrder(Integer id){
+    public BaseReqVo detailOrder(Integer orderId){
         BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
-        Map<String,Object> result = orderWxService.detailOrder(id);
+        Map<String,Object> result = orderWxService.detailOrder(orderId);
         baseReqVo.setErrno(0);
         baseReqVo.setData(result);
         baseReqVo.setErrmsg("成功");
@@ -213,31 +216,33 @@ public class OrderWxController {
      * {"orderId":644}
      *
      * {"errno":0,"errmsg":"成功"}
-     * @param id
+     * @param map
      * @return
      */
     @RequestMapping("cancel")
-    public BaseReqVo cancelOrder(Integer id){
+    public BaseReqVo cancelOrder(@RequestBody Map<String,Integer> map){
         BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
-        orderWxService.cancelOrder(id);
+        Integer orderId = map.get("orderId");
+        orderWxService.cancelOrder(orderId);
         baseReqVo.setErrno(0);
         baseReqVo.setErrmsg("成功");
         return baseReqVo;
     }
 
     /**
-     * 退款取消订单
+     * 用户退款取消订单
      *
      * {"orderId":27}
      *
      * {"errno":0,"errmsg":"成功"}
-     * @param id
+     * @param map
      * @return
      */
     @RequestMapping("refund")
-    public BaseReqVo refundOrder(Integer id){
+    public BaseReqVo refundOrder(@RequestBody Map<String,Integer> map){
         BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
-        orderWxService.refundOrder(id);
+        Integer orderId = map.get("orderId");
+        orderWxService.refundOrder(orderId);
         baseReqVo.setErrno(0);
         baseReqVo.setErrmsg("成功");
         return baseReqVo;

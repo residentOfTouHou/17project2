@@ -17,7 +17,7 @@ public interface OrderWxService {
 
     Integer submitOrder(SubmitOrderBean orderBean);
 
-    List<ListOrderBean> listOrder(Integer showType, Integer page, Integer size);
+    Map<String,Object> listOrder(Integer showType, Integer page, Integer size);
 
     Map<String, Object> detailOrder(Integer id);
 
@@ -27,5 +27,4 @@ public interface OrderWxService {
     void refundOrder(Integer id);
 
     void deleteOrder(Integer id);
-
 }
