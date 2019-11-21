@@ -42,4 +42,5 @@ public interface GoodsService {
     List<Goods> queryGoodsList(Integer categoryId, Integer page, Integer size);
 
     HashMap<String, Object> queryGoodsDetail(Integer id);
+}
 

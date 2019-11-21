@@ -1,8 +1,11 @@
 package com.cskaoyan.mall.service.impl;
 
+import com.cskaoyan.mall.bean.generator.Order;
+import com.cskaoyan.mall.bean.generator.OrderExample;
 import com.cskaoyan.mall.bean.generator.User;
 import com.cskaoyan.mall.bean.generator.UserExample;
 import com.cskaoyan.mall.bean.jsonbean.PageSplit;
+import com.cskaoyan.mall.mapper.OrderMapper;
 import com.cskaoyan.mall.mapper.UserMapper;
 import com.cskaoyan.mall.service.UserService;
 import com.cskaoyan.mall.utils.StringUtil;
@@ -19,6 +22,9 @@ import java.util.Map;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private OrderMapper orderMapper;
 
     @Override
     public Map<String, Object> findAllUser(PageSplit pageSplit) {
@@ -83,6 +89,52 @@ public class UserServiceImpl implements UserService {
     @Override
     public int getUserNumber() {
         return userMapper.selectAll().size();
+    }
+
+    /**
+     * 获取订单状态
+     * @return
+     */
+    @Override
+    public Map<String, Object> indexOrder() {
+        HashMap<String, Object> map = new HashMap<>();
+        OrderExample unpaid = new OrderExample();
+        unpaid.createCriteria().andOrderStatusEqualTo((short) 101).andDeletedEqualTo(false);
+        List<Order> unpaidOrders = orderMapper.selectByExample(unpaid);
+        if(unpaidOrders!=null){
+            map.put("unpaid",unpaidOrders.size());
+        }else{
+            map.put("unpaid",0);
+        }
+
+        OrderExample unship = new OrderExample();
+        unship.createCriteria().andOrderStatusEqualTo((short) 201).andDeletedEqualTo(false);
+        List<Order> unshipOrders = orderMapper.selectByExample(unpaid);
+        if(unshipOrders!=null){
+            map.put("unship",unshipOrders.size());
+        }else{
+            map.put("unship",0);
+        }
+
+        OrderExample unrecv = new OrderExample();
+        unship.createCriteria().andOrderStatusEqualTo((short) 301).andDeletedEqualTo(false);
+        List<Order> unrecvOrders = orderMapper.selectByExample(unpaid);
+        if(unrecvOrders!=null){
+            map.put("unrecv",unrecvOrders.size());
+        }else{
+            map.put("unrecv",0);
+        }
+
+        OrderExample uncomment = new OrderExample();
+        unship.createCriteria().andOrderStatusEqualTo((short) 401).andDeletedEqualTo(false);
+        List<Order> uncommentOrders = orderMapper.selectByExample(unpaid);
+        if(uncommentOrders!=null){
+            map.put("uncomment",uncommentOrders.size());
+        }else{
+            map.put("uncomment",0);
+        }
+
+        return map;
     }
 }
 
