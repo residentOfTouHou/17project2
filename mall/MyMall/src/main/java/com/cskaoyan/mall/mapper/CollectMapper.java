@@ -29,4 +29,6 @@ public interface CollectMapper {
     int updateByPrimaryKeySelective(Collect record);
 
     int updateByPrimaryKey(Collect record);
+
+    Integer selectUserIdByGoodsIdAndType(Integer id);
 }

@@ -38,7 +38,9 @@ public class AdminRealm extends AuthorizingRealm {
         CustomToken token = (CustomToken) authenticationToken;
         String username = token.getUsername();
         Admin admin = adminService.getAdminByName(username);
-        return new SimpleAuthenticationInfo(admin,admin.getPassword(),getName());
+        if(admin != null)
+            return new SimpleAuthenticationInfo(admin,admin.getPassword(),getName());
+        return null;
     }
 
 

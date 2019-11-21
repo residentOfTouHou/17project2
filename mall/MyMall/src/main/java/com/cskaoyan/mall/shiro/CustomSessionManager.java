@@ -18,8 +18,12 @@ public class CustomSessionManager extends DefaultWebSessionManager {
     protected Serializable getSessionId(ServletRequest servletRequest, ServletResponse response) {
         HttpServletRequest request = (HttpServletRequest)servletRequest;
         String header = request.getHeader("X-Litemall-Admin-Token");
+        String header1 = request.getHeader("X-Litemall-Token");
         if(header != null && !"".equals(header)){
             return header;
+        }
+        if(header1 != null && !"".equals(header1)){
+            return header1;
         }
         return super.getSessionId(request, response);
     }

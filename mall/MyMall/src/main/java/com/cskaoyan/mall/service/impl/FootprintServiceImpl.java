@@ -5,6 +5,7 @@ import com.cskaoyan.mall.bean.generator.FootprintExample;
 import com.cskaoyan.mall.bean.jsonbean.PageSplit;
 import com.cskaoyan.mall.mapper.FootprintMapper;
 import com.cskaoyan.mall.service.FootprintService;
+import com.cskaoyan.wxmall.bean.FootPrintBean;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,4 +64,17 @@ public class FootprintServiceImpl implements FootprintService {
         map.put("footprints", footprints);
         return map;
     }
+
+    @Override
+    public Map<String, Object> selectFootPrintBy(Integer page, Integer size,Integer id) {
+        //分页
+        PageHelper.startPage(page,size);
+
+        List<FootPrintBean> footprintList = footprintMapper.selectFootprintBy(id);
+        HashMap<String,Object> map = new HashMap<>();
+        map.put("footprintList",footprintList);
+        return map;
+    }
+
+
 }

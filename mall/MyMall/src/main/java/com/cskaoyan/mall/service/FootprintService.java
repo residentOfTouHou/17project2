@@ -8,4 +8,7 @@ public interface FootprintService {
     Map<String, Object> findAll(PageSplit pageSplit);
 
     Map<String, Object> findFootprintByCondition(PageSplit pageSplit);
+
+
+    Map<String, Object> selectFootPrintBy(Integer page, Integer size,Integer id);
 }

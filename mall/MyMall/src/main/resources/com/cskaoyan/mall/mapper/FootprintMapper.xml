@@ -225,4 +225,17 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <update id="updateUpdateTimeByGoodsId">
+    update cskaoyan_mall_footprint
+    set update_time = #{updateTime}
+    where goods_id = #{goodsId}
+  </update>
+  <select id="selectFootprintBy" resultType="com.cskaoyan.wxmall.bean.FootPrintBean">
+      select
+		f.id,f.goods_id,f.add_time,g.brief,g.pic_url,g.name,g.retail_price
+from
+		cskaoyan_mall_footprint f join cskaoyan_mall_goods g
+on
+		f.goods_id= g.id and f.user_id=#{id}
+  </select>
 </mapper>

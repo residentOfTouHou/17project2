@@ -39,5 +39,10 @@ public interface CommentMapper {
 
     int updateCommentById(CommentData commentData);
 
+
     List<CommentAlter> findCommentByCondition(@Param("type") Byte type, @Param("valueId") Integer valueId);
-}
+
+
+    List<Comment> selectCommentsByGoodsIdAndType(Integer id);
+
+
