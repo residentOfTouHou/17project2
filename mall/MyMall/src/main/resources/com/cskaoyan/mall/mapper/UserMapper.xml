@@ -416,4 +416,7 @@
     <select id="selectByUsername" resultMap="BaseResultMap">
       select <include refid="Base_Column_List"/> from cskaoyan_mall_user where username = #{username}
     </select>
+  <update id="updatePasswordByMobile">
+    update cskaoyan_mall_user set password = #{param2} where mobile = #{param1}
+  </update>
 </mapper>

@@ -13,4 +13,8 @@ public interface UserService {
     User getUserByUsername(String username);
 
     int updateUser(User user);
+
+    int insertUser(User user);
+
+    int updatePasswordByMobile(String mobile, String password);
 }

@@ -32,4 +32,6 @@ public interface GoodsAttributeMapper {
     int insertAttributes(List<GoodsAttribute> attributes);
 
     int updateAttributes(GoodsAttribute attribute);
+
+    List<GoodsAttribute> selectByGoodsId(Integer id);
 }
