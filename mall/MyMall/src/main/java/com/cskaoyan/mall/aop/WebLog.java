@@ -8,12 +8,8 @@ import com.cskaoyan.mall.bean.generator.Admin;
 import com.cskaoyan.mall.bean.generator.Log;
 import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
 import com.cskaoyan.mall.service.LogService;
-<<<<<<< HEAD
-=======
-import com.google.gson.Gson;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.PrincipalCollection;
->>>>>>> 5b7516510899f3079d9744fbdbd108e1f59aea41
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;

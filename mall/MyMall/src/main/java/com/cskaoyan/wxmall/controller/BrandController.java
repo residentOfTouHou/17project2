@@ -1,9 +1,9 @@
-package com.cskaoyan.mall.wxmall.controller;
+package com.cskaoyan.wxmall.controller;
 
 import com.cskaoyan.mall.bean.generator.Brand;
 import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
 import com.cskaoyan.mall.service.BrandService;
-import com.cskaoyan.mall.wxmall.bean.BrandData;
+import com.cskaoyan.wxmall.bean.BrandData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

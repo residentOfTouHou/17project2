@@ -29,5 +29,11 @@ public interface CartMapper {
 
     int updateByPrimaryKey(Cart record);
 
-    int insertCart(@Param("user") User principal, @Param("goods") GoodsAlter goods, @Param("product") GoodsProduct goodsProduct, @Param("cart")Cart cart, @Param("number") int number);
+    int insertCart(@Param("user") User principal, @Param("goods") GoodsAlter goods, @Param("product") GoodsProduct goodsProduct, @Param("cart") Cart cart, @Param("number") int number);
+
+    int updateByUser(Cart cart);
+
+    int updateById(Cart record);
+
+    int updateCartById(Cart cart);
 }

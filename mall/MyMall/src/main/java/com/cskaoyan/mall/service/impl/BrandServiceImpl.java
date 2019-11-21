@@ -5,7 +5,7 @@ import com.cskaoyan.mall.bean.generator.BrandExample;
 import com.cskaoyan.mall.bean.jsonbean.BrandVo;
 import com.cskaoyan.mall.mapper.BrandMapper;
 import com.cskaoyan.mall.service.BrandService;
-import com.cskaoyan.mall.wxmall.bean.BrandData;
+import com.cskaoyan.wxmall.bean.BrandData;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;

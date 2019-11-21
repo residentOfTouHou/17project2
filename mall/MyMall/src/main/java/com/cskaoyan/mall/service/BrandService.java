@@ -2,7 +2,7 @@ package com.cskaoyan.mall.service;
 
 import com.cskaoyan.mall.bean.generator.Brand;
 import com.cskaoyan.mall.bean.jsonbean.BrandVo;
-import com.cskaoyan.mall.wxmall.bean.BrandData;
+import com.cskaoyan.wxmall.bean.BrandData;
 
 import java.util.List;
 

@@ -360,10 +360,21 @@
       price, number, specifications,
       checked, pic_url, add_time,
       deleted)
-    values (#{user.userId}, #{goods.id},
+    values (#{user.id}, #{goods.id},
       #{goods.goodsSn}, #{goods.name}, #{product.id},
       #{product.price}, #{number}, #{product.specifications, typeHandler=com.cskaoyan.mall.handler.String2ArrayTypeHandler},
       #{cart.checked}, #{goods.picUrl}, #{cart.addTime},
-      #{cart.deleted)
+      #{cart.deleted})
     </insert>
+    <update id="updateByUser">
+        update cskaoyan_mall_cart set
+        checked = #{checked}, update_time = #{updateTime}
+        where user_id = #{userId} and product_id = #{productId}
+    </update>
+    <update id="updateById">
+        update cskaoyan_mall_cart set
+        number = #{number}, update_time = #{updateTime}
+        where id = #{id}
+    </update>
+
 </mapper>

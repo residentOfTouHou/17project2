@@ -1,4 +1,4 @@
-package com.cskaoyan.mall.wxmall.bean;
+package com.cskaoyan.wxmall.bean;
 
 import com.cskaoyan.mall.bean.generator.Brand;
 import lombok.Data;
