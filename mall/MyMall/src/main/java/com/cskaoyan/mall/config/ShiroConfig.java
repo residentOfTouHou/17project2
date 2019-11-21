@@ -37,6 +37,7 @@ public class ShiroConfig{
         filterChainDefinitionMap.put("/admin/auth/logout","anon");
         filterChainDefinitionMap.put("/wx/user/login","anon");
         //后台除了登录其余都需要认证
+        //filterChainDefinitionMap.put("/wx/coupon/**","authc");
         filterChainDefinitionMap.put("/admin/**","authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
