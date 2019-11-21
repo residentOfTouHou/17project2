@@ -62,7 +62,7 @@
       #{coupon.updateTime,jdbcType=TIMESTAMP}, #{coupon.deleted,jdbcType=BIT})
     </insert>
 
-    <insert id="insertCouponUser" useGeneratedKeys="true" keyProperty="coupon.id">
+    <insert id="insertCouponUser">
         insert into cskaoyan_mall_coupon_user
         (user_id,coupon_id,status,start_time,end_time,add_time)
         value
@@ -96,6 +96,11 @@
         where id = #{id}
     </select>
 
+    <select id="queryCouponByUserId" resultMap="couponMap">
+        select * from cskaoyan_mall_coupon
+        where id = #{userId}
+    </select>
+
     <update id="updateCoupon">
         update cskaoyan_mall_coupon set `name`=#{coupon.name},
         `desc`=#{coupon.desc},tag=#{coupon.tag},total=#{coupon.total},
@@ -122,14 +127,14 @@
 
     <select id="getMyCouponIds" resultType="integer">
         select coupon_id from cskaoyan_mall_coupon_user
-        where user_id = #{param1} and status = #{param2}
+        where user_id = #{userId} and status = #{status}
     </select>
 
     <select id="getMycouponList" resultMap="couponMap">
         select id,`name`,`desc`,tag,`min`,discount,start_time,end_time
         from cskaoyan_mall_coupon
         where id in
-        <foreach collection="couponIds" separator="," open="(" close=")">
+        <foreach collection="couponIds" item="id" separator="," open="(" close=")">
             #{id}
         </foreach>
     </select>
