@@ -4,6 +4,7 @@ import com.cskaoyan.mall.bean.generator.Address;
 import com.cskaoyan.mall.bean.generator.AddressExample;
 import java.util.List;
 
+import com.cskaoyan.wxmall.bean.AddressBean;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 @Mapper
@@ -30,6 +31,9 @@ public interface AddressMapper {
 
     int updateByPrimaryKey(Address record);
 
-
     List<Address> selectAddressBycondition(String name, Integer userId);
+
+    List<AddressBean> selectAddressBeanByUserId(Integer userId);
+
+    int updateAddress(Address address);
 }
