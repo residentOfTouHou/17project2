@@ -176,10 +176,25 @@ public class AuthWxController {
             //注册成功转发login
             if(insert == 1){
                 CustomToken token = new CustomToken(userInfoVo.getUsername(), userInfoVo.getPassword(), "wx");
-                SecurityUtils.getSubject().login(token);
-                baseReqVo.setErrmsg("成功");
-                baseReqVo.setErrno(0);
-                return baseReqVo;
+
+                try {
+                    Subject subject = SecurityUtils.getSubject();
+                    subject.login(token);
+                    HashMap<String, Object> map = new HashMap<>();
+                    userInfoVo.setNickName(userInfoVo.getUsername());
+                    Session session = subject.getSession();
+                    map.put("userInfo",new UserInfoVo(user.getNickname(),user.getAvatar()));
+                    map.put("tokenExpire",session.getLastAccessTime());
+                    map.put("token", session.getId());
+                    baseReqVo.setData(map);
+                    baseReqVo.setErrmsg("成功");
+                    baseReqVo.setErrno(0);
+                    return baseReqVo;
+                } catch (AuthenticationException e) {
+                    baseReqVo.setErrmsg("failed");
+                    baseReqVo.setErrno(-1);
+                    return baseReqVo;
+                }
             }
         }
         baseReqVo.setErrmsg("验证码错误");

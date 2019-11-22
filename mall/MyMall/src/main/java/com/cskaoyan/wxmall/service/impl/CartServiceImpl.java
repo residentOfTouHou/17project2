@@ -1,4 +1,4 @@
-package com.cskaoyan.wxmall.service.impl;
+package com.cskaoyan.wxmall.service.Impl;
 
 import com.cskaoyan.mall.bean.generator.*;
 import com.cskaoyan.mall.bean.generator.popularizeModule.Ad;
@@ -146,14 +146,21 @@ public class CartServiceImpl implements CartService {
         CartExample example = new CartExample();
         example.createCriteria().andUserIdEqualTo(principal.getId()).andProductIdEqualTo(goodsProduct.getId()).andDeletedEqualTo(false);
         List<Cart> carts = cartMapper.selectByExample(example);
-        if (carts != null) {
+        if (carts != null && carts.size() != 0) {
+            // 能查出
             for (Cart cart1 : carts) {
                 // 更新
                 cart.setId(cart1.getId());
             }
+
+            cart.setNumber((short) number);
+            cartMapper.updateById(cart);
+        } else {
+            cartMapper.insertCart(principal, goods, goodsProduct, cart, number);
+            int id = cartMapper.selectMaxId();
+            id = id + 1;
+            cart.setId(id);
         }
-        cart.setNumber((short) number);
-        cartMapper.updateById(cart);
         return cart.getId();
     }
 
@@ -267,6 +274,12 @@ public class CartServiceImpl implements CartService {
         //  邮费
         double postage = 0.0;
         int addressId = cartCheckoutReq.getAddressId();
+        if (addressId == 0) {
+            AddressExample example = new AddressExample();
+            example.createCriteria().andUserIdEqualTo(principal.getId()).andIsDefaultEqualTo(true);
+            List<Address> addresses = addressMapper.selectByExample(example);
+            addressId = addresses.get(0).getId();
+        }
         Address address = addressMapper.selectByPrimaryKey(addressId);
         if (goodsAmount < 88) {
             int ProvinceId = address.getProvinceId();

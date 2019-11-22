@@ -5,6 +5,7 @@ import com.cskaoyan.mall.bean.generator.popularizeModule.Ad;
 import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
 import com.cskaoyan.mall.service.popularizeModuleService.AdService;
 import com.github.pagehelper.PageInfo;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,8 @@ public class AdController {
     AdService adService;
 
     @RequestMapping("list")
+    @RequiresPermissions("admin:ad:list")
+
     public BaseReqVo queryAdList(int page, int limit, String sort, String order, String name, String content){
 
         List<Ad> ads = adService.queryAd(page,limit,sort,order,name,content);
@@ -35,6 +38,7 @@ public class AdController {
     }
 
     @RequestMapping("delete")
+    @RequiresPermissions("admin:ad:delete")
     public BaseReqVo delete(@RequestBody Ad ad){
         int id = ad.getId();
         adService.deleteAd(id);
@@ -43,6 +47,7 @@ public class AdController {
     }
 
     @RequestMapping("update")
+    @RequiresPermissions("admin:ad:update")
     public BaseReqVo update(@RequestBody Ad ad){
         BaseReqVo baseReqVo = null;
         int id = ad.getId();
@@ -55,6 +60,8 @@ public class AdController {
     }
 
     @RequestMapping("create")
+    @RequiresPermissions("admin:ad:create")
+
     public BaseReqVo create(@RequestBody Ad ad){
         Ad insertedAd = adService.createAd(ad);
         return new BaseReqVo(insertedAd,"成功",0);

@@ -374,4 +374,8 @@
         from cskaoyan_mall_address
         where name = #{name}
     </select>
+    <update id="setAllDafaultFalse">
+        update cskaoyan_mall_address
+        set is_default = false
+    </update>
 </mapper>

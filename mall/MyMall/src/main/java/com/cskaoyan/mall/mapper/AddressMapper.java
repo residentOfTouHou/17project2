@@ -38,4 +38,7 @@ public interface AddressMapper {
     int updateAddress(Address address);
 
     Address selectByName(String name);
+
+    void setAllDafaultFalse();
+
 }

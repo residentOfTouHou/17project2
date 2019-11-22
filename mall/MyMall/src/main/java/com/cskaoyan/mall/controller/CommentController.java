@@ -5,6 +5,7 @@ import com.cskaoyan.mall.bean.generator.Reply;
 import com.cskaoyan.mall.bean.jsonbean.*;
 import com.cskaoyan.mall.service.CommentService;
 import com.cskaoyan.mall.service.ReplyService;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,6 +50,7 @@ public class CommentController {
      * @return
      */
     @RequestMapping("admin/order/reply")
+    @RequiresPermissions("admin:order:reply")
     public BaseReqVo reply(@RequestBody Reply reply) {
         int commentId = reply.getCommentId();
         Reply queryReply = replyService.queryByCommentId(commentId);

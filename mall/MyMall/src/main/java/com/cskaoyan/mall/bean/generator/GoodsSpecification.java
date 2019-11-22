@@ -9,6 +9,7 @@ import java.util.List;
 public class GoodsSpecification {
 
     private String name;
+
     private Integer id;
 
     private Integer goodsId;

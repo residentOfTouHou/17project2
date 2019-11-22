@@ -377,4 +377,7 @@
         where id = #{id}
     </update>
 
+    <select id="selectMaxId" resultType="int">
+        select max(id) from cskaoyan_mall_cart;
+    </select>
 </mapper>
