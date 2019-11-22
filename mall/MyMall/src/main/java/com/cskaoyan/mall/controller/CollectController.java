@@ -5,6 +5,7 @@ import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
 import com.cskaoyan.mall.bean.jsonbean.CollectData;
 import com.cskaoyan.mall.bean.jsonbean.PageSplit;
 import com.cskaoyan.mall.service.CollectService;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,8 @@ public class CollectController {
     @Autowired
     private CollectService collectService;
     @RequestMapping("/list")
+    @RequiresPermissions("admin:collect:list")
+
     public BaseReqVo list(PageSplit pageSplit){
         CollectData data = new CollectData();
         BaseReqVo baseReqVo = new BaseReqVo();
