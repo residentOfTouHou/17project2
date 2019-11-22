@@ -26,4 +26,7 @@ public interface AddressService {
     Address isNameExit(String name);
 
     void insertAddress(Address address);
+
+    void setAllDefaultFalse();
+
 }

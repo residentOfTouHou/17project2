@@ -197,4 +197,9 @@ public class AddressServiceImpl implements AddressService {
     public void insertAddress(Address address){
         addressMapper.insert(address);
     }
+
+    @Override
+    public void setAllDefaultFalse() {
+        addressMapper.setAllDafaultFalse();
+    }
 }
