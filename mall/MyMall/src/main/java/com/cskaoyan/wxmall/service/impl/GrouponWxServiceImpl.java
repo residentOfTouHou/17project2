@@ -47,6 +47,7 @@ public class GrouponWxServiceImpl implements GrouponWxService {
 
     @Override
     public Order queryOrderByOrderId(int orderId) {
+
         return grouponMapper.queryOrderByOrderId(orderId);
     }
 
@@ -67,11 +68,14 @@ public class GrouponWxServiceImpl implements GrouponWxService {
 
     @Override
     public Groupon queryGrouponById(int grouponId) {
+
         return grouponMapper.queryGrouponById(grouponId);
+
     }
 
     @Override
     public OrderInfo queryOrderByUserId(int userId) {
+
         return grouponMapper.queryOrderByUserId(userId);
     }
 

@@ -419,4 +419,7 @@
   <update id="updatePasswordByMobile">
     update cskaoyan_mall_user set password = #{param2} where mobile = #{param1}
   </update>
+    <select id="selectByOpenid" resultMap="BaseResultMap">
+      select <include refid="Base_Column_List"/> from cskaoyan_mall_user where weixin_openid = #{openid}
+    </select>
 </mapper>

@@ -1,6 +1,7 @@
 package com.cskaoyan.mall.service;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import com.cskaoyan.mall.bean.generator.Category;
 import com.cskaoyan.mall.bean.jsonbean.CategorySegment;
@@ -26,4 +27,5 @@ public interface CategoryService {
 
     Category getCategoryById(int id);
 
+    List<Category> selectAllCategoryById(ArrayList<Integer> categoryIdList);
 }

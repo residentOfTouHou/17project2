@@ -59,6 +59,12 @@ public class GoodsServiceImpl implements GoodsService {
     @Autowired
     FootprintMapper footprintMapper;
 
+    @Autowired
+    SearchHistoryMapper searchHistoryMapper;
+
+    @Autowired
+    CategoryMapper categoryMapper;
+
     @Override
     public GoodsData queryGoods(GoodsQueryParameters goodsQueryParameters) {
         PageHelper.startPage(goodsQueryParameters.getPage(), goodsQueryParameters.getLimit());
@@ -272,4 +278,51 @@ public class GoodsServiceImpl implements GoodsService {
         List<Goods> goodsList = goodsMapper.selectByExample(goodsExample);
         return goodsList;
     }
+
+
+    @Override
+    public int insertKeyWord(String keyword) {
+        SearchHistory searchHistory = new SearchHistory();
+        //searchHistory.setId();
+        searchHistory.setUserId(1);
+        searchHistory.setKeyword(keyword);
+        searchHistory.setFrom("wx");
+        searchHistory.setAddTime(new Date());
+        searchHistory.setUpdateTime(new Date());
+        searchHistory.setDeleted(false);
+
+        return searchHistoryMapper.insert(searchHistory);
+    }
+
+    @Override
+    public List<Goods> selectAllGoods(String keyword, Boolean isNew, Boolean isHot, int page, int size, String sort, String order, int categoryId) {
+        PageHelper.startPage(page,size);
+
+        GoodsExample goodsExample = new GoodsExample();
+        GoodsExample.Criteria criteria = goodsExample.createCriteria();
+        if(keyword != null) {
+            criteria.andNameLike("%" + keyword + "%");
+        }
+        if(isNew != null) {
+            criteria.andIsNewEqualTo(isNew);
+        }
+        if(isHot != null) {
+            criteria.andIsHotEqualTo(isHot);
+        }
+        if(categoryId != 0) {
+            criteria.andCategoryIdEqualTo(categoryId);
+        }
+        if (sort != null && order != null) {
+            String orderClause = sort + " " + order;
+            goodsExample.setOrderByClause(orderClause);
+        }
+        List<Goods> goodsList = goodsMapper.selectByExample(goodsExample);
+        return goodsList;
+    }
+
+    @Override
+    public List<Category> queryAllCategory() {
+        return categoryMapper.selectByExample(new CategoryExample());
+    }
+
 }

@@ -105,7 +105,7 @@ public class StorageController {
             baseReqVo.setErrmsg("success");
         }else {
             baseReqVo.setErrmsg("failed");
-            baseReqVo.setErrno(500);
+            baseReqVo.setErrno(502);
         }
         return baseReqVo;
     }
@@ -153,7 +153,7 @@ public class StorageController {
             baseReqVo.setData(storage);
         }else {
             baseReqVo.setErrmsg("failed");
-            baseReqVo.setErrno(500);
+            baseReqVo.setErrno(502);
         }
         return baseReqVo;
     }
@@ -177,7 +177,7 @@ public class StorageController {
             baseReqVo.setErrno(0);
             baseReqVo.setErrmsg("success");
         }else{
-            baseReqVo.setErrno(500);
+            baseReqVo.setErrno(502);
             baseReqVo.setErrmsg("failed");
         }
         return baseReqVo;
