@@ -103,7 +103,7 @@
   </delete>
   <insert id="insert" parameterType="com.cskaoyan.mall.bean.generator.SearchHistory">
     insert into cskaoyan_mall_search_history (id, user_id, keyword, 
-      from, add_time, update_time, 
+      `from`, add_time, update_time,
       deleted)
     values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{keyword,jdbcType=VARCHAR}, 
       #{from,jdbcType=VARCHAR}, #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 

@@ -63,19 +63,34 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public HashMap<String, Object> queryGoodsCategory(Integer id) {
+        CategoryExample example = new CategoryExample();
+        Category category = categoryMapper.selectByPrimaryKey(id);
+        String level = category.getLevel();
         HashMap<String, Object> map = new HashMap<>();
-        //获取当前分类
-        Category currentCategory = categoryMapper.selectByPrimaryKey(id);
-        //判空
-        if (currentCategory != null) {
-            //获取兄弟分类
-            List<Category> brotherCategory = categoryMapper.selectByPid(currentCategory.getPid());
+        //如果是二级分类
+        if(level.equals("L2")){
+            Integer pid = category.getPid();
             //获取父分类
-            Category parentCategory = categoryMapper.selectByPrimaryKey(currentCategory.getPid());
-            //封装
-            map.put("currentCategory", currentCategory);
+            Category parentCategory = categoryMapper.selectByPrimaryKey(pid);
+            //获取兄弟分类
+            List<Category> brotherCategory = categoryMapper.selectByPid(pid);
+            map.put("currentCategory", category);
             map.put("brotherCategory", brotherCategory);
             map.put("parentCategory", parentCategory);
+        }else if(level.equals("L1")){   //一级分类
+            //获取兄弟分类
+            List<Category> brotherCategory = categoryMapper.selectByPid(id);
+            //判空
+            if (brotherCategory != null) {
+                //获取当前分类
+                Category currentCategory = brotherCategory.get(0);
+                //获取父分类
+                Category parentCategory  = categoryMapper.selectByPrimaryKey(currentCategory.getPid());
+                //封装
+                map.put("currentCategory", currentCategory);
+                map.put("brotherCategory", brotherCategory);
+                map.put("parentCategory", parentCategory);
+            }
         }
         return map;
     }
@@ -98,4 +113,14 @@ public class CategoryServiceImpl implements CategoryService {
     public Category getCategoryById(int id) {
         return categoryMapper.selectByPrimaryKey(id);
     }
+
+    @Override
+    public List<Category> selectAllCategoryById(ArrayList<Integer> categoryIdList) {
+        if(categoryIdList.size() != 0){
+            return categoryMapper.selectAllCategoryById(categoryIdList);
+        }
+        return new ArrayList<>();
+    }
+
+
 }
