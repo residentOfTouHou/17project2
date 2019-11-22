@@ -26,6 +26,7 @@ public class AuthController {
         Subject subject = SecurityUtils.getSubject();
         try {
             subject.login(token);
+            subject.getSession().setTimeout(-1000L);
         } catch (AuthenticationException e) {
             baseReqVo.setErrmsg("failed");
             baseReqVo.setErrno(501);

@@ -9,6 +9,7 @@ import com.cskaoyan.mall.bean.jsonbean.CategoryL1Segment;
 import com.cskaoyan.mall.bean.jsonbean.CategorySegment;
 import com.cskaoyan.mall.bean.jsonbean.RegionSegment;
 import com.cskaoyan.mall.service.MarketService;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -129,6 +130,7 @@ public class MarketController {
      * @return
      */
     @RequestMapping("brand/list")
+    @RequiresPermissions("admin:brand:list")
     public BaseReqVo getBrand(@RequestParam Map<String,String> map){
         BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
         Map<String,Object> result= marketService.queryBrand(map);
@@ -208,6 +210,7 @@ public class MarketController {
      * @return
      */
     @RequestMapping("brand/create")
+    @RequiresPermissions("admin:brand:create")
     public BaseReqVo addBrand(@RequestBody Brand brand){
         BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
         Map<String,Object> result = marketService.addBrand(brand);
@@ -260,6 +263,7 @@ public class MarketController {
      * @return
      */
     @RequestMapping("brand/update")
+    @RequiresPermissions("admin:brand:update")
     public BaseReqVo updateBrand(@RequestBody Brand brand){
         BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
         Brand result = marketService.updateBrand(brand);
@@ -297,6 +301,7 @@ public class MarketController {
      * @return
      */
     @RequestMapping("brand/delete")
+    @RequiresPermissions("admin:brand:delete")
     public BaseReqVo deleteBrand(@RequestBody Brand brand){
         BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
         int code = marketService.deleteBrand(brand);

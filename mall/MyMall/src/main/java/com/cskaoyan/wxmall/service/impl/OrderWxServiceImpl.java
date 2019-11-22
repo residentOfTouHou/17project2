@@ -1,4 +1,4 @@
-package com.cskaoyan.wxmall.service.impl;
+package com.cskaoyan.wxmall.service.Impl;
 
 import com.cskaoyan.mall.bean.generator.*;
 import com.cskaoyan.mall.bean.generator.popularizeModule.Coupon;
@@ -79,7 +79,12 @@ public class OrderWxServiceImpl implements OrderWxService {
         Integer cartId = orderBean.getCartId();
         Integer addressId = orderBean.getAddressId();
         Integer couponId = orderBean.getCouponId();
-        Cart cart = cartMapper.selectByPrimaryKey(cartId);
+
+        CartExample example = new CartExample();
+        User user = (User) SecurityUtils.getSubject().getPrincipal();
+        example.createCriteria().andCheckedEqualTo(true).andUserIdEqualTo(user.getId());
+        List<Cart> cartList = cartMapper.selectByExample(example);
+        Cart cart = cartList.get(0);
         Address address = addressMapper.selectByPrimaryKey(addressId);
 
         Date date = new Date();
@@ -96,7 +101,8 @@ public class OrderWxServiceImpl implements OrderWxService {
         BigDecimal number = new BigDecimal(0);
         for (Cart compute : carts) {
             number = new BigDecimal(compute.getNumber());
-            money.add(number.multiply(compute.getPrice()));
+            BigDecimal item = number.multiply(compute.getPrice());
+            money=money.add(item);
         }
         //新建订单
         Order record = new Order();
@@ -122,7 +128,9 @@ public class OrderWxServiceImpl implements OrderWxService {
         }
 
         //计算优惠券
-        if (couponId != null) {
+        if(couponId==null){
+            record.setCouponPrice(new BigDecimal(0));
+        }else if (couponId!=0) {
             Coupon coupon = couponMapper.queryCouponById(couponId);
             record.setCouponPrice(coupon.getDiscount());
         } else {
@@ -359,7 +367,13 @@ public class OrderWxServiceImpl implements OrderWxService {
     public void prepayOrder(Integer orderId) {
         Order order = new Order();
         order.setId(orderId);
-        order.setOrderStatus((short) 201);
+        Order order1 = orderMapper.selectByPrimaryKey(orderId);
+        if(order1.getOrderStatus()==101){
+            order.setOrderStatus((short) 201);
+        }else{
+            order.setOrderStatus((short) 101);
+        }
+
         orderMapper.updateByPrimaryKeySelective(order);
     }
 

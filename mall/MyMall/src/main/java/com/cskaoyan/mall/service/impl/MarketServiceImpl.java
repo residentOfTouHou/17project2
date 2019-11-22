@@ -227,7 +227,6 @@ public class MarketServiceImpl implements MarketService {
         brand.setUpdateTime(new Date());
         brand.setSortOrder(null);
         brand.setAddTime(null);
-        brand.setDeleted(null);
         brandMapper.updateByPrimaryKeySelective(brand);
         return brand;
     }
