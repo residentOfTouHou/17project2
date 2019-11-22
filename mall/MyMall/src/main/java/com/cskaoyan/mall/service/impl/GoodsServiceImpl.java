@@ -188,8 +188,8 @@ public class GoodsServiceImpl implements GoodsService {
         //获取产品 productList
         List<GoodsProduct> productList = goodsProductMapper.selectByGoodsId(id);
         //封装Date spec和comment需要套娃
-        HashMap<String, Object> map = new HashMap();
-        HashMap<String, Object> commentMap = new HashMap();
+        HashMap<String,Object> map = new HashMap();
+        HashMap<String,Object> commentMap = new HashMap();
         //封装specificationList
         Set<String> nameSet = new HashSet<>();
         for (GoodsSpecification goodsSpecification : valueList) {
@@ -254,5 +254,22 @@ public class GoodsServiceImpl implements GoodsService {
         int update = goodsProductMapper.updateByPrimaryKeySelective(goodsProduct);
         return update;
     }
+    /**
+     * 模糊查询并分页
+     * @param keyword
+     * @param page
+     * @param size
+     * @return
+     */
+    @Override
+    public List<Goods> queryGoodsListByName(String keyword, Integer page, Integer size,String sort,String order) {
+        PageHelper.startPage(page,size);
+        GoodsExample goodsExample = new GoodsExample();
+        goodsExample.setOrderByClause(sort + " " + order);
 
+        GoodsExample.Criteria criteria = goodsExample.createCriteria();
+        criteria.andNameLike("%" + keyword + "%");
+        List<Goods> goodsList = goodsMapper.selectByExample(goodsExample);
+        return goodsList;
+    }
 }

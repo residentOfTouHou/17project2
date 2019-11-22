@@ -8,7 +8,9 @@ import com.cskaoyan.mall.bean.jsonbean.PageSplit;
 import com.cskaoyan.mall.service.CollectService;
 import com.cskaoyan.wxmall.bean.WXCollectData;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -52,7 +54,16 @@ public class WXCollectController {
     }
 
     @RequestMapping("/addordelete")
-    public BaseReqVo addordelete(Byte type, Integer valueId) {
+    public BaseReqVo addordelete(@RequestBody Map<String,Object> map) {
+        Byte type = null;
+        Integer valueId = null;
+        if(map.containsKey("type")){
+            Integer o = (Integer) map.get("type");
+            type = new Byte(o.toString());
+        }
+        if(map.containsKey("valueId")){
+           valueId  = (Integer) map.get("valueId");
+        }
         BaseReqVo baseReqVo = new BaseReqVo();
 
         Map<String, String> data = new HashMap<>();

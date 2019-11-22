@@ -68,7 +68,9 @@ public class CommentServiceImpl implements CommentService {
     public List<Map<String, Object>> findCommentByCondition(Integer valueId, Byte type, Integer page, Integer size) {
         List<Map<String,Object>> maps = new ArrayList<>();
         Map<String, Object> commentMap = new HashMap<>();
-        PageHelper.startPage(page,size);
+        if (page != null && size != null) {
+            PageHelper.startPage(page,size);
+        }
 
       /*  CommentExample commentExample = new CommentExample();
         CommentExample.Criteria criteria = commentExample.createCriteria();

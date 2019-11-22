@@ -106,7 +106,7 @@ public class UserServiceImpl implements UserService {
         User principal = (User) SecurityUtils.getSubject().getPrincipal();
         Integer id = principal.getId();
         unpaid.createCriteria().andOrderStatusEqualTo((short) 101)
-                .andDeletedEqualTo(false).andUserIdEqualTo(id);
+                .andDeletedEqualTo(false).andUserIdEqualTo(id).andCommentsNotEqualTo((short) 0);
         List<Order> unpaidOrders = orderMapper.selectByExample(unpaid);
         if(unpaidOrders!=null){
             userIndexBean.setUnpaid(unpaidOrders.size());
@@ -116,7 +116,7 @@ public class UserServiceImpl implements UserService {
 
         OrderExample unship = new OrderExample();
         unship.createCriteria().andOrderStatusEqualTo((short) 201)
-                .andDeletedEqualTo(false).andUserIdEqualTo(id);
+                .andDeletedEqualTo(false).andUserIdEqualTo(id).andCommentsNotEqualTo((short) 0);
         List<Order> unshipOrders = orderMapper.selectByExample(unship);
         if(unshipOrders!=null){
             userIndexBean.setUnship(unshipOrders.size());
@@ -126,7 +126,7 @@ public class UserServiceImpl implements UserService {
 
         OrderExample unrecv = new OrderExample();
         unrecv.createCriteria().andOrderStatusEqualTo((short) 301)
-                .andDeletedEqualTo(false).andUserIdEqualTo(id);
+                .andDeletedEqualTo(false).andUserIdEqualTo(id).andCommentsNotEqualTo((short) 0);
         List<Order> unrecvOrders = orderMapper.selectByExample(unrecv);
         if(unrecvOrders!=null){
             userIndexBean.setUnrecv(unrecvOrders.size());
@@ -136,7 +136,7 @@ public class UserServiceImpl implements UserService {
 
         OrderExample uncomment = new OrderExample();
         uncomment.createCriteria().andOrderStatusEqualTo((short) 401)
-                .andDeletedEqualTo(false).andUserIdEqualTo(id);
+                .andDeletedEqualTo(false).andUserIdEqualTo(id).andCommentsNotEqualTo((short) 0);
         List<Order> uncommentOrders = orderMapper.selectByExample(uncomment);
         if(uncommentOrders!=null){
             userIndexBean.setUncomment(uncommentOrders.size());

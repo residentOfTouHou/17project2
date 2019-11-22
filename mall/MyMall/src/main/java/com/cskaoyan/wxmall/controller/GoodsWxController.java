@@ -39,10 +39,17 @@ public class GoodsWxController {
 
     /**
      * 获得商品列表
+     * keyword=sadj & page=1 & size=20 & sort=name & order=desc & categoryId=0
+     * categoryId=1036099&page=1&size=100
      */
     @RequestMapping("list")
-    public BaseReqVo GetGoodsList(Integer categoryId,Integer page,Integer size){
-        List<Goods> goodsList = goodsService.queryGoodsList(categoryId,page,size);
+    public BaseReqVo GetGoodsList(Integer categoryId,Integer page,Integer size,String keyword,String sort,String order){
+        List<Goods> goodsList = null;
+        if(keyword == null){
+            goodsList = goodsService.queryGoodsList(categoryId,page,size);
+        }else {
+            goodsList = goodsService.queryGoodsListByName(keyword,page,size,sort,order);
+        }
         HashMap<String,Object> map = new HashMap<>();
         map.put("goodsList",goodsList);
         return BaseReqVo.ok(map);
