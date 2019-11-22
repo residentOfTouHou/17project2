@@ -49,7 +49,10 @@ public class CollectServiceImpl implements CollectService {
     public Map<String, Object> findCollectByCondition(PageSplit pageSplit) {
         Integer page = pageSplit.getPage();
         Integer size = pageSplit.getSize();
-        Integer limit = size;
+        Integer limit = pageSplit.getLimit();
+        if(size!=null){
+            limit = size;
+        }
         PageHelper.startPage(page, limit);
         Integer valueId = pageSplit.getValueId();
         Integer userId = pageSplit.getUserId();
