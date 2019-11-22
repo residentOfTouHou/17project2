@@ -54,12 +54,11 @@ public class GoodsWxController {
         return BaseReqVo.ok(map);
     }*/
     @RequestMapping("list")
-    public BaseReqVo listGoods(String keyword,Boolean isNew, Boolean isHot,int page, int size,String sort, String order,int categoryId){
+    public BaseReqVo listGoods(String keyword,Boolean isNew, Boolean isHot,Integer page, int size,String sort, String order,Integer categoryId){
 
         if (keyword != null) {
             goodsService.insertKeyWord(keyword);
         }
-
         List<Goods> goodsList = new ArrayList<>();
         ArrayList<Integer> categoryIdList = new ArrayList<>();
         List<Category> categoryList = new ArrayList<>();

@@ -62,6 +62,7 @@ public class AddressWxController {
         String name = address.getName();
         Address result1 = addressService.isNameExit(name);
         if (result1 != null){
+            address.setAddTime(new Date());
             int result = addressService.updateAddress(address);
             if(result == 1){
                 return BaseReqVo.ok(address.getId());
