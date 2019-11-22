@@ -1,5 +1,6 @@
 package com.cskaoyan.wxmall.controller;
 
+import com.cskaoyan.mall.bean.generator.Cart;
 import com.cskaoyan.mall.bean.generator.GoodsAlter;
 import com.cskaoyan.mall.bean.generator.GoodsProduct;
 import com.cskaoyan.mall.bean.generator.User;
@@ -50,15 +51,24 @@ public class CartController {
         int goodsId = cartAddReq.getGoodsId();
         int number = cartAddReq.getNumber();
         int productId = cartAddReq.getProductId();
-        // 获取用户信息
-        User principal = (User) SecurityUtils.getSubject().getPrincipal();
         // 查询商品
         GoodsAlter goods = goodsService.queryGoodsById(goodsId);
         GoodsProduct goodsProduct = goodsProductService.queryProductById(productId);
+        BaseReqVo baseReqVo = new BaseReqVo();
+        if (goodsProduct.getNumber() < number) {
+            baseReqVo.setErrno(711);
+            baseReqVo.setErrmsg("库存不足");
+            return baseReqVo;
+        }
+        // 获取用户信息
+        User principal = (User) SecurityUtils.getSubject().getPrincipal();
         // 查询购物车数量
         long total = cartService.queryTotalNumber(principal);
         int insert = cartService.insertCart(principal, goods, goodsProduct, number);
-        BaseReqVo baseReqVo = new BaseReqVo();
+        // 更新商品库存
+        int produceNumber = goodsProduct.getNumber() - number;
+        goodsProduct.setNumber(produceNumber);
+        goodsService.updateNumberById(goodsProduct);
         baseReqVo.setErrno(0);
         baseReqVo.setData(total);
         baseReqVo.setErrmsg("成功");
@@ -108,8 +118,19 @@ public class CartController {
     public BaseReqVo update(@RequestBody Map<String, Object> reqMap) {
         Integer id = (Integer) reqMap.get("id");
         Integer number = (Integer) reqMap.get("number");
-        int update = cartService.updateCart(id, number);
+        Integer productId = (Integer) reqMap.get("productId");
+        GoodsProduct goodsProduct = goodsProductService.queryProductById(productId);
         BaseReqVo baseReqVo = new BaseReqVo();
+        if (goodsProduct.getNumber() < number) {
+            baseReqVo.setErrno(711);
+            baseReqVo.setErrmsg("库存不足");
+            return baseReqVo;
+        }
+        int update = cartService.updateCart(id, number);
+        // 更新商品库存
+        int produceNumber = goodsProduct.getNumber() - number;
+        goodsProduct.setNumber(produceNumber);
+        goodsService.updateNumberById(goodsProduct);
         if (update != 0) {
             baseReqVo.setErrno(0);
             baseReqVo.setErrmsg("成功");
@@ -127,9 +148,11 @@ public class CartController {
     public BaseReqVo delete(@RequestBody Map<String, List<Integer>> reqMap) {
         List<Integer> productIds = reqMap.get("productIds");
         int delete = cartService.deleteById(productIds);
+        Map<String, Object> dataMap = cartService.queryCarts();
         BaseReqVo baseReqVo = new BaseReqVo();
         if (delete == productIds.size()) {
             baseReqVo.setErrno(0);
+            baseReqVo.setData(dataMap);
             baseReqVo.setErrmsg("成功");
         }
         return baseReqVo;
@@ -163,11 +186,19 @@ public class CartController {
         int goodsId = cartAddReq.getGoodsId();
         int number = cartAddReq.getNumber();
         int productId = cartAddReq.getProductId();
+        GoodsProduct goodsProduct = goodsProductService.queryProductById(productId);
+        BaseReqVo baseReqVo = new BaseReqVo();
+        if (goodsProduct.getNumber() < number) {
+            baseReqVo.setErrno(711);
+            baseReqVo.setErrmsg("库存不足");
+            return baseReqVo;
+        }
         User principal = (User) SecurityUtils.getSubject().getPrincipal();
         GoodsAlter goods = goodsService.queryGoodsById(goodsId);
-        GoodsProduct goodsProduct = goodsProductService.queryProductById(productId);
         int cartId = cartService.fastAddCart(principal, goods, goodsProduct, number);
-        BaseReqVo baseReqVo = new BaseReqVo();
+        int produceNumber = goodsProduct.getNumber() - number;
+        goodsProduct.setNumber(produceNumber);
+        goodsService.updateNumberById(goodsProduct);
         baseReqVo.setErrno(0);
         baseReqVo.setData(cartId);
         baseReqVo.setErrmsg("成功");
@@ -182,8 +213,9 @@ public class CartController {
      * @return
      */
     @RequestMapping("checkout")
-    public BaseReqVo checkout(@RequestBody CartCheckoutReq cartCheckoutReq) {
+    public BaseReqVo checkout(CartCheckoutReq cartCheckoutReq) {
         Map<String, Object> dataMap = cartService.checkoutOrder(cartCheckoutReq);
+        List<Cart> checkedGoodsList = (List<Cart>) dataMap.get("checkedGoodsList");
         BaseReqVo baseReqVo = new BaseReqVo();
         baseReqVo.setErrno(0);
         baseReqVo.setData(dataMap);

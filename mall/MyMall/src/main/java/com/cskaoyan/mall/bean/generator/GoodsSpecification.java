@@ -1,10 +1,14 @@
 package com.cskaoyan.mall.bean.generator;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
 
 import java.util.Date;
-
+import java.util.List;
+@Data
 public class GoodsSpecification {
+
+    private String name;
     private Integer id;
 
     private Integer goodsId;
@@ -22,6 +26,8 @@ public class GoodsSpecification {
     private Date updateTime;
 
     private boolean deleted;
+
+    private List<GoodsSpecification> valueList;
 
     public Integer getId() {
         return id;

@@ -30,4 +30,5 @@ public interface CartService {
     int fastAddCart(User principal, GoodsAlter goods, GoodsProduct goodsProduct, int number);
 
     Map<String, Object> checkoutOrder(CartCheckoutReq cartCheckoutReq);
+
 }

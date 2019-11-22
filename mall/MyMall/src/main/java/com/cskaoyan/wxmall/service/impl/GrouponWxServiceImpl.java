@@ -1,6 +1,6 @@
-package com.cskaoyan.wxmall.service.Impl;
+package com.cskaoyan.wxmall.service.impl;
 
-import com.cskaoyan.mall.bean.generator.GoodsAlter;
+
 import com.cskaoyan.mall.bean.generator.Order;
 import com.cskaoyan.mall.bean.generator.User;
 import com.cskaoyan.mall.bean.generator.popularizeModule.Groupon;

@@ -1,5 +1,7 @@
 package com.cskaoyan.wxmall.controller;
 
+import com.cskaoyan.mall.bean.generator.Comment;
+import com.cskaoyan.mall.bean.generator.OrderGoods;
 import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
 import com.cskaoyan.wxmall.bean.ListOrderBean;
 import com.cskaoyan.wxmall.bean.SubmitOrderBean;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -68,9 +71,12 @@ public class OrderWxController {
      *
      */
     @RequestMapping("prepay")
-    public BaseReqVo prepayOrder(){
+    public BaseReqVo prepayOrder(@RequestBody Map<String,Integer> map){
         BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
-
+        Integer orderId = map.get("orderId");
+        orderWxService.prepayOrder(orderId);
+        baseReqVo.setErrno(0);
+        baseReqVo.setErrmsg("成功");
         return baseReqVo;
     }
 
@@ -252,13 +258,80 @@ public class OrderWxController {
      * 删除订单
      *
      *
-     * @param id
+     * @param map
      * @return
      */
     @RequestMapping("delete")
-    public BaseReqVo deleteOrder(Integer id){
+    public BaseReqVo deleteOrder(@RequestBody Map<String,Integer> map){
         BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
-        orderWxService.deleteOrder(id);
+        Integer orderId = map.get("orderId");
+        orderWxService.deleteOrder(orderId);
+        baseReqVo.setErrno(0);
+        baseReqVo.setErrmsg("成功");
+        return baseReqVo;
+    }
+
+    /**
+     * 确认收货
+     *
+     * {"orderId":3}
+     * @param map
+     * @return
+     */
+    @RequestMapping("confirm")
+    public BaseReqVo confirmOrder(@RequestBody Map<String,Integer> map){
+        BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
+        Integer orderId = map.get("orderId");
+        orderWxService.confirmOrder(orderId);
+        baseReqVo.setErrno(0);
+        baseReqVo.setErrmsg("成功");
+        return baseReqVo;
+    }
+
+    /**
+     * 获取订单评价信息
+     *
+     * orderId=3&goodsId=1181000
+     */
+    @RequestMapping("goods")
+    public BaseReqVo goodsOrder(Integer orderId ,Integer goodsId){
+        BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
+        OrderGoods orderGoods = orderWxService.goodsOrder(orderId, goodsId);
+        baseReqVo.setErrno(0);
+        baseReqVo.setData(orderGoods);
+        baseReqVo.setErrmsg("成功");
+        return baseReqVo;
+    }
+
+    /**
+     * 评价订单
+     *
+     * {
+     * 	"orderGoodsId": 2,
+     * 	"content": "sdfsf",
+     * 	"star": 5,
+     * 	"hasPicture": true,
+     * 	"picUrls": ["http://cskaoyan.oss-cn-beijing.aliyuncs.com/e7ab4c5cfcdb4960a3f28125cc4e3e48wx819afaff9dcf6655.o6zAJs0TDx1H6flJc3s1ARNiQ_ek.fZ9WNt23P3c0757805018c5becc37ac86671cf6b9a3e.jpg"]
+     * }
+     *
+     *
+     */
+    @RequestMapping("comment")
+    public BaseReqVo commentOrder(@RequestBody Map<String,Object> map){
+        BaseReqVo<Object> baseReqVo = new BaseReqVo<>();
+        Comment comment = new Comment();
+        Integer orderGoodsId = (Integer) map.get("orderGoodsId");
+        comment.setContent((String) map.get("content"));
+        Integer star = (Integer) map.get("star");
+        Short aShort = new Short(String.valueOf(star));
+        comment.setStar(aShort);
+        comment.setHasPicture((Boolean) map.get("hasPicture"));
+        if(comment.getHasPicture()){
+            ArrayList<String> picUrls = (ArrayList<String>) map.get("picUrls");
+            String[] strings = picUrls.toArray(new String[0]);
+            comment.setPicUrls(strings);
+        }
+        orderWxService.commentOrder(orderGoodsId,comment);
         baseReqVo.setErrno(0);
         baseReqVo.setErrmsg("成功");
         return baseReqVo;

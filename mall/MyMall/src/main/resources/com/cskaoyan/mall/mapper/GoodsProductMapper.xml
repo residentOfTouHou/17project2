@@ -73,7 +73,7 @@
         </where>
     </sql>
     <sql id="Base_Column_List">
-    id, goods_id, specifications, price, number, url, add_time, update_time, deleted
+    id, goods_id, specifications, price, `number` , url, add_time, update_time, deleted
   </sql>
     <select id="selectByExample" parameterType="com.cskaoyan.mall.bean.generator.GoodsProductExample"
             resultMap="BaseResultMap">

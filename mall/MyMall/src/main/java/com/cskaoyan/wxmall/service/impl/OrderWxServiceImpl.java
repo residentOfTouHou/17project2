@@ -1,5 +1,5 @@
+package com.cskaoyan.wxmall.service.impl;
 
-package com.cskaoyan.wxmall.service.Impl;
 import com.cskaoyan.mall.bean.generator.*;
 import com.cskaoyan.mall.bean.generator.popularizeModule.Coupon;
 import com.cskaoyan.mall.bean.generator.popularizeModule.Groupon;
@@ -14,6 +14,7 @@ import com.cskaoyan.wxmall.service.OrderWxService;
 import com.cskaoyan.wxmall.utils.OrderWxUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -58,12 +59,15 @@ public class OrderWxServiceImpl implements OrderWxService {
     @Autowired
     UserMapper userMapper;
 
+    @Autowired
+    CommentMapper commentMapper;
+
     /**
      * 提交订单
-     *
+     * <p>
      * order_sn不清楚随机生成
-     *
-     *
+     * <p>
+     * <p>
      * 积分减免没有找到
      * good_price 取cart中的 price （暂视为单价）
      *
@@ -98,30 +102,30 @@ public class OrderWxServiceImpl implements OrderWxService {
         Order record = new Order();
         record.setUserId(cart.getUserId());
         record.setMessage(orderBean.getMessage());
-        record.setOrderSn(format+ UUID.randomUUID());
+        record.setOrderSn(format + UUID.randomUUID());
         record.setOrderStatus((short) 101);
         record.setConsignee(address.getName());
         record.setMobile(address.getMobile());
         record.setAddress(address.getAddress());
-        if(orderBean.getMessage()!=null){
+        if (orderBean.getMessage() != null) {
             record.setMessage(orderBean.getMessage());
-        }else {
+        } else {
             record.setMessage("");
         }
         record.setGoodsPrice(money);
 
         //不满88加运费
-        if(money.doubleValue()<88){
+        if (money.doubleValue() < 88) {
             record.setFreightPrice(new BigDecimal(6)); // 缺少
-        }else {
+        } else {
             record.setFreightPrice(new BigDecimal(0));
         }
 
         //计算优惠券
-        if(couponId!=null){
+        if (couponId != null) {
             Coupon coupon = couponMapper.queryCouponById(couponId);
             record.setCouponPrice(coupon.getDiscount());
-        }else {
+        } else {
             record.setCouponPrice(new BigDecimal(0));
         }
 
@@ -130,10 +134,10 @@ public class OrderWxServiceImpl implements OrderWxService {
 
         //是否团购优惠
         Integer grouponRulesId = orderBean.getGrouponRulesId();
-        if(grouponRulesId>0){
+        if (grouponRulesId > 0) {
             BigDecimal discount = grouponRulesMapper.selectGrouponRulesByRuleId(orderBean.getGrouponRulesId()).getDiscount();
             record.setGrouponPrice(discount);
-        }else{
+        } else {
             record.setGrouponPrice(new BigDecimal(0));
         }
 
@@ -179,26 +183,27 @@ public class OrderWxServiceImpl implements OrderWxService {
         return orderId;
     }
 
+
     /**
      * 订单列表
      *
-     * @return
      * @param showType
      * @param page
      * @param size
+     * @return
      */
     @Override
-    public Map<String,Object> listOrder(Integer showType, Integer page, Integer size) {
+    public Map<String, Object> listOrder(Integer showType, Integer page, Integer size) {
         List<ListOrderBean> result = new ArrayList<>();
-        PageHelper.startPage(page,size);
+        PageHelper.startPage(page, size);
         OrderExample orderExample = new OrderExample();
         OrderExample.Criteria criteria = orderExample.createCriteria();
-        criteria.andDeletedEqualTo(false);
-        if(showType!=0){
+        criteria.andDeletedEqualTo(false).andCommentsNotEqualTo((short) 0);
+        if (showType != 0) {
             int code = OrderWxUtils.typeToStatusCode(showType);
-            if(code!=401){
+            if (code != 401) {
                 criteria.andOrderStatusEqualTo((short) code);
-            }else {
+            } else {
                 ArrayList<Short> values = new ArrayList<>();
                 values.add((short) 401);
                 values.add((short) 402);
@@ -211,9 +216,9 @@ public class OrderWxServiceImpl implements OrderWxService {
             String statusText = OrderWxUtils.getStatusText(Integer.valueOf(order.getOrderStatus()));
             resultBean.setOrderStatusTest(statusText);
             Groupon token = grouponMapper.hasOrder(order.getId());
-            if(token==null){
+            if (token == null) {
                 resultBean.setGroupin(false);
-            }else{
+            } else {
                 resultBean.setGroupin(true);
             }
             resultBean.setOrderSn(order.getOrderSn());
@@ -231,11 +236,11 @@ public class OrderWxServiceImpl implements OrderWxService {
         }
         PageInfo<Order> orderPageInfo = new PageInfo<>(orders);
         long count = orderPageInfo.getTotal();
-        int totalPages = (int) Math.ceil(count/size);
-        Map<String,Object> map = new HashMap<>();
-        map.put("data",result);
-        map.put("count",count);
-        map.put("totalPages",totalPages);
+        int totalPages = (int) Math.ceil(count / size);
+        Map<String, Object> map = new HashMap<>();
+        map.put("data", result);
+        map.put("count", count);
+        map.put("totalPages", totalPages);
         return map;
     }
 
@@ -247,7 +252,7 @@ public class OrderWxServiceImpl implements OrderWxService {
      */
     @Override
     public Map<String, Object> detailOrder(Integer id) {
-        Map<String,Object> result = new HashMap<>();
+        Map<String, Object> result = new HashMap<>();
 
         //orderInfo
         OrderInfoBean orderInfo = new OrderInfoBean();
@@ -271,13 +276,14 @@ public class OrderWxServiceImpl implements OrderWxService {
         orderGoodsExample.createCriteria().andDeletedEqualTo(false).andOrderIdEqualTo(order.getId());
         List<OrderGoods> orderGoods = orderGoodsMapper.selectByExample(orderGoodsExample);
 
-        result.put("orderInfo",orderInfo);
-        result.put("orderGoods",orderGoods);
+        result.put("orderInfo", orderInfo);
+        result.put("orderGoods", orderGoods);
         return result;
     }
 
     /**
      * 取消订单
+     *
      * @param orderId
      */
     @Override
@@ -291,7 +297,7 @@ public class OrderWxServiceImpl implements OrderWxService {
         orderGoods.setDeleted(true);
         OrderGoodsExample orderGoodsExample = new OrderGoodsExample();
         orderGoodsExample.createCriteria().andOrderIdEqualTo(orderId);
-        orderGoodsMapper.updateByExampleSelective(orderGoods,orderGoodsExample);
+        orderGoodsMapper.updateByExampleSelective(orderGoods, orderGoodsExample);
     }
 
     @Override
@@ -301,6 +307,7 @@ public class OrderWxServiceImpl implements OrderWxService {
 
     /**
      * 退款取消订单
+     *
      * @param orderId
      */
     @Override
@@ -314,11 +321,12 @@ public class OrderWxServiceImpl implements OrderWxService {
         orderGoods.setDeleted(true);
         OrderGoodsExample orderGoodsExample = new OrderGoodsExample();
         orderGoodsExample.createCriteria().andOrderIdEqualTo(orderId);
-        orderGoodsMapper.updateByExampleSelective(orderGoods,orderGoodsExample);
+        orderGoodsMapper.updateByExampleSelective(orderGoods, orderGoodsExample);
     }
 
     /**
      * 删除订单
+     *
      * @param orderId
      */
     @Override
@@ -327,5 +335,73 @@ public class OrderWxServiceImpl implements OrderWxService {
         order.setId(orderId);
         order.setDeleted(true);
         orderMapper.updateByPrimaryKeySelective(order);
+    }
+
+    /**
+     * 确认订单
+     *
+     * @param orderId
+     */
+    @Override
+    public void confirmOrder(Integer orderId) {
+        Order order = new Order();
+        order.setId(orderId);
+        order.setOrderStatus((short) 401);
+        orderMapper.updateByPrimaryKeySelective(order);
+    }
+
+    /**
+     * 订单付款
+     *
+     * @param orderId
+     */
+    @Override
+    public void prepayOrder(Integer orderId) {
+        Order order = new Order();
+        order.setId(orderId);
+        order.setOrderStatus((short) 201);
+        orderMapper.updateByPrimaryKeySelective(order);
+    }
+
+    /**
+     * 获得订单商品
+     *
+     * @param orderId
+     * @param goodsId
+     */
+    @Override
+    public OrderGoods goodsOrder(Integer orderId, Integer goodsId) {
+        OrderGoodsExample example = new OrderGoodsExample();
+        example.createCriteria().andOrderIdEqualTo(orderId).andGoodsIdEqualTo(goodsId);
+        List<OrderGoods> orderGoods = orderGoodsMapper.selectByExample(example);
+        OrderGoods result = null;
+        if (orderGoods != null && orderGoods.size() > 0) {
+            result = orderGoods.get(0);
+        }
+        return result;
+    }
+
+    /**
+     * 评论订单
+     *
+     * @param orderGoodsId
+     * @param comment
+     */
+    @Override
+    public void commentOrder(Integer orderGoodsId, Comment comment) {
+        OrderGoods orderGoods = orderGoodsMapper.selectByPrimaryKey(orderGoodsId);
+        Order order = new Order();
+        order.setId(orderGoods.getOrderId());
+        order.setComments((short) 0);
+        orderMapper.updateByPrimaryKeySelective(order);
+        comment.setValueId(0);
+        comment.setType((byte) 3);
+        User principal = (User) SecurityUtils.getSubject().getPrincipal();
+        comment.setUserId(principal.getId());
+        Date date = new Date();
+        comment.setAddTime(date);
+        comment.setUpdateTime(date);
+        comment.setDeleted(false);
+        commentMapper.insertSelective(comment);
     }
 }

@@ -39,7 +39,6 @@ public class GrouponWxController {
         MyGroupon myGroupon = new MyGroupon();
         User user = (User) SecurityUtils.getSubject().getPrincipals().getPrimaryPrincipal();
         int userId =user.getId();
-        if(showType == 0){
             myGroupon.setOrderStatusText("已取消");
             myGroupon.setCreator(user.getNickname());
             Groupon groupon = grouponWxService.queryGrouponByUserId(userId);
@@ -63,7 +62,6 @@ public class GrouponWxController {
             HandleOption handleOption = new HandleOption(false,true,false,false,false,false,false);
             myGroupon.setHandleOption(handleOption);
             myGroupon.setCount(1);
-        }
         Map<String,Object> map = new HashMap<>();
         List<Object> myGroupons = new ArrayList<>();
         myGroupons.add(myGroupon);

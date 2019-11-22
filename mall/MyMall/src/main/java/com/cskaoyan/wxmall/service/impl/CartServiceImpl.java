@@ -1,4 +1,4 @@
-package com.cskaoyan.wxmall.service;
+package com.cskaoyan.wxmall.service.impl;
 
 import com.cskaoyan.mall.bean.generator.*;
 import com.cskaoyan.mall.bean.generator.popularizeModule.Ad;
@@ -12,6 +12,7 @@ import com.cskaoyan.mall.mapper.popularizeModuleMapper.GrouponRulesMapper;
 import com.cskaoyan.wxmall.bean.CartCheckoutReq;
 import com.cskaoyan.wxmall.bean.CartTotal;
 import com.cskaoyan.wxmall.bean.CartCheckedReq;
+import com.cskaoyan.wxmall.service.CartService;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -112,7 +113,7 @@ public class CartServiceImpl implements CartService {
             Cart cart = new Cart();
             cart.setUserId(principal.getId());
             cart.setProductId(productId);
-            cart.setChecked(checkedReq.isChecked());
+            cart.setChecked(checkedReq.getIsChecked());
             update += cartMapper.updateByUser(cart);
         }
         return update;
@@ -282,7 +283,7 @@ public class CartServiceImpl implements CartService {
         int couponId = cartCheckoutReq.getCouponId();
         Coupon coupon = couponMapper.queryCouponById(couponId);
         double couponAmount = 0.0;
-        if (coupon.getStatus() == 0) {
+        if (couponId > 0 && coupon.getStatus() == 0) {
             couponAmount = coupon.getDiscount().doubleValue();
         }
 
@@ -298,7 +299,9 @@ public class CartServiceImpl implements CartService {
         resultMap.put("actualPrice", actualPrice);
         resultMap.put("orderTotalPrice", orderTotalPrice);
         resultMap.put("couponPrice", couponAmount);
-        resultMap.put("availableCouponLength", coupon.getStatus());
+        if (couponId > 0 && coupon.getStatus() == 0) {
+            resultMap.put("availableCouponLength", coupon.getStatus());
+        }
         resultMap.put("couponId", couponId);
         resultMap.put("freightPrice", postage);
         resultMap.put("checkedGoodsList", carts);
@@ -307,4 +310,5 @@ public class CartServiceImpl implements CartService {
 
         return resultMap;
     }
+
 }
