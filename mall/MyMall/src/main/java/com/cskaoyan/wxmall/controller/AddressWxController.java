@@ -47,22 +47,31 @@ public class AddressWxController {
     }
 
     /**
-     * 保存收货地址（修改）
+     * 保存收货地址（修改/增加）
      */
     @RequestMapping("save")
     public BaseReqVo SaveAddress(@RequestBody Address address){
         Integer userId = UserIdUtils.getCurrentUserId();
         if(userId!=0){
             address.setUserId(userId);
+        }else {
+            address.setUserId(1);
         }
         address.setUpdateTime(new Date());
 
-        int result = addressService.updateAddress(address);
-        if(result == 1){
+        String name = address.getName();
+        Address result1 = addressService.isNameExit(name);
+        if (result1 != null){
+            int result = addressService.updateAddress(address);
+            if(result == 1){
+                return BaseReqVo.ok(address.getId());
+            }
+            else {
+                return BaseReqVo.fail(500);
+            }
+        }else{
+            addressService.insertAddress(address);
             return BaseReqVo.ok(address.getId());
-        }
-        else {
-            return BaseReqVo.fail(500);
         }
     }
 
