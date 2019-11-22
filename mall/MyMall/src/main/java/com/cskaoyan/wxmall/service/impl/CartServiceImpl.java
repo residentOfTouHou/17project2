@@ -146,14 +146,21 @@ public class CartServiceImpl implements CartService {
         CartExample example = new CartExample();
         example.createCriteria().andUserIdEqualTo(principal.getId()).andProductIdEqualTo(goodsProduct.getId()).andDeletedEqualTo(false);
         List<Cart> carts = cartMapper.selectByExample(example);
-        if (carts != null) {
+        if (carts != null && carts.size() != 0) {
+            // 能查出
             for (Cart cart1 : carts) {
                 // 更新
                 cart.setId(cart1.getId());
             }
+
+            cart.setNumber((short) number);
+            cartMapper.updateById(cart);
+        } else {
+            cartMapper.insertCart(principal, goods, goodsProduct, cart, number);
+            int id = cartMapper.selectMaxId();
+            id = id + 1;
+            cart.setId(id);
         }
-        cart.setNumber((short) number);
-        cartMapper.updateById(cart);
         return cart.getId();
     }
 
