@@ -645,4 +645,8 @@
         select id,name,brief,pic_url,is_new,is_hot,counter_price,retail_price
         from cskaoyan_mall_goods where category_id = #{categoryId}
     </select>
+  <!--  <select id="selectGoodsByName" resultMap="BaseResultMap">
+        select id,name,brief,pic_url,is_new,is_hot,counter_price,retail_price
+        from cskaoyan_mall_goods where name =
+    </select>-->
 </mapper>

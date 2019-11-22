@@ -32,7 +32,7 @@ public class CollectServiceImpl implements CollectService {
         CollectExample collectExample = new CollectExample();
 
 //排序方式
-        collectExample.setOrderByClause(pageSplit.getSort() + " " + pageSplit.getOrder());
+      collectExample.setOrderByClause(pageSplit.getSort() + " " + pageSplit.getOrder());
 
 
         List<Collect> collects = collectMapper.selectByExample(collectExample);

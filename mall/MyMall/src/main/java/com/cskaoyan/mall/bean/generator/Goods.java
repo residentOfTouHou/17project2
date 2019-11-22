@@ -22,7 +22,7 @@ public class Goods {
 
     private String brief;
 
-    private Boolean isOnSale;
+    private boolean isOnSale = true;
 
     private Short sortOrder;
 
