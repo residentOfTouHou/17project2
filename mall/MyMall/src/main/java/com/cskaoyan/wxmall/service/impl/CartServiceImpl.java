@@ -267,6 +267,12 @@ public class CartServiceImpl implements CartService {
         //  邮费
         double postage = 0.0;
         int addressId = cartCheckoutReq.getAddressId();
+        if (addressId == 0) {
+            AddressExample example = new AddressExample();
+            example.createCriteria().andUserIdEqualTo(principal.getId()).andIsDefaultEqualTo(true);
+            List<Address> addresses = addressMapper.selectByExample(example);
+            addressId = addresses.get(0).getId();
+        }
         Address address = addressMapper.selectByPrimaryKey(addressId);
         if (goodsAmount < 88) {
             int ProvinceId = address.getProvinceId();
