@@ -22,7 +22,8 @@ public class FootprintController {
         FootprintData data = new FootprintData();
         BaseReqVo baseReqVo = new BaseReqVo();
         Integer userId = pageSplit.getUserId();
-        Integer goodsId = pageSplit.getValueId();
+//        Integer goodsId = pageSplit.getValueId();
+        Integer goodsId = pageSplit.getGoodsId();
         if (userId==null && goodsId == null){
             Map<String, Object> allFootprint = footprintService.findAll(pageSplit);
             Long total = (Long) allFootprint.get("total");
