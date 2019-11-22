@@ -1,4 +1,4 @@
-package com.cskaoyan.wxmall.service.impl;
+package com.cskaoyan.wxmall.service.Impl;
 
 import com.cskaoyan.mall.bean.generator.*;
 import com.cskaoyan.mall.bean.generator.popularizeModule.Ad;
@@ -146,7 +146,7 @@ public class CartServiceImpl implements CartService {
         CartExample example = new CartExample();
         example.createCriteria().andUserIdEqualTo(principal.getId()).andProductIdEqualTo(goodsProduct.getId()).andDeletedEqualTo(false);
         List<Cart> carts = cartMapper.selectByExample(example);
-        if (carts != null) {
+        if (carts != null && carts.size() != 0) {
             for (Cart cart1 : carts) {
                 // 更新
                 cart.setId(cart1.getId());
