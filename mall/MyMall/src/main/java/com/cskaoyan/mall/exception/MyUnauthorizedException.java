@@ -38,7 +38,7 @@ public class MyUnauthorizedException{
     public String authenticateHandleException(Exception e, HttpServletRequest request){
         BaseReqVo baseReqVo = new BaseReqVo();
         baseReqVo.setErrno(501);
-        baseReqVo.setErrmsg("未授权的操作");
+        baseReqVo.setErrmsg("请登录");
         Gson gson = new Gson();
         return gson.toJson(baseReqVo);
     }
