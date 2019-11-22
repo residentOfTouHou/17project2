@@ -2,6 +2,7 @@ package com.cskaoyan.mall.service;
 
 import com.cskaoyan.mall.bean.generator.Goods;
 import com.cskaoyan.mall.bean.generator.GoodsAlter;
+import com.cskaoyan.mall.bean.generator.GoodsProduct;
 import com.cskaoyan.mall.bean.jsonbean.GoodsData;
 import com.cskaoyan.mall.bean.jsonbean.GoodsQueryParameters;
 
@@ -41,14 +42,13 @@ public interface GoodsService {
 
     List<Goods> queryGoodsList(Integer categoryId, Integer page, Integer size);
 
+    int updateNumberById(GoodsProduct goodsProduct);
 
     List<Goods> queryGoodsListByName(String keyword, Integer page, Integer size,String sort,String order);
 
     HashMap<String, Object> queryGoodsDetail(Integer id,Integer userId);
 
-
      HashMap<String, Object> queryGoodsRelated(Integer id);
 
-     
 }
 

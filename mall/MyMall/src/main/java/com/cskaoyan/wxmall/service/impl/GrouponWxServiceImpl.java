@@ -1,4 +1,4 @@
-package com.cskaoyan.wxmall.service.Impl;
+package com.cskaoyan.wxmall.service.impl;
 
 
 import com.cskaoyan.mall.bean.generator.Order;
