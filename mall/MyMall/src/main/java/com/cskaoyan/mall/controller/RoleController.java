@@ -62,6 +62,7 @@ public class RoleController {
     }
 
     @RequestMapping("list")
+    @RequiresPermissions("admin:role:list")
     public BaseReqVo roleList(@Param("page")int page, @Param("limit")int limit,
                               @Param("sort")String sort, @Param("order")String order,
                               String name){
@@ -80,6 +81,7 @@ public class RoleController {
     }
 
     @RequestMapping("create")
+    @RequiresPermissions("admin:role:create")
 
     public BaseReqVo create(@RequestBody RoleReqVo roleReqVo){
         Date date = new Date();

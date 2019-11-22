@@ -6,6 +6,7 @@ import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
 import com.cskaoyan.mall.bean.jsonbean.PageSplit;
 import com.cskaoyan.mall.service.AddressService;
 import com.cskaoyan.mall.utils.StringUtil;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +19,10 @@ import java.util.Map;
 public class AddressController {
     @Autowired
     private AddressService addressService;
-@RequestMapping("/list")
+
+    @RequiresPermissions("admin:address:list")
+
+    @RequestMapping("/list")
     public BaseReqVo list(PageSplit pageSplit) {
         AllAddressData data = new AllAddressData();
         BaseReqVo baseReqVo = new BaseReqVo();
