@@ -4,17 +4,22 @@
 package com.cskaoyan.mall.controller;
 
 
+import com.cskaoyan.mall.bean.generator.Admin;
 import com.cskaoyan.mall.bean.generator.Role;
 import com.cskaoyan.mall.bean.generator.SystemPermission;
+import com.cskaoyan.mall.bean.generator.User;
 import com.cskaoyan.mall.bean.jsonbean.BaseReqVo;
 import com.cskaoyan.mall.bean.jsonbean.reqVo.PermissionReqVo;
 import com.cskaoyan.mall.bean.jsonbean.reqVo.RoleReqVo;
 import com.cskaoyan.mall.bean.jsonbean.reqVo.RoleResVo;
+import com.cskaoyan.mall.service.AdminService;
 import com.cskaoyan.mall.service.RoleService;
 import com.cskaoyan.mall.service.SystemPermissionService;
+import com.cskaoyan.mall.service.UserService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.apache.ibatis.annotations.Param;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,6 +38,9 @@ public class RoleController {
 
     @Autowired
     RoleService roleService;
+
+    @Autowired
+    AdminService adminService;
 
     @Autowired
     SystemPermissionService systemPermissionService;
@@ -72,6 +80,7 @@ public class RoleController {
     }
 
     @RequestMapping("create")
+
     public BaseReqVo create(@RequestBody RoleReqVo roleReqVo){
         Date date = new Date();
         Role role = new Role();
@@ -115,6 +124,14 @@ public class RoleController {
         int delete = roleService.deleteRole(role);
         BaseReqVo baseReqVo = new BaseReqVo();
         if(delete == 1){
+            Integer id = role.getId();
+            List<Admin> admins = adminService.getAllAdmin();
+            for (Admin admin : admins) {
+                List<Integer> roleIds = admin.getRoleIds();
+                roleIds.remove(id);
+                adminService.updateAdminById(admin);
+            }
+
             baseReqVo.setErrmsg("success");
             baseReqVo.setErrno(0);
         }else {

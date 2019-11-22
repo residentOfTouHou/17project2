@@ -30,7 +30,7 @@ public class ShiroConfig{
         //需要配置的成员变量 1、securityManager  2、loginUrl 重定向
         //3、filterChainDefinitionMap map为linkedmap 执行顺序
         shiroFilterFactoryBean.setSecurityManager(securityManager);
-        //shiroFilterFactoryBean.setLoginUrl("");
+        shiroFilterFactoryBean.setLoginUrl("/timeout/logout");
         LinkedHashMap<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
 //        filterChainDefinitionMap.put("/wx/home/index","authc");
         filterChainDefinitionMap.put("/admin/auth/login","anon");
