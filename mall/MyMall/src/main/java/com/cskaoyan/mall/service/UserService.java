@@ -19,4 +19,6 @@ public interface UserService {
     int updatePasswordByMobile(String mobile, String password);
 
     int getUserNumber();
+
+    User getUSerByOpenId(String openid);
 }

@@ -16,8 +16,11 @@ import com.cskaoyan.mall.bean.jsonbean.reqVo.UserInfoVo;
 import com.cskaoyan.mall.component.AliyunComponent;
 import com.cskaoyan.mall.service.UserService;
 import com.cskaoyan.mall.shiro.CustomToken;
+import com.cskaoyan.wxmall.bean.WxLoginReqVo;
+import com.cskaoyan.wxmall.utils.WxLoginUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 @RequestMapping("/wx/auth")
 @RestController
@@ -44,8 +44,62 @@ public class AuthWxController {
     AliyunComponent aliyunComponent;
 
     @RequestMapping("login_by_weixin")
-    public BaseReqVo loginByWx(){
-        return null;
+    public BaseReqVo loginByWx(@RequestBody WxLoginReqVo wxLoginReqVo,HttpServletRequest request){
+        BaseReqVo baseReqVo = new BaseReqVo();
+        HashMap<String, Object> map = new HashMap<>();
+        Subject subject = SecurityUtils.getSubject();
+        Map<String, Object> wxUserOpenid = WxLoginUtils.getWxUserOpenid(wxLoginReqVo.getCode(), "wx888079b67834368a", "c3d28500eb06fb1a24c47aeabbf97313");
+        String openid = (String) wxUserOpenid.get("openid");
+        User user = userService.getUSerByOpenId(openid);
+        if(user != null){//登录
+            CustomToken token = new CustomToken(user.getUsername(), user.getPassword(), "wx");
+            try {
+                subject.login(token);
+            } catch (AuthenticationException e) {
+                baseReqVo.setErrmsg("failed");
+                baseReqVo.setErrno(-1);
+                return baseReqVo;
+            }
+            user.setLastLoginTime(new Date());
+            user.setLastLoginIp(request.getRemoteAddr());
+            userService.updateUser(user);
+            Session session = subject.getSession();
+            map.put("userInfo",new UserInfoVo(user.getNickname(),user.getAvatar()));
+            map.put("tokenExpire",session.getLastAccessTime());
+            map.put("token", session.getId());
+            baseReqVo.setData(map);
+            baseReqVo.setErrmsg("成功");
+            baseReqVo.setErrno(0);
+            return baseReqVo;
+        }
+        //注册
+        User userRegist = new User();
+        userRegist.setWeixinOpenid(openid);
+        userRegist.setLastLoginTime(new Date());
+        userRegist.setLastLoginIp(request.getRemoteAddr());
+        userRegist.setNickname(wxLoginReqVo.getUserInfo().getNickName());
+        String password = UUID.randomUUID().toString();
+        userRegist.setUsername(wxLoginReqVo.getUserInfo().getNickName());
+        userRegist.setPassword(password);
+        userRegist.setAddTime(new Date());
+        userRegist.setAvatar(wxLoginReqVo.getUserInfo().getAvatarUrl());
+        int insert = userService.insertUser(userRegist);
+        if(insert == 1){
+            CustomToken token = new CustomToken(userRegist.getUsername(), userRegist.getPassword(), "wx");
+            SecurityUtils.getSubject().login(token);
+            Session session = subject.getSession();
+            map.put("userInfo",new UserInfoVo(userRegist.getNickname(),userRegist.getAvatar()));
+            map.put("tokenExpire",session.getLastAccessTime());
+            map.put("token", session.getId());
+            baseReqVo.setData(map);
+            baseReqVo.setErrmsg("成功");
+            baseReqVo.setErrno(0);
+            return baseReqVo;
+        }
+        baseReqVo.setErrmsg("登陆失败");
+        baseReqVo.setErrno(-1);
+        return baseReqVo;
+
     }
 
     @RequestMapping("login")
@@ -110,16 +164,19 @@ public class AuthWxController {
 //            user.setLastLoginTime(new Date());
 //            user.setLastLoginIp("");
 //            user.setUserLevel((byte)0);
-//            user.setNickname("");
+            user.setNickname(user.getUsername());
             user.setMobile(userInfoVo.getMobile());
            // user.setAvatar("");
-            user.setWeixinOpenid(userInfoVo.getWxCode());
+            //user.setWeixinOpenid();
             user.setStatus((byte)0);
             user.setAddTime(new Date());
             user.setUpdateTime(new Date());
             user.setDeleted(false);
             int insert = userService.insertUser(user);
+            //注册成功转发login
             if(insert == 1){
+                CustomToken token = new CustomToken(userInfoVo.getUsername(), userInfoVo.getPassword(), "wx");
+                SecurityUtils.getSubject().login(token);
                 baseReqVo.setErrmsg("成功");
                 baseReqVo.setErrno(0);
                 return baseReqVo;

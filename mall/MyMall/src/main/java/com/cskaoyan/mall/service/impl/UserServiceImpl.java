@@ -84,5 +84,11 @@ public class UserServiceImpl implements UserService {
     public int getUserNumber() {
         return userMapper.selectAll().size();
     }
+
+    @Override
+    public User getUSerByOpenId(String openid) {
+
+        return userMapper.selectByOpenid(openid);
+    }
 }
 
