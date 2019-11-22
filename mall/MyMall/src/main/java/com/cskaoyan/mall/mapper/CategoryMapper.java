@@ -2,6 +2,8 @@ package com.cskaoyan.mall.mapper;
 
 import com.cskaoyan.mall.bean.generator.Category;
 import com.cskaoyan.mall.bean.generator.CategoryExample;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import com.cskaoyan.mall.bean.jsonbean.CategorySegment;
@@ -38,5 +40,7 @@ public interface CategoryMapper {
     List<GoodsChildren> queryChildrenByLevel(int id);
 
     List<Category> selectByPid(Integer pid);
+
+    List<Category> selectAllCategoryById(@Param("categoryList") ArrayList<Integer> categoryIdList);
 }
 
