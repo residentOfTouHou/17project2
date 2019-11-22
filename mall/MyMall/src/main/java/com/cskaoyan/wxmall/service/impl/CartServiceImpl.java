@@ -308,12 +308,7 @@ public class CartServiceImpl implements CartService {
         resultMap.put("goodsTotalPrice", goodsAmount);
         resultMap.put("addressId", addressId);
 
-        //  删除购物车商品
-        if (carts != null) {
-            for (Cart cart : carts) {
-                cartMapper.deleteByPrimaryKey(cart.getId());
-            }
-        }
         return resultMap;
     }
+
 }
