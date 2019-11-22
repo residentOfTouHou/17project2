@@ -28,7 +28,7 @@ public class AddressBean {
 
     private String mobile;
 
-    private Boolean isDefault;
+    private boolean isDefault;
 
     private Date addTime;
 
@@ -38,4 +38,11 @@ public class AddressBean {
 
     private String detailedAddress;
 
+    public boolean getIsDefault() {
+        return isDefault;
+    }
+
+    public void setIsDefault(boolean aDefault) {
+        isDefault = aDefault;
+    }
 }
