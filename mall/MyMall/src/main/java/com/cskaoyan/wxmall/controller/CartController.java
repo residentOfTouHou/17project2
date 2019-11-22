@@ -213,8 +213,9 @@ public class CartController {
      * @return
      */
     @RequestMapping("checkout")
-    public BaseReqVo checkout(@RequestBody CartCheckoutReq cartCheckoutReq) {
+    public BaseReqVo checkout(CartCheckoutReq cartCheckoutReq) {
         Map<String, Object> dataMap = cartService.checkoutOrder(cartCheckoutReq);
+        // 下单后删除
         BaseReqVo baseReqVo = new BaseReqVo();
         baseReqVo.setErrno(0);
         baseReqVo.setData(dataMap);

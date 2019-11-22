@@ -165,7 +165,7 @@ public class OrderWxServiceImpl implements OrderWxService {
             orderGoods.setProductId(transfer.getProductId());
             orderGoods.setNumber(transfer.getNumber());
             orderGoods.setPrice(transfer.getPrice());
-            orderGoods.setSpecifications(transfer.getSpecifications().toString());
+            orderGoods.setSpecifications(transfer.getSpecifications());
             orderGoods.setPicUrl(transfer.getPicUrl());
             orderGoods.setComment(0);
             Date orderGoodsDate = new Date();
@@ -188,7 +188,7 @@ public class OrderWxServiceImpl implements OrderWxService {
      * @return
      */
     @Override
-    public Map<String,Object> listOrder(Integer showType, Integer page, Integer size) {
+    public Map<String, Object> listOrder(Integer showType, Integer page, Integer size) {
         List<ListOrderBean> result = new ArrayList<>();
         PageHelper.startPage(page, size);
         OrderExample orderExample = new OrderExample();
@@ -231,11 +231,11 @@ public class OrderWxServiceImpl implements OrderWxService {
         }
         PageInfo<Order> orderPageInfo = new PageInfo<>(orders);
         long count = orderPageInfo.getTotal();
-        int totalPages = (int) Math.ceil(count/size);
-        Map<String,Object> map = new HashMap<>();
-        map.put("data",result);
-        map.put("count",count);
-        map.put("totalPages",totalPages);
+        int totalPages = (int) Math.ceil(count / size);
+        Map<String, Object> map = new HashMap<>();
+        map.put("data", result);
+        map.put("count", count);
+        map.put("totalPages", totalPages);
         return map;
     }
 
@@ -316,7 +316,7 @@ public class OrderWxServiceImpl implements OrderWxService {
         orderGoods.setDeleted(true);
         OrderGoodsExample orderGoodsExample = new OrderGoodsExample();
         orderGoodsExample.createCriteria().andOrderIdEqualTo(orderId);
-        orderGoodsMapper.updateByExampleSelective(orderGoods,orderGoodsExample);
+        orderGoodsMapper.updateByExampleSelective(orderGoods, orderGoodsExample);
     }
 
     /**
