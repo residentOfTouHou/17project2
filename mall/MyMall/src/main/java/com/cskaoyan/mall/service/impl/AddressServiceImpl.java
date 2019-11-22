@@ -187,4 +187,14 @@ public class AddressServiceImpl implements AddressService {
     public int deleteAddressById(Integer id) {
         return addressMapper.deleteByPrimaryKey(id);
     }
+
+    @Override
+    public Address isNameExit(String name) {
+        return addressMapper.selectByName(name);
+    }
+
+    @Override
+    public void insertAddress(Address address){
+        addressMapper.insert(address);
+    }
 }

@@ -22,4 +22,8 @@ public interface AddressService {
     int updateAddress(Address address);
 
     int deleteAddressById(Integer id);
+
+    Address isNameExit(String name);
+
+    void insertAddress(Address address);
 }

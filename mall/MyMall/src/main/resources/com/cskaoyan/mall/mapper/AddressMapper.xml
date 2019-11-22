@@ -367,4 +367,11 @@
         update_time = #{updateTime}
         where id = #{id}
     </update>
+    <select id="selectByName" resultMap="BaseResultMap">
+        select
+        id, name, user_id, province_id, city_id, area_id, address, mobile, is_default, add_time,
+        update_time, deleted
+        from cskaoyan_mall_address
+        where name = #{name}
+    </select>
 </mapper>

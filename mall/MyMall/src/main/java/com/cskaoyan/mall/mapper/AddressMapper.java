@@ -36,4 +36,6 @@ public interface AddressMapper {
     List<AddressBean> selectAddressBeanByUserId(Integer userId);
 
     int updateAddress(Address address);
+
+    Address selectByName(String name);
 }
