@@ -57,6 +57,7 @@ public class AdminController {
 
 
     @RequestMapping("create")
+    @RequiresPermissions("admin:admin:create")
     public BaseReqVo create(@RequestBody AdminReqVo adminReqVo){
         BaseReqVo baseReqVo = new BaseReqVo();
 
@@ -91,6 +92,7 @@ public class AdminController {
     }
 
     @RequestMapping("update")
+    @RequiresPermissions("admin:admin:update")
     public BaseReqVo updateAdmin(@RequestBody AdminReqVo adminReqVo){
         BaseReqVo baseReqVo = new BaseReqVo();
         String username = adminReqVo.getUsername();
@@ -116,13 +118,14 @@ public class AdminController {
             baseReqVo.setData(adminReqVo);
             baseReqVo.setErrmsg("modify success");
         }else{
-            baseReqVo.setErrno(500);
+            baseReqVo.setErrno(502);
             baseReqVo.setErrmsg("modify failed");
         }
         return baseReqVo;
     }
 
     @RequestMapping("delete")
+    @RequiresPermissions("admin:admin:delete")
     public BaseReqVo deleteAdmin(@RequestBody Admin admin, HttpServletRequest request){
         BaseReqVo baseReqVo = new BaseReqVo();
         int delete = adminService.deleteAdminById(admin.getId());
@@ -141,7 +144,7 @@ public class AdminController {
             baseReqVo.setErrno(0);
             baseReqVo.setErrmsg("success");
         }else{
-            baseReqVo.setErrno(500);
+            baseReqVo.setErrno(502);
             baseReqVo.setErrmsg("failed");
         }
         return baseReqVo;

@@ -93,6 +93,12 @@ public class UserServiceImpl implements UserService {
         return userMapper.selectAll().size();
     }
 
+    @Override
+    public User getUSerByOpenId(String openid) {
+
+        return userMapper.selectByOpenid(openid);
+    }
+
     /**
      * 获取订单状态
      * @return
