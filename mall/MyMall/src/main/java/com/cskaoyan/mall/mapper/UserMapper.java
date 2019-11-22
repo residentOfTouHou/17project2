@@ -38,4 +38,6 @@ public interface UserMapper {
     User selectByUsername(String username);
 
     int updatePasswordByMobile(String mobile, String password);
+
+    User selectByOpenid(String openid);
 }

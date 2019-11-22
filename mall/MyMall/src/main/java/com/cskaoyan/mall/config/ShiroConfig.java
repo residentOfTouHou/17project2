@@ -34,6 +34,7 @@ public class ShiroConfig{
         LinkedHashMap<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
 //        filterChainDefinitionMap.put("/wx/home/index","authc");
         filterChainDefinitionMap.put("/admin/auth/login","anon");
+        filterChainDefinitionMap.put("/admin/auth/logout","anon");
         //后台除了登录其余都需要认证
         //filterChainDefinitionMap.put("/wx/coupon/**","authc");
         filterChainDefinitionMap.put("/admin/**","authc");

@@ -20,6 +20,8 @@ public interface UserService {
 
     int getUserNumber();
 
+    User getUSerByOpenId(String openid);
+
     Map<String, Object> indexOrder();
 
 }

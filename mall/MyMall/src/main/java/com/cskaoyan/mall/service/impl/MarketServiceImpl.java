@@ -433,6 +433,7 @@ public class MarketServiceImpl implements MarketService {
         order.setShipChannel(shipChannel);
         order.setShipSn(shipSn);
         order.setShipTime(new Date());
+        order.setOrderStatus((short) 301);
         orderMapper.updateByPrimaryKeySelective(order);
     }
 

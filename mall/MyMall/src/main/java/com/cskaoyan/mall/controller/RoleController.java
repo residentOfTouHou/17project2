@@ -89,7 +89,7 @@ public class RoleController {
             baseReqVo.setData(role);
             return baseReqVo;
         }else {
-            baseReqVo.setErrno(500);
+            baseReqVo.setErrno(502);
             baseReqVo.setErrmsg("创建失败");
             return baseReqVo;
         }
@@ -104,7 +104,7 @@ public class RoleController {
             baseReqVo.setErrno(0);
             baseReqVo.setErrmsg("success");
         }else{
-            baseReqVo.setErrno(500);
+            baseReqVo.setErrno(502);
             baseReqVo.setErrmsg("failed");
         }
         return baseReqVo;
